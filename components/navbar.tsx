@@ -128,13 +128,13 @@ const Navbar = () => {
             className="static z-10 flex gap-x-2 self-center text-2xl lowercase leading-tight tracking-wide text-secondary sm:absolute sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:transform sm:justify-center sm:text-3xl lg:text-4xl xl:text-5xl"
           >
             <p className="font-primary">ͲechlςͲics</p>
-            <p className="font-secondary font-extrabold">&apos;24</p>
+            <p className="font-secondary font-extrabold">&apos;25</p>
           </CustomLink>
 
           {/* Contact Btn */}
           <a href="#contact">
             <Image
-              src="/images/contact-btn.svg"
+              src="/images/colorkit.svg"
               width={152}
               height={56}
               alt="Contact Button"

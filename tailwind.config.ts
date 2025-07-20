@@ -15,12 +15,12 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "modal-logo": "url('/logos/techletics-metal.svg')",
         "hero-img":
-          "url('https://dnbca6q7do6n.cloudfront.net/media/techletics24/hero-img.webp')",
+          "url('/images/bg.jpg')",
         "college-img":
           "https://dnbca6q7do6n.cloudfront.net/media/techletics24/college.png",
       },
       colors: {
-        primary: "#DFFF1B",
+        primary: "#ff4d2e",
         secondary: "#FFFFFF",
         tertiary: "#030402",
         quarternary: "rgba(255, 255, 255, 0.2)",

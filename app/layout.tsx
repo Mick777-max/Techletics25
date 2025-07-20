@@ -8,8 +8,8 @@ import CustomCursor from "@/components/custom/cursor";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Techletics '24",
-    default: "Techletics '24",
+    template: "%s | Techletics '25",
+    default: "Techletics '25",
   },
   keywords:
     "Techletics, Tech Fest, Christ College of Engineering, Irinjalakuda",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "Tech Fest organized by Christ College of Engineering, Irinjalakuda",
   creator: "Website Team CCE",
   openGraph: {
-    title: "Techletics '24",
+    title: "Techletics '25",
     description:
       "Tech Fest organized by Christ College of Engineering, Irinjalakuda",
     type: "website",

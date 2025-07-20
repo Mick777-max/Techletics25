@@ -64,7 +64,7 @@ const Hero = () => {
       <div className="text-wider relative h-fit w-fit scale-[0.36] flex-col font-primary lowercase text-secondary sm:scale-50 md:scale-75 lg:scale-100">
         <p className="w-full text-center text-7xl">IGNIͲς. INSPIRe.</p>
         <Image
-          src="/images/techletics-sticker.svg"
+          src="/images/colorkit (3).svg"
           width={64}
           height={64}
           alt="Techletics Sticker"

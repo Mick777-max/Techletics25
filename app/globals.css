@@ -8,7 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 
   --select-border: #ffffff;
-  --select-focus: #dfff1b;
+  --select-focus: #ff4d2e;
   --select-arrow: var(--select-border);
 }
 * {
@@ -55,7 +55,7 @@ body {
 /* Custom CSS */
 @layer base {
   .text-stroke-primary {
-    -webkit-text-stroke: 2px #dfff1b;
+    -webkit-text-stroke: 2px #ff4d2e;
   }
   .text-stroke-secondary {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);

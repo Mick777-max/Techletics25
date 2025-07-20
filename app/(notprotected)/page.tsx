@@ -31,7 +31,7 @@ export default function HomePage() {
 
       <section className="w-full">
         <Image
-          src={"/images/logo-construction.svg"}
+          src={"/images/colorkit (2).svg"}
           alt="Techletics Logo Construction"
           width={5760}
           height={4018}

@@ -35,7 +35,7 @@ const Cursor = () => {
       width: 16,
       x: mousePosition.x - 8,
       y: mousePosition.y - 8,
-      backgroundColor: "#dfff1b",
+      backgroundColor: "#ff4d2e",
     },
     title: {
       height: 36,
@@ -50,7 +50,7 @@ const Cursor = () => {
       width: 96,
       x: mousePosition.x - 48,
       y: mousePosition.y - 48,
-      backgroundColor: "#dfff1b",
+      backgroundColor: "#ff4d2e",
       mixBlendMode: "difference",
     },
     text: {

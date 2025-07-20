@@ -31,7 +31,7 @@ const Gallery: React.FC = () => {
         <span className="sm:whitespace-nowrap">
           THE mem<span className="opacity-0">o</span>ries we
           <Image
-            src="/images/gallery-sticker.svg"
+            src="/images/colorkit (3).svg"
             width={132}
             height={128}
             alt={"Techletics Sticker"}

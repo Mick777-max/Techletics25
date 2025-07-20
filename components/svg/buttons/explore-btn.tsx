@@ -12,7 +12,7 @@ const ExploreButton = ({ size = 96 }) => (
   >
     <path
       d="M0.253423 32.3532C0.111208 31.302 0.814448 30.3226 1.85597 30.1214L53 20.24L106 10V106H10.2169L0.253423 32.3532Z"
-      fill="#DFFF1B"
+      fill="#ff4d2e"
     />
     <g clipPath="url(#clip0_198_225)">
       <path

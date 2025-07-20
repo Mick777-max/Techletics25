@@ -11,7 +11,7 @@ const About = () => {
         <CustomText highlightedTitle>
           ͲechlςͲics&nbsp;
           <CustomText highlightedTitle numeric>
-            &apos;24&nbsp;
+            &apos;25&nbsp;
           </CustomText>
         </CustomText>
         is for Уou.
@@ -36,13 +36,13 @@ const About = () => {
               Ignite your passion, inspire your future and illuminate your mind.
               &nbsp;
             </CustomText>
-            Techletics &apos;24 is the ultimate rendezvous of innovation and
+            Techletics &apos;25 is the ultimate rendezvous of innovation and
             zest. Don&apos;t miss it.
           </CustomText>
           <div className="min-w-64 flex-1 text-justify "></div>
             <CustomText description>
-              Techletics &apos;24 is a techno-cultural techfest organized by Christ
-              College of Engineering, Irinjalakuda in 2024. The techfest aims to
+              Techletics &apos;25 is a techno-cultural techfest organized by Christ
+              College of Engineering, Irinjalakuda in 2025. The techfest aims to
               provide a platform for technical students and develop students and
               people from all walks of life.
             </CustomText>

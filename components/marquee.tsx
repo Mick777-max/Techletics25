@@ -39,10 +39,10 @@ const TextMarquee = ({
             >
               <span className="ml-4">🌞</span>
               <span>ͲechlςͲics</span>
-              <span className="font-secondary font-extrabold">&apos;24</span>
+              <span className="font-secondary font-extrabold">&apos;25</span>
               <span>✺</span>
               <span>ͲechlςͲics</span>
-              <span className="font-secondary font-extrabold">&apos;24</span>
+              <span className="font-secondary font-extrabold">&apos;25</span>
             </p>
           ) : (
             <p
