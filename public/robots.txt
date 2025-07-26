@@ -1,0 +1,15 @@
+# Prevent indexing of development site
+User-agent: *
+Disallow: /
+
+# Note: This is a development environment (localhost:3000)
+# Update these rules before deploying to production:
+#
+# User-agent: *
+# Allow: /
+# Allow: /about
+# Allow: /events
+# Allow: /conference
+# Disallow: /api/
+# Disallow: /_next/
+# Disallow: /static/ 
