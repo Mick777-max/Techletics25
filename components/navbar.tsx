@@ -62,7 +62,7 @@ export default function Navbar() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="!text-primary hover:!text-secondary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:!bg-quarternary flex items-center gap-1"
+                  className="text-primary hover:text-secondary hover:underline px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1"
                 >
                   {link.label}
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
@@ -76,8 +76,8 @@ export default function Navbar() {
                   prefetch={true}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     pathname === link.href
-                      ? '!text-tertiary !bg-primary'
-                      : '!text-primary hover:!text-secondary hover:!bg-quarternary'
+                      ? 'text-tertiary bg-primary'
+                      : 'text-primary hover:text-secondary hover:underline'
                   }`}
                 >
                   {link.label}
@@ -90,7 +90,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md !text-primary hover:!text-secondary hover:!bg-quarternary focus:outline-none focus:ring-2 focus:ring-inset focus:!ring-primary"
+              className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:underline hover:text-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
               aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -118,7 +118,7 @@ export default function Navbar() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-2 rounded-md text-base font-medium text-primary hover:text-secondary hover:bg-quarternary flex items-center gap-1"
+                className="px-3 py-2 rounded-md text-base font-medium text-primary hover:text-secondary hover:underline flex items-center gap-1"
               >
                 {link.label}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
@@ -132,8 +132,8 @@ export default function Navbar() {
                 prefetch={true}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                   pathname === link.href
-                    ? '!text-tertiary !bg-primary'
-                    : '!text-primary hover:!text-secondary hover:!bg-quarternary'
+                    ? 'text-tertiary bg-primary'
+                    : 'text-primary hover:text-secondary hover:underline'
                 }`}
               >
                 {link.label}
