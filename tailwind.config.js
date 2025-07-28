@@ -13,6 +13,21 @@ module.exports = {
         tertiary: "#e8ede4",
         quarternary: "#acbec3",
       },
+      animation: {
+        'ping-reverse-slow': 'ping-reverse 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+      },
+      keyframes: {
+        'ping-reverse': {
+          '0%': {
+            transform: 'scale(2)',
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'scale(1)',
+            opacity: '0',
+          },
+        },
+      },
     },
   },
   plugins: [],

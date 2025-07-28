@@ -10,7 +10,7 @@ export default function RouteLoader() {
 
   useEffect(() => {
     setLoading(true);
-    const timeout = setTimeout(() => setLoading(false), 1000); // Simulated delay
+    const timeout = setTimeout(() => setLoading(false), 1200); // Simulated delay
     return () => clearTimeout(timeout);
   }, [pathname]);
 
@@ -18,9 +18,9 @@ export default function RouteLoader() {
 
   return (
     <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-white/80 backdrop-blur-sm transition-opacity duration-500">
-      <div className="relative w-32 h-32">
+      <div className="relative w-32 h-32 animate-pulse">
         {/* Spinner ring */}
-        <div className="absolute inset-0 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+        {/* <div className="absolute inset-0 animate-spin rounded-full border-4 border-primary border-t-transparent" /> */}
         {/* Logo in center */}
         <div className="absolute inset-2 flex items-center justify-center">
           <Image
@@ -28,7 +28,7 @@ export default function RouteLoader() {
             alt="Techletics Logo"
             width={80}
             height={80}
-            className="object-contain"
+            className="object-contain animate-ping-reverse-slow"
             priority
           />
         </div>
