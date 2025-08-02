@@ -92,7 +92,7 @@ export default function RegisterPage() {
             />
             <input
               type="text"
-              name="College"
+              name="college"
               placeholder="College Name"
               value={formData.college}
               onChange={handleChange}
