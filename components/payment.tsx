@@ -12,6 +12,12 @@ declare global {
   }
 }
 
+type RazorpayHandlerResponse = {
+  razorpay_payment_id: string;
+  razorpay_order_id: string;
+  razorpay_signature: string;
+};
+
 export default function Payment() {
   const [amount, setAmount] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
@@ -65,10 +71,10 @@ export default function Payment() {
         name: "Techletics",
         description: "Test Transaction",
         order_id: data.paymentId,
-        handler: function (response: Record<string, unknown>) {
+        handler: function (response: RazorpayHandlerResponse) {
           setToast('Payment done successfully');
           setAmount('');
-          alert("Payment successful! Payment ID: " + (response as any).razorpay_payment_id);
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
           // TODO: Send response to backend for verification
         },
         prefill: {
