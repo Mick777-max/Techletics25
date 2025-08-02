@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 declare global {
   interface Window {
@@ -18,11 +18,15 @@ type RazorpayHandlerResponse = {
   razorpay_signature: string;
 };
 
-export default function Payment() {
-  const [amount, setAmount] = useState('');
+type PaymentProps = {
+  onSuccess: () => void;
+};
+
+export default function Payment({ onSuccess }: PaymentProps) {
+  const [amount, setAmount] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [isRazorpayReady, setIsRazorpayReady] = useState(false);
-  const [toast, setToast] = useState('');
+  const [toast, setToast] = useState("");
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -30,6 +34,13 @@ export default function Payment() {
     script.onload = () => setIsRazorpayReady(true);
     document.body.appendChild(script);
   }, []);
+
+  useEffect(() => {
+    if (toast) {
+      const timer = setTimeout(() => setToast(""), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [toast]);
 
   const handlePayment = async () => {
     if (!isRazorpayReady || !window.Razorpay) {
@@ -44,11 +55,12 @@ export default function Payment() {
 
     setIsProcessing(true);
     try {
-      const response = await fetch('/api/payment', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: Number(amount) }),
       });
+
       let data;
       try {
         data = await response.json();
@@ -65,17 +77,17 @@ export default function Payment() {
       }
 
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY || '',
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY || "",
         amount: Number(amount) * 100,
         currency: "INR",
-        name: "Techletics",
-        description: "Test Transaction",
+        name: "Techletics CCE",
+        description: "Event Registration",
         order_id: data.paymentId,
         handler: function (response: RazorpayHandlerResponse) {
-          setToast('Payment done successfully');
-          setAmount('');
+          setToast("Payment done successfully");
+          setAmount("");
           alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
-          // TODO: Send response to backend for verification
+          if (onSuccess) onSuccess(); // ✅ Notify parent
         },
         prefill: {
           name: "John Doe",
@@ -103,23 +115,25 @@ export default function Payment() {
           {toast}
         </div>
       )}
+      <div className="flex flex-col sm:flex-col md:flex-row items-center justify-center gap-5">
       <input
         type="number"
         min="1"
         value={amount}
-        onChange={e => setAmount(e.target.value)}
-        className="border rounded px-2 py-1 mr-2"
+        onChange={(e) => setAmount(e.target.value)}
+        className="border rounded px-4 py-2 mr-2 text-primary"
         placeholder="Enter amount"
         disabled={isProcessing}
         suppressHydrationWarning
-      />
+      /> 
       <button
         onClick={handlePayment}
         disabled={isProcessing || !isRazorpayReady}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 md:w-fit sm:w-full w-full"
       >
-        {isProcessing ? "Processing..." : `Pay ₹${amount || ''}`}
+        {isProcessing ? "Processing..." : `Pay ₹${amount || ""}`}
       </button>
+      </div>
     </div>
   );
 }
