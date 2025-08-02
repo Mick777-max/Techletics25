@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import Event from "./event";
 
 export const metadata: Metadata = {
   title: "Technical Events & Competitions | Techletics '25",
@@ -55,9 +56,7 @@ export default function EventsPage() {
           }
         })}
       </Script>
-      <div className="flex flex-col items-center justify-center h-screen text-primary">
-        Hey this is the events page
-      </div>
+      <Event/>
     </>
   );
 }

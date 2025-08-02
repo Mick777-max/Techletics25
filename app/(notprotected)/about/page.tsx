@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import About from "./about";
 
 export const metadata: Metadata = {
   title: "About",
@@ -7,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-primary">
-      Hey this is the about page
+    <div>
+      <About/>
     </div>
   );
 }

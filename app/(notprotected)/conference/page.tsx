@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Conference from "./conference";
 
 export const metadata: Metadata = {
   title: "Conference",
@@ -7,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function ConferencePage() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-primary">
-      Hey this is the conference page
+    <div>
+      <Conference/>
     </div>
   );
 }
