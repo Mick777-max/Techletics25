@@ -4,7 +4,11 @@ import React, { useEffect, useState } from 'react';
 
 declare global {
   interface Window {
-    Razorpay: any;
+    Razorpay: {
+      new (options: Record<string, unknown>): {
+        open: () => void;
+      };
+    };
   }
 }
 
@@ -12,6 +16,7 @@ export default function Payment() {
   const [amount, setAmount] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [isRazorpayReady, setIsRazorpayReady] = useState(false);
+  const [toast, setToast] = useState('');
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -41,7 +46,7 @@ export default function Payment() {
       let data;
       try {
         data = await response.json();
-      } catch (jsonError) {
+      } catch {
         alert("Server error: Invalid response from payment API");
         setIsProcessing(false);
         return;
@@ -60,8 +65,10 @@ export default function Payment() {
         name: "Techletics",
         description: "Test Transaction",
         order_id: data.paymentId,
-        handler: function (response: any) {
-          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        handler: function (response: Record<string, unknown>) {
+          setToast('Payment done successfully');
+          setAmount('');
+          alert("Payment successful! Payment ID: " + (response as any).razorpay_payment_id);
           // TODO: Send response to backend for verification
         },
         prefill: {
@@ -85,6 +92,11 @@ export default function Payment() {
 
   return (
     <div className="p-4">
+      {toast && (
+        <div className="mb-2 px-4 py-2 bg-green-500 text-white rounded shadow">
+          {toast}
+        </div>
+      )}
       <input
         type="number"
         min="1"
@@ -93,6 +105,7 @@ export default function Payment() {
         className="border rounded px-2 py-1 mr-2"
         placeholder="Enter amount"
         disabled={isProcessing}
+        suppressHydrationWarning
       />
       <button
         onClick={handlePayment}
