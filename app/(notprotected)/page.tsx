@@ -1,4 +1,4 @@
-import Payment from "@/components/payment";
+
 import type { Metadata } from "next";
 import Link from "next/link";
 
