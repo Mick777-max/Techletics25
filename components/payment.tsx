@@ -18,7 +18,6 @@ type RazorpayHandlerResponse = {
   razorpay_signature: string;
 };
 
-// Add the userData type and update PaymentProps
 type UserData = {
   name: string;
   email: string;
@@ -27,11 +26,11 @@ type UserData = {
 
 type PaymentProps = {
   onSuccess: (details: { transactionId: string; amount: number }) => void;
-  userData: UserData; // Add this line
+  userData: UserData;
+  eventPrice: number; // Fixed price from event selection
 };
 
-export default function Payment({ onSuccess, userData }: PaymentProps) {
-  const [amount, setAmount] = useState("");
+export default function Payment({ onSuccess, userData, eventPrice }: PaymentProps) {
   const [isProcessing, setIsProcessing] = useState(false);
   const [isRazorpayReady, setIsRazorpayReady] = useState(false);
   const [toast, setToast] = useState("");
@@ -56,8 +55,8 @@ export default function Payment({ onSuccess, userData }: PaymentProps) {
       return;
     }
 
-    if (!amount || isNaN(Number(amount)) || Number(amount) <= 0) {
-      alert("Please enter a valid amount");
+    if (!eventPrice || eventPrice <= 0) {
+      alert("Invalid event price");
       return;
     }
 
@@ -66,7 +65,7 @@ export default function Payment({ onSuccess, userData }: PaymentProps) {
       const response = await fetch("/api/payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: Number(amount) }),
+        body: JSON.stringify({ amount: eventPrice }),
       });
 
       let data;
@@ -86,20 +85,19 @@ export default function Payment({ onSuccess, userData }: PaymentProps) {
 
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY || "",
-        amount: Number(amount) * 100,
+        amount: eventPrice * 100, // Convert to paise
         currency: "INR",
         name: "Techletics CCE",
         description: "Event Registration",
         order_id: data.paymentId,
         handler: function (response: RazorpayHandlerResponse) {
           setToast("Payment done successfully");
-          setAmount("");
           alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
           console.log("Payment successful, calling onSuccess with:", {
             transactionId: response.razorpay_payment_id,
-            amount: Number(amount)
+            amount: eventPrice
           });
-          if (onSuccess) onSuccess({ transactionId: response.razorpay_payment_id, amount: Number(amount) });
+          if (onSuccess) onSuccess({ transactionId: response.razorpay_payment_id, amount: eventPrice });
         },
         prefill: {
           name: userData.name || "",
@@ -130,31 +128,28 @@ export default function Payment({ onSuccess, userData }: PaymentProps) {
         </div>
       )}
       
-      {/* Display user info for confirmation */}
-      <div className="mb-4 p-3 bg-gray-50 rounded-md">
-        <h3 className="font-semibold text-gray-700 mb-2">Payment Details for:</h3>
-        <p className="text-sm text-gray-600"><strong>Name:</strong> {userData.name}</p>
-        <p className="text-sm text-gray-600"><strong>Email:</strong> {userData.email}</p>
-        <p className="text-sm text-gray-600"><strong>Phone:</strong> {userData.phone}</p>
+      {/* Display user info and payment amount */}
+      <div className="mb-4 p-4 bg-gray-50 rounded-md border">
+        <h3 className="font-semibold text-gray-700 mb-3">Payment Details</h3>
+        <div className="space-y-2">
+          <p className="text-sm text-gray-600"><strong>Name:</strong> {userData.name}</p>
+          <p className="text-sm text-gray-600"><strong>Email:</strong> {userData.email}</p>
+          <p className="text-sm text-gray-600"><strong>Phone:</strong> {userData.phone}</p>
+          <div className="border-t pt-2 mt-3">
+            <p className="text-lg font-bold text-blue-600">
+              <strong>Amount to Pay: ₹{eventPrice}</strong>
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div className="flex flex-col sm:flex-col md:flex-row items-center justify-center gap-5">
-        <input
-          type="number"
-          min="1"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          className="border rounded px-4 py-2 mr-2 text-primary"
-          placeholder="Enter amount"
-          disabled={isProcessing}
-          suppressHydrationWarning
-        /> 
+      <div className="flex justify-center">
         <button
           onClick={handlePayment}
           disabled={isProcessing || !isRazorpayReady}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 md:w-fit sm:w-full w-full"
+          className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed font-semibold text-lg w-full"
         >
-          {isProcessing ? "Processing..." : `Pay ₹${amount || ""}`}
+          {isProcessing ? "Processing..." : `Pay ₹${eventPrice}`}
         </button>
       </div>
     </div>

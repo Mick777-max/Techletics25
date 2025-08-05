@@ -1,16 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Payment from "@/components/payment";
+import Image from "next/image";
+import Link from "next/link";
 
 type College = { name: string };
 
-export default function RegisterPage() {
+// Define event prices
+const eventPricing = {
+  Hackathon: 500,
+  "Tech Talk": 100,
+  "Coding Contest": 300,
+  Workshop: 250,
+  "Robotics Challenge": 750,
+};
+
+function RegisterPage() {
+  const router = useRouter();
   const [showPayment, setShowPayment] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isPaymentComplete, setIsPaymentComplete] = useState(false);
   const [regId, setRegId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedEventPrice, setSelectedEventPrice] = useState<number>(0);
+  const [isChecked, setIsChecked] = useState(false);
+  const [phoneError, setPhoneError] = useState<string>("");
+  const [redirectCountdown, setRedirectCountdown] = useState<number>(5);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -41,11 +58,104 @@ export default function RegisterPage() {
 
   const sem = ["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8"];
 
+  // Phone validation function for Indian mobile numbers
+  const validateIndianPhone = (phone: string): { isValid: boolean; error: string } => {
+    // Remove any spaces, dashes, or other non-digit characters
+    const cleanPhone = phone.replace(/\D/g, '');
+    
+    // Check if exactly 10 digits
+    if (cleanPhone.length !== 10) {
+      return {
+        isValid: false,
+        error: "Phone number must be exactly 10 digits"
+      };
+    }
+    
+    // Check if it starts with valid Indian mobile prefixes (6, 7, 8, 9)
+    const firstDigit = cleanPhone[0];
+    if (!['6', '7', '8', '9'].includes(firstDigit)) {
+      return {
+        isValid: false,
+        error: "Indian mobile numbers must start with 6, 7, 8, or 9"
+      };
+    }
+    
+    return { isValid: true, error: "" };
+  };
+
+  // Play success audio when payment is completed and start redirect countdown
+  useEffect(() => {
+    if (isPaymentComplete) {
+      const audio = new Audio("/audio/mohanlal .mp3"); // Adjust path as needed
+
+      // Optional: Set volume (0.0 to 1.0)
+      audio.volume = 0.7;
+
+      // Play the audio with error handling
+      audio.play().catch((error) => {
+        console.log("Audio playback failed:", error);
+        // This is normal if user hasn't interacted with the page yet
+      });
+
+      // Start countdown timer for redirect
+      const countdownInterval = setInterval(() => {
+        setRedirectCountdown((prev) => {
+          if (prev <= 1) {
+            clearInterval(countdownInterval);
+            // Use setTimeout to move router.push out of the render cycle
+            setTimeout(() => {
+              router.push('/');
+            }, 0);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      // Cleanup interval on component unmount
+      return () => clearInterval(countdownInterval);
+    }
+  }, [isPaymentComplete, router]);
+
+  // Separate useEffect to handle redirect when countdown reaches 0
+  useEffect(() => {
+    if (redirectCountdown === 0 && isPaymentComplete) {
+      router.push('/');
+    }
+  }, [redirectCountdown, isPaymentComplete, router]);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
+    
+    // Special handling for phone input
+    if (name === "phone") {
+      // Allow only digits and limit to 10 characters
+      const numericValue = value.replace(/\D/g, '').slice(0, 10);
+      setFormData((prev) => ({ ...prev, [name]: numericValue }));
+      
+      // Validate phone number
+      if (numericValue.length > 0) {
+        const validation = validateIndianPhone(numericValue);
+        setPhoneError(validation.error);
+      } else {
+        setPhoneError("");
+      }
+      return;
+    }
+    
     setFormData((prev) => ({ ...prev, [name]: value }));
+
+    // Handle event selection to show payment
+    if (name === "event" && value) {
+      const price = eventPricing[value as keyof typeof eventPricing];
+      setSelectedEventPrice(price);
+      setShowPayment(true);
+    } else if (name === "event" && !value) {
+      setShowPayment(false);
+      setSelectedEventPrice(0);
+    }
 
     if (name === "college") {
       if (typingTimeout) clearTimeout(typingTimeout);
@@ -122,11 +232,19 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Check if all fields are filled
     const isValid = Object.values(formData).every(
       (value) => value.trim() !== ""
     );
     if (!isValid) {
       alert("Please fill in all fields.");
+      return;
+    }
+
+    // Validate phone number
+    const phoneValidation = validateIndianPhone(formData.phone);
+    if (!phoneValidation.isValid) {
+      alert("Please enter a valid Indian mobile number: " + phoneValidation.error);
       return;
     }
 
@@ -148,7 +266,6 @@ export default function RegisterPage() {
         // Store the registration ID for payment update
         setRegId(result.id);
         setFormSubmitted(true);
-        setShowPayment(true);
         console.log("Registration saved with ID:", result.id);
       } else {
         alert("Registration failed: " + (result.error || "Unknown error"));
@@ -162,7 +279,10 @@ export default function RegisterPage() {
   };
 
   // Accept payment details and update registration in DB
-  const handlePaymentSuccess = async (paymentDetails: { transactionId: string; amount: number }) => {
+  const handlePaymentSuccess = async (paymentDetails: {
+    transactionId: string;
+    amount: number;
+  }) => {
     if (!regId) {
       console.error("No registration ID available for payment update");
       alert("Error: Registration ID not found. Please try registering again.");
@@ -170,16 +290,19 @@ export default function RegisterPage() {
     }
 
     try {
-      console.log("Sending PATCH to /api/formdb", { id: regId, ...paymentDetails });
+      console.log("Sending PATCH to /api/formdb", {
+        id: regId,
+        ...paymentDetails,
+      });
       const res = await fetch("/api/formdb", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: regId, ...paymentDetails }),
       });
-      
+
       const data = await res.json();
       console.log("PATCH response:", data);
-      
+
       if (data.success) {
         setIsPaymentComplete(true);
         console.log("Payment updated successfully");
@@ -194,7 +317,7 @@ export default function RegisterPage() {
 
   return (
     <section className="flex flex-col items-center justify-center min-h-screen p-6">
-      <h1 className="text-2xl font-bold mb-4 text-primary">
+      <h1 className="text-2xl font-bold mb-4 text-primary pt-10">
         Registration for Techletics CCE Events
       </h1>
 
@@ -224,16 +347,30 @@ export default function RegisterPage() {
               required
               suppressHydrationWarning={true}
             />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone (WhatsApp)"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full p-2 rounded-md border-2 border-gray-300 text-primary"
-              required
-              suppressHydrationWarning={true}
-            />
+            
+            <div className="relative">
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone (WhatsApp)"
+                value={formData.phone}
+                onChange={handleChange}
+                className={`w-full p-2 rounded-md border-2 text-primary ${
+                  phoneError ? 'border-red-500' : 'border-gray-300'
+                }`}
+                required
+                maxLength={10}
+                pattern="[6-9][0-9]{9}"
+                title="Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9"
+                suppressHydrationWarning={true}
+              />
+              {phoneError && (
+                <p className="text-red-500 text-xs mt-1">{phoneError}</p>
+              )}
+              {formData.phone.length > 0 && !phoneError && formData.phone.length === 10 && (
+                <p className="text-green-500 text-xs mt-1">✓ Valid phone number</p>
+              )}
+            </div>
 
             <select
               name="gender"
@@ -332,14 +469,42 @@ export default function RegisterPage() {
               <option value="">Select an Event</option>
               {events.map((event, index) => (
                 <option key={index} value={event}>
-                  {event}
+                  {event} - ₹{eventPricing[event as keyof typeof eventPricing]}
                 </option>
               ))}
             </select>
 
+            {/* Show price when event is selected */}
+            {formData.event && (
+              <div className="bg-blue-50 p-3 rounded-md border border-blue-200">
+                <p className="text-blue-800 font-semibold text-center">
+                  Selected: {formData.event} - ₹{selectedEventPrice}
+                </p>
+              </div>
+            )}
+
+            <div className="flex items-center space-x-2 p-4">
+              <input
+                id="terms"
+                type="checkbox"
+                checked={isChecked}
+                onChange={() => setIsChecked(!isChecked)}
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded accent-primary"
+                required={true}
+              />
+              <label htmlFor="terms" className="text-sm text-gray-700">
+                I have read and agree to all{" "}
+                <Link href="/terms" passHref>
+                  <span className="text-blue-600 underline hover:text-blue-800 cursor-pointer">
+                    terms and conditions
+                  </span>
+                </Link>
+              </label>
+            </div>
+
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={isSubmitting || phoneError !== ""}
               className="mt-4 bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed"
               suppressHydrationWarning={true}
             >
@@ -347,25 +512,68 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          {formSubmitted && showPayment && (
+          {/* Show payment immediately when event is selected and form is submitted */}
+          {showPayment && formSubmitted && (
             <div className="mt-6 w-full max-w-md">
               <p className="text-green-600 font-semibold mb-2 text-center">
                 Form submitted successfully! Please proceed to payment.
               </p>
-              <Payment onSuccess={handlePaymentSuccess} userData={formData}/>
+              <Payment
+                onSuccess={handlePaymentSuccess}
+                userData={{
+                  name: formData.name,
+                  email: formData.email,
+                  phone: formData.phone,
+                }}
+                eventPrice={selectedEventPrice}
+              />
             </div>
           )}
         </>
       )}
 
       {isPaymentComplete && (
-        <div className="text-green-700 font-bold text-xl mt-6 text-center">
-          ✅ Registration Complete! Thank you for registering.
+        <div className="flex flex-col items-center justify-center">
+          <Image
+            src="/image/mohanlal.png"
+            alt="Success"
+            width={300}
+            height={300}
+          />
+          <div className="flex flex-row items-center justify-center mt-4 gap-2">
+            <div className="ring-2 ring-green-500 rounded-full">
+              <Image
+                src="/icons/tick.gif"
+                alt="Success"
+                width={25}
+                height={25}
+                unoptimized={true}
+              />
+            </div>
+            <h1 className="text-green-700 font-bold text-xl text-center">
+              Registration Complete! Thank you for registering.
+            </h1>
+          </div>
           <p className="text-sm text-gray-600 mt-2 font-normal">
             We will contact you shortly.
           </p>
+          
+          {/* Redirect countdown */}
+          <div className="mt-4 text-center">
+            <p className="text-sm text-blue-600 font-medium">
+              Redirecting to home page in {redirectCountdown} seconds...
+            </p>
+            <button
+              onClick={() => router.push('/')}
+              className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-200 text-sm"
+            >
+              Go to Home Now
+            </button>
+          </div>
         </div>
       )}
     </section>
   );
 }
+
+export default RegisterPage;
