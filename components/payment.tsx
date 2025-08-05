@@ -18,11 +18,19 @@ type RazorpayHandlerResponse = {
   razorpay_signature: string;
 };
 
-type PaymentProps = {
-  onSuccess: () => void;
+// Add the userData type and update PaymentProps
+type UserData = {
+  name: string;
+  email: string;
+  phone: string;
 };
 
-export default function Payment({ onSuccess }: PaymentProps) {
+type PaymentProps = {
+  onSuccess: (details: { transactionId: string; amount: number }) => void;
+  userData: UserData; // Add this line
+};
+
+export default function Payment({ onSuccess, userData }: PaymentProps) {
   const [amount, setAmount] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [isRazorpayReady, setIsRazorpayReady] = useState(false);
@@ -87,21 +95,27 @@ export default function Payment({ onSuccess }: PaymentProps) {
           setToast("Payment done successfully");
           setAmount("");
           alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
-          if (onSuccess) onSuccess(); // ✅ Notify parent
+          console.log("Payment successful, calling onSuccess with:", {
+            transactionId: response.razorpay_payment_id,
+            amount: Number(amount)
+          });
+          if (onSuccess) onSuccess({ transactionId: response.razorpay_payment_id, amount: Number(amount) });
         },
         prefill: {
-          name: "John Doe",
-          email: "john.doe@example.com",
-          contact: "9999999999",
+          name: userData.name || "",
+          email: userData.email || "",
+          contact: userData.phone ? (userData.phone.startsWith('+91') ? userData.phone : `+91${userData.phone}`) : "",
         },
         theme: {
           color: "#F37254",
         },
       };
 
+      console.log("Razorpay options:", options);
       const rzp = new window.Razorpay(options);
       rzp.open();
     } catch (error) {
+      console.error("Payment processing error:", error);
       alert("Error processing payment: " + error);
     } finally {
       setIsProcessing(false);
@@ -115,24 +129,33 @@ export default function Payment({ onSuccess }: PaymentProps) {
           {toast}
         </div>
       )}
+      
+      {/* Display user info for confirmation */}
+      <div className="mb-4 p-3 bg-gray-50 rounded-md">
+        <h3 className="font-semibold text-gray-700 mb-2">Payment Details for:</h3>
+        <p className="text-sm text-gray-600"><strong>Name:</strong> {userData.name}</p>
+        <p className="text-sm text-gray-600"><strong>Email:</strong> {userData.email}</p>
+        <p className="text-sm text-gray-600"><strong>Phone:</strong> {userData.phone}</p>
+      </div>
+
       <div className="flex flex-col sm:flex-col md:flex-row items-center justify-center gap-5">
-      <input
-        type="number"
-        min="1"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-        className="border rounded px-4 py-2 mr-2 text-primary"
-        placeholder="Enter amount"
-        disabled={isProcessing}
-        suppressHydrationWarning
-      /> 
-      <button
-        onClick={handlePayment}
-        disabled={isProcessing || !isRazorpayReady}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 md:w-fit sm:w-full w-full"
-      >
-        {isProcessing ? "Processing..." : `Pay ₹${amount || ""}`}
-      </button>
+        <input
+          type="number"
+          min="1"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          className="border rounded px-4 py-2 mr-2 text-primary"
+          placeholder="Enter amount"
+          disabled={isProcessing}
+          suppressHydrationWarning
+        /> 
+        <button
+          onClick={handlePayment}
+          disabled={isProcessing || !isRazorpayReady}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 md:w-fit sm:w-full w-full"
+        >
+          {isProcessing ? "Processing..." : `Pay ₹${amount || ""}`}
+        </button>
       </div>
     </div>
   );

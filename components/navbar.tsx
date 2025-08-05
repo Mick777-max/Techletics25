@@ -92,6 +92,7 @@ export default function Navbar() {
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:underline hover:text-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
               aria-expanded={isMenuOpen}
+              suppressHydrationWarning={true}
             >
               <span className="sr-only">Open main menu</span>
               {!isMenuOpen ? (
