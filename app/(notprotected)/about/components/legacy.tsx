@@ -2,9 +2,9 @@ import Gallery from "./gallery";
 
 const Legacy = () => {
   return (
-    <div>
+    <div >
       <div
-        className="flex flex-col justify-center gap-12 py-6 mt-4 font-primary text-secondary lg:py-12"
+        className="flex flex-col justify-center gap-12  px-4 py-2 sm:px-8 sm:py-4 lg:px-16 lg:py-9 mt-4 font-primary text-secondary "
         id="legacy"
       >
         <h2 className="text-3xl font-bold text-primary sm:text-4xl lg:text-5xl text-center">
