@@ -110,7 +110,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href={baseUrl} />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      suppressHydrationWarning={true}
+      >
         {children}
       </body>
     </html>
