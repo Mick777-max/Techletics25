@@ -182,7 +182,7 @@ export default function EventPage() {
               <select
                 value={branch}
                 onChange={(e) => setBranch(e.target.value)}
-                className="flex-1 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="flex-1 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black shadow-sm focus:outline-none focus:ring-0 focus:ring-primary focus:border-primary transition-all duration-300 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
                 suppressHydrationWarning={true}
               >
                 <option value="all">All</option>
@@ -206,7 +206,7 @@ export default function EventPage() {
               <select
                 value={eventType}
                 onChange={(e) => setEventType(e.target.value)}
-                className="flex-1 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="flex-1 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black shadow-sm focus:outline-none focus:ring-0 focus:ring-primary focus:border-primary transition-all duration-300 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
                 suppressHydrationWarning={true}
               >
                 <option value="all">All</option>
