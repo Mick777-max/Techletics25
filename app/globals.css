@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 body {
-  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-family: var(--font-fonarto), Arial, sans-serif;
 }
-
 
 
 @layer base {

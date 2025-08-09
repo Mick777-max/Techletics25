@@ -837,9 +837,9 @@ export default function AdminDashboard() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Start Date *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Created Date *</label>
                       <input
-                        type="datetime-local"
+                        type="date"
                         name="startDate"
                         value={eventForm.startDate}
                         onChange={(e) => handleSelectChange('startDate', e.target.value)}
@@ -848,9 +848,9 @@ export default function AdminDashboard() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">End Date *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Event Date *</label>
                       <input
-                        type="datetime-local"
+                        type="date"
                         name="endDate"
                         value={eventForm.endDate}
                         onChange={(e) => handleSelectChange('endDate', e.target.value)}
