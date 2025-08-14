@@ -47,7 +47,8 @@ module.exports = {
   			}
   		},
   		animation: {
-  			'ping-reverse-slow': 'ping-reverse 2s cubic-bezier(0, 0, 0.2, 1) infinite'
+  			'ping-reverse-slow': 'ping-reverse 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+			glow: 'glow 2s ease-in-out infinite',
   		},
   		keyframes: {
   			'ping-reverse': {
@@ -59,7 +60,12 @@ module.exports = {
   					transform: 'scale(1)',
   					opacity: '0'
   				}
-  			}
+  			},
+			glow: {
+          '0%, 100%': { boxShadow: '0 0 15px #38bdf8, 0 0 30px #0ea5e9, 0 0 45px #3b82f6' },
+          '50%': { boxShadow: '0 0 25px #38bdf8, 0 0 50px #0ea5e9, 0 0 75px #3b82f6' },
+        },
+		
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

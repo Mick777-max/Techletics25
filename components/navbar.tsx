@@ -36,18 +36,18 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="bg-tertiary shadow-md fixed w-full z-50">
+    <nav className="bg-white/10 backdrop-blur-lg border-b border-white/20 shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo and brand */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" prefetch={true}>
               <Image
-                src="/logos/techletics-dark-logo.svg"
+                src="/logos/techletics-metal.svg"
                 alt="Techletics Logo"
                 width={150}
                 height={40}
-                className="h-8 w-auto"
+                className="h-8 w-auto drop-shadow-sm"
                 priority
               />
             </Link>
@@ -62,7 +62,7 @@ export default function Navbar() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:text-secondary hover:underline px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1"
+                  className="text-white hover:text-gray-600 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-1 backdrop-blur-sm border border-transparent hover:border-white/30"
                 >
                   {link.label}
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
@@ -74,10 +74,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   prefetch={true}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 backdrop-blur-sm border ${
                     pathname === link.href
-                      ? 'text-tertiary bg-primary'
-                      : 'text-primary hover:text-secondary hover:underline'
+                      ? 'text-white bg-gray-800/80 border-gray-700/50 shadow-lg'
+                      : 'text-white hover:text-gray-600 hover:bg-white/20 border-transparent hover:border-white/30'
                   }`}
                 >
                   {link.label}
@@ -90,7 +90,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:underline hover:text-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+              className="inline-flex items-center justify-center p-2 rounded-lg text-gray-800 hover:text-gray-600 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/30 backdrop-blur-sm border border-transparent hover:border-white/30 transition-all duration-300"
               aria-expanded={isMenuOpen}
               suppressHydrationWarning={true}
             >
@@ -110,8 +110,8 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <div className="px-2 pt-2 pb-3 sm:px-3">
+      <div className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h- opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+        <div className="px-2 pt-2 pb-3 sm:px-3 bg-white/5 backdrop-blur-lg border-t border-white/20">
           {navLinks.map((link) => (
             link.isExternal ? (
               <a
@@ -119,7 +119,7 @@ export default function Navbar() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-2 rounded-md text-base font-medium text-primary hover:text-secondary hover:underline flex items-center gap-1"
+                className="px-4 py-3 rounded-lg text-base font-medium text-gray-800 hover:text-gray-600 hover:bg-white/20 flex items-center gap-1 transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-white/30 mb-1"
               >
                 {link.label}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
@@ -131,10 +131,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 prefetch={true}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 backdrop-blur-sm border mb-1 ${
                   pathname === link.href
-                    ? 'text-tertiary bg-primary'
-                    : 'text-primary hover:text-secondary hover:underline'
+                    ? 'text-white bg-gray-800/80 border-gray-700/50 shadow-lg'
+                    : 'text-gray-800 hover:text-gray-600 hover:bg-white/20 border-transparent hover:border-white/30'
                 }`}
               >
                 {link.label}

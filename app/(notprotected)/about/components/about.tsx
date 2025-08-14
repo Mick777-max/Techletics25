@@ -1,5 +1,6 @@
 'use client'
 
+
 const About = () => {
   return (
     <div className="bg-college-img h-full w-full bg-cover bg-center bg-no-repeat px-4 py-2 sm:px-8 sm:py-4 lg:px-16 lg:py-9">

@@ -1,7 +1,7 @@
 import Navbar from "@/components/navbar";
 import RouteLoader from "../loading";
 import { ReactNode } from "react";
-import FireCursor from "@/components/nurui/fire-cursor";
+
 
 export default function Notprotectedlayout({
   children,
@@ -13,7 +13,7 @@ export default function Notprotectedlayout({
         <Navbar />
         <RouteLoader />
         {children}
-        <FireCursor/>
+        {/* <SplashCursor/> */}
     </div>
   );
 }

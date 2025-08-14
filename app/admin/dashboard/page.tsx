@@ -848,7 +848,7 @@ export default function AdminDashboard() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Event Date *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">One day after the actual event date*</label>
                       <input
                         type="date"
                         name="endDate"
@@ -983,7 +983,7 @@ export default function AdminDashboard() {
                               <span className="px-2 py-0.5 rounded bg-gray-100">{event.branch}</span>
                               <span className="px-2 py-0.5 rounded bg-gray-100">{event.eventType}</span>
                               <span className="px-2 py-0.5 rounded bg-gray-100">
-                                {new Date(event.startDate).toLocaleString()} → {new Date(event.endDate).toLocaleString()}
+                                {new Date(event.startDate).toLocaleDateString()} → {new Date(event.endDate).toLocaleDateString()}
                               </span>
                             </div>
                             <p className="text-xs text-gray-500 mt-1">

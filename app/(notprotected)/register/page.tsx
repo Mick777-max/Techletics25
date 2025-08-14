@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import Payment from "@/components/payment";
 import Image from "next/image";
 import Link from "next/link";
+import ShinyInput from "@/components/nurui/shiny-input";
+import ShinySelect, { ShinyOption } from "@/components/nurui/shiny-select";
 
 type College = { name: string };
 
@@ -56,18 +58,18 @@ function RegisterPage() {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch('/api/events');
+      const response = await fetch("/api/events");
       const data = await response.json();
-      
+
       if (data.success) {
         setEvents(data.events);
       } else {
-        console.error('Failed to fetch events:', data.error);
+        console.error("Failed to fetch events:", data.error);
         // Fallback to empty array if events can't be loaded
         setEvents([]);
       }
     } catch (error) {
-      console.error('Error fetching events:', error);
+      console.error("Error fetching events:", error);
       setEvents([]);
     } finally {
       setEventsLoading(false);
@@ -75,27 +77,29 @@ function RegisterPage() {
   };
 
   // Phone validation function for Indian mobile numbers
-  const validateIndianPhone = (phone: string): { isValid: boolean; error: string } => {
+  const validateIndianPhone = (
+    phone: string
+  ): { isValid: boolean; error: string } => {
     // Remove any spaces, dashes, or other non-digit characters
-    const cleanPhone = phone.replace(/\D/g, '');
-    
+    const cleanPhone = phone.replace(/\D/g, "");
+
     // Check if exactly 10 digits
     if (cleanPhone.length !== 10) {
       return {
         isValid: false,
-        error: "Phone number must be exactly 10 digits"
+        error: "Phone number must be exactly 10 digits",
       };
     }
-    
+
     // Check if it starts with valid Indian mobile prefixes (6, 7, 8, 9)
     const firstDigit = cleanPhone[0];
-    if (!['6', '7', '8', '9'].includes(firstDigit)) {
+    if (!["6", "7", "8", "9"].includes(firstDigit)) {
       return {
         isValid: false,
-        error: "Indian mobile numbers must start with 6, 7, 8, or 9"
+        error: "Indian mobile numbers must start with 6, 7, 8, or 9",
       };
     }
-    
+
     return { isValid: true, error: "" };
   };
 
@@ -120,7 +124,7 @@ function RegisterPage() {
             clearInterval(countdownInterval);
             // Use setTimeout to move router.push out of the render cycle
             setTimeout(() => {
-              router.push('/');
+              router.push("/");
             }, 0);
             return 0;
           }
@@ -136,7 +140,7 @@ function RegisterPage() {
   // Separate useEffect to handle redirect when countdown reaches 0
   useEffect(() => {
     if (redirectCountdown === 0 && isPaymentComplete) {
-      router.push('/');
+      router.push("/");
     }
   }, [redirectCountdown, isPaymentComplete, router]);
 
@@ -144,13 +148,13 @@ function RegisterPage() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    
+
     // Special handling for phone input
     if (name === "phone") {
       // Allow only digits and limit to 10 characters
-      const numericValue = value.replace(/\D/g, '').slice(0, 10);
+      const numericValue = value.replace(/\D/g, "").slice(0, 10);
       setFormData((prev) => ({ ...prev, [name]: numericValue }));
-      
+
       // Validate phone number
       if (numericValue.length > 0) {
         const validation = validateIndianPhone(numericValue);
@@ -160,12 +164,12 @@ function RegisterPage() {
       }
       return;
     }
-    
+
     setFormData((prev) => ({ ...prev, [name]: value }));
 
     // Handle event selection to show payment
     if (name === "event" && value) {
-      const selectedEvent = events.find(event => event.name === value);
+      const selectedEvent = events.find((event) => event.name === value);
       if (selectedEvent) {
         setSelectedEventPrice(selectedEvent.price);
         setShowPayment(true);
@@ -262,7 +266,9 @@ function RegisterPage() {
     // Validate phone number
     const phoneValidation = validateIndianPhone(formData.phone);
     if (!phoneValidation.isValid) {
-      alert("Please enter a valid Indian mobile number: " + phoneValidation.error);
+      alert(
+        "Please enter a valid Indian mobile number: " + phoneValidation.error
+      );
       return;
     }
 
@@ -334,8 +340,8 @@ function RegisterPage() {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen p-6">
-      <h1 className="text-2xl font-bold mb-4 text-primary pt-10">
+    <section className="flex flex-col items-center justify-center min-h-screen p-6 bg-black">
+      <h1 className="text-2xl font-bold mb-4 text-white mt-16">
         Registration for Techletics CCE Events
       </h1>
 
@@ -345,37 +351,33 @@ function RegisterPage() {
             onSubmit={handleSubmit}
             className="w-full max-w-md flex flex-col gap-3"
           >
-            <input
+            <ShinyInput
               type="text"
               name="name"
               placeholder="Name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-2 rounded-md border-2 border-gray-300 text-primary"
               required
               suppressHydrationWarning={true}
             />
-            <input
+            <ShinyInput
               type="email"
               name="email"
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2 rounded-md border-2 border-gray-300 text-primary"
               required
               suppressHydrationWarning={true}
             />
-            
+
             <div className="relative">
-              <input
+              <ShinyInput
                 type="tel"
                 name="phone"
                 placeholder="Phone (WhatsApp)"
                 value={formData.phone}
                 onChange={handleChange}
-                className={`w-full p-2 rounded-md border-2 text-primary ${
-                  phoneError ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`${phoneError ? "border-red-500" : ""}`}
                 required
                 maxLength={10}
                 pattern="[6-9][0-9]{9}"
@@ -385,12 +387,16 @@ function RegisterPage() {
               {phoneError && (
                 <p className="text-red-500 text-xs mt-1">{phoneError}</p>
               )}
-              {formData.phone.length > 0 && !phoneError && formData.phone.length === 10 && (
-                <p className="text-green-500 text-xs mt-1">✓ Valid phone number</p>
-              )}
+              {formData.phone.length > 0 &&
+                !phoneError &&
+                formData.phone.length === 10 && (
+                  <p className="text-green-500 text-xs mt-1">
+                    ✓ Valid phone number
+                  </p>
+                )}
             </div>
 
-            <select
+            {/* <select
               name="gender"
               value={formData.gender}
               onChange={handleChange}
@@ -404,27 +410,42 @@ function RegisterPage() {
                   {gender}
                 </option>
               ))}
-            </select>
+            </select> */}
+
+            <ShinySelect
+              name="gender"
+              placeholder="Select your gender"
+              value={formData.gender}
+              onChange={handleChange}
+              required
+              suppressHydrationWarning={true}
+            >
+              {/* <ShinyOption value="">Select your gender</ShinyOption> */}
+              {genders.map((gender, index) => (
+                <ShinyOption key={index} value={gender}>
+                  {gender}
+                </ShinyOption>
+              ))}
+            </ShinySelect>
 
             <div className="relative">
-              <input
+              <ShinyInput
                 type="text"
                 name="college"
                 placeholder="College Name"
                 value={formData.college}
                 onChange={handleChange}
-                className="w-full p-2 rounded-md border-2 border-gray-300 text-primary"
                 required
                 autoComplete="on"
                 suppressHydrationWarning={true}
               />
               {collegeSuggestions.length > 0 && (
-                <ul className="absolute z-10 w-full bg-white border rounded-md max-h-48 overflow-y-auto shadow-md">
+                <ul className="absolute z-50 w-full bg-[#0d0e1e] border rounded-md max-h-48 overflow-y-auto shadow-md">
                   {collegeSuggestions.map((college, index) => (
                     <li
                       key={index}
                       onClick={() => handleSelectCollege(college)}
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-black border-b border-gray-100 last:border-b-0"
+                      className="px-4 py-2 hover:bg-blue-600 cursor-pointer text-white last:border-b-0"
                     >
                       {college}
                     </li>
@@ -433,41 +454,40 @@ function RegisterPage() {
               )}
             </div>
 
-            <select
+            <ShinySelect
               name="sem"
+              placeholder="Select your Current Semester"
               value={formData.sem}
               onChange={handleChange}
-              className="w-full p-2 rounded-md border-2 border-gray-300 text-primary"
               required
               suppressHydrationWarning={true}
+              className="z-10"
             >
-              <option value="">Select your Current Semester</option>
               {sem.map((sem, index) => (
-                <option key={index} value={sem}>
+                <ShinyOption key={index} value={sem}>
                   {sem}
-                </option>
+                </ShinyOption>
               ))}
-            </select>
+            </ShinySelect>
 
             <div className="relative">
-              <input
+              <ShinyInput
                 type="text"
                 name="branch"
                 placeholder="Branch Name or Abbreviation"
                 value={formData.branch}
                 onChange={handleChange}
-                className="w-full p-2 rounded-md border-2 border-gray-300 text-primary"
                 required
                 autoComplete="on"
                 suppressHydrationWarning={true}
               />
               {branchSuggestions.length > 0 && (
-                <ul className="absolute z-10 w-full bg-white border rounded-md max-h-48 overflow-y-auto shadow-md">
+                <ul className="absolute z-50 w-full bg-[#0d0e1e] border rounded-md max-h-48 overflow-y-auto shadow-md">
                   {branchSuggestions.map((branch, index) => (
                     <li
                       key={index}
                       onClick={() => handleSelectBranch(branch)}
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-black border-b border-gray-100 last:border-b-0"
+                      className="px-4 py-2 hover:bg-blue-600 cursor-pointer text-white last:border-b-0"
                     >
                       {branch}
                     </li>
@@ -476,24 +496,25 @@ function RegisterPage() {
               )}
             </div>
 
-            <select
+            <ShinySelect
               name="event"
+              placeholder="Select an Event"
               value={formData.event}
               onChange={handleChange}
-              className="w-full p-2 rounded-md border-2 border-gray-300 text-primary"
               required
               disabled={eventsLoading}
               suppressHydrationWarning={true}
+              className="z-10"
             >
-              <option value="">
+              {/* <ShinyOption value="">
                 {eventsLoading ? "Loading events..." : "Select an Event"}
-              </option>
+              </ShinyOption> */}
               {events.map((event) => (
-                <option key={event._id} value={event.name}>
+                <ShinyOption key={event._id} value={event.name}>
                   {event.name} - ₹{event.price}
-                </option>
+                </ShinyOption>
               ))}
-            </select>
+            </ShinySelect>
 
             {eventsLoading && (
               <div className="text-center text-sm text-gray-500">
@@ -511,17 +532,20 @@ function RegisterPage() {
 
             {/* Show price and poster when event is selected */}
             {formData.event && (
-              <div className="bg-blue-50 p-3 rounded-md border border-blue-200">
-                <p className="text-blue-800 font-semibold text-center">
+              <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-black relative p-3 rounded-md">
+                <p className="text-blue-400 font-semibold text-center">
                   Selected: {formData.event} - ₹{selectedEventPrice}
                 </p>
-                
+
                 {/* Show event poster if available */}
-                {events.find(e => e.name === formData.event)?.poster && (
+                {events.find((e) => e.name === formData.event)?.poster && (
                   <div className="mt-3 flex justify-center">
                     <div className="relative w-32 h-40 border border-blue-300 rounded-md overflow-hidden">
                       <Image
-                        src={events.find(e => e.name === formData.event)?.poster || ''}
+                        src={
+                          events.find((e) => e.name === formData.event)
+                            ?.poster || ""
+                        }
                         alt={`${formData.event} poster`}
                         fill
                         style={{ objectFit: "cover" }}
@@ -538,7 +562,7 @@ function RegisterPage() {
                 type="checkbox"
                 checked={isChecked}
                 onChange={() => setIsChecked(!isChecked)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded accent-primary"
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 required={true}
               />
               <label htmlFor="terms" className="text-sm text-gray-700">
@@ -554,25 +578,24 @@ function RegisterPage() {
             <button
               type="submit"
               disabled={
-                isSubmitting || 
-                formSubmitted || 
-                phoneError !== "" || 
-                eventsLoading || 
+                isSubmitting ||
+                formSubmitted ||
+                phoneError !== "" ||
+                eventsLoading ||
                 events.length === 0
               }
               className={`mt-4 p-2 rounded-md transition-colors duration-200 disabled:cursor-not-allowed ${
-                formSubmitted 
-                  ? "bg-green-500 text-white" 
-                  : "bg-blue-500 text-white hover:bg-blue-600 disabled:bg-gray-400"
+                formSubmitted
+                  ? "bg-gradient-to-tr from-slate-900 via-green-900 to-slate-900 text-white"
+                  : "bg-gradient-to-tr from-slate-900 via-blue-900 to-slate-900 text-white hover:bg-blue-600 disabled:bg-gray-400"
               }`}
               suppressHydrationWarning={true}
             >
-              {isSubmitting 
-                ? "Submitting..." 
-                : formSubmitted 
-                  ? "For Payment Scroll Down ↓" 
-                  : "Submit Registration"
-              }
+              {isSubmitting
+                ? "Submitting..."
+                : formSubmitted
+                ? "For Payment Scroll Down ↓"
+                : "Submit Registration"}
             </button>
           </form>
 
@@ -618,17 +641,17 @@ function RegisterPage() {
               Registration Complete! Thank you for registering.
             </h1>
           </div>
-          <p className="text-sm text-gray-600 mt-2 font-normal">
+          <p className="text-sm text-white mt-2 font-normal">
             We will contact you shortly
-            </p>
-          
+          </p>
+
           {/* Redirect countdown */}
           <div className="mt-4 text-center">
             <p className="text-sm text-blue-600 font-medium">
               Redirecting to home page in {redirectCountdown} seconds...
             </p>
             <button
-              onClick={() => router.push('/')}
+              onClick={() => router.push("/")}
               className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-200 text-sm"
             >
               Go to Home Now

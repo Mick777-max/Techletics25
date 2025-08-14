@@ -129,12 +129,12 @@ export default function Payment({ onSuccess, userData, eventPrice }: PaymentProp
       )}
       
       {/* Display user info and payment amount */}
-      <div className="mb-4 p-4 bg-gray-50 rounded-md border">
-        <h3 className="font-semibold text-gray-700 mb-3">Payment Details</h3>
+      <div className="mb-4 p-4 bg-gradient-to-tr from-slate-950 via-blue-950 to-black rounded-md border">
+        <h3 className="font-semibold text-gray-400 mb-3">Payment Details</h3>
         <div className="space-y-2">
-          <p className="text-sm text-gray-600"><strong>Name:</strong> {userData.name}</p>
-          <p className="text-sm text-gray-600"><strong>Email:</strong> {userData.email}</p>
-          <p className="text-sm text-gray-600"><strong>Phone:</strong> {userData.phone}</p>
+          <p className="text-sm text-gray-500"><strong>Name:</strong> {userData.name}</p>
+          <p className="text-sm text-gray-500"><strong>Email:</strong> {userData.email}</p>
+          <p className="text-sm text-gray-500"><strong>Phone:</strong> {userData.phone}</p>
           <div className="border-t pt-2 mt-3">
             <p className="text-lg font-bold text-blue-600">
               <strong>Amount to Pay: ₹{eventPrice}</strong>
@@ -147,7 +147,7 @@ export default function Payment({ onSuccess, userData, eventPrice }: PaymentProp
         <button
           onClick={handlePayment}
           disabled={isProcessing || !isRazorpayReady}
-          className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed font-semibold text-lg w-full"
+          className="bg-gradient-to-tr from-slate-900 via-green-900 to-slate-900 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed font-semibold text-lg w-full"
         >
           {isProcessing ? "Processing..." : `Pay ₹${eventPrice}`}
         </button>
