@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production';
 
-// Registration Schema (same as your existing one)
+// Updated Registration Schema to match the new structure
 const RegistrationSchema = new mongoose.Schema({
   name: String,
   email: String,
@@ -18,7 +18,11 @@ const RegistrationSchema = new mongoose.Schema({
   payment: {
     transactionId: String,
     amount: Number,
-    status: { type: String, default: 'pending' },
+    status: { 
+      type: String, 
+      enum: ['pending', 'completed', 'failed', 'free'], 
+      default: 'pending' 
+    },
   },
 }, { timestamps: true });
 
@@ -57,16 +61,34 @@ export async function GET(req: NextRequest) {
     // Connect to database
     await dbConnect();
 
-    // Fetch all registrations
-    const registrations = await Registration.find({})
-      .sort({ createdAt: -1 }) // Sort by newest first
-      .lean(); // Use lean() for better performance
+    // Fetch all registrations with enhanced filtering
+    const { searchParams } = new URL(req.url);
+    const paymentStatus = searchParams.get('paymentStatus');
+    
+    let query = {};
+    if (paymentStatus && paymentStatus !== 'all') {
+      query = { 'payment.status': paymentStatus };
+    }
 
-    console.log(`Admin fetched ${registrations.length} registrations`);
+    const registrations = await Registration.find(query)
+      .sort({ createdAt: -1 })
+      .lean();
+
+    // Add summary statistics
+    const stats = {
+      total: registrations.length,
+      pending: registrations.filter(r => r.payment?.status === 'pending').length,
+      completed: registrations.filter(r => r.payment?.status === 'completed').length,
+      free: registrations.filter(r => r.payment?.status === 'free').length,
+      failed: registrations.filter(r => r.payment?.status === 'failed').length,
+    };
+
+    console.log(`Admin fetched ${registrations.length} registrations`, stats);
 
     return NextResponse.json({
       success: true,
       registrations,
+      stats,
       count: registrations.length,
     });
 

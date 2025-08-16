@@ -275,22 +275,40 @@ function RegisterPage() {
     setIsSubmitting(true);
 
     try {
-      // First, save the registration data to MongoDB
+      // Check if selected event is free
+      const isEventFree = selectedEventPrice === 0;
+
+      // Prepare registration data
+      const registrationData = {
+        ...formData,
+        payment: {
+          status: isEventFree ? "free" : "pending",
+          amount: selectedEventPrice,
+          transactionId: isEventFree ? "FREE_EVENT" : undefined,
+        },
+      };
+
+      // Save the registration data to MongoDB
       const response = await fetch("/api/formdb", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(registrationData),
       });
 
       const result = await response.json();
 
       if (result.success) {
-        // Store the registration ID for payment update
         setRegId(result.id);
         setFormSubmitted(true);
         console.log("Registration saved with ID:", result.id);
+
+        // If event is free, mark as complete immediately
+        if (isEventFree) {
+          setIsPaymentComplete(true);
+          console.log("Free event registration completed");
+        }
       } else {
         alert("Registration failed: " + (result.error || "Unknown error"));
       }
@@ -600,7 +618,7 @@ function RegisterPage() {
           </form>
 
           {/* Show payment immediately when event is selected and form is submitted */}
-          {showPayment && formSubmitted && (
+          {showPayment && formSubmitted && selectedEventPrice > 0 && (
             <div className="mt-6 w-full max-w-md">
               <p className="text-green-600 font-semibold mb-2 text-center">
                 Form submitted successfully! Please proceed to payment.
@@ -614,6 +632,21 @@ function RegisterPage() {
                 }}
                 eventPrice={selectedEventPrice}
               />
+            </div>
+          )}
+
+          {/* Show success message for free events */}
+          {formSubmitted && selectedEventPrice === 0 && (
+            <div className="mt-6 w-full max-w-md">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
+                <p className="text-green-800 font-semibold mb-2">
+                  Registration Successful! 🎉
+                </p>
+                <p className="text-green-600 text-sm">
+                  Since this is a free event, no payment is required. You will be
+                  redirected shortly.
+                </p>
+              </div>
             </div>
           )}
         </>

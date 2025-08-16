@@ -70,6 +70,8 @@ export default function AdminDashboard() {
     paid: 0,
     pending: 0,
     totalRevenue: 0,
+    free: 0,
+    failed: 0,
   });
   
   // Modal states
@@ -159,13 +161,24 @@ export default function AdminDashboard() {
 
   const calculateStats = (data: Registration[]) => {
     const total = data.length;
-    const paid = data.filter(reg => reg.payment.status === "paid").length;
-    const pending = total - paid;
+    const paid = data.filter(reg => reg.payment.status === "completed" || reg.payment.status === "paid").length;
+    const free = data.filter(reg => reg.payment.status === "free").length;
+    const pending = data.filter(reg => reg.payment.status === "pending").length;
+    const failed = data.filter(reg => reg.payment.status === "failed").length;
+    
+    // Calculate total revenue from paid registrations only
     const totalRevenue = data
-      .filter(reg => reg.payment.status === "paid")
+      .filter(reg => reg.payment.status === "completed" || reg.payment.status === "paid")
       .reduce((sum, reg) => sum + (reg.payment.amount || 0), 0);
 
-    setStats({ total, paid, pending, totalRevenue });
+    setStats({ 
+      total, 
+      paid, 
+      pending, 
+      totalRevenue,
+      free, // Add free count to stats
+      failed // Add failed count to stats
+    });
   };
 
   const handleLogout = () => {
@@ -361,7 +374,12 @@ export default function AdminDashboard() {
 
   const filteredRegistrations = registrations.filter(reg => {
     const matchesEvent = !filter.event || reg.event === filter.event;
-    const matchesPayment = !filter.paymentStatus || reg.payment.status === filter.paymentStatus;
+    
+    // Updated payment filter logic to handle all statuses including free
+    const matchesPayment = !filter.paymentStatus || 
+      filter.paymentStatus === 'all' ||
+      reg.payment.status === filter.paymentStatus;
+    
     const matchesSearch = !filter.search || 
       reg.name.toLowerCase().includes(filter.search.toLowerCase()) ||
       reg.email.toLowerCase().includes(filter.search.toLowerCase()) ||
@@ -465,9 +483,9 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Stats Cards - Only show on registrations tab */}
+        {/* Stats Cards - Updated to include free registrations */}
         {activeTab === "registrations" && (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
             <div className="bg-white p-6 rounded-lg shadow">
               <div className="text-2xl font-bold text-blue-600">{stats.total}</div>
               <div className="text-gray-600">Total Registrations</div>
@@ -475,6 +493,10 @@ export default function AdminDashboard() {
             <div className="bg-white p-6 rounded-lg shadow">
               <div className="text-2xl font-bold text-green-600">{stats.paid}</div>
               <div className="text-gray-600">Paid</div>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow">
+              <div className="text-2xl font-bold text-blue-500">{stats.free || 0}</div>
+              <div className="text-gray-600">Free</div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow">
               <div className="text-2xl font-bold text-orange-600">{stats.pending}</div>
@@ -558,26 +580,42 @@ export default function AdminDashboard() {
                       <div>
                         <label className="block text-sm font-medium text-gray-700">Payment Status</label>
                         <span className={`mt-1 inline-flex px-3 py-1 text-sm font-semibold rounded-full ${
-                          selectedRegistration.payment.status === 'paid' 
+                          selectedRegistration.payment.status === 'completed' || selectedRegistration.payment.status === 'paid'
                             ? 'bg-green-100 text-green-800' 
+                            : selectedRegistration.payment.status === 'free'
+                            ? 'bg-blue-100 text-blue-800'
+                            : selectedRegistration.payment.status === 'failed'
+                            ? 'bg-red-100 text-red-800'
                             : 'bg-orange-100 text-orange-800'
                         }`}>
-                          {selectedRegistration.payment.status}
+                          {selectedRegistration.payment.status === 'completed' ? 'paid' : selectedRegistration.payment.status}
                         </span>
                       </div>
-                      {selectedRegistration.payment.amount && (
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700">Amount Paid</label>
-                          <p className="mt-1 text-sm text-gray-900 font-semibold">₹{selectedRegistration.payment.amount}</p>
-                        </div>
-                      )}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Amount</label>
+                        <p className="mt-1 text-sm text-gray-900 font-semibold">
+                          ₹{selectedRegistration.payment.amount || 0}
+                          {selectedRegistration.payment.status === 'free' && (
+                            <span className="ml-2 text-blue-600 text-xs">(Free Event)</span>
+                          )}
+                        </p>
+                      </div>
                     </div>
 
-                    {selectedRegistration.payment.transactionId && (
+                    {selectedRegistration.payment.transactionId && selectedRegistration.payment.transactionId !== 'FREE_EVENT' && (
                       <div className="mt-4">
                         <label className="block text-sm font-medium text-gray-700">Transaction ID</label>
                         <p className="mt-1 text-sm text-gray-900 font-mono bg-gray-50 p-2 rounded border">
                           {selectedRegistration.payment.transactionId}
+                        </p>
+                      </div>
+                    )}
+
+                    {selectedRegistration.payment.status === 'free' && (
+                      <div className="mt-4">
+                        <label className="block text-sm font-medium text-gray-700">Note</label>
+                        <p className="mt-1 text-sm text-blue-600 bg-blue-50 p-2 rounded border">
+                          This is a free event registration. No payment was required.
                         </p>
                       </div>
                     )}
@@ -633,7 +671,7 @@ export default function AdminDashboard() {
         {/* Registrations Tab */}
         {activeTab === "registrations" && (
           <>
-            {/* Filters */}
+            {/* Updated Filters */}
             <div className="bg-white p-6 rounded-lg shadow mb-6">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <input
@@ -664,8 +702,11 @@ export default function AdminDashboard() {
                   className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 >
                   <option value="">All Payment Status</option>
+                  {/* <option value="completed">Paid</option> */}
                   <option value="paid">Paid</option>
+                  <option value="free">Free</option>
                   <option value="pending">Pending</option>
+                  <option value="failed">Failed</option>
                 </select>
                 <button
                   onClick={exportToCSV}
@@ -681,7 +722,7 @@ export default function AdminDashboard() {
               <p className="text-sm">💡 Click on any row to view detailed registration information</p>
             </div>
 
-            {/* Registrations Table */}
+            {/* Updated Registrations Table */}
             <div className="bg-white shadow rounded-lg overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
@@ -720,16 +761,23 @@ export default function AdminDashboard() {
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div>
                             <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                              reg.payment.status === 'paid' 
+                              reg.payment.status === 'completed' || reg.payment.status === 'paid'
                                 ? 'bg-green-100 text-green-800' 
+                                : reg.payment.status === 'free'
+                                ? 'bg-blue-100 text-blue-800'
+                                : reg.payment.status === 'failed'
+                                ? 'bg-red-100 text-red-800'
                                 : 'bg-orange-100 text-orange-800'
                             }`}>
-                              {reg.payment.status}
+                              {reg.payment.status === 'completed' ? 'paid' : reg.payment.status}
                             </span>
-                            {reg.payment.amount && (
+                            {reg.payment.amount !== undefined && reg.payment.amount > 0 && (
                               <div className="text-xs text-gray-500 mt-1">₹{reg.payment.amount}</div>
                             )}
-                            {reg.payment.transactionId && (
+                            {reg.payment.status === 'free' && (
+                              <div className="text-xs text-blue-500 mt-1">₹0</div>
+                            )}
+                            {reg.payment.transactionId && reg.payment.transactionId !== 'FREE_EVENT' && (
                               <div className="text-xs text-gray-400 font-mono">{reg.payment.transactionId.slice(0, 10)}...</div>
                             )}
                           </div>
@@ -758,6 +806,165 @@ export default function AdminDashboard() {
               Showing {filteredRegistrations.length} of {registrations.length} registrations
             </div>
           </>
+        )}
+
+        {/* Modal - Updated to show free status properly */}
+        {showModal && selectedRegistration && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="p-6">
+                {/* Modal Header */}
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900">Registration Details</h2>
+                  <button
+                    onClick={closeModal}
+                    className="text-gray-400 hover:text-gray-600 text-2xl"
+                  >
+                    ×
+                  </button>
+                </div>
+
+                {/* Registration Details */}
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Full Name</label>
+                      <p className="mt-1 text-sm text-gray-900 font-semibold">{selectedRegistration.name}</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Email</label>
+                      <p className="mt-1 text-sm text-gray-900">{selectedRegistration.email}</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Phone Number</label>
+                      <p className="mt-1 text-sm text-gray-900">{selectedRegistration.phone}</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Gender</label>
+                      <p className="mt-1 text-sm text-gray-900">{selectedRegistration.gender}</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">College</label>
+                    <p className="mt-1 text-sm text-gray-900">{selectedRegistration.college}</p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Semester</label>
+                      <p className="mt-1 text-sm text-gray-900">{selectedRegistration.sem}</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700">Branch</label>
+                      <p className="mt-1 text-sm text-gray-900">{selectedRegistration.branch}</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Event</label>
+                    <span className="mt-1 inline-flex px-3 py-1 text-sm font-semibold rounded-full bg-blue-100 text-blue-800">
+                      {selectedRegistration.event}
+                    </span>
+                  </div>
+
+                  {/* Payment Information - Updated */}
+                  <div className="border-t pt-4">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Payment Information</h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Payment Status</label>
+                        <span className={`mt-1 inline-flex px-3 py-1 text-sm font-semibold rounded-full ${
+                          selectedRegistration.payment.status === 'completed' || selectedRegistration.payment.status === 'paid'
+                            ? 'bg-green-100 text-green-800' 
+                            : selectedRegistration.payment.status === 'free'
+                            ? 'bg-blue-100 text-blue-800'
+                            : selectedRegistration.payment.status === 'failed'
+                            ? 'bg-red-100 text-red-800'
+                            : 'bg-orange-100 text-orange-800'
+                        }`}>
+                          {selectedRegistration.payment.status === 'completed' ? 'paid' : selectedRegistration.payment.status}
+                        </span>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Amount</label>
+                        <p className="mt-1 text-sm text-gray-900 font-semibold">
+                          ₹{selectedRegistration.payment.amount || 0}
+                          {selectedRegistration.payment.status === 'free' && (
+                            <span className="ml-2 text-blue-600 text-xs">(Free Event)</span>
+                          )}
+                        </p>
+                      </div>
+                    </div>
+
+                    {selectedRegistration.payment.transactionId && selectedRegistration.payment.transactionId !== 'FREE_EVENT' && (
+                      <div className="mt-4">
+                        <label className="block text-sm font-medium text-gray-700">Transaction ID</label>
+                        <p className="mt-1 text-sm text-gray-900 font-mono bg-gray-50 p-2 rounded border">
+                          {selectedRegistration.payment.transactionId}
+                        </p>
+                      </div>
+                    )}
+
+                    {selectedRegistration.payment.status === 'free' && (
+                      <div className="mt-4">
+                        <label className="block text-sm font-medium text-gray-700">Note</label>
+                        <p className="mt-1 text-sm text-blue-600 bg-blue-50 p-2 rounded border">
+                          This is a free event registration. No payment was required.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Registration Dates */}
+                  <div className="border-t pt-4">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Registration Information</h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Registration Date</label>
+                        <p className="mt-1 text-sm text-gray-900">
+                          {new Date(selectedRegistration.createdAt).toLocaleDateString('en-GB', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                          })}
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Last Updated</label>
+                        <p className="mt-1 text-sm text-gray-900">
+                          {new Date(selectedRegistration.updatedAt).toLocaleDateString('en-GB', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                          })}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Modal Footer */}
+                <div className="flex justify-end mt-6 pt-4 border-t">
+                  <button
+                    onClick={closeModal}
+                    className="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
 
         {/* Events Tab */}
