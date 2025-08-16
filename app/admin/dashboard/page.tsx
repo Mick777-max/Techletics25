@@ -207,7 +207,7 @@ export default function AdminDashboard() {
         return;
       }
 
-      // Check file type
+      // Check file type - allow any image format
       if (!file.type.startsWith('image/')) {
         alert("Please select an image file");
         return;
@@ -384,7 +384,11 @@ export default function AdminDashboard() {
       reg.payment.status,
       reg.payment.transactionId || "",
       reg.payment.amount || "",
-      new Date(reg.createdAt).toLocaleDateString(),
+      new Date(reg.createdAt).toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      }),
     ]);
 
     const csvContent = [headers, ...csvData]
@@ -395,7 +399,11 @@ export default function AdminDashboard() {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `registrations_${new Date().toISOString().split('T')[0]}.csv`;
+    a.download = `Techletics_Registrations_${new Date().toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    }).replace(/\//g, '-')}.csv`;
     a.click();
     window.URL.revokeObjectURL(url);
   };
@@ -583,10 +591,10 @@ export default function AdminDashboard() {
                       <div>
                         <label className="block text-sm font-medium text-gray-700">Registration Date</label>
                         <p className="mt-1 text-sm text-gray-900">
-                          {new Date(selectedRegistration.createdAt).toLocaleDateString('en-IN', {
+                          {new Date(selectedRegistration.createdAt).toLocaleDateString('en-GB', {
                             year: 'numeric',
-                            month: 'long',
-                            day: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
                             hour: '2-digit',
                             minute: '2-digit'
                           })}
@@ -595,10 +603,10 @@ export default function AdminDashboard() {
                       <div>
                         <label className="block text-sm font-medium text-gray-700">Last Updated</label>
                         <p className="mt-1 text-sm text-gray-900">
-                          {new Date(selectedRegistration.updatedAt).toLocaleDateString('en-IN', {
+                          {new Date(selectedRegistration.updatedAt).toLocaleDateString('en-GB', {
                             year: 'numeric',
-                            month: 'long',
-                            day: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
                             hour: '2-digit',
                             minute: '2-digit'
                           })}
@@ -727,7 +735,11 @@ export default function AdminDashboard() {
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {new Date(reg.createdAt).toLocaleDateString()}
+                          {new Date(reg.createdAt).toLocaleDateString('en-GB', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric'
+                          })}
                         </td>
                       </tr>
                     ))}
@@ -910,7 +922,7 @@ export default function AdminDashboard() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   />
                   <p className="text-xs text-gray-500 mt-1">
-                    Supported formats: JPG, PNG, GIF. Maximum file size: 20MB
+                    Supported formats: All image formats (JPG, PNG, GIF, WEBP, BMP, SVG, etc.). Maximum file size: 20MB
                   </p>
                 </div>
 
@@ -983,11 +995,23 @@ export default function AdminDashboard() {
                               <span className="px-2 py-0.5 rounded bg-gray-100">{event.branch}</span>
                               <span className="px-2 py-0.5 rounded bg-gray-100">{event.eventType}</span>
                               <span className="px-2 py-0.5 rounded bg-gray-100">
-                                {new Date(event.startDate).toLocaleDateString()} → {new Date(event.endDate).toLocaleDateString()}
+                                {new Date(event.startDate).toLocaleDateString('en-GB', {
+                                  day: '2-digit',
+                                  month: '2-digit',
+                                  year: 'numeric'
+                                })} → {new Date(event.endDate).toLocaleDateString('en-GB', {
+                                  day: '2-digit',
+                                  month: '2-digit',
+                                  year: 'numeric'
+                                })}
                               </span>
                             </div>
                             <p className="text-xs text-gray-500 mt-1">
-                              Created: {new Date(event.createdAt).toLocaleDateString()}
+                              Created: {new Date(event.createdAt).toLocaleDateString('en-GB', {
+                                day: '2-digit',
+                                month: '2-digit',
+                                year: 'numeric'
+                              })}
                             </p>
                             <div className="flex items-center gap-2 mt-1">
                               <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${

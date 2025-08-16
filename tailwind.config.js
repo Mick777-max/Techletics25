@@ -49,6 +49,7 @@ module.exports = {
   		animation: {
   			'ping-reverse-slow': 'ping-reverse 2s cubic-bezier(0, 0, 0.2, 1) infinite',
 			glow: 'glow 2s ease-in-out infinite',
+			shine: 'shine 5s linear infinite',
   		},
   		keyframes: {
   			'ping-reverse': {
@@ -65,6 +66,10 @@ module.exports = {
           '0%, 100%': { boxShadow: '0 0 15px #38bdf8, 0 0 30px #0ea5e9, 0 0 45px #3b82f6' },
           '50%': { boxShadow: '0 0 25px #38bdf8, 0 0 50px #0ea5e9, 0 0 75px #3b82f6' },
         },
+		shine: { 
+        '0%': { 'background-position': '100%' }, 
+        '100%': { 'background-position': '-100%' }, 
+         	   },
 		
   		},
   		borderRadius: {

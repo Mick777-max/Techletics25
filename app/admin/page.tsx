@@ -168,10 +168,10 @@ export default function AdminLogin() {
           </button>
         </form>
         <div className="flex justify-center w-full">
-          <div className="w-fit border-gray-700 border-2 rounded-md flex items-center justify-center">
+          <Link href="/" className="w-fit border-gray-700 border-2 rounded-md flex items-center justify-center p-2">
           <Image src="/icons/turn.gif" alt="turn" width={30} height={30} />
-          <Link href="/" className="text-center text-sm text-gray-700 px-4 py-2 rounded-md items-center">Back to Home</Link>
-          </div>
+          <h5 className="text-center text-sm text-gray-700  rounded-md items-center">Back to Home</h5>
+          </Link>
         </div>
       </div>
     </div>

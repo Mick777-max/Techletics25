@@ -269,7 +269,7 @@ const HeroSection = () => {
             <div className="relative">
               {/* Glow effect */}
               <div 
-                className={`absolute inset-0 w-24 h-24 rounded-full animate-pulse transition-opacity duration-[2000ms] ${
+                className={`absolute inset-0 w-24 h-24 rounded-full animate-pulse transition-opacity duration-1000 ${
                   isAnimating ? 'opacity-0' : 'opacity-100'
                 }`}
                 style={{
@@ -282,7 +282,7 @@ const HeroSection = () => {
                 onClick={startAnimation}
                 className={`
                   relative z-10 w-40 h-40 text-sm font-bold text-gray-900 bg-white 
-                  rounded-full shadow-2xl transition-all duration-[2000ms]
+                  rounded-full shadow-2xl transition-all duration-1000
                   hover:bg-gray-100 hover:shadow-white/30
                   transform hover:scale-110 active:scale-95
                   animate-bounce

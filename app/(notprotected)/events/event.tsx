@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { Badges } from "@/components/ui/badge";
 
 // const MotionLink = motion(Link);
 
@@ -558,19 +559,18 @@ function TiltEventCard({ event }: { event: EventItem }) {
         </motion.h3>
 
         <motion.div
-          className="absolute top-4 right-4 px-2 py-1 bg-white backdrop-blur-md rounded-xl border border-gray-800/50"
+          className="absolute top-4 right-4"
           whileHover={{ scale: 1.1 }}
           style={{ transform: "translateZ(20px)" }}
         >
-          <div className="text-sm font-bold text-black">
+          <Badges variant={isExpired ? "destructive" : "shinyWhite"} shiny={true}>
             {event.price === 0 ? (
               <span className="text-green-400">FREE</span>
             ) : (
               <>₹{event.price}</>
             )}
-          </div>
+          </Badges>
         </motion.div>
-
         {/* Event Info */}
         <div className="space-y-3 text-sm text-gray-400">
           <div className="flex items-center gap-3">
@@ -591,7 +591,11 @@ function TiltEventCard({ event }: { event: EventItem }) {
             </div>
             <span className="text-gray-500">Date:</span>
             <span className={`font-medium ${isExpired ? 'text-red-400' : 'text-white'}`}>
-              {displayEndDate.toLocaleDateString()}
+              {displayEndDate.toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+              })}
             </span>
           </div>
 
