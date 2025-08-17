@@ -23,14 +23,14 @@ export default function Conference() {
           className="mb-16 text-center"
         >
           <motion.h1
-            className="text-6xl md:text-7xl font-black bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent pt-10 mb-4"
+            className="whitespace-normal break-words text-6xl md:text-7xl max-sm:text-5xl font-black bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent pt-10 mb-4"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             CHRIST COLLEGE OF ENGINEERING
           </motion.h1>
           <motion.h2
-            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-6"
+            className="whitespace-normal break-words text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-6"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
