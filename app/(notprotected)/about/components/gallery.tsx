@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { images } from "../../_components/images/images";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { images } from '../../_components/images/images';
 
 type ImageBatch = { src: string }[];
 
@@ -39,9 +39,9 @@ const Gallery: React.FC = () => {
   if (!isClient) {
     return (
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <div className="animate-pulse bg-gray-200 h-96 w-full rounded"></div>
-        <div className="animate-pulse bg-gray-200 h-96 w-full rounded"></div>
-        <div className="animate-pulse bg-gray-200 h-96 w-full rounded"></div>
+        <div className="h-96 w-full animate-pulse rounded bg-gray-200"></div>
+        <div className="h-96 w-full animate-pulse rounded bg-gray-200"></div>
+        <div className="h-96 w-full animate-pulse rounded bg-gray-200"></div>
       </div>
     );
   }
@@ -50,9 +50,9 @@ const Gallery: React.FC = () => {
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
       {currentBatch.length === 0 ? (
         <>
-          <div className="animate-pulse bg-gray-200 h-96 w-full rounded"></div>
-          <div className="animate-pulse bg-gray-200 h-96 w-full rounded"></div>
-          <div className="animate-pulse bg-gray-200 h-96 w-full rounded"></div>
+          <div className="h-96 w-full animate-pulse rounded bg-gray-200"></div>
+          <div className="h-96 w-full animate-pulse rounded bg-gray-200"></div>
+          <div className="h-96 w-full animate-pulse rounded bg-gray-200"></div>
         </>
       ) : (
         currentBatch.map((image, index) => (
@@ -66,7 +66,7 @@ const Gallery: React.FC = () => {
                 alt={`Gallery image ${index + 1}`}
                 width={500}
                 height={400}
-                className="h-96 w-full scale-95 transform object-cover transition-all duration-500 hover:scale-100 rounded"
+                className="h-96 w-full scale-95 transform rounded object-cover transition-all duration-500 hover:scale-100"
                 priority={index === 0}
               />
             </div>

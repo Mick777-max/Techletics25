@@ -1,7 +1,7 @@
-"use client";
-import { useState, useRef, ReactNode } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import { cn } from "@/lib/utils";
+'use client';
+import { useState, useRef, ReactNode } from 'react';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 const ShinyInput = ({
   className,
@@ -12,8 +12,8 @@ const ShinyInput = ({
   required,
   value,
   onChange,
-  borderHoverAnimation = "1px solid #3ca2fa",
-  focus = "focus:border-[#3ca2fa]",
+  borderHoverAnimation = '1px solid #3ca2fa',
+  focus = 'focus:border-[#3ca2fa]',
   suppressHydrationWarning,
   ...props
 }: {
@@ -28,7 +28,13 @@ const ShinyInput = ({
   borderHoverAnimation?: string;
   focus?: string;
   suppressHydrationWarning?: boolean;
-  [key: string]: React.InputHTMLAttributes<HTMLInputElement>[keyof React.InputHTMLAttributes<HTMLInputElement>] | string | boolean | ReactNode | ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
+  [key: string]:
+    | React.InputHTMLAttributes<HTMLInputElement>[keyof React.InputHTMLAttributes<HTMLInputElement>]
+    | string
+    | boolean
+    | ReactNode
+    | ((e: React.ChangeEvent<HTMLInputElement>) => void)
+    | undefined;
 }) => {
   const divRef = useRef<HTMLInputElement | null>(null);
   const [, setIsFocused] = useState(false);
@@ -64,7 +70,7 @@ const ShinyInput = ({
   );
 
   return (
-    <div className={cn("relative z-40", className)}>
+    <div className={cn('relative z-40', className)}>
       <input
         onMouseMove={handleMouseMove}
         onFocus={handleFocus}
@@ -79,8 +85,7 @@ const ShinyInput = ({
         value={value}
         onChange={onChange}
         suppressHydrationWarning={suppressHydrationWarning}
-        className={`h-12 w-full cursor-pointer rounded-md border border-[#0d0e1e] bg-[#0d0e1e] p-3.5
-         text-[#fff] transition-colors duration-500 placeholder:select-none placeholder:text-[#8f99b1] ${focus} focus:outline-none`}
+        className={`h-12 w-full cursor-pointer rounded-md border border-[#0d0e1e] bg-[#0d0e1e] p-3.5 text-[#fff] transition-colors duration-500 placeholder:select-none placeholder:text-[#8f99b1] ${focus} focus:outline-none`}
         {...props}
       />
 
@@ -95,8 +100,7 @@ const ShinyInput = ({
           maskImage: shineBorder,
         }}
         aria-hidden="true"
-        className="pointer-events-none absolute left-0 top-0 z-10 h-12 w-full cursor-default rounded-md border
-         border-[#80eeb4] bg-transparent p-3.5 opacity-0 transition-opacity duration-500 placeholder:select-none"
+        className="pointer-events-none absolute left-0 top-0 z-10 h-12 w-full cursor-default rounded-md border border-[#80eeb4] bg-transparent p-3.5 opacity-0 transition-opacity duration-500 placeholder:select-none"
       />
       {icon}
     </div>

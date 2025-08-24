@@ -1,6 +1,6 @@
-"use client";
-import { useEffect, useRef } from "react";
-import * as THREE from "three";
+'use client';
+import { useEffect, useRef } from 'react';
+import * as THREE from 'three';
 
 interface ParticlesProps {
   color?: string;
@@ -11,11 +11,11 @@ interface ParticlesProps {
 }
 
 export function Particles({
-  color = "#ffffff",
+  color = '#ffffff',
   particleCount = 10000,
   particleSize = 35,
   animate = true,
-  className = "",
+  className = '',
 }: ParticlesProps) {
   const mountRef = useRef<HTMLDivElement>(null);
 
@@ -36,7 +36,7 @@ export function Particles({
         55,
         window.innerWidth / window.innerHeight,
         2,
-        2000
+        2000,
       );
       camera.position.z = 1000;
 
@@ -50,24 +50,24 @@ export function Particles({
         vertices.push(
           2000 * Math.random() - 1000,
           2000 * Math.random() - 1000,
-          2000 * Math.random() - 1000
+          2000 * Math.random() - 1000,
         );
       }
 
       geometry.setAttribute(
-        "position",
-        new THREE.Float32BufferAttribute(vertices, 3)
+        'position',
+        new THREE.Float32BufferAttribute(vertices, 3),
       );
 
       // Create a simple circular sprite programmatically instead of loading external texture
-      const canvas = document.createElement("canvas");
+      const canvas = document.createElement('canvas');
       canvas.width = 32;
       canvas.height = 32;
-      const context = canvas.getContext("2d");
+      const context = canvas.getContext('2d');
       if (context) {
         const gradient = context.createRadialGradient(16, 16, 0, 16, 16, 16);
-        gradient.addColorStop(0, "rgba(255, 255, 255, 1)");
-        gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+        gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
         context.fillStyle = gradient;
         context.fillRect(0, 0, 32, 32);
       }
@@ -117,7 +117,7 @@ export function Particles({
       if (!camera || !scene || !renderer || !material) return;
 
       // Only animate color if animate is true AND color is not white (for dark theme)
-      if (animate && color !== "#ffffff") {
+      if (animate && color !== '#ffffff') {
         const time = Date.now() * 0.00005;
         const h = ((360 * (1.0 + time)) % 360) / 360;
         material.color.setHSL(h, 0.5, 0.5);
@@ -131,14 +131,15 @@ export function Particles({
       animationFrameId = requestAnimationFrame(animateScene);
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const rendererInstance = init();
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('pointermove', handlePointerMove);
     animateScene();
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('pointermove', handlePointerMove);
       cancelAnimationFrame(animationFrameId);
 
       if (renderer) {
@@ -153,7 +154,7 @@ export function Particles({
   return (
     <div
       ref={mountRef}
-      className={`absolute top-0 left-0 w-full h-full pointer-events-none ${className}`}
+      className={`pointer-events-none absolute left-0 top-0 h-full w-full ${className}`}
     />
   );
 }

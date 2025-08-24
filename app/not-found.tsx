@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React, { useRef, MouseEvent } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Particles } from "@/components/ui/particles";
-import { Button } from "@/components/ui/button";
+import React, { useRef, MouseEvent } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Particles } from '@/components/ui/particles';
+import { Button } from '@/components/ui/button';
 
 interface NotFoundProps {
   particleCount?: number;
@@ -21,10 +21,10 @@ function NotFoundComponent({
   particleCount = 8000,
   particleSize = 2,
   animate = false, // Set to false to keep white particles static
-  imageDark = "/image/404-darkc.png",
-  buttonText = "Back to Home",
-  buttonHref = "/",
-  className = "",
+  imageDark = '/image/404-darkc.png',
+  buttonText = 'Back to Home',
+  buttonHref = '/',
+  className = '',
   onButtonClick,
 }: NotFoundProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -47,7 +47,7 @@ function NotFoundComponent({
 
   const handleMouseLeave = () => {
     if (imageRef.current) {
-      imageRef.current.style.transform = "rotateX(0deg) rotateY(0deg)";
+      imageRef.current.style.transform = 'rotateX(0deg) rotateY(0deg)';
     }
   };
 
@@ -56,8 +56,8 @@ function NotFoundComponent({
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative h-screen w-full flex items-center justify-center overflow-hidden bg-black ${className}`}
-      style={{ perspective: "1000px" }}
+      className={`relative flex h-screen w-full items-center justify-center overflow-hidden bg-black ${className}`}
+      style={{ perspective: '1000px' }}
     >
       <Particles
         color="#ffffff"
@@ -69,7 +69,7 @@ function NotFoundComponent({
 
       <div
         ref={imageRef}
-        className="absolute inset-0 w-full h-full transition-transform duration-300 ease-out will-change-transform pointer-events-none z-10"
+        className="pointer-events-none absolute inset-0 z-10 h-full w-full transition-transform duration-300 ease-out will-change-transform"
       >
         <Image
           src={imageDark}
@@ -85,12 +85,15 @@ function NotFoundComponent({
         particleCount={particleCount}
         particleSize={particleSize}
         animate={animate}
-        className="absolute inset-0 z-20 pointer-events-none"
+        className="pointer-events-none absolute inset-0 z-20"
       />
 
       <div className="relative z-30 mt-16 flex flex-col items-center gap-4">
         <Link href={buttonHref} onClick={onButtonClick}>
-          <Button variant="default" className="bg-white text-black hover:bg-gray-200 border border-black">
+          <Button
+            variant="default"
+            className="border border-black bg-white text-black hover:bg-gray-200"
+          >
             {buttonText}
           </Button>
         </Link>
@@ -107,7 +110,7 @@ export default function NotFound() {
       particleSize={2}
       animate={false}
       buttonText="Go Back Home"
-      buttonHref="/techletics"
+      buttonHref="/"
     />
   );
 }

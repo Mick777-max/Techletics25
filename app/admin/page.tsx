@@ -1,24 +1,24 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function AdminLogin() {
   const [credentials, setCredentials] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setCredentials(prev => ({ ...prev, [name]: value }));
-    setError(""); // Clear error when user types
+    setCredentials((prev) => ({ ...prev, [name]: value }));
+    setError(''); // Clear error when user types
   };
 
   const togglePasswordVisibility = () => {
@@ -28,13 +28,13 @@ export default function AdminLogin() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setError("");
+    setError('');
 
     try {
-      const response = await fetch("/api/admin/auth", {
-        method: "POST",
+      const response = await fetch('/api/admin/auth', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(credentials),
       });
@@ -43,23 +43,23 @@ export default function AdminLogin() {
 
       if (data.success) {
         // Store admin session in localStorage to match dashboard expectations
-        sessionStorage.setItem("adminAuth", "true");
-        sessionStorage.setItem("adminToken", data.token);
-        router.push("/admin/dashboard");
+        sessionStorage.setItem('adminAuth', 'true');
+        sessionStorage.setItem('adminToken', data.token);
+        router.push('/admin/dashboard');
       } else {
-        setError(data.error || "Invalid credentials");
+        setError(data.error || 'Invalid credentials');
       }
     } catch (error) {
-      console.error("Login error:", error);
-      setError("Login failed. Please try again.");
+      console.error('Login error:', error);
+      setError('Login failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Admin Login
@@ -68,11 +68,14 @@ export default function AdminLogin() {
             Techletics CCE Admin Panel
           </p>
         </div>
-        
+
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="username"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Username
               </label>
               <input
@@ -82,32 +85,35 @@ export default function AdminLogin() {
                 required
                 value={credentials.username}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-black"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-black placeholder-gray-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
                 placeholder="Enter admin username"
                 suppressHydrationWarning={true}
               />
             </div>
-            
+
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Password
               </label>
-              <div className="mt-1 relative">
+              <div className="relative mt-1">
                 <input
                   id="password"
                   name="password"
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   required
                   value={credentials.password}
                   onChange={handleChange}
-                  className="block w-full px-3 py-2 pr-10 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-black"
+                  className="block w-full rounded-md border border-gray-300 px-3 py-2 pr-10 text-black placeholder-gray-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500"
                   placeholder="Enter admin password"
                   suppressHydrationWarning={true}
                 />
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center hover:text-gray-600 focus:outline-none"
+                  className="absolute inset-y-0 right-0 flex items-center pr-3 hover:text-gray-600 focus:outline-none"
                   suppressHydrationWarning={true}
                 >
                   {showPassword ? (
@@ -153,7 +159,7 @@ export default function AdminLogin() {
           </div>
 
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-md">
+            <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-red-600">
               {error}
             </div>
           )}
@@ -161,16 +167,21 @@ export default function AdminLogin() {
           <button
             type="submit"
             disabled={isLoading}
-            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group relative flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             suppressHydrationWarning={true}
           >
-            {isLoading ? "Signing in..." : "Sign in"}
+            {isLoading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
-        <div className="flex justify-center w-full">
-          <Link href="/" className="w-fit border-gray-700 border-2 rounded-md flex items-center justify-center p-2">
-          <Image src="/icons/turn.gif" alt="turn" width={30} height={30} />
-          <h5 className="text-center text-sm text-gray-700  rounded-md items-center">Back to Home</h5>
+        <div className="flex w-full justify-center">
+          <Link
+            href="/"
+            className="flex w-fit items-center justify-center rounded-md border-2 border-gray-700 p-2"
+          >
+            <Image src="/icons/turn.gif" alt="turn" width={30} height={30} />
+            <h5 className="items-center rounded-md text-center text-sm text-gray-700">
+              Back to Home
+            </h5>
           </Link>
         </div>
       </div>

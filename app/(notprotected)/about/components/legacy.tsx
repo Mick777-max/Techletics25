@@ -1,13 +1,13 @@
-import Gallery from "./gallery";
+import Gallery from './gallery';
 
 const Legacy = () => {
   return (
-    <div >
+    <div>
       <div
-        className="flex flex-col justify-center gap-12  px-4 py-2 sm:px-8 sm:py-4 lg:px-16 lg:py-9 mt-4 font-primary text-secondary "
+        className="font-primary mt-4 flex flex-col justify-center gap-12 px-4 py-2 text-secondary sm:px-8 sm:py-4 lg:px-16 lg:py-9"
         id="legacy"
       >
-        <h2 className="text-3xl font-bold text-primary sm:text-4xl lg:text-5xl text-center">
+        <h2 className="text-center text-3xl font-bold text-primary sm:text-4xl lg:text-5xl">
           Techletics Legacy&nbsp;
         </h2>
         <div className="mb-6 sm:mb-12 lg:mb-0">
@@ -38,9 +38,7 @@ const Legacy = () => {
             3-day long techno-cultural techfest&nbsp;
           </span>
           organized by Christ College of Engineering, Irinjalakuda from&nbsp;
-          <span className="font-semibold text-primary">
-            [Date TBD]&nbsp;
-          </span>
+          <span className="font-semibold text-primary">[Date TBD]&nbsp;</span>
           2025. The techfest aims to provide a&nbsp;
           <span className="font-semibold text-primary">
             platform for technical students and develop students and

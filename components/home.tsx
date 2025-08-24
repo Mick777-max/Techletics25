@@ -1,13 +1,9 @@
-'use client'
-import HeroSection from "./herosection";
-import ThreeJSBackground from "./threeBg";
+'use client';
 
 export default function Home() {
-    return (
-      <div className="flex flex-col items-center justify-center h-screen bg-black">
-        {/* <ThreeJSBackground />
-        <h1 className="text-white mb-2">Hey this is the home page</h1> */}
-        <HeroSection />
-      </div>
-    );
-  }
+  return (
+    <div className="flex h-screen flex-col items-center justify-center bg-black">
+      <h1 className="mb-2 text-white">Hey this is the home page</h1>
+    </div>
+  );
+}

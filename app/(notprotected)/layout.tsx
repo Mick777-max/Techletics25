@@ -1,7 +1,6 @@
-import Navbar from "@/components/navbar";
-import RouteLoader from "../loading";
-import { ReactNode } from "react";
-
+import Navbar from '@/components/navbar';
+import RouteLoader from '../loading';
+import { ReactNode } from 'react';
 
 export default function Notprotectedlayout({
   children,
@@ -10,10 +9,10 @@ export default function Notprotectedlayout({
 }) {
   return (
     <div>
-        <Navbar />
-        <RouteLoader />
-        {children}
-        {/* <SplashCursor/> */}
+      <Navbar />
+      <RouteLoader />
+      {children}
+      {/* <SplashCursor/> */}
     </div>
   );
 }

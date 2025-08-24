@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
 export default function Conference() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-primary">
+    <div className="flex h-screen flex-col items-center justify-center text-primary">
       Hey this is the conference page
     </div>
-  )
+  );
 }

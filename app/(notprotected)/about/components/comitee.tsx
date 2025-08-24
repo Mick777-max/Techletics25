@@ -1,5 +1,5 @@
-import { CommitteeCard } from "@/components/cards";
-import { committees } from "./commitees";
+import { CommitteeCard } from '@/components/cards';
+import { committees } from './commitees';
 
 export default function Committee() {
   return (
@@ -7,7 +7,7 @@ export default function Committee() {
       {committees.map((item, index) => (
         <div key={index} className="px-4 sm:px-8 lg:px-16">
           <div className="flex flex-col items-center justify-center py-6 lg:py-12">
-            <h2 className="text-3xl font-bold text-center sm:text-4xl lg:text-5xl">
+            <h2 className="text-center text-3xl font-bold sm:text-4xl lg:text-5xl">
               <span className="text-primary">{item.title}</span>
               &nbsp;committee
             </h2>

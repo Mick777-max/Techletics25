@@ -1,27 +1,29 @@
-"use client";
+'use client';
 
-import { useState, useRef, ReactNode } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { useState, useRef, ReactNode } from 'react';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 /* --------- ShinyOption Component --------- */
 export const ShinyOption = ({
   value,
   children,
-  className = "",
+  className = '',
   ...props
 }: {
   value: string;
   children: ReactNode;
   className?: string;
-  [key: string]: React.OptionHTMLAttributes<HTMLOptionElement>[keyof React.OptionHTMLAttributes<HTMLOptionElement>];
+  [
+    key: string
+  ]: React.OptionHTMLAttributes<HTMLOptionElement>[keyof React.OptionHTMLAttributes<HTMLOptionElement>];
 }) => {
   return (
     <option
       value={value}
       className={cn(
-        "text-white bg-[#0d0e1e] hover:bg-[#1c1e30] hover:text-white",
-        className
+        'bg-[#0d0e1e] text-white hover:bg-[#1c1e30] hover:text-white',
+        className,
       )}
       {...props}
     >
@@ -40,8 +42,8 @@ const ShinySelect = ({
   children,
   value,
   onChange,
-  borderHoverAnimation = "1px solid #3ca2fa",
-  focus = "focus:border-[#3ca2fa]",
+  borderHoverAnimation = '1px solid #3ca2fa',
+  focus = 'focus:border-[#3ca2fa]',
   suppressHydrationWarning,
   ...props
 }: {
@@ -56,7 +58,13 @@ const ShinySelect = ({
   borderHoverAnimation?: string;
   focus?: string;
   suppressHydrationWarning?: boolean;
-  [key: string]: React.SelectHTMLAttributes<HTMLSelectElement>[keyof React.SelectHTMLAttributes<HTMLSelectElement>] | string | boolean | ReactNode | ((e: React.ChangeEvent<HTMLSelectElement>) => void) | undefined;
+  [key: string]:
+    | React.SelectHTMLAttributes<HTMLSelectElement>[keyof React.SelectHTMLAttributes<HTMLSelectElement>]
+    | string
+    | boolean
+    | ReactNode
+    | ((e: React.ChangeEvent<HTMLSelectElement>) => void)
+    | undefined;
 }) => {
   const divRef = useRef<HTMLSelectElement | null>(null);
   const [, setIsFocused] = useState(false);
@@ -88,11 +96,11 @@ const ShinySelect = ({
   const shineBorder = useTransform(
     [positionX, positionY],
     ([x, y]) =>
-      `radial-gradient(30% 30px at ${x}px ${y}px, black 45%, transparent)`
+      `radial-gradient(30% 30px at ${x}px ${y}px, black 45%, transparent)`,
   );
 
   return (
-    <div className={cn("relative z-40", className)}>
+    <div className={cn('relative z-40', className)}>
       {/* MAIN SELECT */}
       <select
         onMouseMove={handleMouseMove}
@@ -106,9 +114,7 @@ const ShinySelect = ({
         onChange={onChange}
         suppressHydrationWarning={suppressHydrationWarning}
         className={cn(
-          `h-12 w-full cursor-pointer rounded-md border border-[#0d0e1e] 
-           bg-[#0d0e1e] p-3.5 text-[#fff] transition-colors duration-500 
-           placeholder:text-[#8f99b1] ${focus} focus:outline-none`
+          `h-12 w-full cursor-pointer rounded-md border border-[#0d0e1e] bg-[#0d0e1e] p-3.5 text-[#fff] transition-colors duration-500 placeholder:text-[#8f99b1] ${focus} focus:outline-none`,
         )}
         {...props}
       >
@@ -129,10 +135,7 @@ const ShinySelect = ({
           maskImage: shineBorder,
         }}
         aria-hidden="true"
-        className="pointer-events-none absolute left-0 top-0 z-10 
-                   h-12 w-full cursor-default rounded-md border
-                   border-[#80eeb4] bg-transparent p-3.5 opacity-0 
-                   transition-opacity duration-500"
+        className="pointer-events-none absolute left-0 top-0 z-10 h-12 w-full cursor-default rounded-md border border-[#80eeb4] bg-transparent p-3.5 opacity-0 transition-opacity duration-500"
       >
         <ShinyOption value="">{placeholder}</ShinyOption>
         {children}

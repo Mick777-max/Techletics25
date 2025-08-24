@@ -1,7 +1,7 @@
-"use client";
-import { useState, useRef, ReactNode } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import { cn } from "@/lib/utils";
+'use client';
+import { useState, useRef, ReactNode } from 'react';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 const ShinyTextArea = ({
   className,
@@ -10,8 +10,8 @@ const ShinyTextArea = ({
   name,
   rows = 4,
   required,
-  borderHoverAnimation = "1px solid var(--primary-color)",
-  focus = "focus:border-[var(--primary-color)]",
+  borderHoverAnimation = '1px solid var(--primary-color)',
+  focus = 'focus:border-[var(--primary-color)]',
 }: {
   className?: string;
   icon?: ReactNode;
@@ -56,7 +56,7 @@ const ShinyTextArea = ({
   );
 
   return (
-    <div className={cn("relative z-40", className)}>
+    <div className={cn('relative z-40', className)}>
       <textarea
         onMouseMove={handleMouseMove}
         onFocus={handleFocus}
@@ -68,8 +68,7 @@ const ShinyTextArea = ({
         name={name}
         rows={rows}
         required={required}
-        className={`w-full cursor-pointer h-36 rounded-md border border-[var(--glass-color)] bg-[var(--glass-color)] p-3.5 
-        text-[var(--black-color)] dark:text-[var(--white-color)] transition-colors duration-500 placeholder:select-none placeholder:text-[var(--placeholder-color)] ${focus} focus:outline-none resize-none`}
+        className={`h-36 w-full cursor-pointer rounded-md border border-[var(--glass-color)] bg-[var(--glass-color)] p-3.5 text-[var(--black-color)] transition-colors duration-500 placeholder:select-none placeholder:text-[var(--placeholder-color)] dark:text-[var(--white-color)] ${focus} resize-none focus:outline-none`}
       />
 
       <motion.textarea
@@ -82,7 +81,7 @@ const ShinyTextArea = ({
           maskImage: shineBorder,
         }}
         aria-hidden="true"
-        className="pointer-events-none absolute h-36 left-0 top-0 z-10 w-full cursor-default rounded-md border border-[var(--secondary-color)] bg-transparent p-3.5 opacity-0 transition-opacity duration-500 placeholder:select-none"
+        className="pointer-events-none absolute left-0 top-0 z-10 h-36 w-full cursor-default rounded-md border border-[var(--secondary-color)] bg-transparent p-3.5 opacity-0 transition-opacity duration-500 placeholder:select-none"
       />
       {icon}
     </div>

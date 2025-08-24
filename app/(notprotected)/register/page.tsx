@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import Payment from "@/components/payment";
-import Image from "next/image";
-import Link from "next/link";
-import ShinyInput from "@/components/nurui/shiny-input";
-import ShinySelect, { ShinyOption } from "@/components/nurui/shiny-select";
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Payment from '@/components/payment';
+import Image from 'next/image';
+import Link from 'next/link';
+import ShinyInput from '@/components/nurui/shiny-input';
+import ShinySelect, { ShinyOption } from '@/components/nurui/shiny-select';
 
 type College = { name: string };
 
@@ -26,30 +26,30 @@ function RegisterPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedEventPrice, setSelectedEventPrice] = useState<number>(0);
   const [isChecked, setIsChecked] = useState(false);
-  const [phoneError, setPhoneError] = useState<string>("");
+  const [phoneError, setPhoneError] = useState<string>('');
   const [redirectCountdown, setRedirectCountdown] = useState<number>(5);
   const [events, setEvents] = useState<Event[]>([]);
   const [eventsLoading, setEventsLoading] = useState(true);
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    college: "",
-    event: "",
-    gender: "",
-    sem: "",
-    branch: "",
+    name: '',
+    email: '',
+    phone: '',
+    college: '',
+    event: '',
+    gender: '',
+    sem: '',
+    branch: '',
   });
 
   const [collegeSuggestions, setCollegeSuggestions] = useState<string[]>([]);
   const [branchSuggestions, setBranchSuggestions] = useState<string[]>([]);
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(
-    null
+    null,
   );
 
-  const genders = ["Male", "Female", "Not prefer to say"];
-  const sem = ["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8"];
+  const genders = ['Male', 'Female', 'Not prefer to say'];
+  const sem = ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'];
 
   // Fetch events on component mount
   useEffect(() => {
@@ -58,18 +58,18 @@ function RegisterPage() {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch("/api/events");
+      const response = await fetch('/api/events');
       const data = await response.json();
 
       if (data.success) {
         setEvents(data.events);
       } else {
-        console.error("Failed to fetch events:", data.error);
+        console.error('Failed to fetch events:', data.error);
         // Fallback to empty array if events can't be loaded
         setEvents([]);
       }
     } catch (error) {
-      console.error("Error fetching events:", error);
+      console.error('Error fetching events:', error);
       setEvents([]);
     } finally {
       setEventsLoading(false);
@@ -78,42 +78,42 @@ function RegisterPage() {
 
   // Phone validation function for Indian mobile numbers
   const validateIndianPhone = (
-    phone: string
+    phone: string,
   ): { isValid: boolean; error: string } => {
     // Remove any spaces, dashes, or other non-digit characters
-    const cleanPhone = phone.replace(/\D/g, "");
+    const cleanPhone = phone.replace(/\D/g, '');
 
     // Check if exactly 10 digits
     if (cleanPhone.length !== 10) {
       return {
         isValid: false,
-        error: "Phone number must be exactly 10 digits",
+        error: 'Phone number must be exactly 10 digits',
       };
     }
 
     // Check if it starts with valid Indian mobile prefixes (6, 7, 8, 9)
     const firstDigit = cleanPhone[0];
-    if (!["6", "7", "8", "9"].includes(firstDigit)) {
+    if (!['6', '7', '8', '9'].includes(firstDigit)) {
       return {
         isValid: false,
-        error: "Indian mobile numbers must start with 6, 7, 8, or 9",
+        error: 'Indian mobile numbers must start with 6, 7, 8, or 9',
       };
     }
 
-    return { isValid: true, error: "" };
+    return { isValid: true, error: '' };
   };
 
   // Play success audio when payment is completed and start redirect countdown
   useEffect(() => {
     if (isPaymentComplete) {
-      const audio = new Audio("/audio/mohanlal .mp3"); // Adjust path as needed
+      const audio = new Audio('/audio/mohanlal .mp3'); // Adjust path as needed
 
       // Optional: Set volume (0.0 to 1.0)
       audio.volume = 0.7;
 
       // Play the audio with error handling
       audio.play().catch((error) => {
-        console.log("Audio playback failed:", error);
+        console.log('Audio playback failed:', error);
         // This is normal if user hasn't interacted with the page yet
       });
 
@@ -124,7 +124,7 @@ function RegisterPage() {
             clearInterval(countdownInterval);
             // Use setTimeout to move router.push out of the render cycle
             setTimeout(() => {
-              router.push("/");
+              router.push('/');
             }, 0);
             return 0;
           }
@@ -140,19 +140,19 @@ function RegisterPage() {
   // Separate useEffect to handle redirect when countdown reaches 0
   useEffect(() => {
     if (redirectCountdown === 0 && isPaymentComplete) {
-      router.push("/");
+      router.push('/');
     }
   }, [redirectCountdown, isPaymentComplete, router]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
 
     // Special handling for phone input
-    if (name === "phone") {
+    if (name === 'phone') {
       // Allow only digits and limit to 10 characters
-      const numericValue = value.replace(/\D/g, "").slice(0, 10);
+      const numericValue = value.replace(/\D/g, '').slice(0, 10);
       setFormData((prev) => ({ ...prev, [name]: numericValue }));
 
       // Validate phone number
@@ -160,7 +160,7 @@ function RegisterPage() {
         const validation = validateIndianPhone(numericValue);
         setPhoneError(validation.error);
       } else {
-        setPhoneError("");
+        setPhoneError('');
       }
       return;
     }
@@ -168,18 +168,18 @@ function RegisterPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
 
     // Handle event selection to show payment
-    if (name === "event" && value) {
+    if (name === 'event' && value) {
       const selectedEvent = events.find((event) => event.name === value);
       if (selectedEvent) {
         setSelectedEventPrice(selectedEvent.price);
         setShowPayment(true);
       }
-    } else if (name === "event" && !value) {
+    } else if (name === 'event' && !value) {
       setShowPayment(false);
       setSelectedEventPrice(0);
     }
 
-    if (name === "college") {
+    if (name === 'college') {
       if (typingTimeout) clearTimeout(typingTimeout);
       const timeout = setTimeout(() => {
         if (value.trim().length >= 2) {
@@ -190,7 +190,7 @@ function RegisterPage() {
               // Expecting { colleges: [{ name: string }] }
               if (Array.isArray(data.colleges)) {
                 const collegeNames = data.colleges.map(
-                  (item: College) => item.name
+                  (item: College) => item.name,
                 );
                 setCollegeSuggestions(collegeNames);
               } else {
@@ -199,8 +199,8 @@ function RegisterPage() {
             })
             .catch((error) => {
               console.error(
-                "Fetch error:",
-                error instanceof Error ? error.message : String(error)
+                'Fetch error:',
+                error instanceof Error ? error.message : String(error),
               );
               setCollegeSuggestions([]);
             });
@@ -211,7 +211,7 @@ function RegisterPage() {
       setTypingTimeout(timeout);
     }
 
-    if (name === "branch") {
+    if (name === 'branch') {
       const timeout = setTimeout(() => {
         if (value.trim().length >= 2) {
           fetch(`/api/branch?search=${encodeURIComponent(value)}`)
@@ -221,7 +221,7 @@ function RegisterPage() {
               if (Array.isArray(data.branches)) {
                 const branchNames = data.branches.map(
                   (item: { name: string; abbr: string }) =>
-                    `${item.name} (${item.abbr})`
+                    `${item.name} (${item.abbr})`,
                 );
                 setBranchSuggestions(branchNames);
               } else {
@@ -229,7 +229,7 @@ function RegisterPage() {
               }
             })
             .catch((error) => {
-              console.error("Fetch error:", error);
+              console.error('Fetch error:', error);
               setBranchSuggestions([]);
             });
         } else {
@@ -246,7 +246,7 @@ function RegisterPage() {
   };
 
   const handleSelectBranch = (branchEntry: string) => {
-    const nameOnly = branchEntry.split(" (")[0];
+    const nameOnly = branchEntry.split(' (')[0];
     setFormData((prev) => ({ ...prev, branch: nameOnly }));
     setBranchSuggestions([]);
   };
@@ -256,10 +256,10 @@ function RegisterPage() {
 
     // Check if all fields are filled
     const isValid = Object.values(formData).every(
-      (value) => value.trim() !== ""
+      (value) => value.trim() !== '',
     );
     if (!isValid) {
-      alert("Please fill in all fields.");
+      alert('Please fill in all fields.');
       return;
     }
 
@@ -267,7 +267,7 @@ function RegisterPage() {
     const phoneValidation = validateIndianPhone(formData.phone);
     if (!phoneValidation.isValid) {
       alert(
-        "Please enter a valid Indian mobile number: " + phoneValidation.error
+        'Please enter a valid Indian mobile number: ' + phoneValidation.error,
       );
       return;
     }
@@ -282,17 +282,17 @@ function RegisterPage() {
       const registrationData = {
         ...formData,
         payment: {
-          status: isEventFree ? "free" : "pending",
+          status: isEventFree ? 'free' : 'pending',
           amount: selectedEventPrice,
-          transactionId: isEventFree ? "FREE_EVENT" : undefined,
+          transactionId: isEventFree ? 'FREE_EVENT' : undefined,
         },
       };
 
       // Save the registration data to MongoDB
-      const response = await fetch("/api/formdb", {
-        method: "POST",
+      const response = await fetch('/api/formdb', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(registrationData),
       });
@@ -302,19 +302,19 @@ function RegisterPage() {
       if (result.success) {
         setRegId(result.id);
         setFormSubmitted(true);
-        console.log("Registration saved with ID:", result.id);
+        console.log('Registration saved with ID:', result.id);
 
         // If event is free, mark as complete immediately
         if (isEventFree) {
           setIsPaymentComplete(true);
-          console.log("Free event registration completed");
+          console.log('Free event registration completed');
         }
       } else {
-        alert("Registration failed: " + (result.error || "Unknown error"));
+        alert('Registration failed: ' + (result.error || 'Unknown error'));
       }
     } catch (error) {
-      console.error("Registration error:", error);
-      alert("Registration failed. Please try again.");
+      console.error('Registration error:', error);
+      alert('Registration failed. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -326,40 +326,40 @@ function RegisterPage() {
     amount: number;
   }) => {
     if (!regId) {
-      console.error("No registration ID available for payment update");
-      alert("Error: Registration ID not found. Please try registering again.");
+      console.error('No registration ID available for payment update');
+      alert('Error: Registration ID not found. Please try registering again.');
       return;
     }
 
     try {
-      console.log("Sending PATCH to /api/formdb", {
+      console.log('Sending PATCH to /api/formdb', {
         id: regId,
         ...paymentDetails,
       });
-      const res = await fetch("/api/formdb", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/api/formdb', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: regId, ...paymentDetails }),
       });
 
       const data = await res.json();
-      console.log("PATCH response:", data);
+      console.log('PATCH response:', data);
 
       if (data.success) {
         setIsPaymentComplete(true);
-        console.log("Payment updated successfully");
+        console.log('Payment updated successfully');
       } else {
-        alert(data.error || "Failed to update payment info");
+        alert(data.error || 'Failed to update payment info');
       }
     } catch (err) {
-      alert("Payment update error");
-      console.error("Payment update error:", err);
+      alert('Payment update error');
+      console.error('Payment update error:', err);
     }
   };
 
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen p-6 bg-black">
-      <h1 className="text-2xl font-bold mb-4 text-white mt-16">
+    <section className="flex min-h-screen flex-col items-center justify-center bg-black p-6">
+      <h1 className="mb-4 mt-16 text-2xl font-bold text-white">
         Registration for Techletics CCE Events
       </h1>
 
@@ -367,7 +367,7 @@ function RegisterPage() {
         <>
           <form
             onSubmit={handleSubmit}
-            className="w-full max-w-md flex flex-col gap-3"
+            className="flex w-full max-w-md flex-col gap-3"
           >
             <ShinyInput
               type="text"
@@ -395,7 +395,7 @@ function RegisterPage() {
                 placeholder="Phone (WhatsApp)"
                 value={formData.phone}
                 onChange={handleChange}
-                className={`${phoneError ? "border-red-500" : ""}`}
+                className={`${phoneError ? 'border-red-500' : ''}`}
                 required
                 maxLength={10}
                 pattern="[6-9][0-9]{9}"
@@ -403,12 +403,12 @@ function RegisterPage() {
                 suppressHydrationWarning={true}
               />
               {phoneError && (
-                <p className="text-red-500 text-xs mt-1">{phoneError}</p>
+                <p className="mt-1 text-xs text-red-500">{phoneError}</p>
               )}
               {formData.phone.length > 0 &&
                 !phoneError &&
                 formData.phone.length === 10 && (
-                  <p className="text-green-500 text-xs mt-1">
+                  <p className="mt-1 text-xs text-green-500">
                     ✓ Valid phone number
                   </p>
                 )}
@@ -458,12 +458,12 @@ function RegisterPage() {
                 suppressHydrationWarning={true}
               />
               {collegeSuggestions.length > 0 && (
-                <ul className="absolute z-50 w-full bg-[#0d0e1e] border rounded-md max-h-48 overflow-y-auto shadow-md">
+                <ul className="absolute z-50 max-h-48 w-full overflow-y-auto rounded-md border bg-[#0d0e1e] shadow-md">
                   {collegeSuggestions.map((college, index) => (
                     <li
                       key={index}
                       onClick={() => handleSelectCollege(college)}
-                      className="px-4 py-2 hover:bg-blue-600 cursor-pointer text-white last:border-b-0"
+                      className="cursor-pointer px-4 py-2 text-white last:border-b-0 hover:bg-blue-600"
                     >
                       {college}
                     </li>
@@ -500,12 +500,12 @@ function RegisterPage() {
                 suppressHydrationWarning={true}
               />
               {branchSuggestions.length > 0 && (
-                <ul className="absolute z-50 w-full bg-[#0d0e1e] border rounded-md max-h-48 overflow-y-auto shadow-md">
+                <ul className="absolute z-50 max-h-48 w-full overflow-y-auto rounded-md border bg-[#0d0e1e] shadow-md">
                   {branchSuggestions.map((branch, index) => (
                     <li
                       key={index}
                       onClick={() => handleSelectBranch(branch)}
-                      className="px-4 py-2 hover:bg-blue-600 cursor-pointer text-white last:border-b-0"
+                      className="cursor-pointer px-4 py-2 text-white last:border-b-0 hover:bg-blue-600"
                     >
                       {branch}
                     </li>
@@ -541,8 +541,8 @@ function RegisterPage() {
             )}
 
             {events.length === 0 && !eventsLoading && (
-              <div className="bg-yellow-50 p-3 rounded-md border border-yellow-200">
-                <p className="text-yellow-800 text-sm text-center">
+              <div className="rounded-md border border-yellow-200 bg-yellow-50 p-3">
+                <p className="text-center text-sm text-yellow-800">
                   No events are currently available for registration.
                 </p>
               </div>
@@ -550,23 +550,23 @@ function RegisterPage() {
 
             {/* Show price and poster when event is selected */}
             {formData.event && (
-              <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-black relative p-3 rounded-md">
-                <p className="text-blue-400 font-semibold text-center">
+              <div className="relative rounded-md bg-gradient-to-br from-slate-950 via-blue-950 to-black p-3">
+                <p className="text-center font-semibold text-blue-400">
                   Selected: {formData.event} - ₹{selectedEventPrice}
                 </p>
 
                 {/* Show event poster if available */}
                 {events.find((e) => e.name === formData.event)?.poster && (
                   <div className="mt-3 flex justify-center">
-                    <div className="relative w-32 h-40 border border-blue-300 rounded-md overflow-hidden">
+                    <div className="relative h-40 w-32 overflow-hidden rounded-md border border-blue-300">
                       <Image
                         src={
                           events.find((e) => e.name === formData.event)
-                            ?.poster || ""
+                            ?.poster || ''
                         }
                         alt={`${formData.event} poster`}
                         fill
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: 'cover' }}
                       />
                     </div>
                   </div>
@@ -580,13 +580,13 @@ function RegisterPage() {
                 type="checkbox"
                 checked={isChecked}
                 onChange={() => setIsChecked(!isChecked)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                 required={true}
               />
               <label htmlFor="terms" className="text-sm text-gray-700">
-                I have read and agree to all{" "}
+                I have read and agree to all{' '}
                 <Link href="/terms" passHref>
-                  <span className="text-blue-600 underline hover:text-blue-800 cursor-pointer">
+                  <span className="cursor-pointer text-blue-600 underline hover:text-blue-800">
                     terms and conditions
                   </span>
                 </Link>
@@ -598,29 +598,29 @@ function RegisterPage() {
               disabled={
                 isSubmitting ||
                 formSubmitted ||
-                phoneError !== "" ||
+                phoneError !== '' ||
                 eventsLoading ||
                 events.length === 0
               }
-              className={`mt-4 p-2 rounded-md transition-colors duration-200 disabled:cursor-not-allowed ${
+              className={`mt-4 rounded-md p-2 transition-colors duration-200 disabled:cursor-not-allowed ${
                 formSubmitted
-                  ? "bg-gradient-to-tr from-slate-900 via-green-900 to-slate-900 text-white"
-                  : "bg-gradient-to-tr from-slate-900 via-blue-900 to-slate-900 text-white hover:bg-blue-600 disabled:bg-gray-400"
+                  ? 'bg-gradient-to-tr from-slate-900 via-green-900 to-slate-900 text-white'
+                  : 'bg-gradient-to-tr from-slate-900 via-blue-900 to-slate-900 text-white hover:bg-blue-600 disabled:bg-gray-400'
               }`}
               suppressHydrationWarning={true}
             >
               {isSubmitting
-                ? "Submitting..."
+                ? 'Submitting...'
                 : formSubmitted
-                ? "For Payment Scroll Down ↓"
-                : "Submit Registration"}
+                  ? 'For Payment Scroll Down ↓'
+                  : 'Submit Registration'}
             </button>
           </form>
 
           {/* Show payment immediately when event is selected and form is submitted */}
           {showPayment && formSubmitted && selectedEventPrice > 0 && (
             <div className="mt-6 w-full max-w-md">
-              <p className="text-green-600 font-semibold mb-2 text-center">
+              <p className="mb-2 text-center font-semibold text-green-600">
                 Form submitted successfully! Please proceed to payment.
               </p>
               <Payment
@@ -638,13 +638,13 @@ function RegisterPage() {
           {/* Show success message for free events */}
           {formSubmitted && selectedEventPrice === 0 && (
             <div className="mt-6 w-full max-w-md">
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
-                <p className="text-green-800 font-semibold mb-2">
+              <div className="rounded-lg border border-green-200 bg-green-50 p-4 text-center">
+                <p className="mb-2 font-semibold text-green-800">
                   Registration Successful! 🎉
                 </p>
-                <p className="text-green-600 text-sm">
-                  Since this is a free event, no payment is required. You will be
-                  redirected shortly.
+                <p className="text-sm text-green-600">
+                  Since this is a free event, no payment is required. You will
+                  be redirected shortly.
                 </p>
               </div>
             </div>
@@ -660,8 +660,8 @@ function RegisterPage() {
             width={300}
             height={300}
           />
-          <div className="flex flex-row items-center justify-center mt-4 gap-2">
-            <div className="ring-2 ring-green-500 rounded-full">
+          <div className="mt-4 flex flex-row items-center justify-center gap-2">
+            <div className="rounded-full ring-2 ring-green-500">
               <Image
                 src="/icons/tick.gif"
                 alt="Success"
@@ -670,22 +670,22 @@ function RegisterPage() {
                 unoptimized={true}
               />
             </div>
-            <h1 className="text-green-700 font-bold text-xl text-center">
+            <h1 className="text-center text-xl font-bold text-green-700">
               Registration Complete! Thank you for registering.
             </h1>
           </div>
-          <p className="text-sm text-white mt-2 font-normal">
+          <p className="mt-2 text-sm font-normal text-white">
             We will contact you shortly
           </p>
 
           {/* Redirect countdown */}
           <div className="mt-4 text-center">
-            <p className="text-sm text-blue-600 font-medium">
+            <p className="text-sm font-medium text-blue-600">
               Redirecting to home page in {redirectCountdown} seconds...
             </p>
             <button
-              onClick={() => router.push("/")}
-              className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-200 text-sm"
+              onClick={() => router.push('/')}
+              className="mt-2 rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors duration-200 hover:bg-blue-600"
             >
               Go to Home Now
             </button>
