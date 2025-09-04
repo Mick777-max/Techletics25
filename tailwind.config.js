@@ -1,18 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ['class'],
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        primary: '#ff5c00',
-        secondary: '#964B00',
-        tertiary: '#e8ede4',
-        quarternary: '#acbec3',
+        primary: '#f5f2bd',
+        secondary: '#ff1282',
+        tertiary: '#f7fa09',
+        quarternary: '#1e1e1e',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -51,6 +50,7 @@ module.exports = {
           'ping-reverse 2s cubic-bezier(0, 0, 0.2, 1) infinite',
         glow: 'glow 2s ease-in-out infinite',
         shine: 'shine 5s linear infinite',
+        'spin-slow': 'spin 10s linear infinite',
       },
       keyframes: {
         'ping-reverse': {
@@ -81,7 +81,12 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      fontFamily: {
+        'secondary': ['var(--font-secondary)', 'Garamond', 'Times New Roman', 'serif'],
+        'turret': ['var(--font-turret-road)', 'Helvetica', 'Arial', 'sans-serif'],
+        'rasputin': ['var(--font-rasputin)', 'Garamond', 'Times New Roman', 'serif'],
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
-};
+}

@@ -63,7 +63,7 @@ export default function RouteLoader() {
       <div className="relative z-10 text-center">
         {/* Outer spinning ring with gradient */}
         <div className="relative mx-auto mb-8 h-40 w-40">
-          <div className="animate-spin-slow absolute inset-0">
+          <div className="absolute inset-0 animate-spin-slow">
             <div className="h-full w-full rounded-full border-4 border-transparent bg-gradient-to-r from-gray-600 via-gray-400 to-gray-600 p-1">
               <div className="h-full w-full rounded-full bg-black" />
             </div>

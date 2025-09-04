@@ -10,30 +10,25 @@ export const turretRoad = Turret_Road({
   variable: '--font-turret-road',
 });
 
-// Fixed Fonarto font configuration
-export const Fonarto = localFont({
-  src: [
-    {
-      path: './Rasputin.otf',
-      weight: '400',
-      style: 'normal',
-    },
-    // {
-    //   path: "./NeueMetana-Bold.otf",
-    //   weight: "700",
-    //   style: "bold",
-    // },
-  ],
-  display: 'swap',
-  fallback: ['Garamond', 'Times New Roman', 'serif'],
-  variable: '--font-fonarto', // Fixed variable name to match font name
-});
-
-// Alternative simpler approach if you only have one font file:
-export const FonartoAlt = localFont({
+// Rasputin as default font
+export const rasputinFont = localFont({
   src: './Rasputin.otf',
   display: 'swap',
   fallback: ['Garamond', 'Times New Roman', 'serif'],
-  variable: '--font-fonarto',
-  weight: '100 900', // Allow all weights
+  variable: '--font-rasputin',
+  weight: '100 900',
+});
+
+// Cakra as secondary font (for font-secondary class)
+export const secondaryFont = localFont({
+  src: [
+    {
+      path: './Offbit-Bold.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  display: 'swap',
+  fallback: ['Garamond', 'Times New Roman', 'serif'],
+  variable: '--font-secondary',
 });

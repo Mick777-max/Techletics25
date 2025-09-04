@@ -36,18 +36,18 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed z-50 w-full border-b border-white/20 bg-white/10 shadow-lg backdrop-blur-lg">
+    <nav className="fixed z-50 w-full border-b border-white/20 bg-secondary shadow-lg backdrop-blur-lg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 justify-between">
           {/* Logo and brand */}
           <div className="flex flex-shrink-0 items-center">
             <Link href="/" prefetch={true}>
               <Image
-                src="/logos/techletics-metal.svg"
+                src="/logos/logo.png"
                 alt="Techletics Logo"
                 width={150}
                 height={40}
-                className="h-8 w-auto drop-shadow-sm"
+                className="h-20 w-auto drop-shadow-sm"
                 priority
               />
             </Link>

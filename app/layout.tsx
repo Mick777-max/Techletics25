@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Fonarto, turretRoad } from '@/public/fonts';
+import { secondaryFont, turretRoad, rasputinFont } from '@/public/fonts';
 import './globals.css';
 
 // Base URL based on environment
@@ -106,7 +106,7 @@ export default function RootLayout({
         <link rel="canonical" href={baseUrl} />
       </head>
       <body
-        className={`${turretRoad.variable} ${Fonarto.variable} antialiased`}
+        className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${rasputinFont.className} antialiased`}
         suppressHydrationWarning={true}
       >
         {children}

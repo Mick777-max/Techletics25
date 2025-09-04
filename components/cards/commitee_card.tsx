@@ -28,7 +28,7 @@ export default function CommitteeCard({ info }: { info: Details }) {
             <span className="text-md font-primary text-secondary sm:text-lg">
               {info.name}
             </span>
-            <span className="text-md font-secondary text-center capitalize text-primary sm:text-lg">
+            <span className="text-md text-center font-secondary capitalize text-primary sm:text-lg">
               {info.role}
             </span>
           </div>
@@ -52,7 +52,7 @@ export default function CommitteeCard({ info }: { info: Details }) {
           <span className="text-md font-primary text-secondary sm:text-lg">
             {info.name}
           </span>
-          <span className="text-md font-secondary text-center capitalize text-primary sm:text-lg">
+          <span className="text-md text-center font-secondary capitalize text-primary sm:text-lg">
             {info.role}
           </span>
         </div>
