@@ -23,7 +23,7 @@ export const rasputinFont = localFont({
 export const secondaryFont = localFont({
   src: [
     {
-      path: './Offbit-Bold.ttf',
+      path: './OffBit-Bold.ttf',
       weight: '400',
       style: 'normal',
     },
