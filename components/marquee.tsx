@@ -20,7 +20,7 @@ const TextMarquee = ({
 }: TextMarqueeProps) => {
   return (
     <section
-      className={clsx('w-full min-w-80 overflow-x-clip py-2 md:py-4', {
+      className={clsx('w-full min-w-80 overflow-visible', {
         'bg-primary': bgColor === 'primary',
         'bg-secondary': bgColor === 'secondary',
         'border-b border-secondary border-opacity-30 bg-tertiary':
@@ -32,7 +32,7 @@ const TextMarquee = ({
       <Marquee>
         {[...Array(10)].map((index) =>
           type === 'primary' ? (
-            <p
+            <div
               key={index}
               className={clsx('font-primary flex gap-3 text-2xl md:text-3xl', {
                 'text-tertiary': textColor === 'light',
@@ -46,13 +46,14 @@ const TextMarquee = ({
                 height={24}
                 className="ml-4"
               />
-              <Image
-                src="/icons/marquee.svg"
-                alt="Diamond Icon"
-                width={150}
-                height={50}
-              />
-            </p>
+              <div className='relative'>
+                <span
+    className="font-extrabold font-secondary text-quarternary"
+    
+  >
+    TECHLETICS&apos; 25
+  </span></div>
+            </div>
           ) : (
             <p
               key={index}
