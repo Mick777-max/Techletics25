@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center h-[90vh] w-full bg-primary gap-8 px-6">
+    <div className="pb-[60px] flex items-center justify-center h-[90vh] w-full bg-primary gap-8 max-lg:flex-col max-lg:gap-[50px]">
       <Image
         src="/image/womanbg-1.png"
         alt="Woman"
@@ -14,7 +14,7 @@ export default function Home() {
       
       <div className="flex flex-col items-center md:items-start gap-2">
         <div className="flex items-center gap-4">
- <span className="leading-none -rotate-6 font-secondary text-quarternary text-[80px] font-extrabold">
+ <span className="leading-none -rotate-6 font-secondary text-quarternary text-[80px] max-cmd:text-[50px] font-extrabold">
           IGNITE.INSPIRE.
         </span>
         <Image
@@ -30,7 +30,7 @@ export default function Home() {
 
         
         <div className="flex items-center gap-4">
-          <span className="leading-none font-secondary text-quarternary text-[120px] font-extrabold">
+          <span className="leading-none font-secondary text-quarternary text-[120px] max-cmd:text-[80px] font-extrabold">
             ILLUMINATE.
           </span>
           
