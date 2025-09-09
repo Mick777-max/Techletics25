@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="min-w-[440px] min-h-[919px]">
+    <div className="min-w-[515px] min-h-[919px]">
       <section className='bg-primary'>
         <Home />
       </section>
