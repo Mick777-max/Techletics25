@@ -8,9 +8,9 @@ export default function Notprotectedlayout({
   children: ReactNode;
 }) {
   return (
-    <div>
+    <div className=''>
       <Navbar />
-      <RouteLoader />
+      {/* <RouteLoader /> */}
       {children}
       {/* <SplashCursor/> */}
     </div>

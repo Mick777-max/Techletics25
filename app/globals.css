@@ -67,6 +67,9 @@ body {
   body {
     @apply bg-background text-foreground w-full;
   }
+  html {
+  scroll-behavior: smooth;
+}
 
   
 }

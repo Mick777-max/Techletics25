@@ -2,7 +2,8 @@ import Image from 'next/image';
 
 export default function Homeabout() {
   return (
-    <main className="h-screen w-full bg-primary px-3 md:relative">
+    <main className="h-screen mx-auto max-w-screen-2xl bg-primary px-3 md:relative">
+      <span id="about"></span>
       <div className="text-4xl md:text-6xl">
         <h1 className="pt-10 font-secondary text-quarternary md:pt-20">
           ARE YOU A <span className="text-secondary">TECH ENTHUSIAST?</span>{' '}
@@ -13,7 +14,7 @@ export default function Homeabout() {
           YOU.
         </h1>
       </div>
-      <div className="hidden md:absolute md:-top-10 md:right-0 md:block">
+      {/* <div className="hidden md:absolute md:-top-10 md:right-0 md:block">
         <Image
           src="/image/flower.svg"
           alt="flower"
@@ -21,7 +22,7 @@ export default function Homeabout() {
           height={250}
           className="-z-10"
         />
-      </div>
+      </div> */}
       <div className="max-w-screen-sm">
         <p className="text-quarternary md:pt-10">
           Join us for the third edition of Techletics, the techno-cultural
