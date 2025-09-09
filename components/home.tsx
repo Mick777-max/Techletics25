@@ -13,14 +13,14 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className='h-[620px] shrink'
+        className='h-[620px] min-w-[300px]'
       >
         <Image
           src="/image/womanbg-1.png"
           alt="Woman"
           width={600}
           height={1000}
-          className="h-auto w-full object-cover -rotate-6"
+          className="h-full w-full object-cover -rotate-6"
         />
       </motion.div>
 
