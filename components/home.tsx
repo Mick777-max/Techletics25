@@ -13,7 +13,7 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className='h-[80vh] shrink'
+        className='h-[620px] shrink'
       >
         <Image
           src="/image/womanbg-1.png"
