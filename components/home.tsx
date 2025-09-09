@@ -20,7 +20,7 @@ export default function Home() {
           alt="Woman"
           width={600}
           height={1000}
-          className="h-full w-full -rotate-6"
+          className="h-auto w-full object-cover -rotate-6"
         />
       </motion.div>
 
