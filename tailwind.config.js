@@ -54,6 +54,7 @@ module.exports = {
         glow: 'glow 2s ease-in-out infinite',
         shine: 'shine 5s linear infinite',
         'spin-slow': 'spin 10s linear infinite',
+        'fade-slide-in': 'fade-slide-in 1s ease-out forwards',
       },
       keyframes: {
         'ping-reverse': {
@@ -77,6 +78,11 @@ module.exports = {
         shine: {
           '0%': { 'background-position': '100%' },
           '100%': { 'background-position': '-100%' },
+        },
+        'fade-slide-in': {
+          '0%': { opacity: '0', transform: 'translateX(-50%)' },
+          
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
       },
       borderRadius: {

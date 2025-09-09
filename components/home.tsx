@@ -5,7 +5,7 @@ import { fadeIn, slideIn, zoomIn } from '@/app/utils/motion';
 
 export default function Home() {
   return (
-    <div className="pb-[20px] relative flex items-center justify-center h-[100vh] mx-auto max-w-screen-2xl bg-primary gap-8 max-lg:flex-col max-lg:gap-[50px]">
+    <div className="pb-[0.5rem] relative flex items-center justify-center min-h-[90vh] mx-auto max-w-screen-2xl bg-primary gap-8 max-lg:flex-col max-lg:gap-[50px]">
 
       
       <motion.div
@@ -13,14 +13,14 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className='h-[620px] min-w-[300px]'
+        className='shrink h-[40rem] min-w-[18.75rem]'
       >
         <Image
           src="/image/womanbg-1.png"
           alt="Woman"
           width={600}
           height={1000}
-          className="h-full w-full object-cover -rotate-6"
+          className="h-auto w-auto object-contain -rotate-6"
         />
       </motion.div>
 
@@ -30,14 +30,14 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="flex flex-col items-center md:items-start gap-6"
+        className="flex flex-col items-center md:items-start gap-6 shrink"
       >
         
         <motion.div
           variants={fadeIn("", "tween", 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="leading-none -rotate-6 font-secondary text-quarternary text-[80px] max-cmd:text-[50px] font-extrabold">
+          <span className="leading-none -rotate-6 font-secondary text-quarternary text-[5rem] max-cmd:text-[3.125rem] font-extrabold">
             IGNITE.INSPIRE.
           </span>
           <Image
@@ -45,7 +45,7 @@ export default function Home() {
             alt="Spark icon"
             width={100}
             height={100}
-            className="h-[100px] w-auto"
+            className="h-[6.25rem] w-auto"
           />
         </motion.div>
 
@@ -54,28 +54,28 @@ export default function Home() {
           variants={fadeIn("", "tween", 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="leading-none font-secondary text-quarternary text-[120px] max-cmd:text-[80px] font-extrabold">
+          <span className="leading-none font-secondary text-quarternary text-[7.5rem] max-cmd:text-[5rem] font-extrabold">
             ILLUMINATE.
           </span>
         </motion.div>
       </motion.div>
 
       
-      <div className='absolute bottom-1 w-full flex justify-center items-center max-cmd:bottom-0'>
-        <a href="#about">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
-            <motion.div
-              animate={{ y: [0, 24, 0] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: 'loop'
-              }}
-              className='w-3 h-3 rounded-full bg-secondary mb-1'
-            />
-          </div>
-        </a>
-      </div>
+      <div className="w-full flex justify-center items-center mt-2 md:absolute md:bottom-1 max-cmd:mt-2">
+  <a href="#about">
+    <div className="w-[2.188rem] h-[4rem] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
+      <motion.div
+        animate={{ y: [0, 24, 0] }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          repeatType: 'loop'
+        }}
+        className='w-3 h-3 rounded-full bg-secondary mb-1'
+      />
+    </div>
+  </a>
+</div>
     </div>
   );
 }
