@@ -1,8 +1,6 @@
-import Image from 'next/image';
-
 export default function Homeabout() {
   return (
-    <main className="h-screen mx-auto max-w-screen-2xl bg-primary px-3 md:relative">
+    <main className="mx-auto h-screen max-w-screen-2xl bg-primary px-3 md:relative">
       <span id="about"></span>
       <div className="text-4xl md:text-6xl">
         <h1 className="pt-10 font-secondary text-quarternary md:pt-20">
