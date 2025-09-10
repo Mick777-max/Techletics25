@@ -5,7 +5,7 @@ import { fadeIn, slideIn, zoomIn } from '@/app/utils/motion';
 
 export default function Home() {
   return (
-    <div className="pb-[0.5rem] relative flex items-center justify-center min-h-[90vh] mx-auto max-w-screen-2xl bg-primary gap-8 max-lg:flex-col max-lg:gap-[50px]">
+    <div className="pb-[0.5rem] relative flex items-center justify-center min-h-[90vh] mx-auto max-w-screen-2xl bg-primary gap-8 max-lg:flex-col max-lg:gap-[1rem]">
 
       
       <motion.div
@@ -13,14 +13,14 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className='shrink h-[40rem] min-w-[18.75rem]'
+        className='h-[40rem] min-w-[18.75rem]'
       >
         <Image
           src="/image/womanbg-1.png"
           alt="Woman"
           width={600}
           height={1000}
-          className="h-auto w-auto object-contain -rotate-6"
+          className="h-full w-auto object-contain -rotate-6"
         />
       </motion.div>
 
@@ -30,7 +30,7 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="flex flex-col items-center md:items-start gap-6 shrink"
+        className="flex flex-col items-center md:items-start gap-1 shrink"
       >
         
         <motion.div
@@ -61,7 +61,7 @@ export default function Home() {
       </motion.div>
 
       
-      <div className="w-full flex justify-center items-center mt-2 md:absolute md:bottom-1 max-cmd:mt-2">
+      <div className="w-full flex justify-center items-center mt-2 lg:absolute lg:bottom-1">
   <a href="#about">
     <div className="w-[2.188rem] h-[4rem] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
       <motion.div
