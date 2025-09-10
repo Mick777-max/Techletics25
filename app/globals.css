@@ -6,9 +6,10 @@ body {
   font-family: var(--font-fonarto), Arial, sans-serif;
 }
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
@@ -62,15 +63,17 @@ body {
 
 @layer base {
   * {
-    @apply border-border m-0 p-0; /* reset default margin and padding */
+    margin: 0;
+    padding: 0;
+    border-color: hsl(var(--border));
   }
   body {
-    @apply bg-background text-foreground w-full;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    width: 100%;
   }
   html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+  }  
 }
-
-  
-}
-
+ */

@@ -1,12 +1,10 @@
 'use client';
-import Image from 'next/image';
-import TextMarquee from './marquee';
 import { motion } from 'framer-motion';
-import { slideIn, staggerContainer } from '@/app/utils/motion';
+import { staggerContainer } from '@/app/utlis/motion';
 
 export default function Stats() {
   return (
-    <main className="h-full mx-auto max-w-screen-2xl bg-quarternary md:relative">
+    <main className="mx-auto h-full max-w-screen-2xl bg-quarternary md:relative">
       {/* <Image
         src="/image/flo.svg"
         alt="flower"
@@ -28,50 +26,93 @@ export default function Stats() {
       /> */}
 
       <motion.div
-  variants={staggerContainer(0.3, 0.5)}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="w-full flex flex-col gap-[50px] items-center pt-[30px]"
->
-  
-  <motion.div 
-   variants={{
-      hidden: { opacity: 0, y: 50 },
-      show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
-    }}
-    className="flex flex-col md:flex-row gap-8 md:gap-[200px] justify-center w-full"
-  >
-    <StatCard number="50+" label="CULTURAL EVENTS" fill="transparent" border="#ff1282" />
-    <StatCard number="10+" label="TECH EVENTS" fill="transparent" border="#ff1282" />
-  </motion.div>
+        variants={staggerContainer(0.3, 0.5)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="flex w-full flex-col items-center gap-[50px] pt-[30px]"
+      >
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, ease: 'easeOut' },
+            },
+          }}
+          className="flex w-full flex-col justify-center gap-8 md:flex-row md:gap-[200px]"
+        >
+          <StatCard
+            number="50+"
+            label="CULTURAL EVENTS"
+            fill="transparent"
+            border="#ff1282"
+          />
+          <StatCard
+            number="10+"
+            label="TECH EVENTS"
+            fill="transparent"
+            border="#ff1282"
+          />
+        </motion.div>
 
-  
-  <motion.div 
-    variants={{
-      hidden: { opacity: 0, y: 50 },
-      show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
-    }}
-    className="flex flex-col cmd:flex-row gap-8 cmd:gap-[200px] justify-center w-full"
-  >
-    <StatCard number="35+" label="COLLEGES" fill="secondary" border="#f5f3bd" />
-    <StatCard number="500k+" label="PRIZE POOL" fill="secondary" border="#f5f3bd" />
-    <StatCard number="10k+" label="STUDENTS" fill="secondary" border="#f5f3bd" />
-  </motion.div>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, ease: 'easeOut' },
+            },
+          }}
+          className="flex w-full flex-col justify-center gap-8 cmd:flex-row cmd:gap-[200px]"
+        >
+          <StatCard
+            number="35+"
+            label="COLLEGES"
+            fill="secondary"
+            border="#f5f3bd"
+          />
+          <StatCard
+            number="500k+"
+            label="PRIZE POOL"
+            fill="secondary"
+            border="#f5f3bd"
+          />
+          <StatCard
+            number="10k+"
+            label="STUDENTS"
+            fill="secondary"
+            border="#f5f3bd"
+          />
+        </motion.div>
 
-  
-  <motion.div 
-    variants={{
-      hidden: { opacity: 0, y: 50 },
-      show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
-    }}
-    className="flex flex-col md:flex-row gap-8 md:gap-[200px] justify-center w-full"
-  >
-    <StatCard number="20+" label="TECH EXPERTS" fill="transparent" border="#ff1282" />
-    <StatCard number="30+" label="WORKSHOPS" fill="transparent" border="#ff1282" />
-  </motion.div>
-</motion.div>
-
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, ease: 'easeOut' },
+            },
+          }}
+          className="flex w-full flex-col justify-center gap-8 md:flex-row md:gap-[200px]"
+        >
+          <StatCard
+            number="20+"
+            label="TECH EXPERTS"
+            fill="transparent"
+            border="#ff1282"
+          />
+          <StatCard
+            number="30+"
+            label="WORKSHOPS"
+            fill="transparent"
+            border="#ff1282"
+          />
+        </motion.div>
+      </motion.div>
     </main>
   );
 }
@@ -86,17 +127,18 @@ type StatCardProps = {
 function StatCard({ number, label, fill, border }: StatCardProps) {
   return (
     <motion.div
-      whileHover={
-        { scale: 1.1 }
-      }
-      className="flex flex-col items-center cursor-pointer">
+      whileHover={{ scale: 1.1 }}
+      className="flex cursor-pointer flex-col items-center"
+    >
       <div
-        className={`font-turret font-extrabold text-[150px] md:text-[120px] text-center text-${fill}`}
+        className={`text-center font-turret text-[150px] font-extrabold md:text-[120px] text-${fill}`}
         style={{ WebkitTextStroke: `4px ${border}` }}
       >
         {number}
       </div>
-      <div className="text-center text-primary font-secondary text-[30px]">{label}</div>
+      <div className="text-center font-secondary text-[30px] text-primary">
+        {label}
+      </div>
     </motion.div>
   );
 }

@@ -5,8 +5,6 @@ import { useRouter } from 'next/navigation';
 import Payment from '@/components/payment';
 import Image from 'next/image';
 import Link from 'next/link';
-import ShinyInput from '@/components/nurui/shiny-input';
-import ShinySelect, { ShinyOption } from '@/components/nurui/shiny-select';
 
 type College = { name: string };
 
@@ -369,7 +367,7 @@ function RegisterPage() {
             onSubmit={handleSubmit}
             className="flex w-full max-w-md flex-col gap-3"
           >
-            <ShinyInput
+            <input
               type="text"
               name="name"
               placeholder="Name"
@@ -378,7 +376,7 @@ function RegisterPage() {
               required
               suppressHydrationWarning={true}
             />
-            <ShinyInput
+            <input
               type="email"
               name="email"
               placeholder="Email"
@@ -389,7 +387,7 @@ function RegisterPage() {
             />
 
             <div className="relative">
-              <ShinyInput
+              <input
                 type="tel"
                 name="phone"
                 placeholder="Phone (WhatsApp)"
@@ -430,9 +428,9 @@ function RegisterPage() {
               ))}
             </select> */}
 
-            <ShinySelect
+            <select
               name="gender"
-              placeholder="Select your gender"
+              // placeholder="Select your gender"
               value={formData.gender}
               onChange={handleChange}
               required
@@ -440,14 +438,14 @@ function RegisterPage() {
             >
               {/* <ShinyOption value="">Select your gender</ShinyOption> */}
               {genders.map((gender, index) => (
-                <ShinyOption key={index} value={gender}>
+                <option key={index} value={gender}>
                   {gender}
-                </ShinyOption>
+                </option>
               ))}
-            </ShinySelect>
+            </select>
 
             <div className="relative">
-              <ShinyInput
+              <input
                 type="text"
                 name="college"
                 placeholder="College Name"
@@ -472,9 +470,9 @@ function RegisterPage() {
               )}
             </div>
 
-            <ShinySelect
+            <select
               name="sem"
-              placeholder="Select your Current Semester"
+              // placeholder="Select your Current Semester"
               value={formData.sem}
               onChange={handleChange}
               required
@@ -482,14 +480,14 @@ function RegisterPage() {
               className="z-10"
             >
               {sem.map((sem, index) => (
-                <ShinyOption key={index} value={sem}>
+                <option key={index} value={sem}>
                   {sem}
-                </ShinyOption>
+                </option>
               ))}
-            </ShinySelect>
+            </select>
 
             <div className="relative">
-              <ShinyInput
+              <input
                 type="text"
                 name="branch"
                 placeholder="Branch Name or Abbreviation"
@@ -514,9 +512,9 @@ function RegisterPage() {
               )}
             </div>
 
-            <ShinySelect
+            <select
               name="event"
-              placeholder="Select an Event"
+              // placeholder="Select an Event"
               value={formData.event}
               onChange={handleChange}
               required
@@ -528,11 +526,11 @@ function RegisterPage() {
                 {eventsLoading ? "Loading events..." : "Select an Event"}
               </ShinyOption> */}
               {events.map((event) => (
-                <ShinyOption key={event._id} value={event.name}>
+                <option key={event._id} value={event.name}>
                   {event.name} - ₹{event.price}
-                </ShinyOption>
+                </option>
               ))}
-            </ShinySelect>
+            </select>
 
             {eventsLoading && (
               <div className="text-center text-sm text-gray-500">

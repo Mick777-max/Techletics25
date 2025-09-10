@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { fadeIn, slideIn, zoomIn } from '@/app/utils/motion';
+import { fadeIn, slideIn } from '@/app/utlis/motion';
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
 
       
       <motion.div
-        variants={fadeIn("right", "tween", 0.2, 1)}
+        variants={fadeIn('right', 'tween', 0.2, 1)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
@@ -24,20 +24,18 @@ export default function Home() {
         />
       </motion.div>
 
-      
-      <motion.div 
-        variants={slideIn("up", "tween", 0.1, 1)}
+      <motion.div
+        variants={slideIn('up', 'tween', 0.1, 1)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         className="flex flex-col items-center md:items-start gap-1 shrink"
       >
-        
         <motion.div
-          variants={fadeIn("", "tween", 0.2, 1)}
+          variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="leading-none -rotate-6 font-secondary text-quarternary text-[5rem] max-cmd:text-[3.125rem] font-extrabold">
+          <span className="-rotate-6 font-secondary text-[5rem] font-extrabold leading-none text-quarternary max-cmd:text-[3.125rem]">
             IGNITE.INSPIRE.
           </span>
           <Image
@@ -49,12 +47,11 @@ export default function Home() {
           />
         </motion.div>
 
-        
         <motion.div
-          variants={fadeIn("", "tween", 0.2, 1)}
+          variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="leading-none font-secondary text-quarternary text-[7.5rem] max-cmd:text-[5rem] font-extrabold">
+          <span className="font-secondary text-[7.5rem] font-extrabold leading-none text-quarternary max-cmd:text-[5rem]">
             ILLUMINATE.
           </span>
         </motion.div>
