@@ -1,9 +1,11 @@
 'use client';
 
 import { MouseEventHandler, ReactNode } from 'react';
+import clsx from 'clsx';
 
 interface CustomTextProps {
   children: ReactNode;
+  className?: string;
   onMouseEnter?: MouseEventHandler<HTMLAnchorElement>;
   onMouseLeave?: MouseEventHandler<HTMLAnchorElement>;
   title?: boolean;
@@ -15,36 +17,39 @@ interface CustomTextProps {
 
 const CustomText: React.FC<CustomTextProps> = ({
   children,
+  className,
   title = false,
   highlightedTitle = false,
   description = false,
   highlightedDescription = false,
   numeric = false,
 }) => {
-  let className = numeric
+  let baseClassName = numeric
     ? 'font-secondary font-extrabold '
     : title || highlightedTitle
       ? 'font-primary '
       : 'font-secondary ';
 
-  className += description
+  baseClassName += description
     ? 'font-regular '
     : highlightedDescription
       ? 'font-extrabold '
       : '';
 
   if (title)
-    className +=
+    baseClassName +=
       'text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[95%] xl:max-w-[80%] leading-tight tracking-wide flex flex-wrap font-secondary text-quarternary';
   else if (highlightedTitle)
-    className +=
+    baseClassName +=
       'text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[95%] xl:max-w-[80%] leading-tight tracking-wide flex flex-wrap text-secondary whitespace-nowrap';
   else if (description)
-    className += 'text-md md:text-xl lg:text-2xl text-justify text-secondary';
+    baseClassName +=
+      'text-md md:text-xl lg:text-2xl text-justify text-secondary';
   else if (highlightedDescription)
-    className += 'text-md md:text-xl lg:text-2xl text-justify text-secondary';
+    baseClassName +=
+      'text-md md:text-xl lg:text-2xl text-justify text-secondary';
 
-  return <span className={className}>{children}</span>;
+  return <span className={clsx(baseClassName, className)}>{children}</span>;
 };
 
 export default CustomText;

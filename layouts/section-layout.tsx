@@ -9,6 +9,7 @@ import '@/app/globals.css';
 
 interface SectionProps {
   children: ReactNode;
+  className?: string;
   full?: boolean;
   float?: boolean;
   explorable?: boolean;
@@ -25,6 +26,7 @@ interface SectionProps {
 
 const SectionLayout = ({
   children,
+  className,
   full = false,
   float = false,
   explorable = false,
@@ -49,6 +51,7 @@ const SectionLayout = ({
           'backdrop-blur-3xl': glassMorphism,
           'backdrop-blur-md': blurred,
         },
+        className,
       )}
     >
       <div

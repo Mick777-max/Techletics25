@@ -55,7 +55,7 @@ export default function Home() {
           alt="Woman"
           width={600}
           height={1000}
-          className="h-full w-auto -rotate-6 object-contain"
+          className="h-[28rem] w-auto -rotate-6 object-contain md:h-full"
         />
       </motion.div>
 
@@ -64,13 +64,13 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="flex shrink flex-col items-center gap-1 md:items-start"
+        className="absolute bottom-36 flex shrink flex-col items-center gap-1 md:static md:items-start"
       >
         <motion.div
           variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="z-10 -rotate-6 font-secondary text-[5rem] font-extrabold leading-none text-quarternary max-cmd:text-[3.125rem]">
+          <span className="z-10 -rotate-6 font-secondary text-[3rem] font-extrabold leading-none text-quarternary max-cmd:text-[3.125rem] md:text-[5rem]">
             IGNITE.INSPIRE.
           </span>
           <Image
@@ -78,7 +78,7 @@ export default function Home() {
             alt="Spark icon"
             width={100}
             height={100}
-            className="h-[6.25rem] w-auto"
+            className="h-[3rem] w-auto md:h-[6.25rem]"
           />
         </motion.div>
 
@@ -86,7 +86,7 @@ export default function Home() {
           variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="z-10 font-secondary text-[7.5rem] font-extrabold leading-none text-quarternary max-cmd:text-[5rem]">
+          <span className="z-10 font-secondary font-extrabold leading-none text-quarternary max-cmd:text-[4.5rem] md:text-[7.5rem]">
             ILLUMINATE.
           </span>
         </motion.div>

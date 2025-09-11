@@ -1,6 +1,8 @@
 import { secondaryFont, turretRoad, rasputinFont } from '@/public/fonts';
 import './globals.css';
 import Navbar from '@/components/navbar';
+import { Connect, Copyright, SocialConnect } from '@/components/footer';
+import Image from 'next/image';
 
 export default function RootLayout({
   children,
@@ -23,6 +25,20 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <footer id="contact" className="w-full">
+          <div className="relative w-full">
+            <Image
+              src="/image/Grid.svg"
+              alt="bg"
+              width={1000}
+              height={500}
+              className="absolute inset-0 z-20 h-full w-full bg-cover bg-center bg-no-repeat opacity-50"
+            />
+            <Connect />
+            <SocialConnect />
+          </div>
+          <Copyright />
+        </footer>
       </body>
     </html>
   );

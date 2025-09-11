@@ -170,7 +170,7 @@ function StatCard({ number, label, fill, border }: StatCardProps) {
       className="flex cursor-pointer flex-col items-center"
     >
       <div
-        className={`text-center font-turret text-[150px] font-extrabold md:text-[120px] text-${fill}`}
+        className={`text-center font-turret text-[100px] font-extrabold md:text-[120px] text-${fill}`}
         style={{ WebkitTextStroke: `4px ${border}` }}
       >
         {number}
