@@ -49,6 +49,7 @@ export default function HomePage() {
         </div>
 
         <Stats />
+        <TextMarquee bgColor="tertiary" type="secondary" />
       </section>
     </div>
   );

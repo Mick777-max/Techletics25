@@ -1,16 +1,15 @@
 import clsx from 'clsx';
-import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
 
 interface TextMarqueeProps {
   textColor?: 'light' | 'dark';
   type?: 'primary' | 'secondary';
   bgColor?:
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
-  | 'quarternary'
-  | 'transparent';
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'quarternary'
+    | 'transparent';
 }
 
 const TextMarquee = ({
@@ -34,50 +33,53 @@ const TextMarquee = ({
           type === 'primary' ? (
             <div
               key={index}
-              className={clsx('font-primary flex gap-10 text-7xl py-1', {
+              className={clsx('font-primary py-1 text-5xl', {
                 'text-tertiary': textColor === 'light',
                 'text-primary': textColor === 'dark',
               })}
             >
-              <Image
-                src="/icons/diamondw.svg"
-                alt="Diamond Icon"
-                width={30}
-                height={30}
-                className="ml-[2.5rem]"
-              />
-              <div className='relative'>
+              <div className="relative flex items-center justify-center gap-5">
+                <span className="ml-5 text-white">✦</span>
                 <span
-                  className="font-extrabold font-secondary text-white"
-                  style={
-                    {
-                      WebkitTextStroke: "3px black"
-                    }
-                  }
+                  className="pt-2 font-secondary font-extrabold text-white"
+                  style={{
+                    WebkitTextStroke: '3px black',
+                  }}
                 >
                   TECHLETICS&apos; 25
                 </span>
-
               </div>
             </div>
           ) : (
-            <p
+            <div
               key={index}
-              className={clsx(
-                'font-primary flex gap-3 py-1 text-4xl md:py-2 md:text-5xl',
-                {
-                  'text-tertiary': textColor === 'light',
-                  'text-primary': textColor === 'dark',
-                },
-              )}
+              className="flex items-center justify-center gap-5 py-2 pt-3 font-secondary text-5xl font-extrabold text-white"
             >
-              <span className="ml-4">◌</span>
-              <span>IGNIͲς</span>
-              <span>✺</span>
-              <span>INSPIRe</span>
-              <span>🌞</span>
-              <span>ILLUMINⱭͲς</span>
-            </p>
+              <span className="ml-5">✦</span>
+              <span
+                style={{
+                  WebkitTextStroke: '3px black',
+                }}
+              >
+                IGNITE
+              </span>
+              <span>✦</span>
+              <span
+                style={{
+                  WebkitTextStroke: '3px black',
+                }}
+              >
+                INSPIRE
+              </span>
+              <span>✦</span>
+              <span
+                style={{
+                  WebkitTextStroke: '3px black',
+                }}
+              >
+                ILLUMINATE
+              </span>
+            </div>
           ),
         )}
       </Marquee>

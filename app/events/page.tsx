@@ -1,9 +1,15 @@
-import React from 'react';
+import Title from '@/components/title';
+import TextMarquee from '@/components/marquee';
+import { Events, FeaturedEvents } from './_components';
 
-export default function page() {
+export default function EventsPage() {
   return (
-    <div>
-      <h1>Events Page</h1>
-    </div>
+    <>
+      <div className="mt-16 md:mt-10"></div>
+      <Title title="EVENTS" />
+      <Events />
+      <TextMarquee bgColor="secondary" />
+      <FeaturedEvents />
+    </>
   );
 }

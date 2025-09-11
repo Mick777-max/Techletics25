@@ -11,10 +11,11 @@ module.exports = {
         cmd: "1346px"
       },
       colors: {
-        primary: '#f5f2bd',
-        secondary: '#ff1282',
-        tertiary: '#f7fa09',
-        quarternary: '#1e1e1e',
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        tertiary: 'var(--color-tertiary)',
+        quarternary: 'var(--color-quarternary)',
+        DEFAULT: 'var(--color-quarternary)', // This ensures quarternary works as default
       },
       animation: {
         'ping-reverse-slow':
@@ -57,6 +58,17 @@ module.exports = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      borderColor: {
+        'quarternary': 'var(--color-quarternary)',
+        DEFAULT: 'var(--color-quarternary)',
+      },
+      borderWidth: {
+        DEFAULT: '1px',
+        '0': '0',
+        '2': '2px',
+        '4': '4px',
+        '8': '8px',
       },
       fontFamily: {
         'secondary': ['var(--font-secondary)', 'Garamond', 'Times New Roman', 'serif'],
