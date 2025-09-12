@@ -33,7 +33,7 @@ const TextMarquee = ({
           type === 'primary' ? (
             <div
               key={index}
-              className={clsx('font-primary py-1 text-5xl', {
+              className={clsx('font-primary py-1 text-7xl', {
                 'text-tertiary': textColor === 'light',
                 'text-primary': textColor === 'dark',
               })}
@@ -53,7 +53,7 @@ const TextMarquee = ({
           ) : (
             <div
               key={index}
-              className="flex items-center justify-center gap-5 py-2 pt-3 font-secondary text-5xl font-extrabold text-white"
+              className="flex items-center justify-center gap-5 py-2 pt-3 font-secondary text-7xl font-extrabold text-white"
             >
               <span className="ml-5">✦</span>
               <span

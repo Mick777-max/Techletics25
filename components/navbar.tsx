@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +55,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden items-center space-x-8 md:flex">
+          <motion.div layout className="hidden items-center md:flex space-x-4">
             {navLinks.map((link) =>
               link.isExternal ? (
                 <a
@@ -62,7 +63,7 @@ export default function Navbar() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 rounded-lg border border-transparent px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/20 hover:text-gray-600"
+                  className="flex items-center justify-center gap-1 rounded-[10px] border border-transparent px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/20"
                 >
                   {link.label}
                   <svg
@@ -81,21 +82,33 @@ export default function Navbar() {
                   </svg>
                 </a>
               ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  prefetch={true}
-                  className={`rounded-lg border px-4 py-2 text-sm font-medium backdrop-blur-sm transition-all duration-300 ${
-                    pathname === link.href
-                      ? 'border-gray-700/50 bg-gray-800/80 text-white shadow-lg'
-                      : 'border-transparent text-white hover:border-white/30 hover:bg-white/20 hover:text-gray-600'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ),
+                <div key={link.href} className="relative h-10 group flex items-center justify-center rounded-lg">
+                  <Link
+                    href={link.href}
+                    prefetch={true}
+                    className={`z-20 flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium text-white transition-all duration-300 ${pathname === link.href ? 'text-white' : ''
+                      }`}
+                  >
+                    {link.label}
+                  </Link>
+
+                  {/* Active Slider */}
+                  {pathname === link.href ? (
+                    <motion.div
+                      layoutId="slider"
+                      transition={{ type: 'tween', stiffness: 500, damping: 30 }}
+                      className="absolute inset-0 -z-10 bg-gray-800/80 border-2 border-gray-700/50 rounded-[10px]"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 -z-20 border border-transparent transition-all duration-300 group-hover:border-white/30 group-hover:bg-white/20 rounded-[10px]" />
+                  )
+                  }
+
+                </div>
+              )
             )}
-          </div>
+          </motion.div>
+
 
           {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
@@ -177,11 +190,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 prefetch={true}
-                className={`mb-1 block rounded-lg border px-4 py-3 text-base font-medium backdrop-blur-sm transition-all duration-300 ${
-                  pathname === link.href
-                    ? 'border-gray-700/50 bg-gray-800/80 text-white shadow-lg'
-                    : 'border-transparent text-gray-800 hover:border-white/30 hover:bg-white/20 hover:text-gray-600'
-                }`}
+                className={`mb-1 block rounded-lg border px-4 py-3 text-base font-medium backdrop-blur-sm transition-all duration-300 ${pathname === link.href
+                  ? 'border-gray-700/50 bg-gray-800/80 text-white shadow-lg'
+                  : 'border-transparent text-gray-800 hover:border-white/30 hover:bg-white/20 hover:text-gray-600'
+                  }`}
               >
                 {link.label}
               </Link>
