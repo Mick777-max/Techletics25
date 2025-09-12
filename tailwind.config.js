@@ -54,11 +54,6 @@ module.exports = {
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
       },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-      },
       borderColor: {
         'quarternary': 'var(--color-quarternary)',
         DEFAULT: 'var(--color-quarternary)',
@@ -74,6 +69,10 @@ module.exports = {
         'secondary': ['var(--font-secondary)', 'Garamond', 'Times New Roman', 'serif'],
         'turret': ['var(--font-turret-road)', 'Helvetica', 'Arial', 'sans-serif'],
         'rasputin': ['var(--font-rasputin)', 'Garamond', 'Times New Roman', 'serif'],
+      },
+      backgroundImage: {
+        'grid': "url('/image/Grid.svg')",
+        'grid-pattern': "url('./public/image/Grid.svg')",
       },
     },
   },
