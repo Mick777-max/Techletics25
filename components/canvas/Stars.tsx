@@ -6,8 +6,12 @@ import * as random from 'maath/random/dist/maath-random.esm';
 import { PointMaterial, Points, Preload } from '@react-three/drei';
 import * as THREE from 'three';
 
-function Stars(props) {
-  const ref = useRef();
+type StarsProps = {
+  color: string;
+};
+
+function Stars({ color }: StarsProps) {
+  const ref = useRef<THREE.Points>(null);
 
   // Generate random points in a sphere
   const sphere = useMemo(() => {
@@ -17,8 +21,10 @@ function Stars(props) {
 
   // Rotate stars slowly
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 20;
-    ref.current.rotation.y -= delta / 20;
+    if (ref.current) {
+      ref.current.rotation.x -= delta / 20;
+      ref.current.rotation.y -= delta / 20;
+    }
   });
 
   // Load the star texture
@@ -26,18 +32,12 @@ function Stars(props) {
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points 
-        ref={ref} 
-        positions={sphere}
-        stride={3}
-        frustumCulled
-        {...props}
-      >
+      <Points ref={ref} positions={sphere} stride={3} frustumCulled>
         <PointMaterial
-          map={starTexture}      // Use your star image
+          map={starTexture}
           transparent
-          color="white"
-          size={0.005}           // Slightly bigger than before
+          color={color}      // Use the passed color prop
+          size={0.005}
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -46,12 +46,12 @@ function Stars(props) {
   );
 }
 
-export default function StarsCanvas() {
+export default function StarsCanvas({ color }: { color: string }) {
   return (
-    <div className='w-full h-auto absolute inset-0 z-20'>
+    <div className="w-full h-auto absolute inset-0 z-20">
       <Canvas camera={{ position: [0, 0, 1] }}>
         <Suspense fallback={null}>
-          <Stars />
+          <Stars color={color} />
         </Suspense>
         <Preload all />
       </Canvas>

@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        cmd: "1346px"
+        cmd: "1346px",
+        xsm: "400px"
       },
       colors: {
         primary: 'var(--color-primary)',
