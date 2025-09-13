@@ -1,7 +1,7 @@
 import Home from '@/components/home';
 import Homeabout from '@/components/homeabout';
 import TextMarquee from '@/components/marquee';
-import Stats from '@/components/stats';
+import Stats from '@/components/statsnew';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Stars from '@/components/canvas/Stars';
