@@ -46,12 +46,13 @@ export default function HomePage() {
         />
 
         <div className="relative z-10 overflow-hidden pt-[180px] md:pt-[220px]">
-          <div className="w-[120%] origin-left -rotate-6">
+          {/* <div className="w-[120%] origin-left -rotate-6">
             <TextMarquee bgColor="tertiary" />
-          </div>
+          </div> */}
         </div>
         <Stars/>
         <Stats />
+        
         <TextMarquee bgColor="tertiary" type="secondary" />
       </section>
     </div>
