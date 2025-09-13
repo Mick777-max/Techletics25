@@ -25,7 +25,7 @@ const starPositions = [
 
 export default function Stats() {
   return (
-    <main className="relative mx-auto h-full max-w-screen-2xl bg-quarternary">
+    <main className="relative mx-auto h-full max-w-screen-2xl bg-quarternary pb-[4rem]">
       {/* <Image
         src="/image/flo.svg"
         alt="flower"
@@ -38,16 +38,16 @@ export default function Stats() {
           <TextMarquee bgColor="tertiary" />
         </div>
       </div> */}
-      {/* <Image
-        src="/logos/logo.png"
-        alt="logo"
-        width={300}
-        height={300}
-        className="hidden md:absolute md:top-[100px] md:right-0 md:block"
-      /> */}
+      <Image
+  src="/logos/logo.png"
+  alt="logo"
+  width={400}
+  height={400}
+  className="max-xl:hidden absolute top-[-210px] right-[-150px]"
+/>
 
       {/* Stars (Sparklers) */}
-      {starPositions.map((pos, index) => (
+      {/* {starPositions.map((pos, index) => (
         <Image
           key={index}
           src="/icons/diamondw.svg"
@@ -62,7 +62,7 @@ export default function Stats() {
             transform: 'rotate(0deg)', // Optional slight rotation if desired
           }}
         />
-      ))}
+      ))} */}
 
       <motion.div
         variants={staggerContainer(0.3, 0.5)}

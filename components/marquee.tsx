@@ -19,7 +19,7 @@ const TextMarquee = ({
 }: TextMarqueeProps) => {
   return (
     <section
-      className={clsx('w-full min-w-80 overflow-visible', {
+      className={clsx('w-full min-w-80 overflow-visible z-50', {
         'bg-primary': bgColor === 'primary',
         'bg-secondary': bgColor === 'secondary',
         'border-b border-secondary border-opacity-30 bg-tertiary':

@@ -4,6 +4,8 @@ import TextMarquee from '@/components/marquee';
 import Stats from '@/components/stats';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Stars from '@/components/canvas/Stars';
+import StarsCanvas from '@/components/canvas/Stars';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -15,6 +17,7 @@ export default function HomePage() {
   return (
     <div className="w-full min-w-80">
       <section className="bg-primary">
+        {/* <StarsCanvas/> */}
         <Home />
       </section>
 
@@ -47,7 +50,7 @@ export default function HomePage() {
             <TextMarquee bgColor="tertiary" />
           </div>
         </div>
-
+        <Stars/>
         <Stats />
         <TextMarquee bgColor="tertiary" type="secondary" />
       </section>

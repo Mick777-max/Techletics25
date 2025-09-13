@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div className="relative mx-auto flex min-h-[90vh] max-w-screen-2xl items-center justify-center gap-8 bg-primary pb-[0.5rem] max-lg:flex-col max-lg:gap-[1rem]">
       {/* Stars (Sparklers) */}
-      {starPositions.map((pos, index) => (
+      {/* {starPositions.map((pos, index) => (
         <Image
           key={index}
           src="/icons/Vector.svg"
@@ -42,7 +42,7 @@ export default function Home() {
             transform: 'rotate(0deg)', // Optional slight rotation if desired
           }}
         />
-      ))}
+      ))} */}
       <motion.div
         variants={fadeIn('right', 'tween', 0.2, 1)}
         initial="hidden"
