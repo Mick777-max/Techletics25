@@ -6,7 +6,7 @@ import SectionLayout from '@/layouts/section-layout';
 import { CustomSelect, CustomText } from '@/components/custom';
 import { eventList } from './eventlist';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const branches = ['ALL', 'CSE', 'ME', 'CE', 'ECE', 'EEE', 'BSH'];
 const types = ['ALL EVENTS', 'COMPETITION', 'WORKSHOP', 'TECH-TALK', 'EXPO'];
@@ -72,7 +72,7 @@ const Events = () => {
                   }
                 />
               )}
-              <span className={`relative z-10 ${activeCategory === category ? 'text-tertiary' : ''}`}>
+              <span className={`relative z-10 transition-all delay-100 ${activeCategory === category ? 'text-tertiary' : ''}`}>
                 {category}
               </span>
             </div>
@@ -80,7 +80,7 @@ const Events = () => {
         </motion.div>
 
         {activeCategory === 'TECHNICAL' && (
-          <div className="flex justify-end gap-6 xl:absolute xl:right-16 xl:top-[348px]">
+          <div className="flex max-sm:justify-center justify-end gap-6 xl:absolute xl:right-16 xl:top-[348px]">
             <CustomSelect
               className="text-md cursor-pointer bg-primary text-secondary focus:outline-none focus:ring-0 md:text-xl"
               onChange={(e) => handleBranchChange(e.target.value)}
@@ -105,41 +105,46 @@ const Events = () => {
           </div>
         )}
 
-        <div className="my-10 flex flex-wrap justify-center gap-5">
-          {eventList
-            .filter(
-              (event) =>
-                event.category === activeCategory &&
-                (activeBranch === 'ALL' || event.branch === activeBranch) &&
-                (activeType === 'ALL EVENTS' || event.type === activeType),
-            )
-            .map((event) => (
-              <Link href={event.url} key={event.name} target="_blank">
-                <div className="relative h-[18rem] w-[16rem] p-2 transition-all duration-200 ease-in hover:scale-125">
-  
-{/*   
-  <div className="absolute top-0 left-0 w-5 h-5 border-t-4 border-l-4 border-secondary"></div>
-  
-  
-  <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-secondary"></div>
-  
-  
-  <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-secondary"></div>
-  
-  
-  <div className="absolute bottom-0 right-0 w-5 h-5 border-b-4 border-r-4 border-secondary"></div> */}
+        <AnimatePresence mode="wait">
+  <motion.div
+    key={activeCategory}
+    initial={{ opacity: 0, x: 50 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -50 }}
+    transition={{ type: 'tween', duration: 0.2 }}  // Fast tween, no delay
+    className="my-10 flex flex-wrap justify-center gap-5"
+  >
+    {eventList
+      .filter(
+        (event) =>
+          event.category === activeCategory &&
+          (activeBranch === 'ALL' || event.branch === activeBranch) &&
+          (activeType === 'ALL EVENTS' || event.type === activeType),
+      )
+      .map((event) => (
+        <Link href={event.url} key={event.name} target="_blank">
+          <div className="relative h-[18rem] w-[16rem] p-2 transition-all duration-200 ease-in hover:scale-125 hover:bg-tertiary hover:z-20 hover:border-[0.1px] hover:border-secondary group">
 
-  <Image
-    className="h-full w-full object-cover grayscale hover:grayscale-0"
-    src={event.src}
-    alt={event.name}
-    width={300}
-    height={300}
-  />
-</div>
-              </Link>
-            ))}
-        </div>
+            <div className="absolute top-0 left-0 w-5 h-5 border-t-4 border-l-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+
+            <div className="absolute top-0 right-0 w-5 h-5 border-t-4 border-r-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+
+            <div className="absolute bottom-0 left-0 w-5 h-5 border-b-4 border-l-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+
+            <div className="absolute bottom-0 right-0 w-5 h-5 border-b-4 border-r-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+
+            <Image
+              className="h-full w-full object-cover grayscale hover:grayscale-0"
+              src={event.src}
+              alt={event.name}
+              width={300}
+              height={300}
+            />
+          </div>
+        </Link>
+      ))}
+  </motion.div>
+</AnimatePresence>
       </div>
     </SectionLayout>
   );
