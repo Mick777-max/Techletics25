@@ -13,18 +13,27 @@ const FeaturedEvents = () => {
         </CustomText>
       </div>
 
-      <div className="my-10 flex flex-wrap justify-center">
+      <div className="my-10 flex flex-wrap justify-center gap-5">
         {featuredEventList.map((event) => (
           <Link href={event.url} key={event.name} target="_blank">
-            <div className="h-80 w-72 px-8 py-6 transition-all duration-200 ease-in hover:scale-125">
-              <Image
-                className="h-full w-full object-cover grayscale hover:grayscale-0"
-                src={event.src}
-                alt={event.name}
-                width={300}
-                height={300}
-              />
-            </div>
+            <div className="relative h-[18rem] w-[16rem] p-2 transition-all duration-200 ease-in hover:scale-125 hover:bg-tertiary hover:z-20 hover:border-[0.1px] hover:border-secondary group">
+            
+                              <div className="absolute top-0 left-0 w-5 h-5 border-t-4 border-l-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+            
+                              <div className="absolute top-0 right-0 w-5 h-5 border-t-4 border-r-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+            
+                              <div className="absolute bottom-0 left-0 w-5 h-5 border-b-4 border-l-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+            
+                              <div className="absolute bottom-0 right-0 w-5 h-5 border-b-4 border-r-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+            
+                              <Image
+                                className="h-full w-full object-cover grayscale hover:grayscale-0"
+                                src={event.src}
+                                alt={event.name}
+                                width={300}
+                                height={300}
+                              />
+                            </div>
           </Link>
         ))}
       </div>
