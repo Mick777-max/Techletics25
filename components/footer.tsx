@@ -143,7 +143,7 @@ const Copyright = () => {
       <div>
         <span className="sm:text-md flex flex-wrap items-center justify-center text-sm text-secondary md:text-lg">
           <span className="whitespace-nowrap text-primary">
-            Copyright © 2024&nbsp;
+            Copyright © 2025&nbsp;
           </span>
           <CustomLink
             href="https://cce.edu.in"
