@@ -127,7 +127,7 @@ export default function Stats() {
             transition: { duration: 0.8, ease: 'easeOut' },
           },
         }}
-        className="flex w-full flex-col max-md:gap-[4rem] gap-[10rem] justify-center cmd:flex-row cmd:h-full cmd:gap-0"
+        className="flex w-full flex-col max-md:gap-[4rem] gap-[10rem] justify-center cmd:flex-row cmd:h-full cmd:gap-0 pb-[6rem]"
       >
 
         <div className='md:hidden flex justify-center'>
@@ -153,19 +153,19 @@ export default function Stats() {
           />
         </div>
 
-        
+
 
         <div className='md:hidden flex justify-center'>
           <div className="z-30 cursor-pointer w-[270px]">
-        <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-          <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
-          <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
-            <span className="font-secondary text-3xl">
-              20+ WORKSHOPS
-            </span>
+            <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
+              <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
+              <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
+                <span className="font-secondary text-3xl">
+                  20+ WORKSHOPS
+                </span>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
-      </div>
         </div>
 
         <div className="cmd:flex-auto flex flex-col justify-center">
@@ -177,17 +177,17 @@ export default function Stats() {
           />
         </div>
 
-<div className='md:hidden flex justify-center'>
+        <div className='md:hidden flex justify-center'>
           <div className="z-30 cursor-pointer w-[160px]">
-        <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-          <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
-          <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
-            <span className="font-secondary text-3xl">
-              10+ CULTURAL EVENTS
-            </span>
+            <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
+              <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
+              <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
+                <span className="font-secondary text-3xl">
+                  10+ CULTURAL EVENTS
+                </span>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
-      </div>
         </div>
 
         <div className="cmd:flex-auto flex flex-col justify-end md:pb-[65px]"> {/* Add bottom padding */}
@@ -201,15 +201,15 @@ export default function Stats() {
 
         <div className='md:hidden flex justify-center'>
           <div className="z-30 cursor-pointer w-[300px]">
-        <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-          <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
-          <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
-            <span className="font-secondary text-3xl">
-              20+ TECH EXPERTS
-            </span>
+            <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
+              <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
+              <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
+                <span className="font-secondary text-3xl">
+                  20+ TECH EXPERTS
+                </span>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
-      </div>
         </div>
       </motion.div>
 

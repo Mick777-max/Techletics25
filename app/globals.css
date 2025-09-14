@@ -9,6 +9,11 @@
   --color-quarternary: #1e1e1e;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
   font-family: var(--font-fonarto), Arial, sans-serif;
   scrollbar-width: none; /* For Firefox */

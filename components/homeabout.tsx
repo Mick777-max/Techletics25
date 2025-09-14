@@ -1,7 +1,7 @@
 export default function Homeabout() {
   return (
     <main className="mx-auto h-auto pb-[200px] relative max-w-screen-2xl bg-primary px-3">
-      <span id="about"></span>
+      
       <div className="text-4xl md:text-6xl">
         <h1 className="pt-10 font-secondary text-quarternary md:pt-20">
           ARE YOU A <span className="text-secondary">TECH ENTHUSIAST?</span>{' '}

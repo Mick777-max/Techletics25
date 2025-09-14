@@ -25,7 +25,7 @@ const starPositions = [
 
 export default function Home() {
   return (
-    <div className="relative mx-auto flex min-h-[90vh] max-w-screen-2xl items-center justify-center gap-8 bg-primary pb-[0.5rem] max-lg:flex-col max-lg:gap-[1rem]">
+    <div className="relative mx-auto flex min-h-[90vh] max-w-screen-2xl items-center justify-center gap-8 bg-primary pb-[0.5rem] max-lg:flex-col max-lg:gap-[1rem] max-sm:gap-0">
       {/* Stars (Sparklers) */}
       {/* {starPositions.map((pos, index) => (
         <Image
@@ -48,14 +48,14 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="h-[40rem] min-w-[18.75rem]"
+        className="z-30 flex h-[42rem] max-xsm:h-[25rem] max-lg:w-full justify-center overflow-hidden"
       >
         <Image
           src="/image/womanbg-1.png"
           alt="Woman"
           width={600}
           height={1000}
-          className="h-[28rem] w-auto -rotate-6 object-contain md:h-full"
+          className="h-full w-auto -rotate-6 object-contain md:h-full"
         />
       </motion.div>
 
@@ -64,13 +64,13 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="absolute bottom-36 flex shrink flex-col items-center gap-1 md:static md:items-start"
+        className="z-30 flex shrink flex-col items-center gap-1 md:static md:items-start"
       >
         <motion.div
           variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="z-10 -rotate-6 font-secondary text-[3rem] font-extrabold leading-none text-quarternary max-cmd:text-[3.125rem] md:text-[5rem]">
+          <span className="z-10 -rotate-6 font-secondary text-[3rem] font-extrabold leading-none text-quarternary max-cmd:text-[3.125rem] md:text-[5rem] max-xsm:text-[2.5rem]">
             IGNITE.INSPIRE.
           </span>
           <Image
@@ -86,14 +86,14 @@ export default function Home() {
           variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="z-10 font-secondary font-extrabold leading-none text-quarternary max-cmd:text-[4.5rem] md:text-[7.5rem]">
+          <span className="z-10 font-secondary font-extrabold leading-none text-quarternary max-cmd:text-[4.5rem] md:text-[7.5rem] max-xsm:text-[3.5rem]">
             ILLUMINATE.
           </span>
         </motion.div>
       </motion.div>
 
-      <div className="mt-2 flex w-full items-center justify-center lg:absolute lg:bottom-1">
-        <a href="#about">
+      <div className="z-30 mt-2 flex w-full items-center justify-center lg:absolute lg:bottom-1">
+        <a href="#stats">
           <div className="flex h-[4rem] w-[2.188rem] items-start justify-center rounded-3xl border-4 border-secondary p-2">
             <motion.div
               animate={{ y: [0, 24, 0] }}
