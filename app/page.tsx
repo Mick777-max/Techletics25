@@ -51,7 +51,7 @@ export default function HomePage() {
             <TextMarquee bgColor="tertiary" />
           </div>
         </div>
-        {/* <StarsCanvas color="white"/> */}
+        <StarsCanvas color="white"/>
         <Stats />
 
         <div className='mt-4'><TextMarquee bgColor="tertiary" type="secondary" /></div>
