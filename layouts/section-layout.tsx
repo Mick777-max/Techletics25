@@ -74,11 +74,7 @@ const SectionLayout = ({
             duration: 0.5,
           }}
         >
-          <div
-            className={clsx('mx-auto w-full', {
-              'max-w-[1440px]': !imageContent,
-            })}
-          >
+           <div className="mx-auto w-full max-w-screen-2xl">
             {children}
           </div>
         </AnimatedSectionLayout>
