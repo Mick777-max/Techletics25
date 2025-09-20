@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
 
 interface TextMarqueeProps {
@@ -19,7 +20,7 @@ const TextMarquee = ({
 }: TextMarqueeProps) => {
   return (
     <section
-      className={clsx('w-full min-w-80 overflow-visible z-50', {
+      className={clsx('z-50 w-full min-w-80 overflow-visible', {
         'bg-primary': bgColor === 'primary',
         'bg-secondary': bgColor === 'secondary',
         'border-b border-secondary border-opacity-30 bg-tertiary':
@@ -33,51 +34,90 @@ const TextMarquee = ({
           type === 'primary' ? (
             <div
               key={index}
-              className={clsx('font-primary py-1 text-7xl', {
+              className={clsx('py-2 text-4xl md:text-5xl', {
                 'text-tertiary': textColor === 'light',
                 'text-primary': textColor === 'dark',
               })}
             >
               <div className="relative flex items-center justify-center gap-5">
-                <span className="ml-5 text-white">✦</span>
                 <span
-                  className="pt-2 font-secondary font-extrabold text-white"
+                  className="ml-5 text-white"
                   style={{
-                    WebkitTextStroke: '3px black',
+                    WebkitTextStroke: '2px black',
                   }}
                 >
-                  TECHLETICS&apos; 25
+                  ✦
+                </span>
+                <span>
+                  <Image
+                    src="/icons/techletics25.svg"
+                    alt="Techletics 25"
+                    width={1000}
+                    height={1000}
+                    priority
+                    className="w-56 md:w-72"
+                  />
                 </span>
               </div>
             </div>
           ) : (
             <div
               key={index}
-              className="flex items-center justify-center gap-5 py-2 pt-3 font-secondary text-7xl font-extrabold text-white"
+              className="relative flex items-center justify-center py-2 text-4xl md:text-5xl"
             >
-              <span className="ml-5">✦</span>
               <span
+                className="ml-5 text-white"
                 style={{
-                  WebkitTextStroke: '3px black',
+                  WebkitTextStroke: '2px black',
                 }}
               >
-                IGNITE
+                ✦
               </span>
-              <span>✦</span>
-              <span
-                style={{
-                  WebkitTextStroke: '3px black',
-                }}
-              >
-                INSPIRE
+              <span>
+                <Image
+                  src="/icons/ignite.svg"
+                  alt="Techletics 25"
+                  width={1000}
+                  height={1000}
+                  priority
+                  className="h-10 w-40"
+                />
               </span>
-              <span>✦</span>
               <span
+                className="text-white"
                 style={{
-                  WebkitTextStroke: '3px black',
+                  WebkitTextStroke: '2px black',
                 }}
               >
-                ILLUMINATE
+                ✦
+              </span>
+              <span>
+                <Image
+                  src="/icons/inspire.svg"
+                  alt="Techletics 25"
+                  width={1000}
+                  height={1000}
+                  priority
+                  className="h-10 w-40"
+                />
+              </span>
+              <span
+                className="text-white"
+                style={{
+                  WebkitTextStroke: '2px black',
+                }}
+              >
+                ✦
+              </span>
+              <span>
+                <Image
+                  src="/icons/illuminate.svg"
+                  alt="Techletics 25"
+                  width={1000}
+                  height={1000}
+                  priority
+                  className="ml-5 h-10 w-40"
+                />
               </span>
             </div>
           ),

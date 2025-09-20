@@ -38,7 +38,7 @@ const SocialConnect = () => {
 
         {/* Right Section */}
         <div className="relative z-0 flex flex-wrap items-center justify-center gap-4 px-12 py-6 md:gap-8 lg:w-1/2 lg:p-12">
-          <p className="text-md whitespace-nowrap font-medium text-primary lg:text-lg">
+          <p className="text-md whitespace-nowrap font-medium text-tertiary lg:text-lg">
             FOLLOW US
           </p>
 
@@ -55,6 +55,14 @@ const SocialConnect = () => {
             >
               <SocialIcon logo="linkedin" />
             </CustomLink>
+            <Image
+              src="/logos/logo.png"
+              width={500}
+              height={500}
+              alt="Techetics Logo"
+              priority
+              className="absolute -bottom-12 left-0 right-0 z-[-1] -rotate-[35deg] opacity-15 md:-bottom-52 md:left-1/3"
+            />
           </div>
         </div>
       </div>
@@ -66,7 +74,7 @@ const Connect = () => {
   return (
     <SectionLayout full className="bg-secondary">
       <div className="font-primary flex w-full flex-col justify-center gap-12 bg-secondary p-3 text-secondary md:p-6 lg:py-12">
-        <div className="flex flex-wrap justify-between gap-2 align-middle sm:gap-4">
+        <div className="flex flex-wrap justify-center align-middle">
           <CustomText title className="text-white">
             WANT TO&nbsp;
             <CustomText highlightedTitle className="text-tertiary">
@@ -74,6 +82,14 @@ const Connect = () => {
             </CustomText>
             CONNECT WITH US.
           </CustomText>
+          <Image
+            src="/image/dolls.svg"
+            width={500}
+            height={500}
+            alt="Techetics Logo"
+            priority
+            className="z-20 hidden h-64 w-auto md:block"
+          />
         </div>
         <div className="flex w-fit flex-col gap-4">
           <p className="w-fit text-justify font-secondary text-lg font-medium text-tertiary md:text-xl">
@@ -127,14 +143,12 @@ const Connect = () => {
   );
 };
 
-// import { CustomLink } from "@/components/custom";
-
 const Copyright = () => {
   return (
     <div className="relative flex min-h-16 w-full items-center justify-center overflow-clip bg-secondary">
       <div className="absolute mt-2 flex w-full justify-center md:mt-8">
         <span
-          className="whitespace-nowrap align-middle font-secondary text-7xl leading-none tracking-widest text-transparent md:text-9xl"
+          className="whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent md:text-[9rem]"
           style={{ WebkitTextStroke: '1px #9B1FE8' }}
         >
           TECHLETICS

@@ -3,6 +3,20 @@ import './globals.css';
 import Navbar from '@/components/navbar';
 import { Connect, Copyright, SocialConnect } from '@/components/footer';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Techletics 25',
+  description: 'Techletics 25 - Technical Festival',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/logos/logo.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/logos/logo.png',
+  },
+};
 
 export default function RootLayout({
   children,
@@ -12,12 +26,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link
           rel="icon"
-          href="/logos/techletics-dark-logo.svg"
-          media="(prefers-color-scheme: light)"
+          href="/logos/logo.png"
+          type="image/png"
+          sizes="32x32"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          rel="icon"
+          href="/logos/logo.png"
+          type="image/png"
+          sizes="16x16"
+        />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logos/logo.png" />
+        <meta name="msapplication-TileImage" content="/logos/logo.png" />
       </head>
       <body
         className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${rasputinFont.className} antialiased`}
@@ -32,7 +56,7 @@ export default function RootLayout({
               alt="bg"
               width={1000}
               height={500}
-              className="absolute inset-0 z-20 h-full w-full bg-cover bg-center bg-no-repeat opacity-50"
+              className="absolute inset-0 z-10 h-full w-full bg-cover bg-center bg-no-repeat opacity-50"
             />
             <Connect />
             <SocialConnect />

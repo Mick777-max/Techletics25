@@ -39,12 +39,12 @@ export default function Stats() {
         </div>
       </div> */}
       <Image
-  src="/logos/logo.png"
-  alt="logo"
-  width={400}
-  height={400}
-  className="max-xl:hidden absolute top-[-210px] right-[-150px]"
-/>
+        src="/logos/logo.png"
+        alt="logo"
+        width={400}
+        height={400}
+        className="absolute right-[-150px] top-[-210px] max-xl:hidden"
+      />
 
       {/* Stars (Sparklers) */}
       {/* {starPositions.map((pos, index) => (
@@ -170,7 +170,7 @@ function StatCard({ number, label, fill, border }: StatCardProps) {
       className="flex cursor-pointer flex-col items-center"
     >
       <div
-        className={`text-center font-turret text-[100px] font-extrabold md:text-[120px] text-${fill}`}
+        className={`text-center font-turret text-[90px] font-extrabold md:text-[120px] text-${fill}`}
         style={{ WebkitTextStroke: `4px ${border}` }}
       >
         {number}

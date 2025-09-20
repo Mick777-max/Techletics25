@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <div className="w-full min-w-80">
       <section className="bg-primary">
-        <StarsCanvas color='#ff1282'/>
+        <StarsCanvas color="#ff1282" />
         <Home />
       </section>
 
@@ -47,16 +47,16 @@ export default function HomePage() {
         />
 
         <div className="relative z-10 overflow-hidden pt-[180px] md:pt-[220px]">
-          <div className="w-[120%] origin-left -rotate-6">
+          {/* <div className="w-[120%] origin-left -rotate-6">
             <TextMarquee bgColor="tertiary" />
-          </div>
+          </div> */}
         </div>
-        <StarsCanvas color="white"/>
+        <StarsCanvas color="white" />
         <Stats />
 
-        <div className='mt-4'><TextMarquee bgColor="tertiary" type="secondary" /></div>
-        
-        
+        <div className="mt-4">
+          <TextMarquee bgColor="tertiary" type="secondary" />
+        </div>
       </section>
     </div>
   );
