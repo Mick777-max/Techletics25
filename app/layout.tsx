@@ -1,4 +1,10 @@
-import { secondaryFont, turretRoad, rasputinFont } from '@/public/fonts';
+import {
+  secondaryFont,
+  turretRoad,
+  rasputinFont,
+  orbitronFont,
+  openSans,
+} from '@/public/fonts';
 import './globals.css';
 import Navbar from '@/components/navbar';
 import { Connect, Copyright, SocialConnect } from '@/components/footer';
@@ -11,7 +17,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/logos/logo.png', type: 'image/png' },
+      { url: '/logos/techletics-logo.png', type: 'image/png' },
     ],
     shortcut: '/favicon.ico',
     apple: '/logos/logo.png',
@@ -44,7 +50,7 @@ export default function RootLayout({
         <meta name="msapplication-TileImage" content="/logos/logo.png" />
       </head>
       <body
-        className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${rasputinFont.className} antialiased`}
+        className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${orbitronFont.variable} ${rasputinFont.className} ${openSans.variable} ${openSans.className} antialiased`}
         suppressHydrationWarning={true}
       >
         <Navbar />

@@ -32,3 +32,44 @@ export const secondaryFont = localFont({
   fallback: ['Garamond', 'Times New Roman', 'serif'],
   variable: '--font-secondary',
 });
+
+
+export const orbitronFont = localFont({
+  src: [
+    {
+      path: './orbitron-light.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './orbitron-medium.otf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './orbitron-bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './orbitron-black.otf',
+      weight: '900',
+      style: 'normal',
+    },
+  ],
+  display: 'swap',
+  variable: '--font-orbitron',
+});
+
+export const openSans = localFont({
+  src: [
+    {
+      path: './OpenSans-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  display: 'swap',
+  variable: '--font-opensans',
+  fallback: ['Helvetica', 'Arial', 'sans-serif'],
+});

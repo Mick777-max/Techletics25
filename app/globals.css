@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #f5f2bd;
-  --color-secondary: #ff1282;
+  --color-primary: #fcfbf8;
+  --color-secondary: #c79a42;
   --color-tertiary: #f7fa09;
   --color-quarternary: #1e1e1e;
 }
@@ -12,7 +12,6 @@
 html {
   scroll-behavior: smooth;
 }
-
 
 body {
   font-family: var(--font-fonarto), Arial, sans-serif;

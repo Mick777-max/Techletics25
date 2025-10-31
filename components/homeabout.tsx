@@ -1,13 +1,13 @@
+import Image from 'next/image';
+
 export default function Homeabout() {
   return (
-    <main className="mx-auto h-auto pb-[200px] relative max-w-screen-2xl bg-primary px-3">
-      
-      <div className="text-4xl md:text-6xl">
-        <h1 className="pt-10 font-secondary text-quarternary md:pt-20">
-          ARE YOU A <span className="text-secondary">TECH ENTHUSIAST?</span>{' '}
-          THEN{' '}
-        </h1>
-        <h1 className="font-secondary text-quarternary">
+    <main className="relative mx-auto flex h-auto max-w-screen-xl flex-col items-start pb-[200px]">
+      <div className="text-3xl md:text-5xl">
+        <h1 className="pt-10 font-orbitron font-medium text-quarternary md:pt-20">
+          ARE YOU A{' '}
+          <span className="text-secondary">TECH ENTHUSIAST?{'  '}</span>THEN{' '}
+          <br></br>
           <span className="text-secondary">TECHLETICS &apos;25</span> IS FOR
           YOU.
         </h1>
@@ -21,22 +21,34 @@ export default function Homeabout() {
           className="-z-10"
         />
       </div> */}
-      <div className="cmd:max-w-[50%] max-w-full">
-        <p className="text-quarternary md:pt-10">
-          Join us for the third edition of Techletics, the techno-cultural
-          festival of Christ College of Engineering. Explore, learn, and enjoy
-          the latest innovations and trends in technology and culture.
-          Participate in workshops, competitions, exhibitions, performances, and
-          more. Win prizes and awards. Ignite your passion, inspire your future
-          and illuminate your mind. Techletics &apos;24 is the ultimate
-          rendezvous of innovation and zest. Don&apos;t miss it.
-        </p>
-        <p className="pt-5 text-quarternary">
-          Techletics &apos;24 is a techno-cultural techfest organized by Christ
-          College of Engineering, Irinjalakuda in 2024. The techfest aims to
-          provide a platform for technical students and develop students and
-          people from all walks of life
-        </p>
+      <div className="flex max-w-[90%] items-center justify-center">
+        <div className="flex-shrink-0">
+          <Image
+            src="/logos/techletics-logo.png"
+            alt="logo"
+            width={500}
+            height={500}
+            className="h-auto w-[380px]"
+          />
+        </div>
+
+        <div className="">
+          <p className="font-opensans text-[20px] font-semibold text-quarternary">
+            Join us for the third edition of Techletics, the techno-cultural
+            festival of Christ College of Engineering. Explore, learn, and enjoy
+            the latest innovations and trends in technology and culture.
+            Participate in workshops, competitions, exhibitions, performances,
+            and more. Win prizes and awards. Ignite your passion, inspire your
+            future and illuminate your mind. Techletics &apos;24 is the ultimate
+            rendezvous of innovation and zest. Don&apos;t miss it.
+          </p>
+          <p className="font-opensans pt-5 text-[18px] text-quarternary">
+            Techletics &apos;24 is a techno-cultural techfest organized by
+            Christ College of Engineering, Irinjalakuda in 2024. The techfest
+            aims to provide a platform for technical students and develop
+            students and people from all walks of life
+          </p>
+        </div>
       </div>
     </main>
   );

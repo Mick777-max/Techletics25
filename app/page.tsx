@@ -17,14 +17,15 @@ export default function HomePage() {
   return (
     <div className="w-full min-w-80">
       <section className="bg-primary">
-        <StarsCanvas color="#ff1282" />
+        {/* <StarsCanvas color="#ff1282" /> */}
         <Home />
       </section>
 
-      <TextMarquee bgColor="secondary" />
+      {/* <TextMarquee bgColor="secondary" /> */}
+      <TextMarquee type="ignite" />
 
-      <section className="relative bg-primary">
-        <div className="hidden xl:absolute xl:right-0 xl:top-[10px] xl:z-20 xl:block">
+      <section className="relative bg-[url('/image/bg-about.png')] bg-cover bg-center">
+        {/* <div className="hidden xl:absolute xl:right-0 xl:top-[10px] xl:z-20 xl:block">
           <Image
             src="/image/flower.svg"
             alt="flower"
@@ -32,30 +33,33 @@ export default function HomePage() {
             height={250}
             className=""
           />
-        </div>
+        </div> */}
         <Homeabout />
       </section>
 
-      <section className="relative bg-quarternary">
+      <TextMarquee type="ignite" />
+
+      <section className="relative bg-[url('/image/bg-stats.png')] bg-cover bg-center">
         <span id="stats"></span>
-        <Image
+        {/* <Image
           src="/image/flo.svg"
           alt="flower"
           width={250}
           height={250}
           className="absolute -top-40 left-0 z-20 w-52 md:-top-48 md:w-64"
-        />
+        /> */}
 
         <div className="relative z-10 overflow-hidden pt-[180px] md:pt-[220px]">
           {/* <div className="w-[120%] origin-left -rotate-6">
             <TextMarquee bgColor="tertiary" />
           </div> */}
         </div>
-        <StarsCanvas color="white" />
+        {/* <StarsCanvas color="white" /> */}
         <Stats />
 
         <div className="mt-4">
-          <TextMarquee bgColor="tertiary" type="secondary" />
+          {/* <TextMarquee bgColor="tertiary" type="secondary" /> */}
+          <TextMarquee type="techletics" />
         </div>
       </section>
     </div>

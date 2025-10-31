@@ -15,7 +15,7 @@ export default function EventsPage() {
       <div className="mt-16 md:mt-10"></div>
       <Title title="EVENTS" />
       <Events />
-      <TextMarquee bgColor="secondary" />
+      <TextMarquee type="ignite" />
       <FeaturedEvents />
     </>
   );

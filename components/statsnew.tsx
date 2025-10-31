@@ -26,8 +26,7 @@ const starPositions = [
 
 export default function Stats() {
   return (
-
-    <div className="relative mx-auto h-[75vh] max-w-screen-2xl bg-quarternary mb-[6rem] max-cmd:mb-[20rem] max-md:mb-[40rem]">
+    <div className="relative mx-auto mb-[6rem] h-[75vh] max-w-screen-xl max-cmd:mb-[20rem] max-md:mb-[40rem]">
       {/* <Image
         src="/image/flo.svg"
         alt="flower"
@@ -66,57 +65,53 @@ export default function Stats() {
         />
       ))} */}
 
-      <div className="max-md:hidden max-cmd:top-[260px] max-cmd:left-[40px] z-30 cursor-pointer absolute top-[30px] right-[400px] w-[270px]">
-        <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-          <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
-          <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
-            <span className="font-secondary text-3xl">
-              20+ WORKSHOPS
-            </span>
+      <div className="absolute right-[400px] top-[30px] z-30 w-[270px] cursor-pointer max-cmd:left-[40px] max-cmd:top-[260px] max-md:hidden">
+        <motion.div
+          whileHover={{ scale: 1.2 }}
+          className="relative inline-block"
+        >
+          <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
+          <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
+            <span className="font-secondary text-3xl">20+ WORKSHOPS</span>
           </div>
         </motion.div>
       </div>
 
-      <div className="max-md:hidden max-cmd:top-[-20px] max-cmd:right-[40px] z-30 cursor-pointer absolute right-[40px] w-[160px]">
-        <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-          <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
-          <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
-            <span className="font-secondary text-3xl">
-              60+ TECH EVENTS
-            </span>
+      <div className="absolute right-[40px] z-30 w-[160px] cursor-pointer max-cmd:right-[40px] max-cmd:top-[-20px] max-md:hidden">
+        <motion.div
+          whileHover={{ scale: 1.2 }}
+          className="relative inline-block"
+        >
+          <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
+          <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
+            <span className="font-secondary text-3xl">60+ TECH EVENTS</span>
           </div>
         </motion.div>
       </div>
 
-      <div className="max-md:hidden max-cmd:bottom-[-100px] max-cmd:left-[40px] z-30 cursor-pointer absolute bottom-[30px] left-[400px] w-[300px]">
-        <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-          <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
-          <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
-            <span className="font-secondary text-3xl">
-              20+ TECH EXPERTS
-            </span>
+      <div className="absolute bottom-[30px] left-[400px] z-30 w-[300px] cursor-pointer max-cmd:bottom-[-100px] max-cmd:left-[40px] max-md:hidden">
+        <motion.div
+          whileHover={{ scale: 1.2 }}
+          className="relative inline-block"
+        >
+          <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
+          <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
+            <span className="font-secondary text-3xl">20+ TECH EXPERTS</span>
           </div>
         </motion.div>
       </div>
 
-      <div className="max-md:hidden max-cmd:bottom-[260px] max-cmd:right-[40px] max-cmd:left-auto z-30 cursor-pointer absolute left-[40px] bottom-[160px] w-[160px]">
-        <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-          <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
-          <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
-            <span className="font-secondary text-3xl">
-              10+ CULTURAL EVENTS
-            </span>
+      <div className="absolute bottom-[160px] left-[40px] z-30 w-[160px] cursor-pointer max-cmd:bottom-[260px] max-cmd:left-auto max-cmd:right-[40px] max-md:hidden">
+        <motion.div
+          whileHover={{ scale: 1.2 }}
+          className="relative inline-block"
+        >
+          <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
+          <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
+            <span className="font-secondary text-3xl">10+ CULTURAL EVENTS</span>
           </div>
         </motion.div>
       </div>
-
-
-
-
-
-
-
-
 
       <motion.div
         variants={{
@@ -127,24 +122,25 @@ export default function Stats() {
             transition: { duration: 0.8, ease: 'easeOut' },
           },
         }}
-        className="flex w-full flex-col max-md:gap-[4rem] gap-[10rem] justify-center cmd:flex-row cmd:h-full cmd:gap-0 pb-[6rem]"
+        className="flex w-full flex-col justify-center gap-[10rem] pb-[6rem] max-md:gap-[4rem] cmd:h-full cmd:flex-row cmd:gap-0"
       >
-
-        <div className='md:hidden flex justify-center'>
-          <div className="z-30 cursor-pointer w-[160px]">
-            <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-              <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
-              <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
-                <span className="font-secondary text-3xl">
-                  60+ TECH EVENTS
-                </span>
+        <div className="flex justify-center md:hidden">
+          <div className="z-30 w-[160px] cursor-pointer">
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              className="relative inline-block"
+            >
+              <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
+              <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
+                <span className="font-secondary text-3xl">60+ TECH EVENTS</span>
               </div>
             </motion.div>
           </div>
         </div>
 
-
-        <div className="cmd:flex-auto flex flex-col justify-start md:pt-[65px]">  {/* Add top padding */}
+        <div className="flex flex-col justify-start md:pt-[65px] cmd:flex-auto">
+          {' '}
+          {/* Add top padding */}
           <StatCard
             number="35+"
             label="COLLEGES"
@@ -153,22 +149,21 @@ export default function Stats() {
           />
         </div>
 
-
-
-        <div className='md:hidden flex justify-center'>
-          <div className="z-30 cursor-pointer w-[270px]">
-            <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-              <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
-              <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
-                <span className="font-secondary text-3xl">
-                  20+ WORKSHOPS
-                </span>
+        <div className="flex justify-center md:hidden">
+          <div className="z-30 w-[270px] cursor-pointer">
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              className="relative inline-block"
+            >
+              <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
+              <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
+                <span className="font-secondary text-3xl">20+ WORKSHOPS</span>
               </div>
             </motion.div>
           </div>
         </div>
 
-        <div className="cmd:flex-auto flex flex-col justify-center">
+        <div className="flex flex-col justify-center cmd:flex-auto">
           <StatCard
             number="500k+"
             label="PRIZE POOL"
@@ -177,11 +172,14 @@ export default function Stats() {
           />
         </div>
 
-        <div className='md:hidden flex justify-center'>
-          <div className="z-30 cursor-pointer w-[160px]">
-            <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-              <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
-              <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
+        <div className="flex justify-center md:hidden">
+          <div className="z-30 w-[160px] cursor-pointer">
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              className="relative inline-block"
+            >
+              <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
+              <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
                 <span className="font-secondary text-3xl">
                   10+ CULTURAL EVENTS
                 </span>
@@ -190,7 +188,9 @@ export default function Stats() {
           </div>
         </div>
 
-        <div className="cmd:flex-auto flex flex-col justify-end md:pb-[65px]"> {/* Add bottom padding */}
+        <div className="flex flex-col justify-end md:pb-[65px] cmd:flex-auto">
+          {' '}
+          {/* Add bottom padding */}
           <StatCard
             number="10k+"
             label="STUDENTS"
@@ -199,11 +199,14 @@ export default function Stats() {
           />
         </div>
 
-        <div className='md:hidden flex justify-center'>
-          <div className="z-30 cursor-pointer w-[300px]">
-            <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-              <div className="border-2 border-black absolute top-2 left-2 w-full h-full bg-secondary rounded-xl"></div>
-              <div className="border-2 border-black relative bg-primary p-4 rounded-xl z-[20]">
+        <div className="flex justify-center md:hidden">
+          <div className="z-30 w-[300px] cursor-pointer">
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              className="relative inline-block"
+            >
+              <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
+              <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
                 <span className="font-secondary text-3xl">
                   20+ TECH EXPERTS
                 </span>
@@ -212,14 +215,7 @@ export default function Stats() {
           </div>
         </div>
       </motion.div>
-
-
-
-
-
     </div>
-
-
   );
 }
 
@@ -231,39 +227,47 @@ type StatCardProps = {
 };
 
 function StatCard({ number, label, fill, border }: StatCardProps) {
-  const textSizeNumber = label === 'PRIZE POOL' ? 'text-[150px] max-md:text-[80px] max-xsm:text-[60px]' : 'text-[100px] max-md:text-[80px] max-xsm:text-[60px]';
-  const textSizeLabel = label === 'PRIZE POOL' ? 'text-[100px] max-md:text-[60px] max-xsm:text-[40px]' : 'text-[80px] max-md:text-[60px] max-xsm:text-[40px]';
+  const textSizeNumber =
+    label === 'PRIZE POOL'
+      ? 'text-[100px] max-md:text-[80px] max-xsm:text-[60px]'
+      : 'text-[80px] max-md:text-[70px] max-xsm:text-[60px]';
+  const textSizeLabel =
+    label === 'PRIZE POOL'
+      ? 'text-[70px] max-md:text-[55px] max-xsm:text-[40px]'
+      : 'text-[70px] max-md:text-[55px] max-xsm:text-[40px]';
 
   return (
     <motion.div
       whileHover={{ scale: 1.2 }}
       className="z-30 flex cursor-pointer flex-col items-center gap-0"
     >
-      <div className={`relative leading-none text-center font-turret ${textSizeNumber} font-extrabold text-${fill}`}>
-
+      <div
+        className={`relative text-center font-turret leading-none ${textSizeNumber} font-extrabold text-${fill}`}
+      >
         <span
-          className={`relative z-10 leading-none text-center font-turret ${textSizeNumber} font-extrabold text-${fill} whitespace-nowrap`}
+          className={`relative z-10 text-center font-turret leading-none ${textSizeNumber} font-extrabold text-${fill} whitespace-nowrap`}
         >
           {number}
         </span>
 
         <span
-          className={`absolute inset-1 z-0 leading-none text-center font-turret ${textSizeNumber} font-extrabold text-[#f5f2bd] whitespace-nowrap`}
+          className={`absolute inset-1.5 z-0 text-center font-turret leading-none ${textSizeNumber} whitespace-nowrap font-extrabold text-black`}
         >
           {number}
         </span>
       </div>
 
-      <div className={`relative leading-none text-center font-turret ${textSizeLabel} text-primary font-extrabold`}>
-
+      <div
+        className={`relative text-center font-turret leading-none ${textSizeLabel} font-extrabold text-primary`}
+      >
         <span
-          className={`relative z-10 leading-none text-center font-turret ${textSizeLabel} font-extrabold text-${fill} whitespace-nowrap`}
+          className={`relative z-10 text-center font-turret leading-none ${textSizeLabel} font-extrabold text-${fill} whitespace-nowrap`}
         >
           {label}
         </span>
 
         <span
-          className={`absolute inset-1 z-0 leading-none text-center font-turret ${textSizeLabel} font-extrabold text-[#f5f2bd] whitespace-nowrap`}
+          className={`absolute inset-1.5 z-0 text-center font-turret leading-none ${textSizeLabel} whitespace-nowrap font-extrabold text-black`}
         >
           {label}
         </span>
