@@ -70,7 +70,8 @@ module.exports = {
         'secondary': ['var(--font-secondary)', 'Garamond', 'Times New Roman', 'serif'],
         'turret': ['var(--font-turret-road)', 'Helvetica', 'Arial', 'sans-serif'],
         'rasputin': ['var(--font-rasputin)', 'Garamond', 'Times New Roman', 'serif'],
-        'orbitron': ['var(--font-orbitron)', 'Garamond', 'Times New Roman', 'serif']
+        'orbitron': ['var(--font-orbitron)', 'Garamond', 'Times New Roman', 'serif'],
+        'opensans':['var(--font-opensans)', 'Garamond', 'Times New Roman', 'serif']
       },
       backgroundImage: {
         'grid': "url('/image/Grid.svg')",

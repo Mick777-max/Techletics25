@@ -7,7 +7,12 @@ import {
 } from '@/public/fonts';
 import './globals.css';
 import Navbar from '@/components/navbar';
-import { Connect, Copyright, SocialConnect } from '@/components/footer';
+import {
+  // Connect,
+  Copyright,
+  SocialAndConnect,
+  // SocialConnect
+} from '@/components/footer';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
@@ -55,7 +60,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        <footer id="contact" className="w-full">
+        <footer id="contact" className="w-full bg-quarternary">
           <div className="relative w-full">
             <Image
               src="/image/Grid.svg"
@@ -64,8 +69,7 @@ export default function RootLayout({
               height={500}
               className="absolute inset-0 z-10 h-full w-full bg-cover bg-center bg-no-repeat opacity-50"
             />
-            <Connect />
-            <SocialConnect />
+            <SocialAndConnect />
           </div>
           <Copyright />
         </footer>
