@@ -25,7 +25,7 @@ const starPositions = [
 
 export default function Home() {
   return (
-    <div className="relative mx-auto flex min-h-[90vh] max-w-screen-2xl items-center justify-center gap-8 bg-primary pb-[0.5rem] max-lg:flex-col max-lg:gap-[1rem] max-sm:gap-0">
+    <div className="relative mx-auto flex min-h-[90vh] max-w-screen-2xl items-center justify-center gap-8 bg-quarternary pb-[0.5rem] max-lg:flex-col max-lg:gap-[1rem] max-sm:gap-0">
       {/* Stars (Sparklers) */}
       {/* {starPositions.map((pos, index) => (
         <Image
@@ -43,7 +43,7 @@ export default function Home() {
           }}
         />
       ))} */}
-      <motion.div
+      {/* <motion.div
         variants={fadeIn('right', 'tween', 0.2, 1)}
         initial="hidden"
         whileInView="show"
@@ -57,7 +57,7 @@ export default function Home() {
           height={1000}
           className="h-full w-auto -rotate-6 object-contain md:h-full"
         />
-      </motion.div>
+      </motion.div> */}
 
       <motion.div
         variants={slideIn('up', 'tween', 0.1, 1)}
@@ -70,7 +70,7 @@ export default function Home() {
           variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="z-10 -rotate-6 font-secondary text-[3rem] font-extrabold leading-none text-quarternary max-cmd:text-[3.125rem] md:text-[5rem] max-xsm:text-[2.5rem]">
+          <span className="z-10 -rotate-6 font-orbitron text-[3rem] font-extrabold leading-none text-primary max-cmd:text-[3.125rem] max-xsm:text-[2.5rem] md:text-[5rem]">
             IGNITE.INSPIRE.
           </span>
           <Image
@@ -86,7 +86,7 @@ export default function Home() {
           variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="z-10 font-secondary font-extrabold leading-none text-quarternary max-cmd:text-[4.5rem] md:text-[7.5rem] max-xsm:text-[3.5rem]">
+          <span className="z-10 font-orbitron font-extrabold leading-none text-primary max-cmd:text-[4.5rem] max-xsm:text-[3.5rem] md:text-[7.5rem]">
             ILLUMINATE.
           </span>
         </motion.div>
