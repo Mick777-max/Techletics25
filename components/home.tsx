@@ -74,11 +74,11 @@ export default function Home() {
             IGNITE.INSPIRE.
           </span>
           <Image
-            src="/icons/Vector.svg"
+            src="/icons/sparkle.png"
             alt="Spark icon"
             width={100}
             height={100}
-            className="h-[3rem] w-auto md:h-[6.25rem]"
+            className="h-[3rem] w-auto md:h-[7rem]"
           />
         </motion.div>
 
