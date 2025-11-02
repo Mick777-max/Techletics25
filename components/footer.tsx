@@ -145,11 +145,11 @@ import { CustomLink, CustomText } from '@/components/custom';
 
 const Copyright = () => {
   return (
-    <div className="relative flex min-h-16 w-full items-center justify-center overflow-clip bg-secondary">
+    <div className="relative flex min-h-16 w-full items-center justify-center overflow-clip bg-quarternary">
       <div className="absolute mt-2 flex w-full justify-center md:mt-8">
         <span
-          className="whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent md:text-[9rem]"
-          style={{ WebkitTextStroke: '1px #9B1FE8' }}
+          className="whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent opacity-40 md:text-[9rem]"
+          style={{ WebkitTextStroke: '1px rgba(231,230,228,0.4)' }} // instead of #e7e6e4
         >
           TECHLETICS
         </span>
@@ -162,7 +162,7 @@ const Copyright = () => {
           <CustomLink
             href="https://cce.edu.in"
             target="_blank"
-            className="z-10 whitespace-nowrap text-tertiary"
+            className="z-10 whitespace-nowrap text-secondary"
           >
             Christ College of Engineering.&nbsp;
           </CustomLink>
@@ -179,14 +179,14 @@ const SocialAndConnect = () => {
   return (
     <SectionLayout full className="mx-auto max-w-screen-2xl bg-quarternary">
       <div className="flex w-full flex-col justify-center gap-12 text-secondary md:p-6 lg:py-12">
-        <div className="flex flex-col flex-wrap justify-center gap-0 align-middle font-orbitron text-[3.9rem] font-bold text-white">
+        <div className="flex flex-col flex-wrap justify-center gap-0 align-middle font-orbitron text-[3.9rem] font-bold text-tertiary">
           <div className="w-full">
             <span>
               WANT TO <span className="text-secondary">KNOW MORE?</span>
             </span>
           </div>
 
-          <div className="w-full">
+          <div className="w-full text-tertiary">
             <span>CONNECT WITH US.</span>
           </div>
         </div>
@@ -208,7 +208,7 @@ const SocialAndConnect = () => {
               <CustomLink
                 href="https://cce.edu.in/"
                 target="_blank"
-                className="font-opensans text-xl font-semibold text-primary hover:text-secondary"
+                className="font-opensans text-xl font-semibold text-tertiary hover:text-secondary"
               >
                 cce.edu.in
               </CustomLink>
@@ -226,14 +226,14 @@ const SocialAndConnect = () => {
               <div className="flex flex-wrap gap-4 font-opensans text-xl font-extrabold">
                 <CustomLink
                   href="tel:+91 9400336647"
-                  className="whitespace-nowrap text-primary hover:text-secondary"
+                  className="whitespace-nowrap text-tertiary hover:text-secondary"
                 >
                   +91 9400336647
                 </CustomLink>
 
                 <CustomLink
                   href="tel:+91 9072809994"
-                  className="whitespace-nowrap text-primary hover:text-secondary"
+                  className="whitespace-nowrap text-tertiary hover:text-secondary"
                 >
                   +91 9072809994
                 </CustomLink>
@@ -271,7 +271,7 @@ const SocialAndConnect = () => {
         </div> */}
 
         <div className="relative z-0 flex flex-wrap items-center justify-end gap-4 px-12 py-6 md:gap-8 lg:w-1/2 lg:p-12">
-          <p className="text-md whitespace-nowrap font-medium text-white lg:text-lg">
+          <p className="text-md whitespace-nowrap font-medium text-tertiary lg:text-lg">
             FOLLOW US
           </p>
 
