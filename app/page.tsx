@@ -31,6 +31,15 @@ export default function HomePage() {
       {/* <TextMarquee bgColor="secondary" /> */}
       <TextMarquee type="ignite" />
 
+      {/* <div className='w-full'>
+        <Image 
+         src='/icons/section-separator-top.png'
+         alt="section separator"
+         width={1000}
+         height={50}
+         className='w-full h-auto'/>
+      </div> */}
+
       <section className="relative bg-[url('/image/bg-about.png')] bg-cover bg-center">
         {/* <div className="hidden xl:absolute xl:right-0 xl:top-[10px] xl:z-20 xl:block">
           <Image
@@ -41,32 +50,79 @@ export default function HomePage() {
             className=""
           />
         </div> */}
+
+        <div className="absolute top-0 w-full">
+          <Image
+            src="/icons/section-separator-top.png"
+            alt="section separator"
+            width={1000}
+            height={50}
+            className="h-auto w-full"
+          />
+        </div>
+
         <Homeabout />
+
+        <div className="absolute bottom-0 w-full">
+          <Image
+            src="/icons/section-separator-bottom.png"
+            alt="section separator"
+            width={1000}
+            height={50}
+            className="h-auto w-full"
+          />
+        </div>
       </section>
 
       <TextMarquee type="ignite" />
 
-      <section className="relative bg-[url('/image/bg-stats.png')] bg-cover bg-center">
-        <span id="stats"></span>
-        {/* <Image
-          src="/image/flo.svg"
-          alt="flower"
-          width={250}
-          height={250}
-          className="absolute -top-40 left-0 z-20 w-52 md:-top-48 md:w-64"
-        /> */}
-
-        <div className="relative z-10 overflow-hidden pt-[180px] md:pt-[220px]">
-          {/* <div className="w-[120%] origin-left -rotate-6">
-            <TextMarquee bgColor="tertiary" />
-          </div> */}
+      <section className="relative bg-[url('/image/bg-stats.png')] bg-cover bg-center py-[4rem] max-cmd:pb-[11rem] max-md:pb-[35rem]">
+        <div className="absolute top-0 w-full">
+          <Image
+            src="/icons/section-separator-top.png"
+            alt="section separator"
+            width={1000}
+            height={50}
+            className="h-auto w-full"
+          />
         </div>
-        {/* <StarsCanvas color="white" /> */}
+
+        <span id="stats"></span>
+
         <Stats />
 
-        <div className="mt-4">
-          {/* <TextMarquee bgColor="tertiary" type="secondary" /> */}
-          <TextMarquee type="techletics" />
+        <div className="absolute bottom-0 w-full">
+          <Image
+            src="/icons/section-separator-bottom.png"
+            alt="section separator"
+            width={1000}
+            height={50}
+            className="h-auto w-full"
+          />
+        </div>
+      </section>
+
+      <TextMarquee type="techletics" />
+
+      <section className="relative bg-quarternary">
+        <div className="absolute top-0 w-full">
+          <Image
+            src="/icons/section-separator-top.png"
+            alt="section separator"
+            width={1000}
+            height={50}
+            className="h-auto w-full"
+          />
+        </div>
+
+        <div className="absolute bottom-0 w-full">
+          <Image
+            src="/icons/section-separator-bottom.png"
+            alt="section separator"
+            width={1000}
+            height={50}
+            className="h-auto w-full"
+          />
         </div>
       </section>
     </div>

@@ -26,7 +26,8 @@ const starPositions = [
 
 export default function Stats() {
   return (
-    <div className="relative mx-auto mb-[6rem] h-[75vh] max-w-screen-xl max-cmd:mb-[20rem] max-md:mb-[40rem]">
+    // <div className="relative mx-auto mb-[6rem] h-[100vh] max-w-screen-xl max-cmd:mb-[20rem] max-md:mb-[40rem]">
+    <div className="relative mx-auto h-[90vh] max-w-screen-xl">
       {/* <Image
         src="/image/flo.svg"
         alt="flower"
@@ -65,7 +66,7 @@ export default function Stats() {
         />
       ))} */}
 
-      <div className="absolute right-[400px] top-[30px] z-30 w-[270px] cursor-pointer max-cmd:left-[40px] max-cmd:top-[260px] max-md:hidden">
+      <div className="absolute right-[400px] top-[20px] z-30 w-[270px] cursor-pointer max-cmd:left-[40px] max-cmd:top-[260px] max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}
           className="relative inline-block"
@@ -77,7 +78,7 @@ export default function Stats() {
         </motion.div>
       </div>
 
-      <div className="absolute right-[40px] z-30 w-[160px] cursor-pointer max-cmd:right-[40px] max-cmd:top-[-20px] max-md:hidden">
+      <div className="absolute right-[40px] top-[80px] z-30 w-[160px] cursor-pointer max-cmd:right-[40px] max-cmd:top-[20px] max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}
           className="relative inline-block"
@@ -89,7 +90,7 @@ export default function Stats() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-[30px] left-[400px] z-30 w-[300px] cursor-pointer max-cmd:bottom-[-100px] max-cmd:left-[40px] max-md:hidden">
+      <div className="absolute bottom-[30px] left-[400px] z-30 w-[300px] cursor-pointer max-cmd:bottom-[40px] max-cmd:left-[40px] max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}
           className="relative inline-block"
