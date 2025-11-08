@@ -16,15 +16,15 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="w-full min-w-80">
-      <section className="relative bg-primary">
+      <section className="relative bg-[url('/image/bg-about.png')] bg-cover bg-center">
         {/* <StarsCanvas color="#ff1282" /> */}
-        <Image
+        {/* <Image
           src="/image/Grid.svg"
           alt="bg"
           width={1000}
           height={500}
           className="absolute inset-0 z-10 h-full w-full bg-cover bg-center bg-no-repeat opacity-50"
-        />
+        /> */}
         <Home />
       </section>
 

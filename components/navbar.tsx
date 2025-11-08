@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
@@ -10,7 +9,6 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
@@ -37,80 +35,76 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-white/20 bg-secondary shadow-lg backdrop-blur-lg">
+    <nav className="fixed top-0 z-50 w-full border-b border-white/20 bg-[linear-gradient(to_bottom,_#323232_0%,_#353535_10%,_#40403F_50%,_#494948_85%,_#4D4D4C_100%)] shadow-lg backdrop-blur-lg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 justify-between">
-          {/* Logo and brand */}
+        <div className="flex h-24 items-center justify-between">
+          {/* Logo */}
           <div className="flex flex-shrink-0 items-center">
             <Link href="/" prefetch={true}>
-              <Image
-                src="/logos/logo.png"
-                alt="Techletics Logo"
-                width={150}
-                height={40}
-                className="h-20 w-auto drop-shadow-sm"
-                priority
-              />
+              <div className="font-orbitron text-[1.7rem] font-bold">
+                <span className="text-secondary">TECH</span>
+                <span className="text-[#999999]">LETICS</span>
+              </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <motion.div layout className="hidden items-center md:flex space-x-4">
-            {navLinks.map((link) =>
-              link.isExternal ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1 rounded-[10px] border border-transparent px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/20"
-                >
-                  {link.label}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="h-4 w-4"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                    />
-                  </svg>
-                </a>
-              ) : (
-                <div key={link.href} className="relative h-10 group flex items-center justify-center rounded-lg">
-                  <Link
-                    href={link.href}
-                    prefetch={true}
-                    className={`z-20 flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium text-white transition-all duration-300 ${pathname === link.href ? 'text-white' : ''
-                      }`}
-                  >
-                    {link.label}
-                  </Link>
+          <div className="hidden items-center md:flex">
+            <div className="relative inline-block">
+              {/* Gold Border Layer */}
+              <div
+                aria-hidden="true"
+                className="absolute left-0 top-0 h-full w-full origin-center scale-x-[1.005] scale-y-[1.04] bg-[#c79a42] [clip-path:polygon(12px_0,100%_0,100%_calc(100%-12px),calc(100%-12px)_100%,0_100%,0_12px)]"
+              ></div>
 
-                  {/* Active Slider */}
-                  {pathname === link.href ? (
-                    <motion.div
-                      layoutId="slider"
-                      transition={{ type: 'tween', stiffness: 500, damping: 30 }}
-                      className="absolute inset-0 -z-10 bg-gray-800/80 border-2 border-gray-700/50 rounded-[10px]"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 -z-20 border border-transparent transition-all duration-300 group-hover:border-white/30 group-hover:bg-white/20 rounded-[10px]" />
-                  )
-                  }
-
+              {/* Actual Slanted Nav Box */}
+              <motion.div
+                layout
+                className="relative z-10 flex items-center justify-between space-x-4 bg-quarternary font-orbitron [clip-path:polygon(12px_0,100%_0,100%_calc(100%-12px),calc(100%-12px)_100%,0_100%,0_12px)]"
+              >
+                {/* Links */}
+                <div className="flex">
+                  {navLinks.map((link) =>
+                    link.isExternal ? (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="duration-10 flex items-center justify-center gap-1 rounded-lg px-4 py-2 text-sm text-white backdrop-blur-sm transition-all hover:scale-110 hover:font-bold"
+                      >
+                        {link.label.toUpperCase()}
+                      </a>
+                    ) : (
+                      <div
+                        key={link.href}
+                        className="group relative flex h-10 items-center justify-center rounded-lg"
+                      >
+                        <Link
+                          href={link.href}
+                          prefetch={true}
+                          className={`duration-10 z-20 flex items-center justify-center rounded-lg px-4 py-2 text-sm backdrop-blur-sm transition-all hover:scale-110 hover:font-bold ${
+                            pathname === link.href
+                              ? 'scale-110 font-bold text-secondary'
+                              : 'text-white'
+                          }`}
+                        >
+                          {link.label.toUpperCase()}
+                        </Link>
+                      </div>
+                    ),
+                  )}
                 </div>
-              )
-            )}
-          </motion.div>
 
+                {/* CONTACT button */}
+                <div className="flex h-10 items-center justify-center bg-secondary px-5 py-2 text-sm uppercase tracking-widest">
+                  <span>CONTACT</span>
+                </div>
+              </motion.div>
+            </div>
+          </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <div className="flex items-center md:hidden">
             <button
               onClick={toggleMenu}
@@ -155,9 +149,13 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       <div
-        className={`transition-all duration-300 ease-in-out md:hidden ${isMenuOpen ? 'max-h- opacity-100' : 'max-h-0 overflow-hidden opacity-0'}`}
+        className={`transition-all duration-300 ease-in-out md:hidden ${
+          isMenuOpen
+            ? 'max-h-screen opacity-100'
+            : 'max-h-0 overflow-hidden opacity-0'
+        }`}
       >
         <div className="border-t border-white/20 bg-white/5 px-2 pb-3 pt-2 backdrop-blur-lg sm:px-3">
           {navLinks.map((link) =>
@@ -190,10 +188,11 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 prefetch={true}
-                className={`mb-1 block rounded-lg border px-4 py-3 text-base font-medium backdrop-blur-sm transition-all duration-300 ${pathname === link.href
-                  ? 'border-gray-700/50 bg-gray-800/80 text-white shadow-lg'
-                  : 'border-transparent text-gray-800 hover:border-white/30 hover:bg-white/20 hover:text-gray-600'
-                  }`}
+                className={`mb-1 block rounded-lg border px-4 py-3 text-base font-medium backdrop-blur-sm transition-all duration-300 ${
+                  pathname === link.href
+                    ? 'border-gray-700/50 bg-gray-800/80 text-white shadow-lg'
+                    : 'border-transparent text-gray-800 hover:border-white/30 hover:bg-white/20 hover:text-gray-600'
+                }`}
               >
                 {link.label}
               </Link>

@@ -62,13 +62,13 @@ export default function RootLayout({
         {children}
         <footer id="contact" className="w-full bg-quarternary">
           <div className="relative w-full">
-            <Image
+            {/* <Image
               src="/image/Grid.svg"
               alt="bg"
               width={1000}
               height={500}
               className="absolute inset-0 z-10 h-full w-full bg-cover bg-center bg-no-repeat opacity-50"
-            />
+            /> */}
             <SocialAndConnect />
           </div>
           <Copyright />
