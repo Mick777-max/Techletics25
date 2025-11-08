@@ -71,13 +71,13 @@ export const committees: CommitteeData[] = [
     details: [
       {
         role: 'Website Lead',
-        name: 'Pranav Madhu',
+        name: 'Mick Suraj',
         profileUrl: 'https://www.linkedin.com/in/pranav-madhu/',
         src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/pranav.png',
       },
       {
-        role: 'Lead Developer / Designer',
-        name: 'Noah Johny',
+        role: 'Lead Developer',
+        name: 'Dhyan Jiju',
         profileUrl: 'https://www.linkedin.com/in/noah-johny/',
         src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/noah.png',
       },

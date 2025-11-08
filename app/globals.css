@@ -22,3 +22,7 @@ body {
 ::-webkit-scrollbar {
   display: none; /* For Chrome, Safari, Edge */
 }
+
+.my-gradient-bg {
+  background: linear-gradient(to bottom, #fffad0 0%, #eedbab 35%, #f6f0e4 100%);
+}

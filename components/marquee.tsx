@@ -133,16 +133,24 @@ import Marquee from 'react-fast-marquee';
 
 interface TextMarqueeProps {
   type?: 'ignite' | 'techletics';
+  bg?: 'black' | 'secondary';
+  text?: 'white' | 'black';
 }
 
-const TextMarquee = ({ type = 'ignite' }: TextMarqueeProps) => {
+const TextMarquee = ({
+  type = 'ignite',
+  bg = 'black',
+  text = 'white',
+}: TextMarqueeProps) => {
   // const content =
   //   type === 'ignite'
   //     ? ['IGNITE', 'INSPIRE', 'ILLUMINATE']
   //     : ["TECHLETICS '25"];
 
   return (
-    <section className="w-full overflow-hidden bg-black font-orbitron font-bold text-white">
+    <section
+      className={`w-full overflow-hidden bg-${bg} font-orbitron font-bold text-${text}`}
+    >
       <Marquee speed={60} gradient={false}>
         {[...Array(10)].map((_, index) =>
           type === 'ignite' ? (
@@ -180,7 +188,7 @@ const TextMarquee = ({ type = 'ignite' }: TextMarqueeProps) => {
               <div>TECHLETICS &apos;25</div>
               <span
                 className="text-white"
-                style={{ WebkitTextStroke: '1px white' }}
+                style={{ WebkitTextStroke: '1px black' }}
               >
                 ✦
               </span>

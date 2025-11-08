@@ -9,53 +9,75 @@ interface Details {
   profileUrl?: string;
 }
 
-export default function CommitteeCard({ info }: { info: Details }) {
-  return info.profileUrl ? (
-    <a href={info.profileUrl} target="_blank" rel="noopener noreferrer">
-      <div className="aspect-[0.76] w-[200px] bg-black saturate-0 transition duration-200 ease-in hover:bg-primary hover:saturate-100 md:w-[240px] lg:w-[260px]">
-        <div className="relative h-full w-full">
+interface CommitteeCardProps {
+  info: Details;
+  title?: string; // <-- new optional prop
+}
+
+export default function CommitteeCard({ info, title }: CommitteeCardProps) {
+  return title === 'Executive' ? (
+    <div
+      className="group relative flex min-h-[320px] w-[220px] cursor-pointer flex-col items-center justify-center overflow-hidden border border-[#f3e3a7] bg-[#fff9d3] shadow-md transition-all duration-300 hover:scale-110 hover:shadow-lg md:w-[240px] lg:w-[260px]"
+      style={{
+        clipPath:
+          'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
+      }}
+    >
+      <div className="absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-secondary transition-colors duration-300 group-hover:border-quarternary"></div>
+      <div className="absolute bottom-0 right-0 h-5 w-5 border-b-4 border-r-4 border-secondary transition-colors duration-300 group-hover:border-quarternary"></div>
+
+      <div className="mt-6 flex justify-center">
+        <div className="h-[10.5rem] w-[10.5rem] overflow-hidden rounded-full border border-secondary bg-quarternary shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">
+          {/* Member Image */}
           <Image
-            alt="card"
-            src={info.src}
-            quality={0}
-            width={275}
-            height={360}
-            className="block h-full w-full object-contain"
-            priority
-            fetchPriority="high"
+            className="h-full w-full object-cover grayscale transition duration-300 group-hover:grayscale-0"
+            src="/image/mohanlal.png"
+            alt="name"
+            width={300}
+            height={300}
           />
-          <div className="absolute bottom-0 flex w-full flex-col items-center justify-center bg-gradient-to-t from-black via-black to-transparent p-3 tracking-wide transition delay-200">
-            <span className="text-md font-primary text-secondary sm:text-lg">
-              {info.name}
-            </span>
-            <span className="text-md text-center font-secondary capitalize text-primary sm:text-lg">
-              {info.role}
-            </span>
-          </div>
         </div>
       </div>
-    </a>
+
+      <div className="mt-4 flex flex-col items-center justify-center px-3 text-center">
+        <span className="text-wrap font-orbitron text-lg font-semibold text-quarternary">
+          {info.name}
+        </span>
+        <span className="font-opensans text-sm tracking-wide text-secondary md:text-base">
+          {info.role.toUpperCase()}
+        </span>
+      </div>
+    </div>
   ) : (
-    <div className="aspect-[0.76] w-[200px] bg-black saturate-0 transition duration-200 ease-in hover:bg-primary hover:saturate-100 md:w-[240px] lg:w-[260px]">
-      <div className="relative h-full w-full">
-        <Image
-          alt="card"
-          src={info.src}
-          quality={0}
-          width={275}
-          height={360}
-          className="block h-full w-full object-contain"
-          priority
-          fetchPriority="high"
-        />
-        <div className="absolute bottom-0 flex w-full flex-col items-center justify-center bg-gradient-to-t from-black via-black to-transparent p-3 tracking-wide transition delay-200">
-          <span className="text-md font-primary text-secondary sm:text-lg">
-            {info.name}
-          </span>
-          <span className="text-md text-center font-secondary capitalize text-primary sm:text-lg">
-            {info.role}
-          </span>
+    <div
+      className="group relative flex min-h-[320px] w-[220px] cursor-pointer flex-col items-center justify-center overflow-hidden border border-[#f3e3a7] bg-[#f8f0be] shadow-md transition-all duration-300 hover:scale-110 hover:shadow-lg md:w-[240px] lg:w-[260px]"
+      style={{
+        clipPath:
+          'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
+      }}
+    >
+      <div className="absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-secondary transition-colors duration-300 group-hover:border-quarternary"></div>
+      <div className="absolute bottom-0 right-0 h-5 w-5 border-b-4 border-r-4 border-secondary transition-colors duration-300 group-hover:border-quarternary"></div>
+
+      <div className="mt-6 flex justify-center">
+        <div className="h-[10.5rem] w-[10.5rem] overflow-hidden rounded-full border border-secondary bg-[#403302] shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">
+          <Image
+            className="h-full w-full object-cover grayscale transition duration-300 group-hover:grayscale-0"
+            src="/image/mohanlal.png"
+            alt="name"
+            width={300}
+            height={300}
+          />
         </div>
+      </div>
+
+      <div className="mt-4 flex flex-col items-center justify-center px-3 text-center">
+        <span className="text-wrap font-orbitron text-lg font-semibold text-quarternary">
+          {info.name}
+        </span>
+        <span className="font-opensans text-sm tracking-wide text-secondary md:text-base">
+          {info.role.toUpperCase()}
+        </span>
       </div>
     </div>
   );

@@ -65,6 +65,11 @@ export const openSans = localFont({
   src: [
     {
       path: './OpenSans-Regular.ttf',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: './OpenSans-Regular.ttf',
       weight: '400',
       style: 'normal',
     },

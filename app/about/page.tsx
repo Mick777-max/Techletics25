@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import About from './components/about';
 import Legacy from './components/legacy';
 import Committee from './components/comitee';
+import TextMarquee from '@/components/marquee';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -11,10 +13,22 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div>
-      <About />
-      <Legacy />
-      <Committee />
+    <div className="my-gradient-bg w-full min-w-80">
+      <section className="relative">
+        <About />
+      </section>
+
+      <section className="relative">
+        <Legacy />
+      </section>
+
+      <TextMarquee type="techletics" bg="secondary" text="black" />
+
+      <section className="relative">
+        <Committee />
+      </section>
+
+      <TextMarquee type="techletics" bg="secondary" text="black" />
     </div>
   );
 }
