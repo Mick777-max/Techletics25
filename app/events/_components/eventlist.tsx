@@ -11,7 +11,8 @@ type Event = {
 export const eventList: Event[] = [
   {
     name: 'Women in Buisness',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/women-in-business_.png',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/women-in-business_.png',
     community: 'IEDC',
     category: 'TECHNICAL',
     type: 'EXPO',
@@ -19,7 +20,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Idea Pitching',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.37_c9735fa3.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.37_c9735fa3.jpg',
     branch: 'ECE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -27,7 +29,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'EV Drive',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.13_5f8481ef.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.13_5f8481ef.jpg',
     branch: 'EEE',
     category: 'TECHNICAL',
     type: 'WORKSHOP',
@@ -35,7 +38,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Hacknite',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.08_791165df.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.08_791165df.jpg',
     branch: 'CSE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -43,7 +47,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Technical Quiz',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_14.33.25_d5a52fd6.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_14.33.25_d5a52fd6.jpg',
     branch: 'CE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -51,7 +56,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'E-Football Tournament',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-17_at_23.29.49_1e9e2961.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-17_at_23.29.49_1e9e2961.jpg',
     branch: 'CSE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -59,7 +65,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'BGMI Tournament',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-17_at_23.29.38_60d3cb58.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-17_at_23.29.38_60d3cb58.jpg',
     branch: 'CSE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -67,7 +74,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Capture The Flag: Cyber Challenge',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-17_at_23.29.25_caaf84b1.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-17_at_23.29.25_caaf84b1.jpg',
     community: 'IEEE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -75,7 +83,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Tech Talks: Life of an Entrepreneur',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-17_at_23.29.05_52c66f9e.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-17_at_23.29.05_52c66f9e.jpg',
     branch: 'CSE',
     category: 'TECHNICAL',
     type: 'TECH-TALK',
@@ -83,7 +92,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Tech Talks: Cyber Security',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-17_at_23.29.04_0ffb2014.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-17_at_23.29.04_0ffb2014.jpg',
     branch: 'CSE',
     category: 'TECHNICAL',
     type: 'TECH-TALK',
@@ -91,7 +101,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Non Destructive Testing',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-15_at_22.37.09_e6b94974-min.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-15_at_22.37.09_e6b94974-min.jpg',
     branch: 'CE',
     category: 'TECHNICAL',
     type: 'WORKSHOP',
@@ -99,7 +110,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Robo Soccer',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/ROBO_SOCCER_1.1_2_hbKs789.png',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/ROBO_SOCCER_1.1_2_hbKs789.png',
     branch: 'ECE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -107,7 +119,8 @@ export const eventList: Event[] = [
   },
   {
     name: "Da Vinci's Vault",
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-15_at_22.32.31_120de47f-min.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-15_at_22.32.31_120de47f-min.jpg',
     branch: 'ME',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -115,7 +128,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'EV Hack',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-15_at_22.32.30_63b4b103-min.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-15_at_22.32.30_63b4b103-min.jpg',
     branch: 'EEE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -123,7 +137,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Project Expo',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-13_at_22.00.36_d0ea6677-min.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-13_at_22.00.36_d0ea6677-min.jpg',
     branch: 'EEE',
     category: 'TECHNICAL',
     type: 'EXPO',
@@ -131,7 +146,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Quake Proof Creation Challenge',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-13_at_22.00.19_9e5926ea-min.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-13_at_22.00.19_9e5926ea-min.jpg',
     branch: 'CE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -139,7 +155,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Wrenching Wheels',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-13_at_19.31.05_d777ea88-min.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-13_at_19.31.05_d777ea88-min.jpg',
     branch: 'ME',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -147,14 +164,16 @@ export const eventList: Event[] = [
   },
   {
     name: 'Malhar: Musical Band Competition',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-13_at_19.30.52_89e38456-min.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-13_at_19.30.52_89e38456-min.jpg',
     category: 'CULTURAL',
     type: 'COMPETITION',
     url: 'https://docs.google.com/forms/d/e/1FAIpQLScPczdk4WDJgO2SGQFMicLwgQPMnkm4S1Z1DWmSXvuAHYNfjA/viewform',
   },
   {
     name: 'iRobotics Workshop',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-20_at_11.49.45_db67373d.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-20_at_11.49.45_db67373d.jpg',
     branch: 'ECE',
     category: 'TECHNICAL',
     type: 'WORKSHOP',
@@ -162,7 +181,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Build your Dreams',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-20_at_11.49.27_012367d9.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-20_at_11.49.27_012367d9.jpg',
     branch: 'CE',
     category: 'TECHNICAL',
     type: 'TECH-TALK',
@@ -170,7 +190,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Clues and Cranks',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-20_at_11.49.22_f2a885d2.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-20_at_11.49.22_f2a885d2.jpg',
     branch: 'ME',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -178,7 +199,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Designathon',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/designathon.png',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/designathon.png',
     branch: 'CSE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -186,7 +208,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Drishti',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/dristi.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/dristi.jpg',
     branch: 'BSH',
     category: 'TECHNICAL',
     type: 'EXPO',
@@ -194,14 +217,16 @@ export const eventList: Event[] = [
   },
   {
     name: 'Group Dance Competition: Beat Sync Battle',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/dance-group.png',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/dance-group.png',
     category: 'CULTURAL',
     type: 'COMPETITION',
     url: 'https://forms.gle/zFNAjmtzbAJKvadWA',
   },
   {
     name: 'CODE-UNO',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-20_at_22.37.40_3afdb779.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-20_at_22.37.40_3afdb779.jpg',
     branch: 'ECE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -209,7 +234,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Solo Dance Competition: Beat Sync Battle',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-21_at_20.00.10_9c00d390.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-21_at_20.00.10_9c00d390.jpg',
     branch: 'ALL',
     category: 'CULTURAL',
     type: 'ALL EVENTS',
@@ -217,7 +243,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'REMAPPED',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-21_at_22.49.47_c420fecb.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-21_at_22.49.47_c420fecb.jpg',
     branch: 'ME',
     category: 'TECHNICAL',
     type: 'EXPO',
@@ -225,7 +252,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Mextalk',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-21_at_22.50.07_0aa40614.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-21_at_22.50.07_0aa40614.jpg',
     branch: 'ME',
     category: 'TECHNICAL',
     type: 'TECH-TALK',
@@ -233,7 +261,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Belfort of Wallstreet',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/Untitled-2.png',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/Untitled-2.png',
     branch: 'ALL',
     category: 'TECHNICAL',
     type: 'TECH-TALK',
@@ -241,7 +270,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Arduino Workshop',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-22_at_22.46.58_3e747958.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-22_at_22.46.58_3e747958.jpg',
     branch: 'ECE',
     category: 'TECHNICAL',
     type: 'WORKSHOP',
@@ -249,7 +279,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Rack and Crack',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-22_at_22.45.17_1088c922.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-22_at_22.45.17_1088c922.jpg',
     branch: 'CE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -257,7 +288,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Electro',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-22_at_22.44.46_763e2bb3.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-22_at_22.44.46_763e2bb3.jpg',
     branch: 'EEE',
     category: 'TECHNICAL',
     type: 'EXPO',
@@ -265,7 +297,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Brand',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-22_at_22.37.13_cc6bfae8.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-22_at_22.37.13_cc6bfae8.jpg',
     branch: 'ALL',
     category: 'TECHNICAL',
     type: 'ALL EVENTS',
@@ -273,7 +306,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'BID',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-22_at_22.37.05_a3e4dec9.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-22_at_22.37.05_a3e4dec9.jpg',
     branch: 'ALL',
     category: 'TECHNICAL',
     type: 'ALL EVENTS',
@@ -281,7 +315,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Hardware Hackthons',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/IMG_0187.JPG',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/IMG_0187.JPG',
     branch: 'ECE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -289,7 +324,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'EV Workshop',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-24_at_07.40.18_5d6fa38f.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-24_at_07.40.18_5d6fa38f.jpg',
     branch: 'ME',
     category: 'TECHNICAL',
     type: 'WORKSHOP',
@@ -297,7 +333,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Aerion',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-24_at_07.40.23_4bc65c78.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-24_at_07.40.23_4bc65c78.jpg',
     branch: 'ME',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -305,7 +342,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Poster making',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-24_at_07.40.43_ce6ad284.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-24_at_07.40.43_ce6ad284.jpg',
     branch: 'CE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -313,7 +351,8 @@ export const eventList: Event[] = [
   },
   {
     name: 'Top Dog Valorant',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-24_at_07.41.03_6660e6ee.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-24_at_07.41.03_6660e6ee.jpg',
     branch: 'ME',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -324,7 +363,8 @@ export const eventList: Event[] = [
 export const featuredEventList: Event[] = [
   {
     name: 'Designathon',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/designathon.png',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/designathon.png',
     branch: 'CSE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -332,7 +372,8 @@ export const featuredEventList: Event[] = [
   },
   {
     name: 'Hacknite',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.08_791165df.jpg',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.08_791165df.jpg',
     branch: 'CSE',
     category: 'TECHNICAL',
     type: 'COMPETITION',
@@ -340,7 +381,8 @@ export const featuredEventList: Event[] = [
   },
   {
     name: 'Belfort of Wallstreet',
-    src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/Untitled-2.png',
+    src: '/image/mohanlal.png',
+    // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/Untitled-2.png',
     community: 'IEDC',
     category: 'TECHNICAL',
     type: 'TECH-TALK',

@@ -2,35 +2,29 @@ import { CustomText } from '@/components/custom';
 import { featuredEventList } from './eventlist';
 import Link from 'next/link';
 import Image from 'next/image';
+import SectionSeparatorTop from '@/components/custom/sectionseparatortop';
+import SectionSeparatorBottom from '@/components/custom/sectionseparatorbottom';
 
 const FeaturedEvents = () => {
   return (
-    <section className='bg-[url("/image/bg-white.png")] bg-center bg-repeat px-5'>
+    <section className="relative mx-auto max-w-screen-2xl items-center justify-center px-5">
       <div className="font-primary flex w-full flex-col items-center justify-center gap-12 py-6 text-secondary lg:py-12">
         <CustomText title>
           FEATURED &nbsp;<CustomText highlightedTitle>EVENT WEBITES</CustomText>
         </CustomText>
       </div>
 
-      <div className="my-10 flex flex-wrap justify-center gap-5">
+      <div className="flex flex-wrap justify-center gap-5">
         {featuredEventList.map((event) => (
           <Link href={event.url} key={event.name} target="_blank">
-            <div className="group relative h-[18rem] w-[16rem] p-2 transition-all duration-200 ease-in hover:z-20 hover:scale-125 hover:border-[0.1px] hover:border-secondary hover:bg-tertiary">
-              {/* <div className="absolute top-0 left-0 w-5 h-5 border-t-4 border-l-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-            
-                              <div className="absolute top-0 right-0 w-5 h-5 border-t-4 border-r-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-            
-                              <div className="absolute bottom-0 left-0 w-5 h-5 border-b-4 border-l-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-            
-                              <div className="absolute bottom-0 right-0 w-5 h-5 border-b-4 border-r-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div> */}
+            <div className="group relative h-[18rem] w-[16rem] bg-quarternary p-2 transition-all duration-200 ease-in hover:z-20 hover:scale-125 hover:border-[0.1px] hover:border-secondary hover:bg-secondary">
+              <div className="absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
 
-              <div className="absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-secondary"></div>
+              <div className="absolute right-0 top-0 h-5 w-5 border-r-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
 
-              <div className="absolute right-0 top-0 h-5 w-5 border-r-4 border-t-4 border-secondary"></div>
+              <div className="absolute bottom-0 left-0 h-5 w-5 border-b-4 border-l-4 border-secondary group-hover:border-quarternary"></div>
 
-              <div className="absolute bottom-0 left-0 h-5 w-5 border-b-4 border-l-4 border-secondary"></div>
-
-              <div className="absolute bottom-0 right-0 h-5 w-5 border-b-4 border-r-4 border-secondary"></div>
+              <div className="absolute bottom-0 right-0 h-5 w-5 border-b-4 border-r-4 border-secondary group-hover:border-quarternary"></div>
               <Image
                 className="h-full w-full object-cover grayscale hover:grayscale-0"
                 src={event.src}

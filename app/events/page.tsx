@@ -13,11 +13,30 @@ export const metadata: Metadata = {
 
 export default function EventsPage() {
   return (
-    <section className="mx-auto h-full max-w-screen-2xl">
-      <TechleticsCarousel />
-      <Events />
-      <TextMarquee />
-      <FeaturedEvents />
-    </section>
+    <div className="w-full min-w-80">
+      <section className="relative">
+        <TechleticsCarousel />
+      </section>
+
+      <section className='relative bg-[url("/image/bg-white.png")] bg-auto bg-center py-[5rem]'>
+        <SectionSeparatorTop />
+
+        <Events />
+
+        <SectionSeparatorBottom />
+      </section>
+
+      <TextMarquee type="ignite" />
+
+      <section className='relative bg-[url("/image/bg-white.png")] bg-cover bg-center py-[5rem]'>
+        <SectionSeparatorTop />
+
+        <FeaturedEvents />
+
+        <SectionSeparatorBottom />
+      </section>
+
+      <TextMarquee type="techletics" />
+    </div>
   );
 }
