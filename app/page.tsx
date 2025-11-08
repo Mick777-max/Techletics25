@@ -11,6 +11,7 @@ import Memories from '@/components/memories';
 import Media from '@/components/media';
 import SectionSeparatorBottom from '@/components/custom/sectionseparatorbottom';
 import SectionSeparatorTop from '@/components/custom/sectionseparatortop';
+import PrevEvents from '@/components/prevevents';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -83,6 +84,14 @@ export default function HomePage() {
         <SectionSeparatorTop />
 
         <Memories />
+
+        <SectionSeparatorBottom />
+      </section>
+
+      <section className="relative bg-quarternary py-[5rem]">
+        <SectionSeparatorTop />
+
+        <PrevEvents />
 
         <SectionSeparatorBottom />
       </section>

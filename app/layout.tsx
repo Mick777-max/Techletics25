@@ -62,7 +62,7 @@ export default function RootLayout({
         {children}
         <footer
           id="contact"
-          className="relative z-50 w-full bg-[url('/image/footer.png')] bg-cover bg-center bg-no-repeat"
+          className="relative z-40 w-full bg-[url('/image/footer.png')] bg-cover bg-center bg-no-repeat"
         >
           <div className="relative w-full">
             <SocialAndConnect />
