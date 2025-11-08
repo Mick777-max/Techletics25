@@ -60,7 +60,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        <footer id="contact" className="w-full bg-quarternary">
+        <footer id="contact" className="relative w-full bg-quarternary">
           <div className="relative w-full">
             {/* <Image
               src="/image/Grid.svg"
@@ -72,6 +72,16 @@ export default function RootLayout({
             <SocialAndConnect />
           </div>
           <Copyright />
+
+          <div className="absolute bottom-0 w-full">
+            <Image
+              src="/icons/section-separator-bottom-white.png"
+              alt="section separator"
+              width={1000}
+              height={50}
+              className="h-auto w-full"
+            />
+          </div>
         </footer>
       </body>
     </html>
