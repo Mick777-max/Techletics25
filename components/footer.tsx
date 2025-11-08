@@ -177,7 +177,7 @@ const Copyright = () => {
 
 const SocialAndConnect = () => {
   return (
-    <section className="mx-auto max-w-screen-2xl">
+    <section className="mx-auto max-w-screen-2xl px-3">
       <div className="flex w-full flex-col justify-center gap-12 text-secondary md:p-6 lg:py-12">
         <div className="flex flex-col flex-wrap justify-center gap-0 align-middle font-orbitron text-[3.9rem] font-bold text-tertiary">
           <div className="w-full">
