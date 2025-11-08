@@ -39,7 +39,7 @@ export default function Home() {
         </motion.div>
       </motion.div>
 
-      <div className="absolute bottom-1 z-30 mt-2 flex w-full items-center justify-center">
+      <div className="absolute bottom-2 z-30 mt-2 flex w-full items-center justify-center">
         <a href="#stats">
           <div className="flex h-[4rem] w-[2.188rem] items-start justify-center rounded-3xl border-4 border-secondary p-2">
             <motion.div

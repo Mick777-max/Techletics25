@@ -93,7 +93,7 @@ export default function Navbar() {
                           prefetch={true}
                           className={`duration-10 z-20 flex items-center justify-center rounded-lg px-4 py-2 text-sm backdrop-blur-sm transition-all hover:scale-110 hover:font-bold ${
                             pathname === link.href
-                              ? 'scale-110 font-bold text-secondary'
+                              ? 'scale-105 font-bold text-secondary'
                               : 'text-white'
                           }`}
                         >
@@ -105,7 +105,7 @@ export default function Navbar() {
                 </div>
 
                 {/* CONTACT button */}
-                <div className="flex h-10 items-center justify-center bg-secondary px-5 py-2 text-sm uppercase tracking-widest">
+                <div className="flex h-10 cursor-pointer items-center justify-center bg-secondary px-5 py-2 text-sm uppercase tracking-widest">
                   <span>CONTACT</span>
                 </div>
               </motion.div>
@@ -116,7 +116,7 @@ export default function Navbar() {
           <div className="flex items-center md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center rounded-lg border border-transparent p-2 text-gray-800 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/20 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-white/30"
+              className="inline-flex items-center justify-center rounded-lg p-2 text-secondary backdrop-blur-sm transition-all duration-300 hover:bg-secondary hover:text-quarternary focus:outline-none focus:ring-2 focus:ring-gray-400/30"
               aria-expanded={isMenuOpen}
               suppressHydrationWarning={true}
             >
@@ -173,9 +173,9 @@ export default function Navbar() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mb-1 flex items-center gap-1 rounded-lg border border-transparent px-4 py-3 text-base font-medium text-gray-800 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/20 hover:text-gray-600"
+                className={`mb-1 flex items-center gap-1 rounded-lg bg-quarternary px-4 py-3 font-orbitron text-base backdrop-blur-sm transition-all duration-300 hover:bg-secondary hover:font-bold hover:text-quarternary ${pathname == link.href ? 'font-bold text-secondary' : 'text-white'}`}
               >
-                {link.label}
+                {link.label.toUpperCase()}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -196,13 +196,9 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 prefetch={true}
-                className={`mb-1 block rounded-lg border px-4 py-3 text-base font-medium backdrop-blur-sm transition-all duration-300 ${
-                  pathname === link.href
-                    ? 'border-gray-700/50 bg-gray-800/80 text-white shadow-lg'
-                    : 'border-transparent text-gray-800 hover:border-white/30 hover:bg-white/20 hover:text-gray-600'
-                }`}
+                className={`mb-1 flex items-center gap-1 rounded-lg bg-quarternary px-4 py-3 font-orbitron text-base backdrop-blur-sm transition-all duration-300 hover:bg-secondary hover:font-bold hover:text-quarternary ${pathname == link.href ? 'font-bold text-secondary' : 'text-white'}`}
               >
-                {link.label}
+                {link.label.toUpperCase()}
               </Link>
             ),
           )}
