@@ -1,7 +1,9 @@
-import Title from '@/components/title';
 import TextMarquee from '@/components/marquee';
 import { Events, FeaturedEvents } from './_components';
 import { Metadata } from 'next';
+import TechleticsCarousel from './_components/banner';
+import SectionSeparatorTop from '@/components/custom/sectionseparatortop';
+import SectionSeparatorBottom from '@/components/custom/sectionseparatorbottom';
 
 export const metadata: Metadata = {
   title: 'Events',
@@ -11,12 +13,11 @@ export const metadata: Metadata = {
 
 export default function EventsPage() {
   return (
-    <>
-      <div className="mt-16 md:mt-10"></div>
-      <Title title="EVENTS" />
+    <section className="mx-auto h-full max-w-screen-2xl">
+      <TechleticsCarousel />
       <Events />
-      <TextMarquee type="ignite" />
+      <TextMarquee />
       <FeaturedEvents />
-    </>
+    </section>
   );
 }

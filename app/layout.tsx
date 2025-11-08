@@ -60,15 +60,11 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        <footer id="contact" className="relative w-full bg-quarternary">
+        <footer
+          id="contact"
+          className="relative z-50 w-full bg-[url('/image/footer.png')] bg-cover bg-center bg-no-repeat"
+        >
           <div className="relative w-full">
-            {/* <Image
-              src="/image/Grid.svg"
-              alt="bg"
-              width={1000}
-              height={500}
-              className="absolute inset-0 z-10 h-full w-full bg-cover bg-center bg-no-repeat opacity-50"
-            /> */}
             <SocialAndConnect />
           </div>
           <Copyright />

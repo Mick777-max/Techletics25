@@ -30,49 +30,42 @@ const Events = () => {
   }, []);
 
   return (
-    <SectionLayout>
-      <div className="flex flex-col justify-center gap-6 bg-primary pt-6 lg:pt-12">
-        <div className="flex flex-row items-center justify-between">
-          <div className="flex flex-col justify-center gap-2">
-            <CustomText title>
-              WITNESS THE&nbsp;
-              <span className="text-secondary">TECH CULTURE</span>
-              EXTRAVAGNAZA.
-            </CustomText>
-            <CustomText description>
-              Explore, Learn, and Enjoy: The Events of Techletics &apos;24
-            </CustomText>
+    <section className='relative bg-[url("/image/bg-white.png")] bg-auto bg-center px-5'>
+      <div className="flex flex-col justify-center gap-6 pt-6 lg:pt-12">
+        <div className="flex flex-wrap items-center justify-between p-2 font-orbitron text-4xl tracking-wide text-quarternary sm:text-5xl md:text-7xl lg:mt-12 xl:mt-8">
+          <span className="mr-4">EVENTS</span>
+          <div className="flex gap-1">
+            <Image
+              src="/icons/barcode.svg"
+              width={424}
+              height={128}
+              alt="Barcode"
+              priority
+              className="hidden h-[88px] w-auto 2xl:flex 2xl:h-24"
+            />
           </div>
-          <Image
-            src="/image/dolls.svg"
-            width={500}
-            height={500}
-            alt="Divider"
-            priority
-            className="mt-2 hidden h-64 w-auto md:block"
-          />
         </div>
 
         <motion.div
           layout
-          className="mx-auto mt-4 flex items-center justify-between rounded-full border border-secondary p-1 text-sm lowercase tracking-wider text-secondary sm:mt-8 md:mt-12 md:p-2 md:text-lg lg:w-fit lg:text-xl relative"
+          className="relative mx-auto flex items-center justify-between rounded-full border border-secondary p-1 text-sm lowercase tracking-wider text-secondary sm:mt-8 md:mt-12 md:p-2 md:text-lg lg:w-fit lg:text-xl"
         >
           {categories.map((category) => (
             <div
               key={category}
-              className="relative cursor-pointer uppercase px-6 py-1 lg:px-8"
+              className="relative cursor-pointer px-6 py-1 uppercase lg:px-8"
               onClick={() => handleCategoryChange(category)}
             >
               {activeCategory === category && (
                 <motion.div
                   layoutId="category-underline"
-                  className="rounded-full absolute bottom-0 left-0 h-full bg-secondary w-full"
-                  transition={
-                    { type: 'spring', stiffness: 200, damping: 30 }
-                  }
+                  className="absolute bottom-0 left-0 h-full w-full rounded-full bg-secondary"
+                  transition={{ type: 'spring', stiffness: 200, damping: 30 }}
                 />
               )}
-              <span className={`relative z-10 transition-all delay-100 ${activeCategory === category ? 'text-tertiary' : ''}`}>
+              <span
+                className={`relative z-10 transition-all delay-100 ${activeCategory === category ? 'text-tertiary' : ''}`}
+              >
                 {category}
               </span>
             </div>
@@ -80,9 +73,9 @@ const Events = () => {
         </motion.div>
 
         {activeCategory === 'TECHNICAL' && (
-          <div className="flex max-sm:justify-center justify-end gap-6 xl:absolute xl:right-16 xl:top-[348px]">
+          <div className="flex justify-end gap-6 max-sm:justify-center xl:absolute xl:right-16 xl:top-[348px]">
             <CustomSelect
-              className="text-md cursor-pointer bg-primary text-secondary focus:outline-none focus:ring-0 md:text-xl"
+              className="text-md cursor-pointer rounded-lg bg-primary text-secondary focus:outline-none focus:ring-0 md:text-xl"
               onChange={(e) => handleBranchChange(e.target.value)}
             >
               {branches.map((branch) => (
@@ -93,7 +86,7 @@ const Events = () => {
             </CustomSelect>
 
             <CustomSelect
-              className="text-md cursor-pointer bg-primary text-secondary focus:outline-none focus:ring-0 md:text-xl"
+              className="text-md cursor-pointer rounded-lg bg-primary text-secondary focus:outline-none focus:ring-0 md:text-xl"
               onChange={(e) => handleTypeChange(e.target.value)}
             >
               {types.map((type) => (
@@ -111,7 +104,7 @@ const Events = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
-            transition={{ type: 'tween', duration: 0.2 }}  // Fast tween, no delay
+            transition={{ type: 'tween', duration: 0.2 }} // Fast tween, no delay
             className="my-10 flex flex-wrap justify-center gap-5"
           >
             {eventList
@@ -123,8 +116,7 @@ const Events = () => {
               )
               .map((event) => (
                 <Link href={event.url} key={event.name} target="_blank">
-                  <div className="relative h-[18rem] w-[16rem] p-2 transition-all duration-200 ease-in hover:scale-125 hover:bg-tertiary hover:z-20 hover:border-[0.1px] hover:border-secondary group">
-
+                  <div className="relative h-[18rem] w-[16rem] p-1 transition-all duration-200 ease-in hover:z-20 hover:scale-125 hover:bg-tertiary">
                     {/* <div className="absolute top-0 left-0 w-5 h-5 border-t-4 border-l-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
 
                       <div className="absolute top-0 right-0 w-5 h-5 border-t-4 border-r-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
@@ -133,13 +125,13 @@ const Events = () => {
 
                       <div className="absolute bottom-0 right-0 w-5 h-5 border-b-4 border-r-4 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div> */}
 
-                    <div className="absolute top-0 left-0 w-5 h-5 border-t-4 border-l-4 border-secondary"></div>
+                    <div className="absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-secondary"></div>
 
-                    <div className="absolute top-0 right-0 w-5 h-5 border-t-4 border-r-4 border-secondary"></div>
+                    <div className="absolute right-0 top-0 h-5 w-5 border-r-4 border-t-4 border-secondary"></div>
 
-                    <div className="absolute bottom-0 left-0 w-5 h-5 border-b-4 border-l-4 border-secondary"></div>
+                    <div className="absolute bottom-0 left-0 h-5 w-5 border-b-4 border-l-4 border-secondary"></div>
 
-                    <div className="absolute bottom-0 right-0 w-5 h-5 border-b-4 border-r-4 border-secondary"></div>
+                    <div className="absolute bottom-0 right-0 h-5 w-5 border-b-4 border-r-4 border-secondary"></div>
 
                     <Image
                       className="h-full w-full object-cover grayscale hover:grayscale-0"
@@ -154,7 +146,7 @@ const Events = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-    </SectionLayout>
+    </section>
   );
 };
 

@@ -145,7 +145,7 @@ import { CustomLink, CustomText } from '@/components/custom';
 
 const Copyright = () => {
   return (
-    <div className="relative mx-auto flex min-h-16 w-full max-w-screen-xl items-center justify-center overflow-clip border-t-[1px] border-tertiary bg-quarternary">
+    <div className="relative mx-auto flex min-h-16 w-full max-w-screen-xl items-center justify-center overflow-clip border-t-[1px] border-tertiary">
       <div className="absolute mt-2 flex w-full justify-center md:mt-8">
         <span
           className="whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent opacity-40 md:text-[9rem]"
@@ -177,7 +177,7 @@ const Copyright = () => {
 
 const SocialAndConnect = () => {
   return (
-    <SectionLayout full className="mx-auto max-w-screen-2xl bg-quarternary">
+    <section className="mx-auto max-w-screen-2xl">
       <div className="flex w-full flex-col justify-center gap-12 text-secondary md:p-6 lg:py-12">
         <div className="flex flex-col flex-wrap justify-center gap-0 align-middle font-orbitron text-[3.9rem] font-bold text-tertiary">
           <div className="w-full">
@@ -299,7 +299,7 @@ const SocialAndConnect = () => {
           </div>
         </div>
       </div>
-    </SectionLayout>
+    </section>
   );
 };
 

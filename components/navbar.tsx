@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,12 +40,19 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-24 items-center justify-between">
           {/* Logo */}
-          <div className="flex flex-shrink-0 items-center">
-            <Link href="/" prefetch={true}>
-              <div className="font-orbitron text-[1.7rem] font-bold">
-                <span className="text-secondary">TECH</span>
-                <span className="text-[#999999]">LETICS</span>
-              </div>
+          <div className="flex flex-shrink-0 items-center gap-3">
+            <Link href="/" prefetch={true} className="flex items-center gap-3">
+              <Image
+                src="/logos/techletics-logo.png"
+                alt="Techletics Logo"
+                width={40}
+                height={40}
+                className="h-10 w-auto"
+                priority
+              />
+              <span className="font-orbitron text-2xl font-bold tracking-wider text-[#c9a55c]">
+                TECH<span className="text-gray-300">LETICS</span>
+              </span>
             </Link>
           </div>
 

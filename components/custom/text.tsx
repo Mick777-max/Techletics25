@@ -38,7 +38,7 @@ const CustomText: React.FC<CustomTextProps> = ({
 
   if (title)
     baseClassName +=
-      'text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[95%] xl:max-w-[80%] leading-tight tracking-wide flex flex-wrap font-secondary text-quarternary';
+      'text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[95%] xl:max-w-[80%] leading-tight tracking-wide flex flex-wrap font-orbitron text-quarternary';
   else if (highlightedTitle)
     baseClassName +=
       'text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[95%] xl:max-w-[80%] leading-tight tracking-wide flex flex-wrap text-secondary whitespace-nowrap';
