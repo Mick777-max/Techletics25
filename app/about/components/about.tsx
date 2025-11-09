@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const About = () => {
   return (
-    <div className="relative mx-auto max-w-screen-2xl px-[10rem] py-2 sm:px-8 sm:py-4 lg:px-16 lg:py-9">
+    <div className="relative mx-auto max-w-screen-2xl px-[1.5rem] py-[8rem] sm:px-8 sm:py-4 lg:px-16 lg:py-9">
       <div className="flex flex-wrap items-center justify-between p-2 font-orbitron text-4xl font-extrabold tracking-wide text-quarternary sm:text-5xl md:text-7xl lg:mt-[10rem] xl:mt-[6rem]">
         <span className="mr-4">ABOUT</span>
         <div className="flex gap-1">
@@ -27,8 +27,9 @@ const About = () => {
           Irinjalakuda, Thrissur, Kerala
         </span>
       </div>
+
       <div className="flex h-full w-full flex-col items-center justify-center">
-        <div className="mt-8 flex max-w-[75%] flex-col items-center justify-center font-opensans text-quarternary">
+        <div className="mt-8 flex max-w-[80%] flex-col items-center justify-center font-opensans text-quarternary">
           <div className="mt-8 min-w-56 flex-1 text-justify">
             <p className="text-base leading-relaxed sm:text-lg">
               <span className="font-extrabold">

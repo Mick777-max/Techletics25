@@ -219,7 +219,7 @@ function RegisterPage() {
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center bg-quarternary px-[1.8rem] py-[3.5rem]">
       <h1 className="mb-4 mt-16 font-orbitron text-3xl font-bold text-secondary">
-        Register for Techletics ’25
+        Register for Techletics &apos;25
       </h1>
 
       <form
@@ -484,7 +484,7 @@ function RegisterPage() {
               Registration Successful! 🎉
             </p>
             <p className="font-orbitron text-sm">
-              Thank you for registering. We&aspos;ll contact you shortly.
+              Thank you for registering. We&apos;ll contact you shortly.
             </p>
           </div>
         )}
