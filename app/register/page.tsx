@@ -34,6 +34,8 @@ function RegisterPage() {
     null,
   );
 
+  const [currentTeamCount, setCurrentTeamCount] = useState<number>(0);
+
   const genders = ['Male', 'Female', 'Not prefer to say'];
   const sem = ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'];
 
@@ -73,7 +75,7 @@ function RegisterPage() {
     const errors: string[] = [];
     members.forEach((member, idx) => {
       const { isValid, error } = validateName(member);
-      if (!isValid) errors.push(`Team member ${idx + 1}: ${error}`);
+      if (!isValid) errors.push(`Team member ${idx + 2}: ${error}`);
     });
     return errors;
   };
@@ -84,17 +86,30 @@ function RegisterPage() {
   ) => {
     const { name, value } = e.target;
 
-    //     if (name === 'event') {
-    //   const selected = eventList.find((e) => e.name === value);
-    //   if (selected && selected.maxTeamSize) {
-    //     setFormData((prev) => ({
-    //       ...prev,
-    //       event: value,
-    //       teamMembers: Array(selected.maxTeamSize - 1).fill(''), // 👈 auto-init
-    //     }));
-    //     return;
-    //   }
-    // }
+    if (name === 'event') {
+      const selected = eventList.find((e) => e.name === value);
+
+      if (selected) {
+        // If it's a team event
+        if (selected.maxTeamSize && selected.maxTeamSize > 1) {
+          setFormData((prev) => ({
+            ...prev,
+            event: value,
+            teamMembers: [], // initially none
+          }));
+          setCurrentTeamCount(2); // min 2 by default
+        } else {
+          // Individual event
+          setFormData((prev) => ({
+            ...prev,
+            event: value,
+            teamMembers: [],
+          }));
+          setCurrentTeamCount(0);
+        }
+        return;
+      }
+    }
 
     if (name === 'phone') {
       const numericValue = value.replace(/\D/g, '').slice(0, 10);
@@ -261,11 +276,34 @@ function RegisterPage() {
     setIsSubmitting(true);
     try {
       console.log('Registration data:', formData, paymentProof);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // simulate upload
       setFormSubmitted(true);
+
+      // ✅ Reset form fields after success
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        college: '',
+        event: '',
+        gender: '',
+        sem: '',
+        branch: '',
+        teamMembers: [],
+      });
+      setPaymentProof(null);
+      setIsChecked(false);
+      setCurrentTeamCount(0);
+
+      // ✅ Redirect after 3 seconds
+      setTimeout(() => {
+        router.push('/events');
+      }, 3000);
     } catch {
+      // ✅ Handle failure
       setFormErrors(['Registration failed. Please try again.']);
     } finally {
+      // ✅ Always stop loading state
       setIsSubmitting(false);
     }
   };
@@ -467,14 +505,46 @@ function RegisterPage() {
               </div>
 
               <div className="font-orbitron text-xl font-bold text-tertiary">
-                {currentEvent.maxTeamSize && (
+                {currentEvent.maxTeamSize && currentEvent.maxTeamSize > 1 && (
                   <div className="flex flex-col items-center justify-center">
                     <div>
-                      <span>Max Team Size:</span> {currentEvent.maxTeamSize}
+                      <span>Max Team Size:</span>{' '}
+                      <span className="text-2xl text-secondary">
+                        {currentEvent.maxTeamSize}
+                      </span>
                     </div>
 
-                    <div className="mt-2 flex w-full flex-col gap-3">
-                      {Array.from({ length: currentEvent.maxTeamSize - 1 }).map(
+                    {/* Select actual team size */}
+                    <div className="mt-2">
+                      <label className="mr-2 font-orbitron text-xl text-tertiary">
+                        Select Team Size:
+                      </label>
+                      <select
+                        value={currentTeamCount || 2}
+                        onChange={(e) => {
+                          const count = parseInt(e.target.value);
+                          setCurrentTeamCount(count);
+                          setFormData((prev) => ({
+                            ...prev,
+                            teamMembers: Array(count - 1).fill(''),
+                          }));
+                        }}
+                        className="rounded-md bg-secondary px-3 py-2 font-orbitron text-quarternary focus:ring-2 focus:ring-secondary"
+                      >
+                        {Array.from(
+                          { length: currentEvent.maxTeamSize },
+                          (_, i) => i + 1,
+                        ).map((num) => (
+                          <option key={num} value={num}>
+                            {num}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Teammate inputs */}
+                    <div className="mt-3 flex w-full flex-col gap-3">
+                      {Array.from({ length: currentTeamCount - 1 }).map(
                         (_, idx) => (
                           <input
                             key={idx}
@@ -490,7 +560,7 @@ function RegisterPage() {
                                 teamMembers: updated,
                               }));
                             }}
-                            onBlur={(e) => handleTeamMateBlur(e, idx)} // ✅ use the new blur validator
+                            onBlur={(e) => handleTeamMateBlur(e, idx)}
                             required
                             className="rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
                           />
@@ -629,6 +699,7 @@ function RegisterPage() {
             <p className="font-orbitron text-sm">
               Thank you for registering. We&apos;ll contact you shortly.
             </p>
+            <p className="font-orbitron text-sm">...Redirecting to Events</p>
           </div>
         )}
       </form>
