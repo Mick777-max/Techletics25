@@ -2,13 +2,10 @@
 
 import { useState, useCallback } from 'react';
 import Image from 'next/image';
-import SectionLayout from '@/layouts/section-layout';
 import { CustomSelect, CustomText } from '@/components/custom';
 import { eventList } from './eventlist';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import SectionSeparatorTop from '@/components/custom/sectionseparatortop';
-import SectionSeparatorBottom from '@/components/custom/sectionseparatorbottom';
 
 const branches = ['ALL', 'CSE', 'ME', 'CE', 'ECE', 'EEE', 'BSH'];
 const types = ['ALL EVENTS', 'COMPETITION', 'WORKSHOP', 'TECH-TALK', 'EXPO'];
@@ -117,7 +114,11 @@ const Events = () => {
                   (activeType === 'ALL EVENTS' || event.type === activeType),
               )
               .map((event) => (
-                <Link href={event.url} key={event.name} target="_blank">
+                <Link
+                  href="/register"
+                  key={event.name}
+                  // target="_blank"
+                >
                   <div className="group relative h-[18rem] w-[16rem] bg-quarternary p-2 transition-all duration-200 ease-in hover:z-20 hover:scale-125 hover:border-[0.1px] hover:border-secondary hover:bg-secondary">
                     <div className="absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
 

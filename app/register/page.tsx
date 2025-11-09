@@ -316,7 +316,7 @@ function RegisterPage() {
 
       <form
         onSubmit={handleSubmit}
-        className="shadow-secondary/30 flex w-full max-w-md flex-col gap-4 rounded-xl bg-[#1b1b1b] p-6 shadow-md"
+        className="flex w-full max-w-md flex-col gap-4 rounded-xl bg-[#1b1b1b] p-6 shadow-sm shadow-secondary"
       >
         {/* Name */}
         <input
@@ -494,8 +494,14 @@ function RegisterPage() {
                 </span>
               </div>
 
-              <div className="font-orbitron text-3xl font-bold text-tertiary">
-                <span>{currentEvent.date}</span>
+              <div className="whitespace-normal break-words text-center font-orbitron text-2xl font-bold text-tertiary">
+                <span>
+                  {new Date(currentEvent.date).toLocaleDateString('en-IN', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </span>
               </div>
 
               <div className="rounded-full border border-secondary bg-secondary px-4 py-2 font-orbitron text-4xl font-bold text-quarternary transition-all duration-300 hover:scale-110 hover:brightness-125">
