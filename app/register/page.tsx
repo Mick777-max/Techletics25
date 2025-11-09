@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { eventList } from './eventsList';
 
 type College = { name: string };
 
@@ -24,6 +25,7 @@ function RegisterPage() {
     gender: '',
     sem: '',
     branch: '',
+    teamMembers: [] as string[],
   });
 
   const [collegeSuggestions, setCollegeSuggestions] = useState<string[]>([]);
@@ -66,11 +68,33 @@ function RegisterPage() {
     return { isValid: true, error: '' };
   };
 
+  // ✅ Team Members validation — uses validateName internally
+  const validateTeamMembers = (members: string[]): string[] => {
+    const errors: string[] = [];
+    members.forEach((member, idx) => {
+      const { isValid, error } = validateName(member);
+      if (!isValid) errors.push(`Team member ${idx + 1}: ${error}`);
+    });
+    return errors;
+  };
+
   // ✅ Handle input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
+
+    //     if (name === 'event') {
+    //   const selected = eventList.find((e) => e.name === value);
+    //   if (selected && selected.maxTeamSize) {
+    //     setFormData((prev) => ({
+    //       ...prev,
+    //       event: value,
+    //       teamMembers: Array(selected.maxTeamSize - 1).fill(''), // 👈 auto-init
+    //     }));
+    //     return;
+    //   }
+    // }
 
     if (name === 'phone') {
       const numericValue = value.replace(/\D/g, '').slice(0, 10);
@@ -178,18 +202,45 @@ function RegisterPage() {
     });
   };
 
+  // ✅ Validate a specific teammate on blur
+  const handleTeamMateBlur = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    idx: number,
+  ) => {
+    const { isValid, error } = validateName(e.target.value);
+    setFormErrors((prev) => {
+      const filtered = prev.filter(
+        (err) => !err.startsWith(`Team member ${idx + 2}:`),
+      );
+
+      if (!isValid) return [...filtered, `Team member ${idx + 2}: ${error}`];
+      return filtered;
+    });
+  };
+
   // ✅ Form submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errors: string[] = [];
 
-    const isValid = Object.values(formData).every(
-      (value) => value.trim() !== '',
-    );
+    const isValid = Object.entries(formData).every(([key, value]) => {
+      if (key === 'teamMembers') {
+        return (
+          Array.isArray(value) && value.every((member) => member.trim() !== '')
+        );
+      }
+      return typeof value === 'string' && value.trim() !== '';
+    });
     if (!isValid) errors.push('Please fill in all fields.');
 
-    if (formData.event && !paymentProof)
+    const selectedEvent = eventList.find(
+      (event) => event.name === formData.event,
+    );
+
+    // ✅ Only require payment proof if event has a fee
+    if (selectedEvent && selectedEvent.registrationFee > 0 && !paymentProof) {
       errors.push('Please upload payment proof before submitting.');
+    }
 
     // Validate phone & name again before final submit
     const phoneValidation = validateIndianPhone(formData.phone);
@@ -197,6 +248,9 @@ function RegisterPage() {
 
     const nameValidation = validateName(formData.name);
     if (!nameValidation.isValid) errors.push(nameValidation.error);
+
+    const teamErrors = validateTeamMembers(formData.teamMembers);
+    if (teamErrors.length > 0) errors.push(...teamErrors);
 
     if (errors.length > 0) {
       setFormErrors(errors);
@@ -369,59 +423,148 @@ function RegisterPage() {
           <option value="" disabled>
             Select an Event
           </option>
-          {[
-            'Coding Competition',
-            'Web Development',
-            'App Development',
-            'UI/UX Design',
-            'Data Science',
-            'Machine Learning',
-            'Cybersecurity',
-            'Robotics',
-            'Game Development',
-            'Tech Quiz',
-          ].map((e, i) => (
-            <option key={i} value={e} className="text-quarternary">
-              {e}
+          {eventList.map((event, index) => (
+            <option key={index} value={event.name} className="text-quarternary">
+              {event.name}
             </option>
           ))}
         </select>
 
-        {/* ✅ QR + Payment Proof Section */}
-        {formData.event && (
-          <div className="bg-quarternary/40 rounded-md border border-secondary p-4 text-center">
-            <h2 className="mb-3 font-orbitron text-lg font-semibold text-secondary">
-              Complete Your Payment
-            </h2>
+        {/* Event Details (after selecting) */}
+        {(() => {
+          const currentEvent = eventList.find(
+            (event) => event.name === formData.event,
+          );
 
-            <div className="mb-3 flex justify-center">
-              <Image
-                src="/image/qr-code.png"
-                alt="Payment QR Code"
-                width={150}
-                height={150}
-                className="rounded-md border border-secondary shadow-md"
-              />
+          if (!currentEvent) return null;
+
+          return (
+            <div className="mt-4 flex w-full flex-col items-center justify-center gap-4">
+              <div className="flex w-full items-center justify-center">
+                <Image
+                  src={currentEvent?.src}
+                  alt="Event Poster"
+                  width={100}
+                  height={100}
+                  className="w-[80%]"
+                />
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center break-words text-center font-orbitron text-3xl font-bold text-secondary">
+                <span className="whitespace-normal break-words text-center">
+                  {currentEvent.name}
+                </span>
+              </div>
+
+              <div className="font-orbitron text-3xl font-bold text-tertiary">
+                <span>{currentEvent.date}</span>
+              </div>
+
+              <div className="rounded-full border border-secondary bg-secondary px-4 py-2 font-orbitron text-4xl font-bold text-quarternary transition-all duration-300 hover:scale-110 hover:brightness-125">
+                {currentEvent.registrationFee === 0
+                  ? 'Free'
+                  : `₹ ${currentEvent.registrationFee}`}
+              </div>
+
+              <div className="font-orbitron text-xl font-bold text-tertiary">
+                {currentEvent.maxTeamSize && (
+                  <div className="flex flex-col items-center justify-center">
+                    <div>
+                      <span>Max Team Size:</span> {currentEvent.maxTeamSize}
+                    </div>
+
+                    <div className="mt-2 flex w-full flex-col gap-3">
+                      {Array.from({ length: currentEvent.maxTeamSize - 1 }).map(
+                        (_, idx) => (
+                          <input
+                            key={idx}
+                            type="text"
+                            name={`teamMember-${idx}`}
+                            placeholder={`Team Member ${idx + 2} Name`}
+                            value={formData.teamMembers[idx] || ''}
+                            onChange={(e) => {
+                              const updated = [...formData.teamMembers];
+                              updated[idx] = e.target.value;
+                              setFormData((prev) => ({
+                                ...prev,
+                                teamMembers: updated,
+                              }));
+                            }}
+                            onBlur={(e) => handleTeamMateBlur(e, idx)} // ✅ use the new blur validator
+                            required
+                            className="rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
+                          />
+                        ),
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
+          );
+        })()}
 
-            <p className="mb-2 font-mono text-sm text-tertiary">
-              Scan the QR to make your payment. Then upload your proof below.
-            </p>
+        {/* ✅ QR + Payment Proof Section */}
+        {/* ✅ QR + Payment Proof Section */}
+        {(() => {
+          const selectedEvent = eventList.find(
+            (event) => event.name === formData.event,
+          );
 
-            <input
-              type="file"
-              accept="image/*,application/pdf"
-              onChange={handlePaymentProofChange}
-              className="w-full cursor-pointer rounded-md border border-secondary bg-tertiary px-3 py-2 font-mono text-sm text-quarternary focus:ring-2 focus:ring-secondary"
-            />
+          if (
+            selectedEvent &&
+            selectedEvent.registrationFee > 0 &&
+            formData.name &&
+            formData.email &&
+            formData.phone &&
+            formData.gender &&
+            formData.college &&
+            formData.branch &&
+            formData.sem
+          ) {
+            return (
+              <div className="bg-quarternary/40 rounded-md border border-secondary p-4 text-center">
+                <h2 className="mb-3 font-orbitron text-lg font-semibold text-secondary">
+                  Complete Your Payment
+                </h2>
 
-            {paymentProof && (
-              <p className="mt-2 font-mono text-xs font-semibold text-green-400">
-                ✓ {paymentProof.name} uploaded successfully
-              </p>
-            )}
-          </div>
-        )}
+                <p className="mb-2 font-mono text-sm text-tertiary">
+                  Registration Fee: ₹{selectedEvent.registrationFee}
+                </p>
+
+                <div className="mb-3 flex justify-center">
+                  <Image
+                    src="/image/qr-code.png"
+                    alt="Payment QR Code"
+                    width={150}
+                    height={150}
+                    className="rounded-md border border-secondary shadow-md"
+                  />
+                </div>
+
+                <p className="mb-2 font-mono text-sm text-tertiary">
+                  Scan the QR to make your payment. Then upload your proof
+                  below.
+                </p>
+
+                <input
+                  type="file"
+                  accept="image/*,application/pdf"
+                  onChange={handlePaymentProofChange}
+                  className="w-full cursor-pointer rounded-md border border-secondary bg-tertiary px-3 py-2 font-mono text-sm text-quarternary focus:ring-2 focus:ring-secondary"
+                />
+
+                {paymentProof && (
+                  <p className="mt-2 font-mono text-xs font-semibold text-green-400">
+                    ✓ {paymentProof.name} uploaded successfully
+                  </p>
+                )}
+              </div>
+            );
+          }
+
+          return null;
+        })()}
 
         {/* Terms */}
         <div className="flex items-center space-x-2">

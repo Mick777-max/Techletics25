@@ -160,22 +160,22 @@ const TextMarquee = ({
             >
               <div>IGNITE</div>
               <span
-                className="text-white"
-                style={{ WebkitTextStroke: '1px white' }}
+                className={`text-${text}`}
+                style={{ WebkitTextStroke: '1px ' + text }}
               >
                 ✦
               </span>
               <div>INSPIRE</div>
               <span
-                className="text-white"
-                style={{ WebkitTextStroke: '1px white' }}
+                className={`text-${text}`}
+                style={{ WebkitTextStroke: '1px ' + text }}
               >
                 ✦
               </span>
               <div>ILLUMINATE</div>
               <span
-                className="mr-6 text-white"
-                style={{ WebkitTextStroke: '1px white' }}
+                className={`mr-6 text-${text}`}
+                style={{ WebkitTextStroke: '1px ' + text }}
               >
                 ✦
               </span>
@@ -187,8 +187,8 @@ const TextMarquee = ({
             >
               <div>TECHLETICS &apos;25</div>
               <span
-                className="text-white"
-                style={{ WebkitTextStroke: '1px black' }}
+                className={`mr-6 text-${text}`}
+                style={{ WebkitTextStroke: '1px ' + text }}
               >
                 ✦
               </span>
