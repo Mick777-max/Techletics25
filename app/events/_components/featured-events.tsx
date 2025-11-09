@@ -2,8 +2,6 @@ import { CustomText } from '@/components/custom';
 import { featuredEventList } from './eventlist';
 import Link from 'next/link';
 import Image from 'next/image';
-import SectionSeparatorTop from '@/components/custom/sectionseparatortop';
-import SectionSeparatorBottom from '@/components/custom/sectionseparatorbottom';
 
 const FeaturedEvents = () => {
   return (

@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const slides = [
@@ -10,6 +11,7 @@ const slides = [
     subtitle: 'Explore, Learn, and Enjoy: The Events of Techletics ’25',
     image:
       'https://dnbca6q7do6n.cloudfront.net/media/techletics24/designathon.png',
+    link: 'https://designathon24.vercel.app', // Add your link here
   },
   {
     id: 2,
@@ -17,6 +19,7 @@ const slides = [
     subtitle: 'Where technology meets creativity at Techletics ’25',
     image:
       'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.08_791165df.jpg',
+    link: 'https://hacknite.cce.edu.in/', // Add your link here
   },
   {
     id: 3,
@@ -24,6 +27,7 @@ const slides = [
     subtitle: 'Discover, Build, and Lead the next big revolution.',
     image:
       'https://dnbca6q7do6n.cloudfront.net/media/techletics24/Untitled-2.png',
+    link: 'https://bellfort-of-wallstreet.netlify.app/', // Add your link here
   },
 ];
 
@@ -35,7 +39,7 @@ export default function TechleticsCarousel() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
 
@@ -77,29 +81,43 @@ export default function TechleticsCarousel() {
         <p className="mt-4 max-w-2xl text-justify text-lg text-gray-300 md:text-xl">
           {slides[current].subtitle}
         </p>
+
+        {/* Link Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <Link
+            href={slides[current].link}
+            className="mt-6 inline-block rounded-full border-2 border-[#d2a84b] px-6 py-2 text-lg font-semibold text-[#d2a84b] transition-all duration-300 hover:bg-[#d2a84b] hover:text-black"
+            target="_blank"
+          >
+            Learn More &rarr;
+          </Link>
+        </motion.div>
       </div>
 
       {/* Dots / Indicators */}
       <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 transform space-x-5">
         {slides.map((_, index) => (
-          <div key={index} className="relative">
-            <div
-              className="h-3 w-3 cursor-pointer rounded-full bg-gray-500"
-              onClick={() => setCurrent(index)}
-            ></div>
-
-            {current === index && (
-              <motion.div
-                layoutId="active-dot"
-                className="absolute left-0 top-0 h-3 w-3 rounded-full bg-secondary"
-                transition={{
-                  type: 'tween',
-                  stiffness: 400,
-                  damping: 25,
-                }}
-              />
-            )}
-          </div>
+          <motion.div
+            key={index}
+            onClick={() => setCurrent(index)}
+            className="cursor-pointer rounded-full"
+            initial={false}
+            animate={{
+              width: current === index ? 32 : 10,
+              height: 10,
+              backgroundColor: current === index ? '#d2a84b' : '#9ca3af',
+              borderRadius: 9999,
+            }}
+            transition={{
+              type: 'tween',
+              ease: 'easeInOut',
+              duration: current === index ? 0.6 : 0.4,
+            }}
+          />
         ))}
       </div>
     </div>
