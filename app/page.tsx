@@ -38,7 +38,7 @@ export default function HomePage() {
         <SectionSeparatorBottom />
       </section>
 
-      <TextMarquee type="ignite" />
+      <TextMarquee type="techletics" />
 
       <section className="relative bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center py-[4rem] max-cmd:pb-[11rem] max-md:pb-[35rem]">
         <SectionSeparatorTop />
@@ -50,7 +50,7 @@ export default function HomePage() {
         <SectionSeparatorBottom />
       </section>
 
-      <TextMarquee type="techletics" />
+      {/* <TextMarquee type="techletics" /> */}
 
       <section className="relative flex h-[100vh] flex-col items-center justify-center bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <SectionSeparatorTop />
@@ -68,13 +68,13 @@ export default function HomePage() {
         <SectionSeparatorBottom />
       </section>
 
-      <TextMarquee type="ignite" />
+      {/* <TextMarquee type="ignite" /> */}
 
       <section className="relative h-[90vh] bg-black">
         <Filler />
       </section>
 
-      <TextMarquee type="techletics" />
+      {/* <TextMarquee type="techletics" /> */}
 
       <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <SectionSeparatorTop />

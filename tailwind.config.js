@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       screens: {
         cmd: "1346px",
-        xsm: "400px"
+        xsm: "400px",
+        mdxl: "1100px"
       },
       colors: {
         primary: 'var(--color-primary)',

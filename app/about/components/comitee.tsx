@@ -4,7 +4,7 @@ import TextMarquee from '@/components/marquee';
 
 export default function Committee() {
   return (
-    <div className="relative mx-auto max-w-screen-xl">
+    <div className="relative mx-auto max-w-screen-xl px-2">
       {committees.map((item, index) => (
         <div key={index} className="px-4 sm:px-8 lg:px-16">
           <div className="flex flex-col justify-center py-6 lg:py-12">

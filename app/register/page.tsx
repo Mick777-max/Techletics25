@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,7 +12,8 @@ function RegisterPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
-  const [phoneError, setPhoneError] = useState<string>('');
+  const [paymentProof, setPaymentProof] = useState<File | null>(null);
+  const [formErrors, setFormErrors] = useState<string[]>([]);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -34,56 +35,52 @@ function RegisterPage() {
   const genders = ['Male', 'Female', 'Not prefer to say'];
   const sem = ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'];
 
-  // Phone validation function for Indian mobile numbers
+  // ✅ Phone validation
   const validateIndianPhone = (
     phone: string,
   ): { isValid: boolean; error: string } => {
-    // Remove any spaces, dashes, or other non-digit characters
     const cleanPhone = phone.replace(/\D/g, '');
-
-    // Check if exactly 10 digits
-    if (cleanPhone.length !== 10) {
+    if (cleanPhone.length !== 10)
       return {
         isValid: false,
         error: 'Phone number must be exactly 10 digits',
       };
-    }
-
-    // Check if it starts with valid Indian mobile prefixes (6, 7, 8, 9)
     const firstDigit = cleanPhone[0];
-    if (!['6', '7', '8', '9'].includes(firstDigit)) {
+    if (!['6', '7', '8', '9'].includes(firstDigit))
       return {
         isValid: false,
-        error: 'Indian mobile numbers must start with 6, 7, 8, or 9',
+        error: 'Phone number must start with 6, 7, 8, or 9',
       };
-    }
-
     return { isValid: true, error: '' };
   };
 
+  // ✅ Name validation
+  const validateName = (name: string): { isValid: boolean; error: string } => {
+    if (!/^[A-Za-z\s]+$/.test(name))
+      return {
+        isValid: false,
+        error: 'Name must only contain letters and spaces.',
+      };
+    if (name.trim().length > 50)
+      return { isValid: false, error: 'Name cannot exceed 50 characters.' };
+    return { isValid: true, error: '' };
+  };
+
+  // ✅ Handle input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
 
-    // Special handling for phone input
     if (name === 'phone') {
-      // Allow only digits and limit to 10 characters
       const numericValue = value.replace(/\D/g, '').slice(0, 10);
       setFormData((prev) => ({ ...prev, [name]: numericValue }));
-
-      // Validate phone number
-      if (numericValue.length > 0) {
-        const validation = validateIndianPhone(numericValue);
-        setPhoneError(validation.error);
-      } else {
-        setPhoneError('');
-      }
       return;
     }
 
     setFormData((prev) => ({ ...prev, [name]: value }));
 
+    // 🏫 Fetch college suggestions
     if (name === 'college') {
       if (typingTimeout) clearTimeout(typingTimeout);
       const timeout = setTimeout(() => {
@@ -92,30 +89,20 @@ function RegisterPage() {
             .then(async (res) => {
               if (!res.ok) throw new Error(`Error: ${res.status}`);
               const data = await res.json();
-              // Expecting { colleges: [{ name: string }] }
               if (Array.isArray(data.colleges)) {
                 const collegeNames = data.colleges.map(
                   (item: College) => item.name,
                 );
                 setCollegeSuggestions(collegeNames);
-              } else {
-                setCollegeSuggestions([]);
-              }
+              } else setCollegeSuggestions([]);
             })
-            .catch((error) => {
-              console.error(
-                'Fetch error:',
-                error instanceof Error ? error.message : String(error),
-              );
-              setCollegeSuggestions([]);
-            });
-        } else {
-          setCollegeSuggestions([]);
-        }
+            .catch(() => setCollegeSuggestions([]));
+        } else setCollegeSuggestions([]);
       }, 500);
       setTypingTimeout(timeout);
     }
 
+    // 🧠 Fetch branch suggestions
     if (name === 'branch') {
       const timeout = setTimeout(() => {
         if (value.trim().length >= 2) {
@@ -129,17 +116,10 @@ function RegisterPage() {
                     `${item.name} (${item.abbr})`,
                 );
                 setBranchSuggestions(branchNames);
-              } else {
-                setBranchSuggestions([]);
-              }
+              } else setBranchSuggestions([]);
             })
-            .catch((error) => {
-              console.error('Fetch error:', error);
-              setBranchSuggestions([]);
-            });
-        } else {
-          setBranchSuggestions([]);
-        }
+            .catch(() => setBranchSuggestions([]));
+        } else setBranchSuggestions([]);
       }, 500);
       setTypingTimeout(timeout);
     }
@@ -156,151 +136,174 @@ function RegisterPage() {
     setBranchSuggestions([]);
   };
 
+  // ✅ Payment proof upload – clears related error immediately
+  const handlePaymentProofChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setPaymentProof(file);
+
+    if (file) {
+      setFormErrors((prev) =>
+        prev.filter(
+          (err) => err !== 'Please upload payment proof before submitting.',
+        ),
+      );
+    }
+  };
+
+  // ✅ Validate phone on blur
+  const handlePhoneBlur = () => {
+    const { isValid, error } = validateIndianPhone(formData.phone);
+    setFormErrors((prev) => {
+      const filtered = prev.filter(
+        (err) =>
+          !err.includes('Phone number must be exactly') &&
+          !err.includes('Phone number must start with'),
+      );
+      if (!isValid) return [...filtered, error];
+      return filtered;
+    });
+  };
+
+  // ✅ Validate name on blur
+  const handleNameBlur = () => {
+    const { isValid, error } = validateName(formData.name);
+    setFormErrors((prev) => {
+      const filtered = prev.filter(
+        (err) =>
+          !err.includes('Name must only contain letters') &&
+          !err.includes('Name cannot exceed'),
+      );
+      if (!isValid) return [...filtered, error];
+      return filtered;
+    });
+  };
+
+  // ✅ Form submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const errors: string[] = [];
 
-    // Check if all fields are filled
     const isValid = Object.values(formData).every(
       (value) => value.trim() !== '',
     );
-    if (!isValid) {
-      alert('Please fill in all fields.');
-      return;
-    }
+    if (!isValid) errors.push('Please fill in all fields.');
 
-    // Validate phone number
+    if (formData.event && !paymentProof)
+      errors.push('Please upload payment proof before submitting.');
+
+    // Validate phone & name again before final submit
     const phoneValidation = validateIndianPhone(formData.phone);
-    if (!phoneValidation.isValid) {
-      alert(
-        'Please enter a valid Indian mobile number: ' + phoneValidation.error,
-      );
+    if (!phoneValidation.isValid) errors.push(phoneValidation.error);
+
+    const nameValidation = validateName(formData.name);
+    if (!nameValidation.isValid) errors.push(nameValidation.error);
+
+    if (errors.length > 0) {
+      setFormErrors(errors);
       return;
     }
 
+    setFormErrors([]);
     setIsSubmitting(true);
-
     try {
-      // Simulate form submission (since no backend API exists)
-      console.log('Registration data:', formData);
-
-      // Simulate a delay
+      console.log('Registration data:', formData, paymentProof);
       await new Promise((resolve) => setTimeout(resolve, 1000));
-
       setFormSubmitted(true);
-      console.log('Registration completed locally');
-    } catch (error) {
-      console.error('Registration error:', error);
-      alert('Registration failed. Please try again.');
+    } catch {
+      setFormErrors(['Registration failed. Please try again.']);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section className="flex min-h-screen flex-col items-center justify-center bg-black p-6">
-      <h1 className="mb-4 mt-16 text-2xl font-bold text-white">
-        Registration for Techletics CCE Events
+    <section className="relative flex min-h-screen flex-col items-center justify-center bg-quarternary px-[1.8rem] py-[3.5rem]">
+      <h1 className="mb-4 mt-16 font-orbitron text-3xl font-bold text-secondary">
+        Register for Techletics ’25
       </h1>
 
       <form
         onSubmit={handleSubmit}
-        className="flex w-full max-w-md flex-col gap-3"
+        className="shadow-secondary/30 flex w-full max-w-md flex-col gap-4 rounded-xl bg-[#1b1b1b] p-6 shadow-md"
       >
+        {/* Name */}
         <input
           type="text"
           name="name"
-          placeholder="Name"
+          placeholder="Enter Your Full Name"
           value={formData.name}
           onChange={handleChange}
+          onBlur={handleNameBlur} // ✅ Validate on blur
           required
-          suppressHydrationWarning={true}
+          className="rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
         />
+
+        {/* Email */}
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Enter Your Email"
           value={formData.email}
           onChange={handleChange}
           required
-          suppressHydrationWarning={true}
+          className="rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
         />
 
-        <div className="relative">
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone (WhatsApp)"
-            value={formData.phone}
-            onChange={handleChange}
-            className={`${phoneError ? 'border-red-500' : ''}`}
-            required
-            maxLength={10}
-            pattern="[6-9][0-9]{9}"
-            title="Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9"
-            suppressHydrationWarning={true}
-          />
-          {phoneError && (
-            <p className="mt-1 text-xs text-red-500">{phoneError}</p>
-          )}
-          {formData.phone.length > 0 &&
-            !phoneError &&
-            formData.phone.length === 10 && (
-              <p className="mt-1 text-xs text-green-500">
-                ✓ Valid phone number
-              </p>
-            )}
-        </div>
+        {/* Phone */}
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Enter Your Phone Number (WhatsApp)"
+          value={formData.phone}
+          onChange={handleChange}
+          onBlur={handlePhoneBlur} // ✅ Validate on blur
+          required
+          maxLength={10}
+          className="w-full rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
+        />
 
-        {/* <select
-              name="gender"
-              value={formData.gender}
-              onChange={handleChange}
-              className="w-full p-2 rounded-md border-2 border-gray-300 text-primary"
-              required
-              suppressHydrationWarning={true}
-            >
-              <option value="">Select your gender</option>
-              {genders.map((gender, index) => (
-                <option key={index} value={gender}>
-                  {gender}
-                </option>
-              ))}
-            </select> */}
-
+        {/* Gender */}
         <select
           name="gender"
-          // placeholder="Select your gender"
           value={formData.gender}
           onChange={handleChange}
           required
-          suppressHydrationWarning={true}
+          className={`rounded-md bg-tertiary px-3 py-2 font-orbitron focus:ring-2 focus:ring-secondary ${
+            !formData.gender ? 'text-gray-400' : 'text-quarternary'
+          }`}
         >
-          {/* <ShinyOption value="">Select your gender</ShinyOption> */}
-          {genders.map((gender, index) => (
-            <option key={index} value={gender}>
+          <option value="" disabled hidden>
+            Select your gender
+          </option>
+          {genders.map((gender, i) => (
+            <option
+              key={i}
+              value={gender}
+              className="font-orbitron text-quarternary"
+            >
               {gender}
             </option>
           ))}
         </select>
 
+        {/* College */}
         <div className="relative">
           <input
             type="text"
             name="college"
-            placeholder="College Name"
+            placeholder="Select Your College"
             value={formData.college}
             onChange={handleChange}
             required
-            autoComplete="on"
-            suppressHydrationWarning={true}
+            className="w-full rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
           />
           {collegeSuggestions.length > 0 && (
-            <ul className="absolute z-50 max-h-48 w-full overflow-y-auto rounded-md border bg-[#0d0e1e] shadow-md">
+            <ul className="absolute z-50 max-h-48 w-full overflow-y-auto rounded-md border border-secondary bg-quarternary shadow-md">
               {collegeSuggestions.map((college, index) => (
                 <li
                   key={index}
                   onClick={() => handleSelectCollege(college)}
-                  className="cursor-pointer px-4 py-2 text-white last:border-b-0 hover:bg-blue-600"
+                  className="cursor-pointer px-4 py-2 font-mono text-tertiary hover:bg-secondary hover:text-quarternary"
                 >
                   {college}
                 </li>
@@ -309,22 +312,25 @@ function RegisterPage() {
           )}
         </div>
 
+        {/* Semester */}
         <select
           name="sem"
-          // placeholder="Select your Current Semester"
           value={formData.sem}
           onChange={handleChange}
           required
-          suppressHydrationWarning={true}
-          className="z-10"
+          className={`rounded-md bg-tertiary px-3 py-2 font-orbitron focus:ring-2 focus:ring-secondary ${
+            !formData.sem ? 'text-gray-400' : 'text-quarternary'
+          }`}
         >
-          {sem.map((sem, index) => (
-            <option key={index} value={sem}>
-              {sem}
+          <option value="">Current Semester</option>
+          {sem.map((s, i) => (
+            <option key={i} value={s} className="text-quarternary">
+              {s}
             </option>
           ))}
         </select>
 
+        {/* Branch */}
         <div className="relative">
           <input
             type="text"
@@ -333,16 +339,15 @@ function RegisterPage() {
             value={formData.branch}
             onChange={handleChange}
             required
-            autoComplete="on"
-            suppressHydrationWarning={true}
+            className="w-full rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
           />
           {branchSuggestions.length > 0 && (
-            <ul className="absolute z-50 max-h-48 w-full overflow-y-auto rounded-md border bg-[#0d0e1e] shadow-md">
+            <ul className="absolute z-50 max-h-48 w-full overflow-y-auto rounded-md border border-secondary bg-quarternary shadow-md">
               {branchSuggestions.map((branch, index) => (
                 <li
                   key={index}
                   onClick={() => handleSelectBranch(branch)}
-                  className="cursor-pointer px-4 py-2 text-white last:border-b-0 hover:bg-blue-600"
+                  className="cursor-pointer px-4 py-2 font-mono text-tertiary hover:bg-secondary hover:text-quarternary"
                 >
                   {branch}
                 </li>
@@ -351,64 +356,105 @@ function RegisterPage() {
           )}
         </div>
 
+        {/* Event */}
         <select
           name="event"
           value={formData.event}
           onChange={handleChange}
           required
-          suppressHydrationWarning={true}
-          className="z-10"
+          className={`rounded-md bg-tertiary px-3 py-2 font-orbitron ${
+            formData.event ? 'text-quarternary' : 'text-gray-400'
+          } focus:ring-2 focus:ring-secondary`}
         >
-          <option value="">Select an Event</option>
-          <option value="Coding Competition">Coding Competition</option>
-          <option value="Web Development">Web Development</option>
-          <option value="App Development">App Development</option>
-          <option value="UI/UX Design">UI/UX Design</option>
-          <option value="Data Science">Data Science</option>
-          <option value="Machine Learning">Machine Learning</option>
-          <option value="Cybersecurity">Cybersecurity</option>
-          <option value="Robotics">Robotics</option>
-          <option value="Game Development">Game Development</option>
-          <option value="Tech Quiz">Tech Quiz</option>
+          <option value="" disabled>
+            Select an Event
+          </option>
+          {[
+            'Coding Competition',
+            'Web Development',
+            'App Development',
+            'UI/UX Design',
+            'Data Science',
+            'Machine Learning',
+            'Cybersecurity',
+            'Robotics',
+            'Game Development',
+            'Tech Quiz',
+          ].map((e, i) => (
+            <option key={i} value={e} className="text-quarternary">
+              {e}
+            </option>
+          ))}
         </select>
 
-        {/* Show event name when selected */}
+        {/* ✅ QR + Payment Proof Section */}
         {formData.event && (
-          <div className="relative rounded-md bg-gradient-to-br from-slate-950 via-blue-950 to-black p-3">
-            <p className="text-center font-semibold text-blue-400">
-              Selected: {formData.event}
+          <div className="bg-quarternary/40 rounded-md border border-secondary p-4 text-center">
+            <h2 className="mb-3 font-orbitron text-lg font-semibold text-secondary">
+              Complete Your Payment
+            </h2>
+
+            <div className="mb-3 flex justify-center">
+              <Image
+                src="/image/qr-code.png"
+                alt="Payment QR Code"
+                width={150}
+                height={150}
+                className="rounded-md border border-secondary shadow-md"
+              />
+            </div>
+
+            <p className="mb-2 font-mono text-sm text-tertiary">
+              Scan the QR to make your payment. Then upload your proof below.
             </p>
+
+            <input
+              type="file"
+              accept="image/*,application/pdf"
+              onChange={handlePaymentProofChange}
+              className="w-full cursor-pointer rounded-md border border-secondary bg-tertiary px-3 py-2 font-mono text-sm text-quarternary focus:ring-2 focus:ring-secondary"
+            />
+
+            {paymentProof && (
+              <p className="mt-2 font-mono text-xs font-semibold text-green-400">
+                ✓ {paymentProof.name} uploaded successfully
+              </p>
+            )}
           </div>
         )}
 
-        <div className="flex items-center space-x-2 p-4">
+        {/* Terms */}
+        <div className="flex items-center space-x-2">
           <input
             id="terms"
             type="checkbox"
             checked={isChecked}
             onChange={() => setIsChecked(!isChecked)}
-            className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+            className="h-4 w-4 rounded border-gray-400 text-secondary focus:ring-secondary"
             required={true}
           />
-          <label htmlFor="terms" className="text-sm text-gray-700">
-            I have read and agree to all{' '}
+          <label
+            htmlFor="terms"
+            className="font-orbitron text-sm text-tertiary"
+          >
+            I agree to all{' '}
             <Link href="/terms" passHref>
-              <span className="cursor-pointer text-blue-600 underline hover:text-blue-800">
+              <span className="cursor-pointer text-secondary underline hover:brightness-150">
                 terms and conditions
               </span>
             </Link>
           </label>
         </div>
 
+        {/* Submit */}
         <button
           type="submit"
-          disabled={isSubmitting || formSubmitted || phoneError !== ''}
-          className={`mt-4 rounded-md p-2 transition-colors duration-200 disabled:cursor-not-allowed ${
+          disabled={isSubmitting || formSubmitted}
+          className={`mt-3 rounded-md px-4 py-2 font-orbitron text-xl font-semibold text-quarternary transition-all duration-300 ${
             formSubmitted
-              ? 'bg-gradient-to-tr from-slate-900 via-green-900 to-slate-900 text-white'
-              : 'bg-gradient-to-tr from-slate-900 via-blue-900 to-slate-900 text-white hover:bg-blue-600 disabled:bg-gray-400'
+              ? 'bg-gradient-to-tr from-green-700 via-green-900 to-green-700 text-white'
+              : 'bg-gradient-to-tr from-secondary via-[#b3862c] to-secondary hover:brightness-150 active:scale-90 disabled:bg-gray-500'
           }`}
-          suppressHydrationWarning={true}
         >
           {isSubmitting
             ? 'Submitting...'
@@ -417,18 +463,29 @@ function RegisterPage() {
               : 'Submit Registration'}
         </button>
 
-        {/* Show success message */}
+        {/* ✅ Error display section */}
+        {formErrors.length > 0 && (
+          <div className="mt-4 w-full rounded-md border border-red-500 bg-red-100/10 p-4 font-orbitron text-red-400">
+            <p className="mb-1 font-semibold">
+              Please fix the following errors:
+            </p>
+            <ul className="list-disc space-y-1 pl-5 text-sm">
+              {formErrors.map((err, idx) => (
+                <li key={idx}>{err}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Success */}
         {formSubmitted && (
-          <div className="mt-6 w-full max-w-md">
-            <div className="rounded-lg border border-green-200 bg-green-50 p-4 text-center">
-              <p className="mb-2 font-semibold text-green-800">
-                Registration Successful! 🎉
-              </p>
-              <p className="text-sm text-green-600">
-                Thank you for registering. We will contact you shortly with
-                further details.
-              </p>
-            </div>
+          <div className="mt-4 w-full rounded-md border border-green-300 bg-green-50 p-4 text-center text-green-700">
+            <p className="font-orbitron font-semibold">
+              Registration Successful! 🎉
+            </p>
+            <p className="font-orbitron text-sm">
+              Thank you for registering. We&aspos;ll contact you shortly.
+            </p>
           </div>
         )}
       </form>
