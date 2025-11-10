@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss'
-import animate from 'tailwindcss-animate'
+import type { Config } from 'tailwindcss';
+import animate from 'tailwindcss-animate';
 
 const config: Config = {
   content: [
@@ -10,10 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        'xs': '400px',      // extra small
-        'md-lg': '860px',   // medium-large
-        'lg-xl': '1100px',  // large-extra large
-        'xl-wide': '1346px' // ultra-wide
+        xs: '400px', // extra small
+        'md-lg': '860px', // medium-large
+        'lg-xl': '1100px', // large-extra large
+        'xl-wide': '1346px', // ultra-wide
       },
       colors: {
         primary: 'var(--color-primary)',
@@ -26,6 +26,7 @@ const config: Config = {
         glow: 'glow 2s ease-in-out infinite',
         shine: 'shine 5s linear infinite',
         slowBounce: 'slowBounce 3s ease-in-out infinite',
+        reverseBounce: 'reverseBounce 3s ease-in-out infinite',
       },
       keyframes: {
         glow: {
@@ -44,6 +45,10 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-12px)' },
         },
+        reverseBounce: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(12px)' }, // move downward instead of upward
+        },
       },
       borderColor: {
         quarternary: 'var(--color-quarternary)',
@@ -57,9 +62,24 @@ const config: Config = {
           'serif',
         ],
         turret: ['var(--font-turret-road)', 'Helvetica', 'Arial', 'sans-serif'],
-        rasputin: ['var(--font-rasputin)', 'Garamond', 'Times New Roman', 'serif'],
-        orbitron: ['var(--font-orbitron)', 'Garamond', 'Times New Roman', 'serif'],
-        opensans: ['var(--font-opensans)', 'Garamond', 'Times New Roman', 'serif'],
+        rasputin: [
+          'var(--font-rasputin)',
+          'Garamond',
+          'Times New Roman',
+          'serif',
+        ],
+        orbitron: [
+          'var(--font-orbitron)',
+          'Garamond',
+          'Times New Roman',
+          'serif',
+        ],
+        opensans: [
+          'var(--font-opensans)',
+          'Garamond',
+          'Times New Roman',
+          'serif',
+        ],
       },
       backgroundImage: {
         grid: "url('/image/Grid.svg')",
@@ -68,6 +88,6 @@ const config: Config = {
     },
   },
   plugins: [animate],
-}
+};
 
-export default config
+export default config;
