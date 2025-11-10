@@ -35,19 +35,22 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link
           rel="icon"
-          href="/logos/logo.png"
+          href="/logos/techletics-logo.png"
           type="image/png"
           sizes="32x32"
         />
         <link
           rel="icon"
-          href="/logos/logo.png"
+          href="/logos/techletics-logo.png"
           type="image/png"
           sizes="16x16"
         />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/logos/logo.png" />
-        <meta name="msapplication-TileImage" content="/logos/logo.png" />
+        <link rel="apple-touch-icon" href="/logos/techletics-logo.png" />
+        <meta
+          name="msapplication-TileImage"
+          content="/logos/techletics-logo.png"
+        />
       </head>
       <body
         className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${orbitronFont.variable} ${rasputinFont.className} ${openSans.variable} ${openSans.className} antialiased`}

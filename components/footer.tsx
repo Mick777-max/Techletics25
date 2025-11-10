@@ -55,7 +55,7 @@ import { CustomLink } from '@/components/custom';
 //               <SocialIcon logo="linkedin" />
 //             </CustomLink>
 //             {/* <Image
-//               src="/logos/logo.png"
+//               src=""
 //               width={500}
 //               height={500}
 //               alt="Techetics Logo"

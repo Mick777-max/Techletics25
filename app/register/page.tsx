@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { eventList } from './eventsList';
+import { motion } from 'framer-motion';
 
 type College = { name: string };
 
@@ -97,7 +98,7 @@ function RegisterPage() {
             event: value,
             teamMembers: [], // initially none
           }));
-          setCurrentTeamCount(2); // min 2 by default
+          setCurrentTeamCount(0); // min 2 by default
         } else {
           // Individual event
           setFormData((prev) => ({
@@ -295,10 +296,19 @@ function RegisterPage() {
       setIsChecked(false);
       setCurrentTeamCount(0);
 
+      // ✅ Play success sound immediately after user click
+      try {
+        const audio = new Audio('/audio/mohanlal.mp3');
+        audio.volume = 0.5;
+        await audio.play();
+      } catch (err) {
+        console.warn('Audio playback failed:', err);
+      }
+
       // ✅ Redirect after 3 seconds
       setTimeout(() => {
         router.push('/events');
-      }, 3000);
+      }, 5000);
     } catch {
       // ✅ Handle failure
       setFormErrors(['Registration failed. Please try again.']);
@@ -526,17 +536,36 @@ function RegisterPage() {
                         Select Team Size:
                       </label>
                       <select
-                        value={currentTeamCount || 2}
+                        value={currentTeamCount || ''}
                         onChange={(e) => {
-                          const count = parseInt(e.target.value);
+                          const value = e.target.value;
+                          if (!value) return; // user hasn't selected yet
+                          const count = parseInt(value);
+
+                          // 🧹 Clear previous teammate-related errors when team size changes
+                          setFormErrors((prev) =>
+                            prev.filter(
+                              (err) =>
+                                !/^Team member \d+:/.test(err) && // remove any "Team member X:" errors
+                                !err.includes(
+                                  'Name must only contain letters',
+                                ) &&
+                                !err.includes('Name cannot exceed'),
+                            ),
+                          );
+
                           setCurrentTeamCount(count);
                           setFormData((prev) => ({
                             ...prev,
                             teamMembers: Array(count - 1).fill(''),
                           }));
                         }}
+                        required
                         className="cursor-pointer rounded-md bg-secondary px-3 py-2 font-orbitron text-quarternary focus:ring-2 focus:ring-secondary"
                       >
+                        <option value="" disabled hidden>
+                          –
+                        </option>
                         {Array.from(
                           { length: currentEvent.maxTeamSize },
                           (_, i) => i + 1,
@@ -698,15 +727,59 @@ function RegisterPage() {
 
         {/* Success */}
         {formSubmitted && (
-          <div className="mt-4 w-full rounded-md border border-green-300 bg-green-50 p-4 text-center text-green-700">
-            <p className="font-orbitron font-semibold">
-              Registration Successful! 🎉
-            </p>
-            <p className="font-orbitron text-sm">
-              Thank you for registering. We&apos;ll contact you shortly.
-            </p>
-            <p className="font-orbitron text-sm">...Redirecting to Events</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+          >
+            <div className="relative flex w-[90%] max-w-md flex-col rounded-2xl border border-green-500 bg-[#1b1b1b] p-8 text-center shadow-2xl shadow-green-500/30">
+              <h2 className="mb-3 font-orbitron text-2xl font-bold text-green-400">
+                Registration Successful! 🎉
+              </h2>
+
+              <div>
+                <p className="mb-1 font-orbitron text-gray-300">
+                  Thank you for registering. We’ll contact you shortly.
+                </p>
+              </div>
+
+              <div>
+                <Image
+                  src="/image/mohanlal.png"
+                  alt="Success"
+                  width={120}
+                  height={120}
+                  className="mx-auto my-3 w-[80%] max-w-[80%]"
+                />
+              </div>
+
+              <p className="font-orbitron text-sm text-gray-400">
+                Redirecting to Events...
+              </p>
+
+              <div className="mt-6 flex justify-center">
+                <div>
+                  <svg
+                    aria-hidden="true"
+                    className="inline h-8 w-8 animate-spin fill-green-500 text-gray-200 dark:text-gray-600"
+                    viewBox="0 0 100 101"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                      fill="currentFill"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         )}
       </form>
     </section>
