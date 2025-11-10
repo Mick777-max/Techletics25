@@ -7,12 +7,7 @@ import {
 } from '@/public/fonts';
 import './globals.css';
 import Navbar from '@/components/navbar';
-import {
-  // Connect,
-  Copyright,
-  SocialAndConnect,
-  // SocialConnect
-} from '@/components/footer';
+import { Copyright, SocialAndConnect } from '@/components/footer';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
@@ -25,7 +20,7 @@ export const metadata: Metadata = {
       { url: '/logos/techletics-logo.png', type: 'image/png' },
     ],
     shortcut: '/favicon.ico',
-    apple: '/logos/logo.png',
+    apple: '/logos/techletics-logo.png',
   },
 };
 

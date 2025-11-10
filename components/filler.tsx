@@ -10,7 +10,7 @@ export default function Filler() {
             alt="Techletics Logo"
             height={300}
             width={300}
-            className="animate-glow rounded-full object-contain py-3 pl-7"
+            className="animate-glow rounded-full object-contain py-[0.75rem] pl-[1.75rem]"
           />
         </div>
       </div>

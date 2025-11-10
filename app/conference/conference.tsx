@@ -5,12 +5,12 @@ import Link from 'next/link';
 
 export default function Conference() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black">
+    <div className="relative mx-auto min-h-screen w-full max-w-screen-2xl overflow-hidden bg-black">
       {/* Subtle Dark Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute left-1/4 top-20 h-72 w-72 animate-pulse rounded-full bg-gray-900/20 blur-3xl"></div>
         <div className="absolute bottom-40 right-1/3 h-96 w-96 animate-pulse rounded-full bg-gray-800/15 blur-3xl delay-1000"></div>
-        <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 transform animate-spin-slow rounded-full bg-gray-900/10 blur-3xl"></div>
+        <div className="animate-spin-slow absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gray-900/10 blur-3xl"></div>
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-10">

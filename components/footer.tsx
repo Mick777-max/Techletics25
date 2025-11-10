@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 import { SocialIcon } from './svg/icons';
-import SectionLayout from '@/layouts/section-layout';
-import { CustomLink, CustomText } from '@/components/custom';
+import { CustomLink } from '@/components/custom';
 
 // const SocialConnect = () => {
 //   return (

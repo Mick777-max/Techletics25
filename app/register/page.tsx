@@ -535,7 +535,7 @@ function RegisterPage() {
                             teamMembers: Array(count - 1).fill(''),
                           }));
                         }}
-                        className="rounded-md bg-secondary px-3 py-2 font-orbitron text-quarternary focus:ring-2 focus:ring-secondary"
+                        className="cursor-pointer rounded-md bg-secondary px-3 py-2 font-orbitron text-quarternary focus:ring-2 focus:ring-secondary"
                       >
                         {Array.from(
                           { length: currentEvent.maxTeamSize },

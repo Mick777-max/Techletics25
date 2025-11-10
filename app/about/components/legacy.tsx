@@ -1,5 +1,3 @@
-import Gallery from './gallery';
-
 const Legacy = () => {
   return (
     <div className="relative mx-auto max-w-screen-xl px-2">

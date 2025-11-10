@@ -3,7 +3,6 @@ import About from './components/about';
 import Legacy from './components/legacy';
 import Committee from './components/comitee';
 import TextMarquee from '@/components/marquee';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'About',

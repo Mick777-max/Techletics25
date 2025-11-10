@@ -1,6 +1,5 @@
 import { CommitteeCard } from '@/components/cards';
 import { committees } from './commitees';
-import TextMarquee from '@/components/marquee';
 
 export default function Committee() {
   return (

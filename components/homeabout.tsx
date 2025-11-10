@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Homeabout() {
   return (
-    <main className="relative mx-auto flex h-auto max-w-screen-xl flex-col items-start overflow-hidden pb-[200px] max-md:items-center">
+    <main className="relative mx-auto flex h-auto max-w-screen-xl flex-col items-start overflow-hidden pb-[12.5rem] max-md:items-center">
       <div className="text-3xl md:text-5xl">
         <h1 className="pt-10 font-orbitron font-medium text-quarternary max-cmd:mx-3 md:pt-20">
           ARE YOU A{' '}
@@ -24,7 +24,7 @@ export default function Homeabout() {
         </div>
 
         <div className="max-md:mx-3">
-          <p className="font-opensans text-[20px] font-semibold text-quarternary">
+          <p className="font-opensans text-[1.25rem] font-semibold text-quarternary">
             Join us for the third edition of Techletics, the techno-cultural
             festival of Christ College of Engineering. Explore, learn, and enjoy
             the latest innovations and trends in technology and culture.
@@ -33,7 +33,7 @@ export default function Homeabout() {
             future and illuminate your mind. Techletics &apos;24 is the ultimate
             rendezvous of innovation and zest. Don&apos;t miss it.
           </p>
-          <p className="pt-5 font-opensans text-[18px] text-quarternary">
+          <p className="pt-5 font-opensans text-[1.125rem] text-quarternary">
             Techletics &apos;24 is a techno-cultural techfest organized by
             Christ College of Engineering, Irinjalakuda in 2024. The techfest
             aims to provide a platform for technical students and develop

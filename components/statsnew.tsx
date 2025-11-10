@@ -1,71 +1,9 @@
 'use client';
 import { motion } from 'framer-motion';
-import { staggerContainer } from '@/app/utlis/motion';
-import Image from 'next/image';
-import SectionLayout from '@/layouts/section-layout';
-
-const starPositions = [
-  { top: '5%', left: '10%' },
-  { top: '12%', left: '50%' },
-  { top: '20%', left: '30%' },
-  { top: '25%', left: '70%' },
-  { top: '32%', left: '15%' },
-  { top: '40%', left: '60%' },
-  { top: '45%', left: '80%' },
-  { top: '50%', left: '25%' },
-  { top: '55%', left: '90%' },
-  { top: '60%', left: '40%' },
-  { top: '65%', left: '5%' },
-  { top: '70%', left: '50%' },
-  { top: '75%', left: '35%' },
-  { top: '80%', left: '75%' },
-  { top: '85%', left: '20%' },
-  { top: '90%', left: '60%' },
-  { top: '95%', left: '10%' },
-];
 
 export default function Stats() {
   return (
-    // <div className="relative mx-auto mb-[6rem] h-[100vh] max-w-screen-xl max-cmd:mb-[20rem] max-md:mb-[40rem]">
     <div className="relative mx-auto h-[90vh] max-w-screen-xl">
-      {/* <Image
-        src="/image/flo.svg"
-        alt="flower"
-        width={250}
-        height={250}
-        className="hidden md:absolute md:-top-48 md:left-0 md:block"
-      /> */}
-      {/* <div className="pt-[210px] overflow-hidden">
-        <div className="-rotate-6 w-[120%] origin-left">
-          <TextMarquee bgColor="tertiary" />
-        </div>
-      </div> */}
-      {/* <Image
-        src="/logos/logo.png"
-        alt="logo"
-        width={400}
-        height={400}
-        className="max-xl:hidden absolute top-[-210px] right-[-150px]"
-      /> */}
-
-      {/* Stars (Sparklers) */}
-      {/* {starPositions.map((pos, index) => (
-        <Image
-          key={index}
-          src="/icons/diamondw.svg"
-          alt="Spark icon"
-          width={20}
-          height={20}
-          className="absolute"
-          style={{
-            top: pos.top,
-            left: pos.left,
-            opacity: 0.8, // subtle effect
-            transform: 'rotate(0deg)', // Optional slight rotation if desired
-          }}
-        />
-      ))} */}
-
       <div className="absolute right-[400px] top-[20px] z-30 w-[270px] cursor-pointer max-cmd:left-[40px] max-cmd:top-[260px] max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}

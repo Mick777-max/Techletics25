@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import Image from 'next/image';
-import { CustomSelect, CustomText } from '@/components/custom';
+import { CustomSelect } from '@/components/custom';
 import { eventList } from './eventlist';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
