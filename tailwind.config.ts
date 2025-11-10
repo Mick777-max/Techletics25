@@ -1,5 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+import animate from 'tailwindcss-animate'
+
+const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,16 +10,17 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        cmd: '1346px',
-        xsm: '400px',
-        mdxl: '1100px',
+        'xs': '400px',      // extra small
+        'md-lg': '860px',   // medium-large
+        'lg-xl': '1100px',  // large-extra large
+        'xl-wide': '1346px' // ultra-wide
       },
       colors: {
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
         tertiary: 'var(--color-tertiary)',
         quarternary: 'var(--color-quarternary)',
-        DEFAULT: 'var(--color-quarternary)', // This ensures quarternary works as default
+        DEFAULT: 'var(--color-quarternary)',
       },
       animation: {
         glow: 'glow 2s ease-in-out infinite',
@@ -39,19 +42,12 @@ module.exports = {
         },
         slowBounce: {
           '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-12px)' }, // bounce height
+          '50%': { transform: 'translateY(-12px)' },
         },
       },
       borderColor: {
         quarternary: 'var(--color-quarternary)',
         DEFAULT: 'var(--color-quarternary)',
-      },
-      borderWidth: {
-        DEFAULT: '1px',
-        0: '0',
-        2: '2px',
-        4: '4px',
-        8: '8px',
       },
       fontFamily: {
         secondary: [
@@ -61,24 +57,9 @@ module.exports = {
           'serif',
         ],
         turret: ['var(--font-turret-road)', 'Helvetica', 'Arial', 'sans-serif'],
-        rasputin: [
-          'var(--font-rasputin)',
-          'Garamond',
-          'Times New Roman',
-          'serif',
-        ],
-        orbitron: [
-          'var(--font-orbitron)',
-          'Garamond',
-          'Times New Roman',
-          'serif',
-        ],
-        opensans: [
-          'var(--font-opensans)',
-          'Garamond',
-          'Times New Roman',
-          'serif',
-        ],
+        rasputin: ['var(--font-rasputin)', 'Garamond', 'Times New Roman', 'serif'],
+        orbitron: ['var(--font-orbitron)', 'Garamond', 'Times New Roman', 'serif'],
+        opensans: ['var(--font-opensans)', 'Garamond', 'Times New Roman', 'serif'],
       },
       backgroundImage: {
         grid: "url('/image/Grid.svg')",
@@ -86,5 +67,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
-};
+  plugins: [animate],
+}
+
+export default config

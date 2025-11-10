@@ -57,7 +57,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden items-center md:flex">
+          <div className="hidden items-center md-lg:flex">
             <div className="relative inline-block">
               {/* Gold Border Layer */}
               <div
@@ -79,7 +79,7 @@ export default function Navbar() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="duration-10 hidden items-center justify-center gap-1 rounded-lg px-4 py-2 text-sm text-white backdrop-blur-sm transition-all hover:scale-110 hover:font-bold mdxl:flex"
+                        className="duration-10 hidden items-center justify-center gap-1 rounded-lg px-4 py-2 text-sm text-white backdrop-blur-sm transition-all hover:scale-110 hover:font-bold lg-xl:flex"
                       >
                         {link.label.toUpperCase()}
                       </a>
@@ -113,7 +113,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center md-lg:hidden">
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center rounded-lg p-2 text-secondary backdrop-blur-sm transition-all duration-300 hover:bg-secondary hover:text-quarternary focus:outline-none focus:ring-2 focus:ring-gray-400/30"
@@ -159,7 +159,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`transition-all duration-300 ease-in-out md:hidden ${
+        className={`transition-all duration-300 ease-in-out md-lg:hidden ${
           isMenuOpen
             ? 'max-h-screen opacity-100'
             : 'max-h-0 overflow-hidden opacity-0'

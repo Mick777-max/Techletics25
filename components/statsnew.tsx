@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function Stats() {
   return (
     <div className="relative mx-auto h-[90vh] max-w-screen-xl">
-      <div className="absolute right-[400px] top-[20px] z-30 w-[270px] cursor-pointer max-cmd:left-[40px] max-cmd:top-[260px] max-md:hidden">
+      <div className="absolute right-[400px] top-[20px] z-30 w-[270px] cursor-pointer max-xl-wide:left-[40px] max-xl-wide:top-[260px] max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}
           className="relative inline-block"
@@ -16,7 +16,7 @@ export default function Stats() {
         </motion.div>
       </div>
 
-      <div className="absolute right-[40px] top-[80px] z-30 w-[160px] cursor-pointer max-cmd:right-[40px] max-cmd:top-[20px] max-md:hidden">
+      <div className="absolute right-[40px] top-[80px] z-30 w-[160px] cursor-pointer max-xl-wide:right-[40px] max-xl-wide:top-[20px] max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}
           className="relative inline-block"
@@ -28,7 +28,7 @@ export default function Stats() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-[30px] left-[400px] z-30 w-[300px] cursor-pointer max-cmd:bottom-[40px] max-cmd:left-[40px] max-md:hidden">
+      <div className="absolute bottom-[30px] left-[400px] z-30 w-[300px] cursor-pointer max-xl-wide:bottom-[40px] max-xl-wide:left-[40px] max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}
           className="relative inline-block"
@@ -40,7 +40,7 @@ export default function Stats() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-[160px] left-[40px] z-30 w-[160px] cursor-pointer max-cmd:bottom-[260px] max-cmd:left-auto max-cmd:right-[40px] max-md:hidden">
+      <div className="absolute bottom-[160px] left-[40px] z-30 w-[160px] cursor-pointer max-xl-wide:bottom-[260px] max-xl-wide:left-auto max-xl-wide:right-[40px] max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}
           className="relative inline-block"
@@ -61,7 +61,7 @@ export default function Stats() {
             transition: { duration: 0.8, ease: 'easeOut' },
           },
         }}
-        className="flex w-full flex-col justify-center gap-[10rem] pb-[6rem] max-md:gap-[4rem] cmd:h-full cmd:flex-row cmd:gap-0"
+        className="flex w-full flex-col justify-center gap-[10rem] pb-[6rem] max-md:gap-[4rem] xl-wide:h-full xl-wide:flex-row xl-wide:gap-0"
       >
         <div className="flex justify-center md:hidden">
           <div className="z-30 w-[160px] cursor-pointer">
@@ -77,15 +77,10 @@ export default function Stats() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-start md:pt-[65px] cmd:flex-auto">
+        <div className="flex flex-col justify-start md:pt-[65px] xl-wide:flex-auto">
           {' '}
           {/* Add top padding */}
-          <StatCard
-            number="35+"
-            label="COLLEGES"
-            fill="secondary"
-            border="#f5f3bd"
-          />
+          <StatCard number="35+" label="COLLEGES" fill="secondary" />
         </div>
 
         <div className="flex justify-center md:hidden">
@@ -102,13 +97,8 @@ export default function Stats() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center cmd:flex-auto">
-          <StatCard
-            number="500k+"
-            label="PRIZE POOL"
-            fill="secondary"
-            border="#f5f3bd"
-          />
+        <div className="flex flex-col justify-center xl-wide:flex-auto">
+          <StatCard number="500k+" label="PRIZE POOL" fill="secondary" />
         </div>
 
         <div className="flex justify-center md:hidden">
@@ -127,15 +117,10 @@ export default function Stats() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-end md:pb-[65px] cmd:flex-auto">
+        <div className="flex flex-col justify-end md:pb-[65px] xl-wide:flex-auto">
           {' '}
           {/* Add bottom padding */}
-          <StatCard
-            number="10k+"
-            label="STUDENTS"
-            fill="secondary"
-            border="#f5f3bd"
-          />
+          <StatCard number="10k+" label="STUDENTS" fill="secondary" />
         </div>
 
         <div className="flex justify-center md:hidden">
@@ -162,18 +147,17 @@ type StatCardProps = {
   number: string;
   label: string;
   fill: string;
-  border: string;
 };
 
-function StatCard({ number, label, fill, border }: StatCardProps) {
+function StatCard({ number, label, fill }: StatCardProps) {
   const textSizeNumber =
     label === 'PRIZE POOL'
-      ? 'text-[100px] max-md:text-[80px] max-xsm:text-[60px]'
-      : 'text-[80px] max-md:text-[70px] max-xsm:text-[60px]';
+      ? 'text-[100px] max-md:text-[80px] max-xs:text-[60px]'
+      : 'text-[80px] max-md:text-[70px] max-xs:text-[60px]';
   const textSizeLabel =
     label === 'PRIZE POOL'
-      ? 'text-[70px] max-md:text-[55px] max-xsm:text-[40px]'
-      : 'text-[70px] max-md:text-[55px] max-xsm:text-[40px]';
+      ? 'text-[70px] max-md:text-[55px] max-xs:text-[40px]'
+      : 'text-[70px] max-md:text-[55px] max-xs:text-[40px]';
 
   return (
     <motion.div

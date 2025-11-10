@@ -4,7 +4,7 @@ export default function Homeabout() {
   return (
     <main className="relative mx-auto flex h-auto max-w-screen-xl flex-col items-start overflow-hidden pb-[12.5rem] max-md:items-center">
       <div className="text-3xl md:text-5xl">
-        <h1 className="pt-10 font-orbitron font-medium text-quarternary max-cmd:mx-3 md:pt-20">
+        <h1 className="pt-10 font-orbitron font-medium text-quarternary max-xl-wide:mx-3 md:pt-20">
           ARE YOU A{' '}
           <span className="text-secondary">TECH ENTHUSIAST?{'  '}</span>THEN{' '}
           <span className="text-secondary">TECHLETICS &apos;25</span> IS FOR

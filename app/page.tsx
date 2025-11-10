@@ -37,7 +37,7 @@ export default function HomePage() {
 
       <TextMarquee type="techletics" />
 
-      <section className="relative bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center py-[4rem] max-cmd:pb-[11rem] max-md:pb-[35rem]">
+      <section className="relative bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center py-[4rem] max-xl-wide:pb-[11rem] max-md:pb-[35rem]">
         <SectionSeparatorTop />
 
         <span id="stats"></span>

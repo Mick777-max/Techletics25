@@ -17,7 +17,7 @@ export default function Home() {
           variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="z-10 -rotate-6 font-orbitron text-[3rem] font-extrabold leading-none text-quarternary max-cmd:text-[3rem] max-xsm:text-[2rem] md:text-[5rem]">
+          <span className="z-10 -rotate-6 font-orbitron text-[3rem] font-extrabold leading-none text-quarternary max-xl-wide:text-[3rem] max-xs:text-[2rem] md:text-[5rem]">
             IGNITE.INSPIRE.
           </span>
           <Image
@@ -33,7 +33,7 @@ export default function Home() {
           variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex items-center gap-4"
         >
-          <span className="z-10 font-orbitron font-extrabold leading-none text-quarternary max-cmd:text-[4.5rem] max-xsm:text-[3.5rem] md:text-[7.5rem]">
+          <span className="z-10 font-orbitron font-extrabold leading-none text-quarternary max-xl-wide:text-[4.5rem] max-xs:text-[3.5rem] md:text-[7.5rem]">
             ILLUMINATE.
           </span>
         </motion.div>
