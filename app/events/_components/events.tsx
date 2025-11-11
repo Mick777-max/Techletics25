@@ -119,7 +119,7 @@ const Events = () => {
                   key={event.name}
                   // target="_blank"
                 >
-                  <div className="group relative h-[18rem] w-[16rem] bg-quarternary p-2 transition-all duration-200 ease-in hover:z-20 hover:scale-125 hover:border-[0.1px] hover:border-secondary hover:bg-secondary">
+                  <div className="group relative h-[18.5rem] w-[16rem] bg-quarternary p-2 transition-all duration-200 ease-in hover:z-20 hover:scale-125 hover:border-[0.1px] hover:border-secondary hover:bg-secondary">
                     <div className="absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
 
                     <div className="absolute right-0 top-0 h-5 w-5 border-r-4 border-t-4 border-secondary group-hover:border-quarternary"></div>

@@ -12,7 +12,7 @@ type Event = {
 export const eventList: Event[] = [
   {
     name: 'Women in Buisness',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-1.jpg',
     url: '',
     registrationFee: 0,
     date: '2025-02-20',
@@ -22,7 +22,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Idea Pitching',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-2.jpg',
     url: 'https://forms.gle/QkLi6aC2NWWVwB998',
     registrationFee: 100,
     date: '2025-02-21',
@@ -32,7 +32,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'EV Drive',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-3.jpg',
     url: 'https://forms.gle/i5GFyfR9xoziVT8i7',
     registrationFee: 200,
     date: '2025-02-22',
@@ -41,7 +41,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Hacknite',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-4.jpg',
     url: 'https://hacknite.devfolio.co/',
     registrationFee: 300,
     date: '2025-02-23',
@@ -51,7 +51,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Technical Quiz',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-5.jpg',
     url: 'https://forms.gle/s3scptcDW9VxbnCY6',
     registrationFee: 50,
     date: '2025-02-24',
@@ -61,7 +61,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'E-Football Tournament',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-6.jpg',
     url: 'https://forms.gle/L9n9FEmNxzUB95n67',
     registrationFee: 150,
     date: '2025-02-24',
@@ -71,7 +71,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'BGMI Tournament',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-7.jpg',
     url: 'https://forms.gle/odm8Y8mHyXtLYxSFA',
     registrationFee: 100,
     date: '2025-02-25',
@@ -81,7 +81,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Capture The Flag: Cyber Challenge',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-8.jpg',
     url: 'https://forms.gle/zhCkh8Nt2pA5WfDJ8',
     registrationFee: 200,
     date: '2025-02-25',
@@ -91,7 +91,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Tech Talks: Life of an Entrepreneur',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-9.jpg',
     url: '',
     registrationFee: 0,
     date: '2025-02-25',
@@ -100,7 +100,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Tech Talks: Cyber Security',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-10.jpg',
     url: '',
     registrationFee: 0,
     date: '2025-02-26',
@@ -109,7 +109,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Non Destructive Testing',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-11.jpg',
     url: 'https://forms.gle/BTtGLVhjbyoBa9B5A',
     registrationFee: 250,
     date: '2025-02-26',
@@ -118,7 +118,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Robo Soccer',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-12.jpg',
     url: 'https://forms.gle/DSPwqdXuQ7qLyPX99',
     registrationFee: 150,
     date: '2025-02-26',
@@ -128,7 +128,7 @@ export const eventList: Event[] = [
   },
   {
     name: "Da Vinci's Vault",
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-13.jpg',
     url: 'https://forms.gle/Jn7rwTLzPwLAqAZ56',
     registrationFee: 100,
     date: '2025-02-27',
@@ -138,7 +138,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'EV Hack',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-14.jpg',
     url: 'https://forms.gle/BjCj72LnXnodi6GJ6',
     registrationFee: 300,
     date: '2025-02-27',
@@ -148,7 +148,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Project Expo',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-15.jpg',
     url: 'https://bit.ly/RegProjectExpo',
     registrationFee: 0,
     date: '2025-02-27',
@@ -158,7 +158,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Quake Proof Creation Challenge',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-16.jpg',
     url: 'https://forms.gle/9Qh7oi5pXkAdQrfu6',
     registrationFee: 100,
     date: '2025-02-28',
@@ -168,7 +168,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Wrenching Wheels',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-17.jpg',
     url: 'https://forms.gle/X96zHH2Pg6cho8hj7',
     registrationFee: 100,
     date: '2025-02-28',
@@ -178,7 +178,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Malhar: Musical Band Competition',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-18.jpg',
     url: 'https://docs.google.com/forms/d/e/1FAIpQLScPczdk4WDJgO2SGQFMicLwgQPMnkm4S1Z1DWmSXvuAHYNfjA/viewform',
     registrationFee: 200,
     date: '2025-02-28',
@@ -188,7 +188,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'iRobotics Workshop',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-19.jpg',
     url: '',
     registrationFee: 250,
     date: '2025-03-01',
@@ -197,7 +197,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Build your Dreams',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-20.jpg',
     url: '',
     registrationFee: 0,
     date: '2025-03-01',
@@ -206,7 +206,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Clues and Cranks',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-1.jpg',
     url: 'https://forms.gle/vbsFfv9Dt94G8U7h9',
     registrationFee: 100,
     date: '2025-03-01',
@@ -216,7 +216,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Designathon',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-2.jpg',
     url: 'https://designathon24.devfolio.co/',
     registrationFee: 300,
     date: '2025-03-02',
@@ -226,7 +226,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Drishti',
-    src: '/image/mohanlal.png',
+    src: '/posters/poster-placeholder-3.jpg',
     url: 'https://forms.gle/A5483R6CCdL6JMPc6',
     registrationFee: 0,
     date: '2025-03-02',
