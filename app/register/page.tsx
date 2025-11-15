@@ -488,13 +488,13 @@ function RegisterPage() {
 
           return (
             <div className="mt-4 flex w-full flex-col items-center justify-center gap-4">
-              <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary p-2 transition-all duration-300 hover:scale-105 hover:brightness-125">
+              <div className="flex h-[19rem] max-h-[19rem] w-[16rem] max-w-[16rem] items-center justify-center rounded-xl border border-secondary bg-secondary object-contain p-2 transition-all duration-300 hover:scale-105 hover:brightness-125">
                 <Image
                   src={currentEvent?.src}
                   alt="Event Poster"
                   width={100}
                   height={100}
-                  className="h-auto w-[16rem] max-w-[16rem] object-cover"
+                  className="h-full w-full object-cover"
                 />
               </div>
 

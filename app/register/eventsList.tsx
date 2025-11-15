@@ -206,7 +206,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Clues and Cranks',
-    src: '/posters/poster-placeholder-1.jpg',
+    src: '/posters/poster-placeholder-21.jpg',
     url: 'https://forms.gle/vbsFfv9Dt94G8U7h9',
     registrationFee: 100,
     date: '2025-03-01',
@@ -216,7 +216,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Designathon',
-    src: '/posters/poster-placeholder-2.jpg',
+    src: '/posters/poster-placeholder-22.jpg',
     url: 'https://designathon24.devfolio.co/',
     registrationFee: 300,
     date: '2025-03-02',
@@ -226,7 +226,7 @@ export const eventList: Event[] = [
   },
   {
     name: 'Drishti',
-    src: '/posters/poster-placeholder-3.jpg',
+    src: '/posters/poster-placeholder-23.jpg',
     url: 'https://forms.gle/A5483R6CCdL6JMPc6',
     registrationFee: 0,
     date: '2025-03-02',

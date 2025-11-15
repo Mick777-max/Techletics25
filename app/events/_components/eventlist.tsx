@@ -170,12 +170,28 @@ export const eventList: Event[] = [
     type: 'COMPETITION',
     url: 'https://docs.google.com/forms/d/e/1FAIpQLScPczdk4WDJgO2SGQFMicLwgQPMnkm4S1Z1DWmSXvuAHYNfjA/viewform',
   },
+  {
+    name: 'Solo Dance Showdown',
+    src: '/posters/poster-placeholder-22.jpg',
+    // src: 'https://example.com/your-real-image.jpg',
+    category: 'CULTURAL',
+    type: 'COMPETITION',
+    url: '',
+  },
+  {
+    name: 'Acoustic Night: Unplugged Music',
+    src: '/posters/poster-placeholder-23.jpg',
+    // src: 'https://example.com/your-real-image.jpg',
+    category: 'CULTURAL',
+    type: 'COMPETITION',
+    url: '',
+  },
 ];
 
 export const featuredEventList: Event[] = [
   {
     name: 'Designathon',
-    src: '/posters/poster-placeholder-1.jpg',
+    src: '/posters/poster-placeholder-19.jpg',
     // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/designathon.png',
     branch: 'CSE',
     category: 'TECHNICAL',
@@ -184,7 +200,7 @@ export const featuredEventList: Event[] = [
   },
   {
     name: 'Hacknite',
-    src: '/posters/poster-placeholder-19.jpg',
+    src: '/posters/poster-placeholder-20.jpg',
     // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.08_791165df.jpg',
     branch: 'CSE',
     category: 'TECHNICAL',
@@ -193,7 +209,7 @@ export const featuredEventList: Event[] = [
   },
   {
     name: 'Belfort of Wallstreet',
-    src: '/posters/poster-placeholder-20.jpg',
+    src: '/posters/poster-placeholder-21.jpg',
     // src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/Untitled-2.png',
     community: 'IEDC',
     category: 'TECHNICAL',
