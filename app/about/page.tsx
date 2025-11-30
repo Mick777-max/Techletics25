@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="my-gradient-bg w-full min-w-80">
+    <div className="my-gradient-bg w-full min-w-80 overflow-clip">
       <section className="relative">
         <Image
           className="absolute left-[-6.5rem] top-[21rem]"
