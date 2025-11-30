@@ -134,7 +134,7 @@ import Marquee from 'react-fast-marquee';
 interface TextMarqueeProps {
   type?: 'ignite' | 'techletics';
   bg?: 'black' | 'secondary';
-  text?: 'white' | 'black';
+  text?: 'white' | 'black' | 'tertiary';
 }
 
 const TextMarquee = ({

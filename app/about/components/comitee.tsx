@@ -26,7 +26,7 @@ export default function Committee() {
 
           {index !== committees.length - 1 ? (
             <div className="relative left-1/2 right-1/2 -ml-[50vw] mt-2 w-screen">
-              <TextMarquee type="techletics" bg="secondary" text="black" />
+              <TextMarquee type="techletics" bg="black" text="tertiary" />
             </div>
           ) : (
             <></>
