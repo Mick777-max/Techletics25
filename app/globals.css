@@ -26,3 +26,21 @@ body {
 .my-gradient-bg {
   background: linear-gradient(to bottom, #fffad0 0%, #eedbab 35%, #f6f0e4 100%);
 }
+
+.vertical-timeline-element-icon {
+  box-shadow: 0 0 0 0 !important; /* remove white ring */
+}
+
+.vertical-timeline-element-content.bounce-in {
+  padding-bottom: 0 !important;
+}
+
+.vertical-timeline-element {
+  margin: 3rem 0 !important; /* no extra vertical space at all */
+  /* or e.g.: margin: 0.5rem 0 !important; if you want a small gap */
+}
+
+.vertical-timeline::before {
+  height: 80% !important; /* your desired line length */
+  top: 8% !important; /* centers it vertically */
+}
