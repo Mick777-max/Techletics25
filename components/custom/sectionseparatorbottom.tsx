@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function SectionSeparatorBottom() {
   return (
-    <div className="absolute bottom-0 w-full">
+    <div className="absolute bottom-0 z-40 w-full">
       <Image
         src="/icons/section-separator-bottom.png"
         alt="section separator"

@@ -4,6 +4,8 @@ import Legacy from './components/legacy';
 import Committee from './components/comitee';
 import TextMarquee from '@/components/marquee';
 import Image from 'next/image';
+import SectionSeparatorBottom from '@/components/custom/sectionseparatorbottom';
+import SectionSeparatorTop from '@/components/custom/sectionseparatortop';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -13,8 +15,8 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="w-full min-w-80 overflow-clip bg-tertiary">
-      <section className="relative">
+    <div className="w-full min-w-80 overflow-clip">
+      <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <Image
           className="left-[-6.5rem] top-[21rem] z-0 hidden opacity-75 lg:absolute lg:block"
           src="/logos/techletics-logo.svg"
@@ -26,7 +28,7 @@ export default function AboutPage() {
         <About />
 
         <Image
-          className="absolute left-1/2 top-1/2 z-0 -translate-x-1/2 opacity-40 lg:hidden"
+          className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 opacity-40 lg:hidden"
           src="/logos/techletics-logo.svg"
           alt="name"
           width={400}
@@ -34,23 +36,25 @@ export default function AboutPage() {
         />
 
         <Image
-          className="right-[-7rem] top-[40rem] z-0 hidden opacity-75 lg:absolute lg:block"
+          className="right-[-7rem] top-[40rem] z-10 hidden opacity-75 lg:absolute lg:block"
           src="/logos/techletics-logo.svg"
           alt="name"
           width={400}
           height={400}
         />
+
+        <SectionSeparatorBottom />
       </section>
 
-      {/* <TextMarquee type="techletics" bg="secondary" text="black" /> */}
+      <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
+        <SectionSeparatorTop />
 
-      <section className="relative">
         <Legacy />
       </section>
 
       <TextMarquee bg="secondary" text="black" />
 
-      <section className="relative">
+      <section className="relative bg-[url('/image/bg-white.png')] bg-center bg-repeat">
         <Image
           className="left-[-8rem] top-[-1rem] z-0 hidden opacity-75 lg:absolute xl-wide:block"
           src="/logos/techletics-logo.svg"

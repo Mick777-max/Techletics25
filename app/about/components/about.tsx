@@ -29,7 +29,7 @@ const About = () => {
       </div>
 
       <div className="flex h-full w-full flex-col items-center justify-center">
-        <div className="z-10 mt-8 flex max-w-[80%] flex-col items-center justify-center font-opensans text-quarternary">
+        <div className="z-20 mt-8 flex max-w-[80%] flex-col items-center justify-center font-opensans text-quarternary">
           <div className="mt-8 min-w-56 flex-1 text-justify">
             <p className="text-base leading-relaxed sm:text-lg">
               <span className="font-extrabold">

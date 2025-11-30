@@ -1,11 +1,29 @@
+'use client';
 import { CommitteeCard } from '@/components/cards';
 import { committees } from './commitees';
 import TextMarquee from '@/components/marquee';
+import { motion } from 'framer-motion';
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariant = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+};
 
 export default function Committee() {
   return (
-    <div className="relative mx-auto max-w-screen-xl overflow-visible px-2">
-      <div className="mt-6 h-[0.3rem] w-full bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
+    <div className="relative mx-auto max-w-screen-xl overflow-visible px-2 pt-6">
+      <div className="h-[0.3rem] w-full bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
 
       {committees.map((item, index) => (
         <div key={index} className="relative px-4 py-6 sm:px-6 lg:px-12">
@@ -17,11 +35,19 @@ export default function Committee() {
 
             <div className="mt-2 h-[0.2rem] w-[15%] bg-gradient-to-r from-secondary to-transparent"></div>
 
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
+            <motion.div
+              className="mt-12 flex flex-wrap items-center justify-center gap-6"
+              variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {item.details.map((info, index) => (
-                <CommitteeCard info={info} key={index} title={item.title} />
+                <motion.div key={index} variants={itemVariant}>
+                  <CommitteeCard info={info} title={item.title} />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {index !== committees.length - 1 ? (

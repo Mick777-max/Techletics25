@@ -2,7 +2,7 @@ const Legacy = () => {
   return (
     <div className="relative mx-auto max-w-screen-xl px-2">
       <div
-        className="font-primary mt-4 flex flex-col justify-center gap-12 px-4 py-2 text-secondary sm:px-6 sm:py-4 lg:px-12 lg:py-9"
+        className="font-primary flex flex-col justify-center gap-12 px-4 py-2 text-secondary sm:px-6 sm:py-4 lg:px-12 lg:py-9"
         id="legacy"
       >
         <h2 className="font-orbitron text-3xl font-bold sm:text-4xl lg:text-5xl">
