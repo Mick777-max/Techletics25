@@ -128,7 +128,7 @@ const Events = () => {
 
                     <div className="absolute bottom-0 right-0 h-5 w-5 border-b-4 border-r-4 border-secondary group-hover:border-quarternary"></div>
                     <Image
-                      className="h-full w-full object-cover grayscale hover:grayscale-0"
+                      className="h-full w-full object-fill grayscale hover:grayscale-0"
                       src={event.src}
                       alt={event.name}
                       width={300}

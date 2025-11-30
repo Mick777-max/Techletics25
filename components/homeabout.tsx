@@ -15,7 +15,7 @@ export default function Homeabout() {
       <div className="flex max-w-[90%] items-center justify-center max-md:flex-col">
         <div className="flex-shrink-0">
           <Image
-            src="/logos/techletics-logo.png"
+            src="/logos/techletics-logo.svg"
             alt="logo"
             width={500}
             height={500}

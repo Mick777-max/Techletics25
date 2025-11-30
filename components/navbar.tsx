@@ -43,7 +43,7 @@ export default function Navbar() {
           <div className="flex flex-shrink-0 items-center gap-3">
             <Link href="/" prefetch={true} className="flex items-center gap-3">
               <Image
-                src="/logos/techletics-logo.png"
+                src="/logos/techletics-logo.svg"
                 alt="Techletics Logo"
                 width={40}
                 height={40}
@@ -51,7 +51,7 @@ export default function Navbar() {
                 priority
               />
               <span className="font-orbitron text-2xl font-bold tracking-wider text-[#c9a55c]">
-                TECH<span className="text-gray-300">LETICS</span>
+                TECH<span className="text-gray-300">LETICS</span>&apos;25
               </span>
             </Link>
           </div>
