@@ -17,7 +17,7 @@ export default function AboutPage() {
         <About />
       </section>
 
-      <TextMarquee type="techletics" bg="secondary" text="black" />
+      {/* <TextMarquee type="techletics" bg="secondary" text="black" /> */}
 
       <section className="relative">
         <Legacy />
