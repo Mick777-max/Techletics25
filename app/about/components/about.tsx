@@ -30,7 +30,7 @@ const About = () => {
 
       <div className="flex h-full w-full flex-col items-center justify-center">
         <div className="mt-8 flex max-w-[80%] flex-col items-center justify-center font-opensans text-quarternary">
-          <div className="mt-8 min-w-56 flex-1 text-justify">
+          <div className="z-10 mt-8 min-w-56 flex-1 text-justify">
             <p className="text-base leading-relaxed sm:text-lg">
               <span className="font-extrabold">
                 Christ College of Engineering (CCE)
@@ -47,7 +47,7 @@ const About = () => {
               critics wrong, Christ College of Engineering has managed to create
               ripples on the academic front in the university, so much so that
               today the college is being&nbsp;
-              <span className="font-extrabold">
+              <span className="z-10 font-extrabold">
                 recognized as one of the best self-financing engineering
                 colleges in Kerala
               </span>
