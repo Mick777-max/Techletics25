@@ -58,6 +58,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+
         <footer
           id="contact"
           className="relative z-40 w-full bg-[url('/image/footer.png')] bg-cover bg-center bg-no-repeat"
@@ -67,7 +68,7 @@ export default function RootLayout({
           </div>
           <Copyright />
 
-          <div className="absolute bottom-0 w-full">
+          {/* <div className="absolute bottom-0 w-full">
             <Image
               src="/icons/section-separator-bottom-white.png"
               alt="section separator"
@@ -75,7 +76,7 @@ export default function RootLayout({
               height={50}
               className="h-auto w-full"
             />
-          </div>
+          </div> */}
         </footer>
       </body>
     </html>

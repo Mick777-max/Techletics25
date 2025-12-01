@@ -16,7 +16,7 @@ export default function Guidelines() {
           return (
             <div
               key={index}
-              className="flex flex-col items-center justify-between gap-2 text-wrap rounded-md border border-primary bg-black px-[1.5rem] py-[1.5rem] text-center sm:flex-row sm:gap-8"
+              className="flex cursor-cell flex-col items-center justify-between gap-2 text-wrap rounded-md border border-primary bg-black px-[1.5rem] py-[1.5rem] text-center transition-all duration-300 hover:scale-110 sm:flex-row sm:gap-8"
             >
               <span className="flex gap-2">
                 <span className="hidden sm:block">☀️☀️☀️</span>
@@ -28,7 +28,7 @@ export default function Guidelines() {
         })}
 
         <div className="mt-6 flex items-center justify-center">
-          <div className="flex w-full flex-col items-center justify-center gap-4 text-wrap rounded-md border border-primary bg-black px-[1.5rem] py-[1.5rem] text-center text-2xl sm:w-[65%] sm:text-3xl">
+          <div className="flex w-full cursor-cell flex-col items-center justify-center gap-4 text-wrap rounded-md border border-primary bg-black px-[1.5rem] py-[1.5rem] text-center text-2xl transition-all duration-300 hover:scale-105 sm:w-[65%] sm:text-3xl">
             <span className="">☀️</span>
             <span className="font-orbitron font-semibold">
               <span className="text-[#A6A6A6]">
