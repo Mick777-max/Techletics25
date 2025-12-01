@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Conference from './conference';
+// import Conference from '../../public/archive/conference';
 import Banner from './components/banner';
 import Conferenceabout from './components/about';
 import LastDate from './components/lastdate';
@@ -38,7 +38,7 @@ export default function ConferencePage() {
       <TextMarquee type="ignite" bg="black" text="white" />
 
       <section className='relative bg-[url("/image/bg-white.png")] bg-center bg-repeat'>
-        {/* <SectionSeparatorTop /> */}
+        <SectionSeparatorTop />
         <Roadmap />
         <SectionSeparatorBottom />
       </section>
