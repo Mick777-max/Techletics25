@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Suspense, useRef, useMemo } from 'react';
-import * as random from 'maath/random/dist/maath-random.esm';
+import * as random from 'maath/random/dist/maathRandom.esm';
 import { PointMaterial, Points, Preload } from '@react-three/drei';
 import * as THREE from 'three';
 

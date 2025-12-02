@@ -1,5 +1,5 @@
 import Home from '@/components/home';
-import Homeabout from '@/components/homeabout';
+import HomeAbout from '@/components/homeAbout';
 import TextMarquee from '@/components/marquee';
 import Stats from '@/components/statsnew';
 import type { Metadata } from 'next';
@@ -8,7 +8,7 @@ import Memories from '@/components/memories';
 import Media from '@/components/media';
 import SectionSeparatorBottom from '@/components/custom/sectionseparatorbottom';
 import SectionSeparatorTop from '@/components/custom/sectionseparatortop';
-import PrevEvents from '@/components/prevevents';
+import PrevEvents from '@/components/prevEvents';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -30,7 +30,7 @@ export default function HomePage() {
       <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <SectionSeparatorTop />
 
-        <Homeabout />
+        <HomeAbout />
 
         <SectionSeparatorBottom />
       </section>
