@@ -65,8 +65,8 @@ export default function CommitteeCard({ info, title }: CommitteeCardProps) {
       {/* <div className="absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
       <div className="absolute bottom-0 right-0 h-5 w-5 border-b-4 border-r-4 border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div> */}
 
-      <div className="absolute right-0 top-0 h-[3rem] w-[3rem] border-r-[0.15rem] border-t-[0.15rem] border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
-      <div className="absolute bottom-0 left-0 h-[3rem] w-[3rem] border-b-[0.15rem] border-l-[0.15rem] border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
+      <div className="absolute left-0 top-0 h-[3rem] w-[3rem] border-l-[0.18rem] border-t-[0.18rem] border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
+      <div className="absolute bottom-0 right-0 h-[3rem] w-[3rem] border-b-[0.18rem] border-r-[0.18rem] border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
 
       <div className="mt-8 flex justify-center">
         <div className="h-[9rem] w-[9rem] overflow-hidden rounded-full border border-secondary bg-[#403302] shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">

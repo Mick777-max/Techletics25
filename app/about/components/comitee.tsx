@@ -3,6 +3,7 @@ import { CommitteeCard } from '@/components/cards';
 import { committees } from './commitees';
 import TextMarquee from '@/components/marquee';
 import { motion } from 'framer-motion';
+import StaggerChildren from '@/components/custom/staggerChildren';
 
 const container = {
   hidden: { opacity: 0 },
