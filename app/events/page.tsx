@@ -1,10 +1,9 @@
 import TextMarquee from '@/components/marquee';
 import { Metadata } from 'next';
 import TechleticsCarousel from './_components/banner';
-import SectionSeparatorTop from '@/components/custom/sectionSeparatorTop';
-import SectionSeparatorBottom from '@/components/custom/sectionSeparatorBottom';
 import FeaturedEvents from './_components/featuredEvents';
 import Events from './_components/events';
+import SectionSeparator from '@/components/custom/sectionSeparator';
 
 export const metadata: Metadata = {
   title: 'Events',
@@ -20,21 +19,21 @@ export default function EventsPage() {
       </section>
 
       <section className='relative bg-[url("/image/bg-white.png")] bg-auto bg-center py-[5rem]'>
-        <SectionSeparatorTop />
+        <SectionSeparator position="top" />
 
         <Events />
 
-        <SectionSeparatorBottom />
+        <SectionSeparator position="bottom" />
       </section>
 
       <TextMarquee type="ignite" />
 
       <section className='relative bg-[url("/image/bg-white.png")] bg-cover bg-center py-[5rem]'>
-        <SectionSeparatorTop />
+        <SectionSeparator position="top" />
 
         <FeaturedEvents />
 
-        <SectionSeparatorBottom />
+        <SectionSeparator position="bottom" />
       </section>
 
       <TextMarquee type="techletics" />
