@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Committee from './components/comitee';
 import TextMarquee from '@/components/marquee';
 import Image from 'next/image';
-import SectionSeparatorBottom from '@/components/custom/sectionseparatorbottom';
-import SectionSeparatorTop from '@/components/custom/sectionseparatortop';
+import SectionSeparatorBottom from '@/components/custom/sectionSeparatorBottom';
+import SectionSeparatorTop from '@/components/custom/sectionSeparatorTop';
 
 export const metadata: Metadata = {
   title: 'About',

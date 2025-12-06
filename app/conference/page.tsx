@@ -6,8 +6,8 @@ import LastDate from './components/lastdate';
 import Roadmap from './components/roadmap';
 import Guidelines from './components/guidelines';
 import Submit from './components/submit';
-import SectionSeparatorBottom from '@/components/custom/sectionseparatorbottom';
-import SectionSeparatorTop from '@/components/custom/sectionseparatortop';
+import SectionSeparatorBottom from '@/components/custom/sectionSeparatorBottom';
+import SectionSeparatorTop from '@/components/custom/sectionSeparatorTop';
 import TextMarquee from '@/components/marquee';
 
 export const metadata: Metadata = {

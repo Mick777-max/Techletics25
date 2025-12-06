@@ -6,8 +6,8 @@ import type { Metadata } from 'next';
 import Filler from '@/components/filler';
 import Memories from '@/components/memories';
 import Media from '@/components/media';
-import SectionSeparatorBottom from '@/components/custom/sectionseparatorbottom';
-import SectionSeparatorTop from '@/components/custom/sectionseparatortop';
+import SectionSeparatorBottom from '@/components/custom/sectionSeparatorBottom';
+import SectionSeparatorTop from '@/components/custom/sectionSeparatorTop';
 import PrevEvents from '@/components/prevEvents';
 
 export const metadata: Metadata = {
