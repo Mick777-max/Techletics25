@@ -261,11 +261,13 @@ export default function Conference() {
   return (
     <section className="relative mx-auto flex min-h-screen max-w-screen-2xl flex-col items-center justify-center bg-quarternary px-[1.8rem] pt-[8rem] font-orbitron">
       {/* Background Glow */}
+
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="bg-secondary/10 absolute left-1/4 top-20 h-72 w-72 animate-pulse rounded-full blur-3xl" />
         <div className="absolute bottom-32 right-1/3 h-96 w-96 animate-pulse rounded-full bg-amber-400/10 blur-3xl delay-1000" />
         <div className="bg-secondary/5 animate-spin-slow absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 transform rounded-full blur-3xl" />
       </div>
+
 
       <div className="relative z-10 mx-auto w-full max-w-6xl text-center">
         {/* Hero Section */}

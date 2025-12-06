@@ -144,7 +144,7 @@ import { CustomLink } from '@/components/custom';
 
 const Copyright = () => {
   return (
-    <div className="relative mx-auto flex min-h-16 w-full max-w-screen-xl items-center justify-center overflow-clip border-t-[1px] border-tertiary">
+    <div className="relative mx-auto flex min-h-16 w-full max-w-screen-xl items-center justify-center overflow-hidden border-t-[1px] border-tertiary">
       <div className="absolute mt-2 flex w-full justify-center md:mt-8">
         <span
           className="whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent opacity-40 md:text-[9rem]"
@@ -176,7 +176,7 @@ const Copyright = () => {
 
 const SocialAndConnect = () => {
   return (
-    <section className="mx-auto max-w-screen-2xl px-3">
+    <section className="mx-auto max-w-screen-2xl overflow-hidden px-3">
       <div className="flex w-full flex-col justify-center gap-12 text-secondary md:p-6 lg:py-12">
         <div className="flex flex-col flex-wrap justify-center gap-0 align-middle font-orbitron text-[2.4rem] font-bold text-tertiary md:text-[3.9rem]">
           <div className="w-full">
@@ -243,32 +243,6 @@ const SocialAndConnect = () => {
       </div>
 
       <div className="flex w-full flex-col overflow-clip lg:flex-row lg:justify-end">
-        {/* <div className="flex flex-col items-center justify-center gap-6 border-r border-transparent px-12 py-6 lg:w-1/2 lg:flex-row lg:border-quarternary lg:p-12">
-          <CustomLink href="https://cce.edu.in" target="_blank">
-            <Image
-              src="https://dnbca6q7do6n.cloudfront.net/media/techletics24/cce-logo-landscape.png"
-              width={248}
-              height={64}
-              alt="Christ College of Engineering Logo"
-              priority
-            />
-          </CustomLink>
-          <Image
-            src="/icons/join.svg"
-            width={16}
-            height={16}
-            alt="Join Icon"
-            priority
-          />
-          <Image
-            src="https://dnbca6q7do6n.cloudfront.net/media/techletics24/advaya-logo_MTHagDV.png"
-            width={88}
-            height={88}
-            alt="Advaya Logo"
-            priority
-          />
-        </div> */}
-
         <div className="relative z-0 flex flex-wrap items-center justify-end gap-4 px-12 py-6 md:gap-8 lg:w-1/2 lg:p-12">
           <p className="text-md whitespace-nowrap font-medium text-tertiary lg:text-lg">
             FOLLOW US
