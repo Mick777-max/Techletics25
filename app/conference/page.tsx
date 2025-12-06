@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import Banner from './components/banner';
-import Conferenceabout from './components/about';
-import LastDate from './components/lastdate';
-import Roadmap from './components/roadmap';
-import Guidelines from './components/guidelines';
-import Submit from './components/submit';
+import Banner from './_components/banner';
+import Conferenceabout from './_components/about';
+import LastDate from './_components/lastdate';
+import Roadmap from './_components/roadmap';
+import Guidelines from './_components/guidelines';
+import Submit from './_components/submit';
 import TextMarquee from '@/components/marquee';
 import SectionSeparator from '@/components/custom/sectionSeparator';
 
