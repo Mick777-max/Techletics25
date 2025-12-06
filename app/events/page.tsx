@@ -1,9 +1,10 @@
 import TextMarquee from '@/components/marquee';
-import { Events, FeaturedEvents } from './_components';
 import { Metadata } from 'next';
 import TechleticsCarousel from './_components/banner';
 import SectionSeparatorTop from '@/components/custom/sectionseparatortop';
 import SectionSeparatorBottom from '@/components/custom/sectionseparatorbottom';
+import FeaturedEvents from './_components/featuredEvents';
+import Events from './_components/events';
 
 export const metadata: Metadata = {
   title: 'Events',

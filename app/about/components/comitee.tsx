@@ -1,9 +1,8 @@
 'use client';
 import { CommitteeCard } from '@/components/cards';
-import { committees } from './commitees';
 import TextMarquee from '@/components/marquee';
 import { motion } from 'framer-motion';
-import StaggerChildren from '@/components/custom/staggerChildren';
+import { CommitteeData } from '@/app/data';
 
 const container = {
   hidden: { opacity: 0 },
@@ -26,7 +25,7 @@ export default function Committee() {
     <div className="relative mx-auto max-w-screen-xl overflow-visible px-2 pt-6">
       <div className="h-[0.3rem] w-full bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
 
-      {committees.map((item, index) => (
+      {CommitteeData.map((item, index) => (
         <div key={index} className="relative px-4 py-6 sm:px-6 lg:px-12">
           <div className="flex flex-col justify-center py-6 lg:py-12">
             <h2 className="font-orbitron text-3xl font-bold text-secondary sm:text-4xl lg:text-5xl">
@@ -51,7 +50,7 @@ export default function Committee() {
             </motion.div>
           </div>
 
-          {index !== committees.length - 1 ? (
+          {index !== CommitteeData.length - 1 ? (
             <div className="relative left-1/2 right-1/2 -ml-[50vw] mt-2 w-screen">
               <TextMarquee type="techletics" bg="black" text="tertiary" />
             </div>

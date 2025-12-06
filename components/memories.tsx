@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 export default function Memories() {
   return (
     <div className="relative mx-auto flex h-[80%] w-full max-w-screen-xl flex-col items-center justify-center bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center px-4">

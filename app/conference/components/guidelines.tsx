@@ -1,5 +1,3 @@
-import StaggerChildren from '@/components/custom/staggerChildren';
-
 const guidelines = [
   'Abstract can contain a maximum of 150 words',
   'Abstract can contain a maximum of 150 words',
