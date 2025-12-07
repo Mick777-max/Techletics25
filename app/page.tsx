@@ -19,10 +19,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="w-full min-w-80">
-      <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
+      <section className="relative bg-[url('/image/clouds2.png')] bg-cover bg-center bg-no-repeat">
         <Home />
-
-        <SectionSeparatorBottom />
       </section>
 
       <TextMarquee type="ignite" />

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { eventList } from './eventsList';
 import { motion } from 'framer-motion';
+import TextMarquee from '@/components/marquee';
 
 type College = { name: string };
 
@@ -319,470 +320,478 @@ function RegisterPage() {
   };
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center bg-quarternary px-[1.8rem] py-[3.5rem]">
-      <h1 className="mb-4 mt-16 font-orbitron text-3xl font-bold text-secondary">
-        Register for Techletics &apos;25
-      </h1>
+    <div className="w-full min-w-80">
+      <section className="relative flex min-h-screen flex-col items-center justify-center bg-quarternary px-[1.8rem] py-[3.5rem]">
+        <h1 className="mb-4 mt-16 font-orbitron text-3xl font-bold text-secondary">
+          Register for Techletics &apos;25
+        </h1>
 
-      <form
-        onSubmit={handleSubmit}
-        className="flex w-full max-w-md flex-col gap-4 rounded-xl bg-[#1b1b1b] p-6 shadow-sm shadow-secondary"
-      >
-        {/* Name */}
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter Your Full Name"
-          value={formData.name}
-          onChange={handleChange}
-          onBlur={handleNameBlur} // ✅ Validate on blur
-          required
-          className="rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
-        />
-
-        {/* Email */}
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
-        />
-
-        {/* Phone */}
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Enter Your Phone Number (WhatsApp)"
-          value={formData.phone}
-          onChange={handleChange}
-          onBlur={handlePhoneBlur} // ✅ Validate on blur
-          required
-          maxLength={10}
-          className="w-full rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
-        />
-
-        {/* Gender */}
-        <select
-          name="gender"
-          value={formData.gender}
-          onChange={handleChange}
-          required
-          className={`rounded-md bg-tertiary px-3 py-2 font-orbitron focus:ring-2 focus:ring-secondary ${
-            !formData.gender ? 'text-gray-400' : 'text-quarternary'
-          }`}
+        <form
+          onSubmit={handleSubmit}
+          className="flex w-full max-w-md flex-col gap-4 rounded-xl bg-[#1b1b1b] p-6 shadow-sm shadow-secondary"
         >
-          <option value="" disabled hidden>
-            Select your gender
-          </option>
-          {genders.map((gender, i) => (
-            <option
-              key={i}
-              value={gender}
-              className="font-orbitron text-quarternary"
-            >
-              {gender}
-            </option>
-          ))}
-        </select>
-
-        {/* College */}
-        <div className="relative">
+          {/* Name */}
           <input
             type="text"
-            name="college"
-            placeholder="Select Your College"
-            value={formData.college}
+            name="name"
+            placeholder="Enter Your Full Name"
+            value={formData.name}
             onChange={handleChange}
+            onBlur={handleNameBlur} // ✅ Validate on blur
             required
-            className="w-full rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
+            className="rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
           />
-          {collegeSuggestions.length > 0 && (
-            <ul className="absolute z-50 max-h-48 w-full overflow-y-auto rounded-md border border-secondary bg-quarternary shadow-md">
-              {collegeSuggestions.map((college, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleSelectCollege(college)}
-                  className="cursor-pointer px-4 py-2 font-mono text-tertiary hover:bg-secondary hover:text-quarternary"
-                >
-                  {college}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
 
-        {/* Semester */}
-        <select
-          name="sem"
-          value={formData.sem}
-          onChange={handleChange}
-          required
-          className={`rounded-md bg-tertiary px-3 py-2 font-orbitron focus:ring-2 focus:ring-secondary ${
-            !formData.sem ? 'text-gray-400' : 'text-quarternary'
-          }`}
-        >
-          <option value="">Current Semester</option>
-          {sem.map((s, i) => (
-            <option key={i} value={s} className="text-quarternary">
-              {s}
-            </option>
-          ))}
-        </select>
-
-        {/* Branch */}
-        <div className="relative">
+          {/* Email */}
           <input
-            type="text"
-            name="branch"
-            placeholder="Branch Name or Abbreviation"
-            value={formData.branch}
+            type="email"
+            name="email"
+            placeholder="Enter Your Email"
+            value={formData.email}
             onChange={handleChange}
             required
+            className="rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
+          />
+
+          {/* Phone */}
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Enter Your Phone Number (WhatsApp)"
+            value={formData.phone}
+            onChange={handleChange}
+            onBlur={handlePhoneBlur} // ✅ Validate on blur
+            required
+            maxLength={10}
             className="w-full rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
           />
-          {branchSuggestions.length > 0 && (
-            <ul className="absolute z-50 max-h-48 w-full overflow-y-auto rounded-md border border-secondary bg-quarternary shadow-md">
-              {branchSuggestions.map((branch, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleSelectBranch(branch)}
-                  className="cursor-pointer px-4 py-2 font-mono text-tertiary hover:bg-secondary hover:text-quarternary"
-                >
-                  {branch}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
 
-        {/* Event */}
-        <select
-          name="event"
-          value={formData.event}
-          onChange={handleChange}
-          required
-          className={`rounded-md bg-tertiary px-3 py-2 font-orbitron ${
-            formData.event ? 'text-quarternary' : 'text-gray-400'
-          } focus:ring-2 focus:ring-secondary`}
-        >
-          <option value="" disabled>
-            Select an Event
-          </option>
-          {eventList.map((event, index) => (
-            <option key={index} value={event.name} className="text-quarternary">
-              {event.name}
+          {/* Gender */}
+          <select
+            name="gender"
+            value={formData.gender}
+            onChange={handleChange}
+            required
+            className={`rounded-md bg-tertiary px-3 py-2 font-orbitron focus:ring-2 focus:ring-secondary ${
+              !formData.gender ? 'text-gray-400' : 'text-quarternary'
+            }`}
+          >
+            <option value="" disabled hidden>
+              Select your gender
             </option>
-          ))}
-        </select>
+            {genders.map((gender, i) => (
+              <option
+                key={i}
+                value={gender}
+                className="font-orbitron text-quarternary"
+              >
+                {gender}
+              </option>
+            ))}
+          </select>
 
-        {/* Event Details (after selecting) */}
-        {(() => {
-          const currentEvent = eventList.find(
-            (event) => event.name === formData.event,
-          );
+          {/* College */}
+          <div className="relative">
+            <input
+              type="text"
+              name="college"
+              placeholder="Select Your College"
+              value={formData.college}
+              onChange={handleChange}
+              required
+              className="w-full rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+            {collegeSuggestions.length > 0 && (
+              <ul className="absolute z-50 max-h-48 w-full overflow-y-auto rounded-md border border-secondary bg-quarternary shadow-md">
+                {collegeSuggestions.map((college, index) => (
+                  <li
+                    key={index}
+                    onClick={() => handleSelectCollege(college)}
+                    className="cursor-pointer px-4 py-2 font-mono text-tertiary hover:bg-secondary hover:text-quarternary"
+                  >
+                    {college}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
-          if (!currentEvent) return null;
+          {/* Semester */}
+          <select
+            name="sem"
+            value={formData.sem}
+            onChange={handleChange}
+            required
+            className={`rounded-md bg-tertiary px-3 py-2 font-orbitron focus:ring-2 focus:ring-secondary ${
+              !formData.sem ? 'text-gray-400' : 'text-quarternary'
+            }`}
+          >
+            <option value="">Current Semester</option>
+            {sem.map((s, i) => (
+              <option key={i} value={s} className="text-quarternary">
+                {s}
+              </option>
+            ))}
+          </select>
 
-          return (
-            <div className="mt-4 flex w-full flex-col items-center justify-center gap-4">
-              <div className="flex h-[19rem] max-h-[19rem] w-[16rem] max-w-[16rem] items-center justify-center rounded-xl border border-secondary bg-secondary object-contain p-2 transition-all duration-300 hover:scale-105 hover:brightness-125">
-                <Image
-                  src={currentEvent?.src}
-                  alt="Event Poster"
-                  width={100}
-                  height={100}
-                  className="h-full w-full object-cover"
-                />
-              </div>
+          {/* Branch */}
+          <div className="relative">
+            <input
+              type="text"
+              name="branch"
+              placeholder="Branch Name or Abbreviation"
+              value={formData.branch}
+              onChange={handleChange}
+              required
+              className="w-full rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+            {branchSuggestions.length > 0 && (
+              <ul className="absolute z-50 max-h-48 w-full overflow-y-auto rounded-md border border-secondary bg-quarternary shadow-md">
+                {branchSuggestions.map((branch, index) => (
+                  <li
+                    key={index}
+                    onClick={() => handleSelectBranch(branch)}
+                    className="cursor-pointer px-4 py-2 font-mono text-tertiary hover:bg-secondary hover:text-quarternary"
+                  >
+                    {branch}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
-              <div className="flex flex-wrap items-center justify-center break-words text-center font-orbitron text-3xl font-bold text-secondary">
-                <span className="whitespace-normal break-words text-center">
-                  {currentEvent.name}
-                </span>
-              </div>
+          {/* Event */}
+          <select
+            name="event"
+            value={formData.event}
+            onChange={handleChange}
+            required
+            className={`rounded-md bg-tertiary px-3 py-2 font-orbitron ${
+              formData.event ? 'text-quarternary' : 'text-gray-400'
+            } focus:ring-2 focus:ring-secondary`}
+          >
+            <option value="" disabled>
+              Select an Event
+            </option>
+            {eventList.map((event, index) => (
+              <option
+                key={index}
+                value={event.name}
+                className="text-quarternary"
+              >
+                {event.name}
+              </option>
+            ))}
+          </select>
 
-              <div className="whitespace-normal break-words text-center font-orbitron text-2xl font-bold text-tertiary">
-                <span>
-                  {new Date(currentEvent.date).toLocaleDateString('en-IN', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </span>
-              </div>
+          {/* Event Details (after selecting) */}
+          {(() => {
+            const currentEvent = eventList.find(
+              (event) => event.name === formData.event,
+            );
 
-              <div className="rounded-full border border-secondary bg-secondary px-4 py-2 font-orbitron text-4xl font-bold text-quarternary transition-all duration-300 hover:scale-110 hover:brightness-125">
-                {currentEvent.registrationFee === 0
-                  ? 'Free'
-                  : `₹ ${currentEvent.registrationFee}`}
-              </div>
+            if (!currentEvent) return null;
 
-              <div className="font-orbitron text-xl font-bold text-tertiary">
-                {currentEvent.maxTeamSize && currentEvent.maxTeamSize > 1 && (
-                  <div className="flex flex-col items-center justify-center">
-                    <div>
-                      <span>Max Team Size:</span>{' '}
-                      <span className="text-2xl text-secondary">
-                        {currentEvent.maxTeamSize}
-                      </span>
-                    </div>
-
-                    {/* Select actual team size */}
-                    <div className="mt-2">
-                      <label className="mr-2 font-orbitron text-xl text-tertiary">
-                        Select Team Size:
-                      </label>
-                      <select
-                        value={currentTeamCount || ''}
-                        onChange={(e) => {
-                          const value = e.target.value;
-                          if (!value) return; // user hasn't selected yet
-                          const count = parseInt(value);
-
-                          // 🧹 Clear previous teammate-related errors when team size changes
-                          setFormErrors((prev) =>
-                            prev.filter(
-                              (err) =>
-                                !/^Team member \d+:/.test(err) && // remove any "Team member X:" errors
-                                !err.includes(
-                                  'Name must only contain letters',
-                                ) &&
-                                !err.includes('Name cannot exceed'),
-                            ),
-                          );
-
-                          setCurrentTeamCount(count);
-                          setFormData((prev) => ({
-                            ...prev,
-                            teamMembers: Array(count - 1).fill(''),
-                          }));
-                        }}
-                        required
-                        className="cursor-pointer rounded-md bg-secondary px-3 py-2 font-orbitron text-quarternary focus:ring-2 focus:ring-secondary"
-                      >
-                        <option value="" disabled hidden>
-                          –
-                        </option>
-                        {Array.from(
-                          { length: currentEvent.maxTeamSize },
-                          (_, i) => i + 1,
-                        ).map((num) => (
-                          <option key={num} value={num}>
-                            {num}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Teammate inputs */}
-                    <div className="mt-3 flex w-full flex-col gap-3">
-                      {Array.from({ length: currentTeamCount - 1 }).map(
-                        (_, idx) => (
-                          <input
-                            key={idx}
-                            type="text"
-                            name={`teamMember-${idx}`}
-                            placeholder={`Team Member ${idx + 2} Name`}
-                            value={formData.teamMembers[idx] || ''}
-                            onChange={(e) => {
-                              const updated = [...formData.teamMembers];
-                              updated[idx] = e.target.value;
-                              setFormData((prev) => ({
-                                ...prev,
-                                teamMembers: updated,
-                              }));
-                            }}
-                            onBlur={(e) => handleTeamMateBlur(e, idx)}
-                            required
-                            className="rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
-                          />
-                        ),
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })()}
-
-        {/* ✅ QR + Payment Proof Section */}
-        {/* ✅ QR + Payment Proof Section */}
-        {(() => {
-          const selectedEvent = eventList.find(
-            (event) => event.name === formData.event,
-          );
-
-          if (
-            selectedEvent &&
-            selectedEvent.registrationFee > 0 &&
-            formData.name &&
-            formData.email &&
-            formData.phone &&
-            formData.gender &&
-            formData.college &&
-            formData.branch &&
-            formData.sem
-          ) {
             return (
-              <div className="bg-quarternary/40 rounded-md border border-secondary p-4 text-center">
-                <h2 className="mb-3 font-orbitron text-lg font-semibold text-secondary">
-                  Complete Your Payment
-                </h2>
-
-                <p className="mb-2 font-mono text-sm text-tertiary">
-                  Registration Fee: ₹{selectedEvent.registrationFee}
-                </p>
-
-                <div className="mb-3 flex justify-center">
+              <div className="mt-4 flex w-full flex-col items-center justify-center gap-4">
+                <div className="flex h-[19rem] max-h-[19rem] w-[16rem] max-w-[16rem] items-center justify-center rounded-xl border border-secondary bg-secondary object-contain p-2 transition-all duration-300 hover:scale-105 hover:brightness-125">
                   <Image
-                    src="/image/qr-code.png"
-                    alt="Payment QR Code"
-                    width={150}
-                    height={150}
-                    className="rounded-md border border-secondary shadow-md"
+                    src={currentEvent?.src}
+                    alt="Event Poster"
+                    width={100}
+                    height={100}
+                    className="h-full w-full object-cover"
                   />
                 </div>
 
-                <p className="mb-2 font-mono text-sm text-tertiary">
-                  Scan the QR to make your payment. Then upload your proof
-                  below.
-                </p>
+                <div className="flex flex-wrap items-center justify-center break-words text-center font-orbitron text-3xl font-bold text-secondary">
+                  <span className="whitespace-normal break-words text-center">
+                    {currentEvent.name}
+                  </span>
+                </div>
 
-                <input
-                  type="file"
-                  accept="image/*,application/pdf"
-                  onChange={handlePaymentProofChange}
-                  className="w-full cursor-pointer rounded-md border border-secondary bg-tertiary px-3 py-2 font-mono text-sm text-quarternary focus:ring-2 focus:ring-secondary"
-                />
+                <div className="whitespace-normal break-words text-center font-orbitron text-2xl font-bold text-tertiary">
+                  <span>
+                    {new Date(currentEvent.date).toLocaleDateString('en-IN', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </span>
+                </div>
 
-                {paymentProof && (
-                  <p className="mt-2 font-mono text-xs font-semibold text-green-400">
-                    ✓ {paymentProof.name} uploaded successfully
-                  </p>
-                )}
-              </div>
-            );
-          }
+                <div className="rounded-full border border-secondary bg-secondary px-4 py-2 font-orbitron text-4xl font-bold text-quarternary transition-all duration-300 hover:scale-110 hover:brightness-125">
+                  {currentEvent.registrationFee === 0
+                    ? 'Free'
+                    : `₹ ${currentEvent.registrationFee}`}
+                </div>
 
-          return null;
-        })()}
+                <div className="font-orbitron text-xl font-bold text-tertiary">
+                  {currentEvent.maxTeamSize && currentEvent.maxTeamSize > 1 && (
+                    <div className="flex flex-col items-center justify-center">
+                      <div>
+                        <span>Max Team Size:</span>{' '}
+                        <span className="text-2xl text-secondary">
+                          {currentEvent.maxTeamSize}
+                        </span>
+                      </div>
 
-        {/* Terms */}
-        <div className="flex items-center space-x-2">
-          <input
-            id="terms"
-            type="checkbox"
-            checked={isChecked}
-            onChange={() => setIsChecked(!isChecked)}
-            className="h-4 w-4 rounded border-gray-400 text-secondary focus:ring-secondary"
-            required={true}
-          />
-          <label
-            htmlFor="terms"
-            className="font-orbitron text-sm text-tertiary"
-          >
-            I agree to all{' '}
-            <Link href="/terms" passHref>
-              <span className="cursor-pointer text-secondary underline hover:brightness-150">
-                terms and conditions
-              </span>
-            </Link>
-          </label>
-        </div>
+                      {/* Select actual team size */}
+                      <div className="mt-2">
+                        <label className="mr-2 font-orbitron text-xl text-tertiary">
+                          Select Team Size:
+                        </label>
+                        <select
+                          value={currentTeamCount || ''}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            if (!value) return; // user hasn't selected yet
+                            const count = parseInt(value);
 
-        {/* Submit */}
-        <button
-          type="submit"
-          disabled={isSubmitting || formSubmitted}
-          className={`mt-3 rounded-md px-4 py-2 font-orbitron text-xl font-semibold text-quarternary transition-all duration-300 ${
-            formSubmitted
-              ? 'bg-gradient-to-tr from-green-700 via-green-900 to-green-700 text-white'
-              : 'bg-gradient-to-tr from-secondary via-[#b3862c] to-secondary hover:brightness-150 active:scale-90 disabled:bg-gray-500'
-          }`}
-        >
-          {isSubmitting
-            ? 'Submitting...'
-            : formSubmitted
-              ? 'Registration Successful!'
-              : 'Submit Registration'}
-        </button>
+                            // 🧹 Clear previous teammate-related errors when team size changes
+                            setFormErrors((prev) =>
+                              prev.filter(
+                                (err) =>
+                                  !/^Team member \d+:/.test(err) && // remove any "Team member X:" errors
+                                  !err.includes(
+                                    'Name must only contain letters',
+                                  ) &&
+                                  !err.includes('Name cannot exceed'),
+                              ),
+                            );
 
-        {/* ✅ Error display section */}
-        {formErrors.length > 0 && (
-          <div className="mt-4 w-full rounded-md border border-red-500 bg-red-100/10 p-4 font-orbitron text-red-400">
-            <p className="mb-1 font-semibold">
-              Please fix the following errors:
-            </p>
-            <ul className="list-disc space-y-1 pl-5 text-sm">
-              {formErrors.map((err, idx) => (
-                <li key={idx}>{err}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+                            setCurrentTeamCount(count);
+                            setFormData((prev) => ({
+                              ...prev,
+                              teamMembers: Array(count - 1).fill(''),
+                            }));
+                          }}
+                          required
+                          className="cursor-pointer rounded-md bg-secondary px-3 py-2 font-orbitron text-quarternary focus:ring-2 focus:ring-secondary"
+                        >
+                          <option value="" disabled hidden>
+                            –
+                          </option>
+                          {Array.from(
+                            { length: currentEvent.maxTeamSize },
+                            (_, i) => i + 1,
+                          ).map((num) => (
+                            <option key={num} value={num}>
+                              {num}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
 
-        {/* Success */}
-        {formSubmitted && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
-          >
-            <div className="relative flex w-[90%] max-w-md flex-col rounded-2xl border border-green-500 bg-[#1b1b1b] p-8 text-center shadow-2xl shadow-green-500/30">
-              <h2 className="mb-3 font-orbitron text-2xl font-bold text-green-400">
-                Registration Successful! 🎉
-              </h2>
-
-              <div>
-                <p className="mb-1 font-orbitron text-gray-300">
-                  Thank you for registering. We’ll contact you shortly.
-                </p>
-              </div>
-
-              <div>
-                <Image
-                  src="/image/mohanlal.png"
-                  alt="Success"
-                  width={120}
-                  height={120}
-                  className="mx-auto my-3 w-[80%] max-w-[80%]"
-                />
-              </div>
-
-              <p className="font-orbitron text-sm text-gray-400">
-                Redirecting to Events...
-              </p>
-
-              <div className="mt-6 flex justify-center">
-                <div>
-                  <svg
-                    aria-hidden="true"
-                    className="inline h-8 w-8 animate-spin fill-green-500 text-gray-200 dark:text-gray-600"
-                    viewBox="0 0 100 101"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                      fill="currentColor"
-                    />
-                    <path
-                      d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                      fill="currentFill"
-                    />
-                  </svg>
+                      {/* Teammate inputs */}
+                      <div className="mt-3 flex w-full flex-col gap-3">
+                        {Array.from({ length: currentTeamCount - 1 }).map(
+                          (_, idx) => (
+                            <input
+                              key={idx}
+                              type="text"
+                              name={`teamMember-${idx}`}
+                              placeholder={`Team Member ${idx + 2} Name`}
+                              value={formData.teamMembers[idx] || ''}
+                              onChange={(e) => {
+                                const updated = [...formData.teamMembers];
+                                updated[idx] = e.target.value;
+                                setFormData((prev) => ({
+                                  ...prev,
+                                  teamMembers: updated,
+                                }));
+                              }}
+                              onBlur={(e) => handleTeamMateBlur(e, idx)}
+                              required
+                              className="rounded-md bg-tertiary px-3 py-2 font-orbitron text-quarternary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary"
+                            />
+                          ),
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
+            );
+          })()}
+
+          {/* ✅ QR + Payment Proof Section */}
+          {/* ✅ QR + Payment Proof Section */}
+          {(() => {
+            const selectedEvent = eventList.find(
+              (event) => event.name === formData.event,
+            );
+
+            if (
+              selectedEvent &&
+              selectedEvent.registrationFee > 0 &&
+              formData.name &&
+              formData.email &&
+              formData.phone &&
+              formData.gender &&
+              formData.college &&
+              formData.branch &&
+              formData.sem
+            ) {
+              return (
+                <div className="bg-quarternary/40 rounded-md border border-secondary p-4 text-center">
+                  <h2 className="mb-3 font-orbitron text-lg font-semibold text-secondary">
+                    Complete Your Payment
+                  </h2>
+
+                  <p className="mb-2 font-mono text-sm text-tertiary">
+                    Registration Fee: ₹{selectedEvent.registrationFee}
+                  </p>
+
+                  <div className="mb-3 flex justify-center">
+                    <Image
+                      src="/image/qr-code.png"
+                      alt="Payment QR Code"
+                      width={150}
+                      height={150}
+                      className="rounded-md border border-secondary shadow-md"
+                    />
+                  </div>
+
+                  <p className="mb-2 font-mono text-sm text-tertiary">
+                    Scan the QR to make your payment. Then upload your proof
+                    below.
+                  </p>
+
+                  <input
+                    type="file"
+                    accept="image/*,application/pdf"
+                    onChange={handlePaymentProofChange}
+                    className="w-full cursor-pointer rounded-md border border-secondary bg-tertiary px-3 py-2 font-mono text-sm text-quarternary focus:ring-2 focus:ring-secondary"
+                  />
+
+                  {paymentProof && (
+                    <p className="mt-2 font-mono text-xs font-semibold text-green-400">
+                      ✓ {paymentProof.name} uploaded successfully
+                    </p>
+                  )}
+                </div>
+              );
+            }
+
+            return null;
+          })()}
+
+          {/* Terms */}
+          <div className="flex items-center space-x-2">
+            <input
+              id="terms"
+              type="checkbox"
+              checked={isChecked}
+              onChange={() => setIsChecked(!isChecked)}
+              className="h-4 w-4 rounded border-gray-400 text-secondary focus:ring-secondary"
+              required={true}
+            />
+            <label
+              htmlFor="terms"
+              className="font-orbitron text-sm text-tertiary"
+            >
+              I agree to all{' '}
+              <Link href="/terms" passHref>
+                <span className="cursor-pointer text-secondary underline hover:brightness-150">
+                  terms and conditions
+                </span>
+              </Link>
+            </label>
+          </div>
+
+          {/* Submit */}
+          <button
+            type="submit"
+            disabled={isSubmitting || formSubmitted}
+            className={`mt-3 rounded-md px-4 py-2 font-orbitron text-xl font-semibold text-quarternary transition-all duration-300 ${
+              formSubmitted
+                ? 'bg-gradient-to-tr from-green-700 via-green-900 to-green-700 text-white'
+                : 'bg-gradient-to-tr from-secondary via-[#b3862c] to-secondary hover:brightness-150 active:scale-90 disabled:bg-gray-500'
+            }`}
+          >
+            {isSubmitting
+              ? 'Submitting...'
+              : formSubmitted
+                ? 'Registration Successful!'
+                : 'Submit Registration'}
+          </button>
+
+          {/* ✅ Error display section */}
+          {formErrors.length > 0 && (
+            <div className="mt-4 w-full rounded-md border border-red-500 bg-red-100/10 p-4 font-orbitron text-red-400">
+              <p className="mb-1 font-semibold">
+                Please fix the following errors:
+              </p>
+              <ul className="list-disc space-y-1 pl-5 text-sm">
+                {formErrors.map((err, idx) => (
+                  <li key={idx}>{err}</li>
+                ))}
+              </ul>
             </div>
-          </motion.div>
-        )}
-      </form>
-    </section>
+          )}
+
+          {/* Success */}
+          {formSubmitted && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+            >
+              <div className="relative flex w-[90%] max-w-md flex-col rounded-2xl border border-green-500 bg-[#1b1b1b] p-8 text-center shadow-2xl shadow-green-500/30">
+                <h2 className="mb-3 font-orbitron text-2xl font-bold text-green-400">
+                  Registration Successful! 🎉
+                </h2>
+
+                <div>
+                  <p className="mb-1 font-orbitron text-gray-300">
+                    Thank you for registering. We’ll contact you shortly.
+                  </p>
+                </div>
+
+                <div>
+                  <Image
+                    src="/image/mohanlal.png"
+                    alt="Success"
+                    width={120}
+                    height={120}
+                    className="mx-auto my-3 w-[80%] max-w-[80%]"
+                  />
+                </div>
+
+                <p className="font-orbitron text-sm text-gray-400">
+                  Redirecting to Events...
+                </p>
+
+                <div className="mt-6 flex justify-center">
+                  <div>
+                    <svg
+                      aria-hidden="true"
+                      className="inline h-8 w-8 animate-spin fill-green-500 text-gray-200 dark:text-gray-600"
+                      viewBox="0 0 100 101"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                        fill="currentFill"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </form>
+      </section>
+
+      <TextMarquee type="techletics" bg="secondary" text="black" />
+    </div>
   );
 }
 

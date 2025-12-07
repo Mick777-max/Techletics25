@@ -81,6 +81,12 @@ const config: Config = {
           'Times New Roman',
           'serif',
         ],
+        karina: [
+          'var(--font-karina)',
+          'Garamond',
+          'Times New Roman',
+          'serif',
+        ]
       },
       backgroundImage: {
         grid: "url('/image/Grid.svg')",

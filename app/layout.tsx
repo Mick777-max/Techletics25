@@ -4,6 +4,7 @@ import {
   rasputinFont,
   orbitronFont,
   openSans,
+  karinaFont,
 } from '@/public/fonts';
 import './globals.css';
 import Navbar from '@/components/navbar';
@@ -53,7 +54,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${orbitronFont.variable} ${rasputinFont.className} ${openSans.variable} ${openSans.className} bg-emerald-400 antialiased`}
+        className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${orbitronFont.variable} ${rasputinFont.className} ${openSans.variable} ${openSans.className} ${karinaFont.className} bg-quarternary antialiased`}
         suppressHydrationWarning={true}
       >
         <Navbar />
@@ -68,7 +69,7 @@ export default function RootLayout({
           </div>
           <Copyright />
 
-          {/* <div className="absolute bottom-0 w-full">
+          <div className="absolute bottom-0 w-full">
             <Image
               src="/icons/section-separator-bottom-white.png"
               alt="section separator"
@@ -76,7 +77,7 @@ export default function RootLayout({
               height={50}
               className="h-auto w-full"
             />
-          </div> */}
+          </div>
         </footer>
       </body>
     </html>
