@@ -78,3 +78,10 @@ export const openSans = localFont({
   variable: '--font-opensans',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
 });
+
+export const karinaFont = localFont({
+  src: './Karina.ttf',
+  display: 'swap',
+  variable: '--font-karina',
+  weight: '100 900',
+});

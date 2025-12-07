@@ -1,12 +1,12 @@
 import Home from '@/components/home';
-import HomeAbout from '@/components/homeAbout';
+import HomeAbout from '@/components/homeabout';
 import TextMarquee from '@/components/marquee';
 import Stats from '@/components/statsnew';
 import type { Metadata } from 'next';
 import Filler from '@/components/filler';
 import Memories from '@/components/memories';
 import Media from '@/components/media';
-import PrevEvents from '@/components/prevEvents';
+import PrevEvents from '@/components/prevevents';
 import SectionSeparator from '@/components/custom/sectionSeparator';
 
 export const metadata: Metadata = {
@@ -20,8 +20,6 @@ export default function HomePage() {
     <div className="w-full min-w-80">
       <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <Home />
-
-        <SectionSeparator position="bottom" />
       </section>
 
       <TextMarquee type="ignite" />

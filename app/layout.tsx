@@ -4,6 +4,7 @@ import {
   rasputinFont,
   orbitronFont,
   openSans,
+  karinaFont,
 } from '@/public/fonts';
 import './globals.css';
 import Navbar from '@/components/navbar';
@@ -52,7 +53,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${orbitronFont.variable} ${rasputinFont.className} ${openSans.variable} ${openSans.className} bg-emerald-400 antialiased`}
+        className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${orbitronFont.variable} ${rasputinFont.className} ${openSans.variable} ${openSans.className} ${karinaFont.className} bg-quarternary antialiased`}
         suppressHydrationWarning={true}
       >
         <Navbar />
