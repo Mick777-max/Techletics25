@@ -84,6 +84,16 @@ export const CommitteeData: CommitteeDataInterface[] = [
         name: 'MITHUL S',
         src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107255793-9yamz/view?project=6934f5ee0031b4cec180',
       },
+      {
+        role: 'MEDIA HEAD',
+        name: 'NAVANEETH KRISHNA',
+        src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107248487-ahlu6c/view?project=6934f5ee0031b4cec180',
+      },
+      {
+        role: 'MEDIA HEAD',
+        name: 'SAFWAN',
+        src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107251642-0utev/view?project=6934f5ee0031b4cec180',
+      },
     ],
   },
   {
@@ -184,7 +194,7 @@ export const CommitteeData: CommitteeDataInterface[] = [
       },
       {
         role: 'Lead Designer',
-        name: 'ABEL KOLAPRAN',
+        name: 'ABEL J KOLAPRAN',
         profileUrl: 'https://www.linkedin.com/in/enricsneelamkavil/',
         src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765121935666-1rhr2s/view?project=6934f5ee0031b4cec180',
       },
@@ -214,21 +224,21 @@ export const CommitteeData: CommitteeDataInterface[] = [
       },
     ],
   },
-  {
-    title: 'Media',
-    details: [
-      {
-        role: 'MEDIA HEAD',
-        name: 'NAVANEETH',
-        src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107248487-ahlu6c/view?project=6934f5ee0031b4cec180',
-      },
-      {
-        role: 'MEDIA HEAD',
-        name: 'SAFUVAN',
-        src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107251642-0utev/view?project=6934f5ee0031b4cec180',
-      },
-    ],
-  },
+  // {
+  //   title: 'Media',
+  //   details: [
+  //     {
+  //       role: 'MEDIA HEAD',
+  //       name: 'NAVANEETH',
+  //       src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107248487-ahlu6c/view?project=6934f5ee0031b4cec180',
+  //     },
+  //     {
+  //       role: 'MEDIA HEAD',
+  //       name: 'SAFUVAN',
+  //       src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107251642-0utev/view?project=6934f5ee0031b4cec180',
+  //     },
+  //   ],
+  // },
 ];
 export const GalleryImages: string[] = [
   'https://dnbca6q7do6n.cloudfront.net/media/techletics24/1.jpg',

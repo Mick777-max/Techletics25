@@ -28,7 +28,7 @@ export default function Home() {
           variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex w-full items-center justify-center gap-10 max-md:mt-[6rem] max-md:flex-col max-md:gap-0"
         >
-          <span className="z-10 block text-center font-karina text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
+          <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
             IGNITE
           </span>
           <span
@@ -37,7 +37,7 @@ export default function Home() {
           >
             ✦
           </span>
-          <span className="z-10 block text-center font-karina text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
+          <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
             INSPIRE
           </span>
           <span
@@ -52,7 +52,7 @@ export default function Home() {
           variants={fadeIn('', 'tween', 0.2, 1)}
           className="flex w-full items-center justify-center gap-10 max-md:flex-col max-md:gap-0"
         >
-          <span className="z-10 block text-center font-karina text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
+          <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
             ILLUMINATE
           </span>
 
@@ -74,7 +74,7 @@ export default function Home() {
         <Countdown targetDate="2026-02-05T00:00:00"></Countdown>
       </motion.div>
 
-      <div className="absolute bottom-2 z-30 mt-2 flex w-full items-center justify-center">
+      {/* <div className="absolute bottom-2 z-30 mt-2 flex w-full items-center justify-center">
         <a href="#stats">
           <div className="flex h-[4rem] w-[2.188rem] items-start justify-center rounded-3xl border-4 border-secondary p-2">
             <motion.div
@@ -88,7 +88,7 @@ export default function Home() {
             />
           </div>
         </a>
-      </div>
+      </div> */}
     </div>
   );
 }

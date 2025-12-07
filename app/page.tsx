@@ -32,7 +32,7 @@ export default function HomePage() {
             <h1 className="pt-10 font-orbitron font-medium text-quarternary max-xl-wide:mx-3 md:pt-20">
               ARE YOU A{' '}
               <span className="text-secondary">TECH ENTHUSIAST?{'  '}</span>THEN{' '}
-              <span className="text-secondary">TECHLETICS &apos;25</span> IS FOR
+              <span className="text-secondary">TECHLETICS &apos;26</span> IS FOR
               YOU.
             </h1>
           </div>
@@ -49,19 +49,19 @@ export default function HomePage() {
             </div>
 
             <div className="max-md:mx-3">
-              <p className="font-opensans text-[1.25rem] text-quarternary">
-                Join us for the third edition of Techletics, the techno-cultural
-                festival of Christ College of Engineering. Explore, learn, and
-                enjoy the latest innovations and trends in technology and
-                culture. Participate in workshops, competitions, exhibitions,
-                performances, and more. Win prizes and awards. Ignite your
-                passion, inspire your future and illuminate your mind.
-                Techletics &apos;24 is the ultimate rendezvous of innovation and
-                zest. Don&apos;t miss it.
+              <p className="font-orbitron text-[1.125rem] text-quarternary">
+                Join us for the fourth edition of Techletics, the
+                techno-cultural festival of Christ College of Engineering.
+                Explore, learn, and enjoy the latest innovations and trends in
+                technology and culture. Participate in workshops, competitions,
+                exhibitions, performances, and more. Win prizes and awards.
+                Ignite your passion, inspire your future and illuminate your
+                mind. Techletics &apos;26 is the ultimate rendezvous of
+                innovation and zest. Don&apos;t miss it.
               </p>
-              <p className="pt-5 font-opensans text-[1.25rem] text-quarternary">
-                Techletics &apos;24 is a techno-cultural techfest organized by
-                Christ College of Engineering, Irinjalakuda in 2024. The
+              <p className="pt-5 font-orbitron text-[1.125rem] text-quarternary">
+                Techletics &apos;26 is a techno-cultural techfest organized by
+                Christ College of Engineering, Irinjalakuda in 2026. The
                 techfest aims to provide a platform for technical students and
                 develop students and people from all walks of life
               </p>
@@ -97,9 +97,29 @@ export default function HomePage() {
       <section className="relative bg-quarternary bg-[url('/image/footer.png')] bg-cover bg-center py-[5rem]">
         <SectionSeparator position="top" />
         <div className="relative mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-[4rem] p-4 xl:flex-row">
-          <div className="min-h-64 min-w-[20rem] animate-slowBounce bg-secondary [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1"></div>
-          <div className="min-h-64 min-w-[20rem] animate-reverseBounce bg-secondary [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1"></div>
-          <div className="min-h-64 min-w-[20rem] animate-slowBounce bg-secondary [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1"></div>
+          <div className="relative min-h-64 min-w-[20rem] animate-slowBounce bg-secondary p-2 [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1">
+            <img
+              src="/image/img1.jpg"
+              alt="Description 1"
+              className="h-full w-full object-cover [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))]"
+            />
+          </div>
+
+          <div className="relative min-h-64 min-w-[20rem] animate-reverseBounce bg-secondary p-2 [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1">
+            <img
+              src="image/img2.jpg"
+              alt="Description 2"
+              className="h-full w-full object-cover [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))]"
+            />
+          </div>
+
+          <div className="relative min-h-64 min-w-[20rem] animate-slowBounce bg-secondary p-2 [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1">
+            <img
+              src="/image/img3.jpg"
+              alt="Description 3"
+              className="h-full w-full object-cover [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))]"
+            />
+          </div>
         </div>
 
         {/* <SectionSeparator position="bottom" /> */}

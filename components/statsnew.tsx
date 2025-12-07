@@ -11,7 +11,7 @@ export default function Stats() {
         >
           <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
           <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-            <span className="font-secondary text-3xl">20+ WORKSHOPS</span>
+            <span className="font-orbitron text-3xl">20+ WORKSHOPS</span>
           </div>
         </motion.div>
       </div>
@@ -23,7 +23,7 @@ export default function Stats() {
         >
           <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
           <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-            <span className="font-secondary text-3xl">60+ TECH EVENTS</span>
+            <span className="font-orbitron text-3xl">60+ TECH EVENTS</span>
           </div>
         </motion.div>
       </div>
@@ -35,7 +35,7 @@ export default function Stats() {
         >
           <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
           <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-            <span className="font-secondary text-3xl">20+ TECH EXPERTS</span>
+            <span className="font-orbitron text-3xl">20+ TECH EXPERTS</span>
           </div>
         </motion.div>
       </div>
@@ -47,7 +47,7 @@ export default function Stats() {
         >
           <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
           <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-            <span className="font-secondary text-3xl">10+ CULTURAL EVENTS</span>
+            <span className="font-orbitron text-3xl">10+ CULTURAL EVENTS</span>
           </div>
         </motion.div>
       </div>
@@ -71,7 +71,9 @@ export default function Stats() {
             >
               <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
               <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-                <span className="font-secondary text-3xl">60+ TECH EVENTS</span>
+                <span className="font-orbitron text-xl md:text-3xl">
+                  60+ TECH EVENTS
+                </span>
               </div>
             </motion.div>
           </div>
@@ -91,7 +93,9 @@ export default function Stats() {
             >
               <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
               <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-                <span className="font-secondary text-3xl">20+ WORKSHOPS</span>
+                <span className="font-orbitron text-xl md:text-3xl">
+                  20+ WORKSHOPS
+                </span>
               </div>
             </motion.div>
           </div>
@@ -109,7 +113,7 @@ export default function Stats() {
             >
               <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
               <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-                <span className="font-secondary text-3xl">
+                <span className="font-orbitron text-xl md:text-3xl">
                   10+ CULTURAL EVENTS
                 </span>
               </div>
@@ -131,7 +135,7 @@ export default function Stats() {
             >
               <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
               <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-                <span className="font-secondary text-3xl">
+                <span className="font-orbitron text-xl md:text-3xl">
                   20+ TECH EXPERTS
                 </span>
               </div>

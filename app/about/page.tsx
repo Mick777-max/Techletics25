@@ -45,8 +45,8 @@ export default function AboutPage() {
             </span>
           </div>
 
-          <div className="flex h-full w-full flex-col items-center justify-center">
-            <div className="z-20 mt-8 flex max-w-[80%] flex-col items-center justify-center font-opensans text-quarternary">
+          <div className="flex h-full w-full flex-col items-center justify-center font-orbitron">
+            <div className="z-20 mt-8 flex max-w-[80%] flex-col items-center justify-center text-quarternary">
               <div className="mt-8 min-w-56 flex-1 text-justify">
                 <p className="text-base leading-relaxed sm:text-lg">
                   <span className="font-extrabold">
@@ -120,7 +120,7 @@ export default function AboutPage() {
               <div className="mt-2 h-[0.3rem] w-[20%] bg-gradient-to-r from-secondary to-transparent"></div>
             </h2>
 
-            <div className="mb-6 font-opensans font-extralight sm:mb-12 lg:mb-0">
+            <div className="mb-6 font-orbitron font-extralight sm:mb-12 lg:mb-0">
               <p className="text-base leading-relaxed text-quarternary sm:text-lg">
                 Join us for the&nbsp;
                 <span className="font-extrabold">
@@ -142,15 +142,15 @@ export default function AboutPage() {
                 </span>
               </p>
             </div>
-            <p className="text-base leading-relaxed text-quarternary sm:text-lg">
+            <p className="font-orbitron text-base leading-relaxed text-quarternary sm:text-lg">
               This is a&nbsp;
               <span className="font-extrabold">
                 3-day long techno-cultural techfest&nbsp;
               </span>
               organized by Christ College of Engineering, Irinjalakuda
               from&nbsp;
-              <span className="font-extrabold">[Date TBD]&nbsp;</span>
-              2025. The techfest aims to provide a&nbsp;
+              <span className="font-extrabold">February 5th, 6th, 7th</span>
+              &nbsp;2025. The techfest aims to provide a&nbsp;
               <span className="font-extrabold">
                 platform for technical students and develop students and
                 people&nbsp;
