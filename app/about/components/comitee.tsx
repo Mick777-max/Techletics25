@@ -1,7 +1,6 @@
 'use client';
 import { CommitteeCard } from '@/components/cards';
 import TextMarquee from '@/components/marquee';
-import { motion } from 'framer-motion';
 import { CommitteeData } from '@/app/data';
 
 const container = {
@@ -35,19 +34,13 @@ export default function Committee() {
 
             <div className="mt-2 h-[0.2rem] w-[15%] bg-gradient-to-r from-secondary to-transparent"></div>
 
-            <motion.div
-              className="mt-12 flex flex-wrap items-center justify-center gap-6"
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.2 }}
-            >
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
               {item.details.map((info, index) => (
-                <motion.div key={index} variants={itemVariant}>
+                <div key={index}>
                   <CommitteeCard info={info} title={item.title} />
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           {index !== CommitteeData.length - 1 ? (

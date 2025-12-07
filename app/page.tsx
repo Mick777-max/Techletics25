@@ -37,7 +37,7 @@ export default function HomePage() {
             </h1>
           </div>
 
-          <div className="flex max-w-[90%] items-center justify-center max-md:flex-col">
+          <div className="flex max-w-[90%] items-center justify-center pb-6 max-md:flex-col">
             <div className="shrink-0">
               <Image
                 src="/logos/techletics-logo.svg"
