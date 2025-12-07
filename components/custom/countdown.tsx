@@ -46,22 +46,22 @@ export default function Countdown({ targetDate }: { targetDate: string }) {
   return (
     <div className="flex gap-8 font-orbitron text-[5rem] font-bold text-quarternary max-md:flex-col max-md:gap-0">
       <div className="flex flex-col items-center justify-center">
-        <span>{timeLeft.days}:</span>
+        <span>{timeLeft.days.toString().padStart(2, '0')}:</span>
         <span className="text-[1rem] leading-none">Days</span>
       </div>
 
       <div className="flex flex-col items-center justify-center">
-        <span>{timeLeft.hours}:</span>
+        <span>{timeLeft.hours.toString().padStart(2, '0')}:</span>
         <span className="text-[1rem] leading-none">Hours</span>
       </div>
 
       <div className="flex flex-col items-center justify-center">
-        <span>{timeLeft.minutes}:</span>
+        <span>{timeLeft.minutes.toString().padStart(2, '0')}:</span>
         <span className="text-[1rem] leading-none">Minutes</span>
       </div>
 
       <div className="flex flex-col items-center justify-center">
-        <span>{timeLeft.seconds}</span>
+        <span>{timeLeft.seconds.toString().padStart(2, '0')}</span>
         <span className="text-[1rem] leading-none">Seconds</span>
       </div>
     </div>

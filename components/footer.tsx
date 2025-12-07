@@ -156,7 +156,7 @@ const Copyright = () => {
       <div>
         <span className="sm:text-md flex flex-wrap items-center justify-center text-sm text-secondary md:text-lg">
           <span className="whitespace-nowrap text-primary">
-            Copyright © 2025&nbsp;
+            Copyright © 2026&nbsp;
           </span>
           <CustomLink
             href="https://cce.edu.in"
@@ -224,17 +224,10 @@ const SocialAndConnect = () => {
 
               <div className="flex flex-wrap gap-4 font-opensans text-xl font-extrabold">
                 <CustomLink
-                  href="tel:+91 9400336647"
+                  href="tel:+91 9946629072"
                   className="whitespace-nowrap text-tertiary hover:text-secondary"
                 >
-                  +91 9400336647
-                </CustomLink>
-
-                <CustomLink
-                  href="tel:+91 9072809994"
-                  className="whitespace-nowrap text-tertiary hover:text-secondary"
-                >
-                  +91 9072809994
+                  +91 9946629072
                 </CustomLink>
               </div>
             </div>

@@ -106,7 +106,7 @@ export const CommitteeData: CommitteeDataInterface[] = [
       },
       {
         role: 'CE DEPARTMENT',
-        name: 'JOVITTA',
+        name: 'JOVITTA P P',
         src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765121611548-pg11hk/view?project=6934f5ee0031b4cec180',
       },
       {
@@ -218,12 +218,12 @@ export const CommitteeData: CommitteeDataInterface[] = [
     title: 'Media',
     details: [
       {
-        role: 'BSH DEPARTMENT',
+        role: 'MEDIA HEAD',
         name: 'NAVANEETH',
         src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107248487-ahlu6c/view?project=6934f5ee0031b4cec180',
       },
       {
-        role: 'BSH DEPARTMENT',
+        role: 'MEDIA HEAD',
         name: 'SAFUVAN',
         src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107251642-0utev/view?project=6934f5ee0031b4cec180',
       },
