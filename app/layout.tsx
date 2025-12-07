@@ -52,7 +52,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${orbitronFont.variable} ${rasputinFont.className} ${openSans.variable} ${openSans.className} bg-emerald-400 antialiased`}
+        className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${orbitronFont.variable} ${rasputinFont.className} ${openSans.variable} ${openSans.className} antialiased`}
         suppressHydrationWarning={true}
       >
         <Navbar />

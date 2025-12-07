@@ -1,14 +1,12 @@
+import SectionSeparator from '@/components/custom/sectionSeparator';
 import Home from '@/components/home';
-import HomeAbout from '@/components/homeAbout';
 import TextMarquee from '@/components/marquee';
+import Memories from '@/components/memories';
 import Stats from '@/components/statsnew';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import Filler from '@/components/filler';
-import Memories from '@/components/memories';
 import Media from '@/components/media';
-import SectionSeparatorBottom from '@/components/custom/sectionSeparatorBottom';
-import SectionSeparatorTop from '@/components/custom/sectionSeparatorTop';
-import PrevEvents from '@/components/prevEvents';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -22,47 +20,90 @@ export default function HomePage() {
       <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <Home />
 
-        <SectionSeparatorBottom />
+        <SectionSeparator position="bottom" />
       </section>
 
       <TextMarquee type="ignite" />
 
       <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
-        <SectionSeparatorTop />
+        <SectionSeparator position="top" />
 
-        <HomeAbout />
+        <main className="pb-50 relative mx-auto flex h-auto max-w-7xl flex-col items-start overflow-hidden max-md:items-center">
+          <div className="text-3xl md:text-5xl">
+            <h1 className="pt-10 font-orbitron font-medium text-quarternary max-xl-wide:mx-3 md:pt-20">
+              ARE YOU A{' '}
+              <span className="text-secondary">TECH ENTHUSIAST?{'  '}</span>THEN{' '}
+              <span className="text-secondary">TECHLETICS &apos;25</span> IS FOR
+              YOU.
+            </h1>
+          </div>
 
-        <SectionSeparatorBottom />
+          <div className="flex max-w-[90%] items-center justify-center max-md:flex-col">
+            <div className="shrink-0">
+              <Image
+                src="/logos/techletics-logo.svg"
+                alt="logo"
+                width={500}
+                height={500}
+                className="h-auto w-[380px]"
+              />
+            </div>
+
+            <div className="max-md:mx-3">
+              <p className="font-opensans text-[1.25rem] font-semibold text-quarternary">
+                Join us for the third edition of Techletics, the techno-cultural
+                festival of Christ College of Engineering. Explore, learn, and
+                enjoy the latest innovations and trends in technology and
+                culture. Participate in workshops, competitions, exhibitions,
+                performances, and more. Win prizes and awards. Ignite your
+                passion, inspire your future and illuminate your mind.
+                Techletics &apos;24 is the ultimate rendezvous of innovation and
+                zest. Don&apos;t miss it.
+              </p>
+              <p className="pt-5 font-opensans text-[1.125rem] text-quarternary">
+                Techletics &apos;24 is a techno-cultural techfest organized by
+                Christ College of Engineering, Irinjalakuda in 2024. The
+                techfest aims to provide a platform for technical students and
+                develop students and people from all walks of life
+              </p>
+            </div>
+          </div>
+        </main>
+
+        <SectionSeparator position="bottom" />
       </section>
 
       <TextMarquee type="techletics" />
 
       <section className="relative bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center py-[4rem] max-xl-wide:pb-[11rem] max-md:pb-[35rem]">
-        <SectionSeparatorTop />
+        <SectionSeparator position="top" />
 
         <span id="stats"></span>
 
         <Stats />
 
-        <SectionSeparatorBottom />
+        <SectionSeparator position="bottom" />
       </section>
 
       {/* <TextMarquee type="techletics" /> */}
 
       <section className="relative flex h-[100vh] flex-col items-center justify-center bg-[url('/image/bg-white.png')] bg-cover bg-center">
-        <SectionSeparatorTop />
+        <SectionSeparator position="top" />
 
         <Memories />
 
-        <SectionSeparatorBottom />
+        <SectionSeparator position="bottom" />
       </section>
 
       <section className="relative bg-quarternary bg-[url('/image/footer.png')] bg-cover bg-center py-[5rem]">
-        <SectionSeparatorTop />
+        <SectionSeparator position="top" />
+        <div className="relative mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-[4rem] p-4 xl:flex-row">
+          <div className="min-h-64 min-w-[20rem] animate-slowBounce bg-secondary [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1"></div>
+          <div className="min-h-64 min-w-[20rem] animate-reverseBounce bg-secondary [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1"></div>
+          <div className="min-h-64 min-w-[20rem] animate-slowBounce bg-secondary [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1"></div>
+        </div>
 
-        <PrevEvents />
-
-        <SectionSeparatorBottom />
+        <SectionSeparator position="bottom" />
       </section>
 
       {/* <TextMarquee type="ignite" /> */}
@@ -74,11 +115,11 @@ export default function HomePage() {
       {/* <TextMarquee type="techletics" /> */}
 
       <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
-        <SectionSeparatorTop />
+        <SectionSeparator position="top" />
 
         <Media />
 
-        <SectionSeparatorBottom />
+        <SectionSeparator position="bottom" />
       </section>
 
       <TextMarquee type="ignite" />

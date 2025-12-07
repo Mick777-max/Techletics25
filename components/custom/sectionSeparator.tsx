@@ -7,7 +7,7 @@ export default function sectionSeparator({
 }) {
   return (
     <div
-      className={`absolute ${position === 'top' ? 'top-0 rotate-180' : 'bottom-0'} z-40 w-full`}
+      className={`absolute ${position === 'top' ? 'bottom-0 rotate-180' : 'top-0'} z-40 w-full`}
     >
       <Image
         src="/icons/section-separator.png"

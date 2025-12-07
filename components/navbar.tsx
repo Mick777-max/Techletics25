@@ -22,7 +22,7 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/events', label: 'Events' },
-    { href: '/conference', label: 'Conference' },
+    // { href: '/conference', label: 'Conference' },
     {
       href: 'https://maps.app.goo.gl/3tkVRuJ8KdmPUv2K7',
       label: 'Location',
