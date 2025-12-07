@@ -1,45 +1,46 @@
+'use client';
+
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { GalleryImages } from '@/app/data';
+
 export default function Memories() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev === GalleryImages.length - 1 ? 0 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="relative mx-auto flex h-[80%] w-full max-w-screen-xl flex-col items-center justify-center bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center px-4">
-      <div className="relative flex flex-col items-center justify-center break-words text-center font-orbitron text-[3rem] font-bold leading-none text-quarternary max-md:text-[2.6rem]">
+    <div className="relative mx-auto flex h-[80%] w-full max-w-screen-xl flex-col items-center justify-center overflow-hidden">
+      {/* 🔥 BACKGROUND CAROUSEL */}
+      <div className="absolute inset-0 z-0">
+        {GalleryImages.map((src, i) => (
+          <Image
+            key={i}
+            src={src}
+            alt="slide bg"
+            fill
+            sizes="100vw"
+            className={`duration-[1500ms] transition-al absolute inset-0 object-cover grayscale transition-opacity group-hover:grayscale-0 ${
+              index === i ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* 🔥 existing content stays same */}
+      <div className="relative z-10 flex flex-col items-center justify-center break-words text-center font-orbitron text-[3rem] font-bold leading-none text-white max-md:text-[2.6rem]">
         <div
           className="absolute z-20 flex flex-col items-center justify-center break-words bg-blue-800 text-center font-orbitron text-[3rem] font-bold leading-none text-secondary max-md:text-[2.6rem]"
           style={{
             clipPath: 'polygon(50% 15%, 66% 50%, 50% 85%, 34% 50%)',
           }}
         >
-          {/* <div className="h-[4rem] w-[4rem] absolute">
-              <Image
-              src="/logos/techletics-light-logo.svg"
-              alt="logo"
-              width={30}
-              height={30}
-              className="h-full w-full absolute z-30 opacity-50"/>
-            </div> */}
-
-          {/* 50% 15% - Top point of the diamond
-
-50% = horizontally centered (middle of the width)
-15% = 15% down from the top edge
-
-
-66% 50% - Right point of the diamond
-
-66% = 66% across from the left (34% from right edge)
-50% = vertically centered (middle of the height)
-
-
-50% 85% - Bottom point of the diamond
-
-50% = horizontally centered
-85% = 85% down from the top (15% from bottom edge)
-
-
-34% 50% - Left point of the diamond
-
-34% = 34% from the left edge
-50% = vertically centered */}
-
           <div className="z-20 w-full break-words text-secondary">
             GLIMPSE INTO
           </div>
@@ -51,11 +52,8 @@ export default function Memories() {
         </div>
 
         <div className="relative w-full break-words">GLIMPSE INTO</div>
-
         <div className="relative w-full break-words">THE MEMORIES</div>
-
         <div className="relative w-full break-words">WE HAVE</div>
-
         <div className="relative w-full break-words">CREATED</div>
       </div>
     </div>

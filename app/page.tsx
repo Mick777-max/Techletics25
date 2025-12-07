@@ -17,9 +17,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="w-full min-w-80">
-      <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
+      <section className="relative bg-[url('/image/clouds2.png')] bg-cover bg-center bg-no-repeat">
         <Home />
-
         <SectionSeparator position="bottom" />
       </section>
 
@@ -50,7 +49,7 @@ export default function HomePage() {
             </div>
 
             <div className="max-md:mx-3">
-              <p className="font-opensans text-[1.25rem] font-semibold text-quarternary">
+              <p className="font-opensans text-[1.25rem] text-quarternary">
                 Join us for the third edition of Techletics, the techno-cultural
                 festival of Christ College of Engineering. Explore, learn, and
                 enjoy the latest innovations and trends in technology and
@@ -60,7 +59,7 @@ export default function HomePage() {
                 Techletics &apos;24 is the ultimate rendezvous of innovation and
                 zest. Don&apos;t miss it.
               </p>
-              <p className="pt-5 font-opensans text-[1.125rem] text-quarternary">
+              <p className="pt-5 font-opensans text-[1.25rem] text-quarternary">
                 Techletics &apos;24 is a techno-cultural techfest organized by
                 Christ College of Engineering, Irinjalakuda in 2024. The
                 techfest aims to provide a platform for technical students and
@@ -85,7 +84,7 @@ export default function HomePage() {
         <SectionSeparator position="bottom" />
       </section>
 
-      {/* <TextMarquee type="techletics" /> */}
+      <TextMarquee type="ignite" />
 
       <section className="relative flex h-[100vh] flex-col items-center justify-center bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <SectionSeparator position="top" />
@@ -103,7 +102,7 @@ export default function HomePage() {
           <div className="min-h-64 min-w-[20rem] animate-slowBounce bg-secondary [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1"></div>
         </div>
 
-        <SectionSeparator position="bottom" />
+        {/* <SectionSeparator position="bottom" /> */}
       </section>
 
       {/* <TextMarquee type="ignite" /> */}
@@ -114,13 +113,13 @@ export default function HomePage() {
 
       {/* <TextMarquee type="techletics" /> */}
 
-      <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
+      {/* <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <SectionSeparator position="top" />
 
         <Media />
 
         <SectionSeparator position="bottom" />
-      </section>
+      </section> */}
 
       <TextMarquee type="ignite" />
     </div>

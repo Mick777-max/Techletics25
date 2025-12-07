@@ -61,6 +61,13 @@ export const orbitronFont = localFont({
   variable: '--font-orbitron',
 });
 
+export const karinaFont = localFont({
+  src: './Karina.ttf',
+  display: 'swap',
+  variable: '--font-karina',
+  weight: '100 900',
+});
+
 export const openSans = localFont({
   src: [
     {

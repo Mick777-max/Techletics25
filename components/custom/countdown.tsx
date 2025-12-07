@@ -1,0 +1,69 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
+type TimeLeft = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+
+export default function Countdown({ targetDate }: { targetDate: string }) {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const target = new Date(targetDate).getTime();
+
+    const interval = setInterval(() => {
+      const now = Date.now();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        clearInterval(interval);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+
+      const days = Math.floor(totalSeconds / (60 * 60 * 24));
+      const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+      const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+      const seconds = Math.floor(totalSeconds % 60);
+
+      setTimeLeft({ days, hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [targetDate]);
+
+  return (
+    <div className="flex gap-8 font-orbitron text-[5rem] font-bold text-quarternary max-md:flex-col max-md:gap-0">
+      <div className="flex flex-col items-center justify-center">
+        <span>{timeLeft.days}:</span>
+        <span className="text-[1rem] leading-none">Days</span>
+      </div>
+
+      <div className="flex flex-col items-center justify-center">
+        <span>{timeLeft.hours}:</span>
+        <span className="text-[1rem] leading-none">Hours</span>
+      </div>
+
+      <div className="flex flex-col items-center justify-center">
+        <span>{timeLeft.minutes}:</span>
+        <span className="text-[1rem] leading-none">Minutes</span>
+      </div>
+
+      <div className="flex flex-col items-center justify-center">
+        <span>{timeLeft.seconds}</span>
+        <span className="text-[1rem] leading-none">Seconds</span>
+      </div>
+    </div>
+  );
+}

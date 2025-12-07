@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         pathname: '**',
       },
+      {
+        hostname: 'sgp.cloud.appwrite.io',
+        protocol: 'https',
+        pathname: '**',
+      },
     ],
   },
 };

@@ -28,7 +28,7 @@ export default function CommitteeCard({ info, title }: CommitteeCardProps) {
         <div className="h-[9rem] w-[9rem] overflow-hidden rounded-full border-[0.1875rem] border-[#79662f] bg-quarternary shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">
           <Image
             className="h-full w-full object-cover grayscale transition duration-300 group-hover:grayscale-0"
-            src="/image/mohanlal.png"
+            src={info.src}
             alt="name"
             width={300}
             height={300}
@@ -61,7 +61,7 @@ export default function CommitteeCard({ info, title }: CommitteeCardProps) {
         <div className="h-[9rem] w-[9rem] overflow-hidden rounded-full border border-secondary bg-[#403302] shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">
           <Image
             className="h-full w-full object-cover grayscale transition duration-300 group-hover:grayscale-0"
-            src="/image/mohanlal.png"
+            src={info.src}
             alt="name"
             width={300}
             height={300}

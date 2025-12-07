@@ -9,6 +9,7 @@ import './globals.css';
 import Navbar from '@/components/navbar';
 import { Copyright, SocialAndConnect } from '@/components/footer';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Techletics 25',
@@ -66,6 +67,15 @@ export default function RootLayout({
             <SocialAndConnect />
           </div>
           <Copyright />
+          <div className="absolute bottom-0 w-full">
+            <Image
+              src="/icons/section-separator-bottom-white.png"
+              alt="section separator"
+              width={1000}
+              height={50}
+              className="h-auto w-full"
+            />
+          </div>
         </footer>
       </body>
     </html>
