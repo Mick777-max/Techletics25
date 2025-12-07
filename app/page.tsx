@@ -115,7 +115,7 @@ export default function HomePage() {
 
           <div className="relative min-h-64 min-w-[20rem] animate-slowBounce bg-secondary p-2 [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1">
             <img
-              src="/image/img3.jpg"
+              src="/image/image3.jpg"
               alt="Description 3"
               className="h-full w-full object-cover [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))]"
             />
