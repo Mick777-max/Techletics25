@@ -1,5 +1,3 @@
-'use client';
-
 import { MouseEventHandler, ReactNode, ButtonHTMLAttributes } from 'react';
 
 interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

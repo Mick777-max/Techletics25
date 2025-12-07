@@ -1,6 +1,3 @@
-'use client';
-
-// import { ChangeEventHandler } from "react";
 import { MouseEventHandler, ReactNode, SelectHTMLAttributes } from 'react';
 
 interface CustomSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -12,7 +9,6 @@ interface CustomSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 const CustomSelect: React.FC<CustomSelectProps> = ({
   children,
   className,
-  // value,
   onChange,
   id,
   name,

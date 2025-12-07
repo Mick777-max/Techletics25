@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function Homeabout() {
+export default function HomeAbout() {
   return (
     <main className="relative mx-auto flex h-auto max-w-screen-xl flex-col items-start overflow-hidden pb-[12.5rem] max-md:items-center">
       <div className="text-3xl md:text-5xl">

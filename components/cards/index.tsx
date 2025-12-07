@@ -1,3 +1,3 @@
-import CommitteeCard from './commitee_card';
+import CommitteeCard from './commiteeCard';
 
 export { CommitteeCard };

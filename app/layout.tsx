@@ -8,7 +8,6 @@ import {
 import './globals.css';
 import Navbar from '@/components/navbar';
 import { Copyright, SocialAndConnect } from '@/components/footer';
-import Image from 'next/image';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -67,16 +66,6 @@ export default function RootLayout({
             <SocialAndConnect />
           </div>
           <Copyright />
-
-          {/* <div className="absolute bottom-0 w-full">
-            <Image
-              src="/icons/section-separator-bottom-white.png"
-              alt="section separator"
-              width={1000}
-              height={50}
-              className="h-auto w-full"
-            />
-          </div> */}
         </footer>
       </body>
     </html>
