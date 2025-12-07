@@ -21,7 +21,7 @@ export default function HomePage() {
       <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <Home />
 
-        <SectionSeparator position="top" />
+        <SectionSeparator position="bottom" />
       </section>
 
       <TextMarquee type="ignite" />
