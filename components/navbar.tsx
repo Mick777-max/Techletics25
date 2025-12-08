@@ -22,7 +22,6 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/events', label: 'Events' },
-    // { href: '/conference', label: 'Conference' },
     {
       href: 'https://maps.app.goo.gl/3tkVRuJ8KdmPUv2K7',
       label: 'Location',
@@ -36,7 +35,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-white/20 bg-[linear-gradient(to_bottom,_#323232_0%,_#353535_10%,_#40403F_50%,_#494948_85%,_#4D4D4C_100%)] shadow-lg backdrop-blur-lg">
+    <nav className="fixed top-0 z-[9999] w-full border-b border-white/20 bg-[linear-gradient(to_bottom,_#323232_0%,_#353535_10%,_#40403F_50%,_#494948_85%,_#4D4D4C_100%)] shadow-lg backdrop-blur-lg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-24 items-center justify-between gap-4">
           {/* Logo */}

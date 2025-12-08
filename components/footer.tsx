@@ -1,16 +1,14 @@
-'use client';
-
 import Image from 'next/image';
 import { SocialIcon } from './svg/icons';
-import { CustomLink } from '@/components/custom';
+import Link from 'next/link';
 
 const Copyright = () => {
   return (
     <div className="relative mx-auto flex min-h-16 w-full max-w-screen-xl items-center justify-center overflow-hidden border-t-[1px] border-tertiary">
       <div className="absolute mt-2 flex w-full justify-center md:mt-8">
         <span
-          className="whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent opacity-40 md:text-[9rem]"
-          style={{ WebkitTextStroke: '1px rgba(231,230,228,0.4)' }} // instead of #e7e6e4
+          className="whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent opacity-40 md:text-9xl"
+          style={{ WebkitTextStroke: '1px rgba(231,230,228,0.4)' }}
         >
           TECHLETICS
         </span>
@@ -20,13 +18,13 @@ const Copyright = () => {
           <span className="whitespace-nowrap font-orbitron text-primary">
             Copyright © 2026&nbsp;
           </span>
-          <CustomLink
+          <Link
             href="https://cce.edu.in"
             target="_blank"
             className="z-10 whitespace-nowrap font-orbitron text-secondary"
           >
             Christ College of Engineering.&nbsp;
-          </CustomLink>
+          </Link>
           <span className="whitespace-nowrap font-orbitron text-primary">
             All Rights Reserved
           </span>
@@ -38,7 +36,7 @@ const Copyright = () => {
 
 const SocialAndConnect = () => {
   return (
-    <section className="z-10 mx-auto max-w-screen-2xl overflow-hidden px-3">
+    <section className="relative z-10 mx-auto w-full max-w-screen-2xl overflow-hidden px-3">
       <div className="flex w-full flex-col justify-center gap-12 text-secondary md:p-6 lg:py-12">
         <div className="flex flex-col flex-wrap justify-center gap-0 align-middle font-orbitron text-3xl font-bold text-tertiary md:text-5xl">
           <div className="w-full">
@@ -66,13 +64,13 @@ const SocialAndConnect = () => {
                 alt="Arrow Icon"
                 priority
               />
-              <CustomLink
+              <Link
                 href="https://cce.edu.in/"
                 target="_blank"
                 className="font-orbitron text-xl font-semibold text-tertiary hover:text-secondary"
               >
                 cce.edu.in
-              </CustomLink>
+              </Link>
             </div>
 
             <div className="flex gap-4 self-center">
@@ -85,12 +83,12 @@ const SocialAndConnect = () => {
               />
 
               <div className="flex flex-wrap gap-4 font-orbitron text-xl font-extrabold">
-                <CustomLink
+                <Link
                   href="tel:+91 9946629072"
                   className="whitespace-nowrap text-tertiary hover:text-secondary"
                 >
                   +91 9946629072
-                </CustomLink>
+                </Link>
               </div>
               {/* <Image
               src="/image/union.png"
@@ -112,26 +110,26 @@ const SocialAndConnect = () => {
           </p>
 
           <div className="z-[1] flex gap-6">
-            <CustomLink
+            <Link
               href="https://www.instagram.com/techleticscce"
               target="_blank"
             >
               <SocialIcon logo="instagram" />
-            </CustomLink>
+            </Link>
 
-            <CustomLink
+            <Link
               href="https://www.linkedin.com/school/christcollegeofengineering/"
               target="_blank"
             >
               <SocialIcon logo="linkedin" />
-            </CustomLink>
+            </Link>
 
-            <CustomLink
+            <Link
               href="https://www.linkedin.com/school/christcollegeofengineering/"
               target="_blank"
             >
               <SocialIcon logo="x" />
-            </CustomLink>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,13 +1,12 @@
 import SectionSeparator from '@/components/custom/sectionSeparator';
 import Home from '@/components/home';
-import TextMarquee from '@/components/marquee';
 import Memories from '@/components/memories';
 import Stats from '@/components/statsnew';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import Filler from '@/components/filler';
-import Media from '@/components/media';
-import React, { Suspense } from 'react';
+import HomeGalleryImageView from '@/components/homeGalleryImageView';
+import { GalleryImages } from './data';
 import DynamicTextMarquee from '@/components/marquee';
 
 export const metadata: Metadata = {
@@ -98,30 +97,14 @@ export default function HomePage() {
 
       <section className="relative bg-quarternary bg-[url('/image/footer.png')] bg-cover bg-center py-[5rem]">
         <SectionSeparator position="top" />
-        <div className="relative mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-[4rem] p-4 xl:flex-row">
-          <div className="relative min-h-64 min-w-[20rem] animate-slowBounce bg-secondary p-2 [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1">
-            <img
-              src="/image/img1.jpg"
-              alt="Description 1"
-              className="h-full w-full object-cover [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))]"
+        <div className="relative mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-16 p-4 xl:flex-row">
+          {GalleryImages.slice(-3).map((imageData, imageIndex) => (
+            <HomeGalleryImageView
+              src={imageData}
+              key={imageData}
+              index={imageIndex}
             />
-          </div>
-
-          <div className="relative min-h-64 min-w-[20rem] animate-reverseBounce bg-secondary p-2 [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1">
-            <img
-              src="image/img2.jpg"
-              alt="Description 2"
-              className="h-full w-full object-cover [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))]"
-            />
-          </div>
-
-          <div className="relative min-h-64 min-w-[20rem] animate-slowBounce bg-secondary p-2 [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))] xl:w-full xl:flex-1">
-            <img
-              src="/image/image3.jpg"
-              alt="Description 3"
-              className="h-full w-full object-cover [clip-path:polygon(0_0,calc(100%-6%)_0,100%_6%,100%_100%,6%_100%,0_calc(100%-6%))]"
-            />
-          </div>
+          ))}
         </div>
 
         {/* <SectionSeparator position="bottom" /> */}
