@@ -1,6 +1,6 @@
 'use client';
 import { CommitteeCard } from '@/components/cards';
-import TextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/marquee';
 import { CommitteeData } from '@/app/data';
 
 const container = {
@@ -45,7 +45,11 @@ export default function Committee() {
 
           {index !== CommitteeData.length - 1 ? (
             <div className="relative left-1/2 right-1/2 -ml-[50vw] mt-2 w-screen">
-              <TextMarquee type="techletics" bg="black" text="tertiary" />
+              <DynamicTextMarquee
+                type="techletics"
+                bg="black"
+                text="tertiary"
+              />
             </div>
           ) : (
             <></>

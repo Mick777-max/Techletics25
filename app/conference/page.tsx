@@ -5,7 +5,7 @@ import LastDate from './_components/lastdate';
 import Roadmap from './_components/roadmap';
 import Guidelines from './_components/guidelines';
 import Submit from './_components/submit';
-import TextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/marquee';
 import SectionSeparator from '@/components/custom/sectionSeparator';
 
 export const metadata: Metadata = {
@@ -26,13 +26,13 @@ export default function ConferencePage() {
         <Conferenceabout />
       </section>
 
-      <TextMarquee type="techletics" bg="secondary" text="black" />
+      <DynamicTextMarquee type="techletics" bg="secondary" text="black" />
 
       <section className="relative">
         <LastDate />
       </section>
 
-      <TextMarquee type="ignite" bg="black" text="white" />
+      <DynamicTextMarquee type="ignite" bg="black" text="white" />
 
       <section className='relative bg-[url("/image/bg-white.png")] bg-center bg-repeat'>
         <SectionSeparator position="top" />
@@ -44,14 +44,14 @@ export default function ConferencePage() {
         <Guidelines />
       </section>
 
-      <TextMarquee bg="secondary" text="black" />
+      <DynamicTextMarquee bg="secondary" text="black" />
 
       <section className="relative bg-gradient-to-b from-[#D4AF40A3] to-[#F5ECD0]">
         <Submit />
         <SectionSeparator position="bottom" />
       </section>
 
-      <TextMarquee />
+      <DynamicTextMarquee />
     </div>
   );
 }

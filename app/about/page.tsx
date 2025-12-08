@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Committee from './components/comitee';
-import TextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/marquee';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -166,7 +166,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <TextMarquee bg="secondary" text="black" />
+      <DynamicTextMarquee bg="secondary" text="black" />
 
       <section className="relative bg-[url('/image/bg-white.png')] bg-center bg-repeat">
         <Image
@@ -180,7 +180,7 @@ export default function AboutPage() {
         <Committee />
       </section>
 
-      <TextMarquee type="techletics" bg="secondary" text="black" />
+      <DynamicTextMarquee type="techletics" bg="secondary" text="black" />
     </div>
   );
 }
