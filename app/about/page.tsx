@@ -124,7 +124,7 @@ export default function AboutPage() {
               <p className="text-base leading-relaxed text-quarternary sm:text-lg">
                 Join us for the&nbsp;
                 <span className="font-extrabold">
-                  fourth edition of Techletics &apos;25
+                  fourth edition of Techletics &apos;26
                 </span>
                 &nbsp;at Christ College of Engineering.&nbsp;
                 <span className="font-extrabold">
@@ -150,7 +150,7 @@ export default function AboutPage() {
               organized by Christ College of Engineering, Irinjalakuda
               from&nbsp;
               <span className="font-extrabold">February 5th, 6th, 7th</span>
-              &nbsp;2025. The techfest aims to provide a&nbsp;
+              &nbsp;2026. The techfest aims to provide a&nbsp;
               <span className="font-extrabold">
                 platform for technical students and develop students and
                 people&nbsp;

@@ -185,7 +185,7 @@ const TextMarquee = ({
               key={index}
               className="flex items-center justify-center gap-6 py-4 text-3xl tracking-widest md:text-5xl"
             >
-              <div>TECHLETICS &apos;25</div>
+              <div>TECHLETICS &apos;26</div>
               <span
                 className={`mr-6 text-${text}`}
                 style={{ WebkitTextStroke: '1px ' + text }}
