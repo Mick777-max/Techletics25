@@ -7,6 +7,8 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import Filler from '@/components/filler';
 import Media from '@/components/media';
+import React, { Suspense } from 'react';
+import DynamicTextMarquee from '@/components/marquee';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -17,12 +19,12 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="w-full min-w-80">
-      <section className="relative bg-[url('/image/clouds2.png')] bg-cover bg-center bg-no-repeat">
+      <section className="relative bg-black bg-[url('/image/clouds2.png')] bg-cover bg-center bg-no-repeat">
         <Home />
         <SectionSeparator position="bottom" />
       </section>
 
-      <TextMarquee type="ignite" />
+      <DynamicTextMarquee type="ignite" />
 
       <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <SectionSeparator position="top" />
@@ -72,7 +74,7 @@ export default function HomePage() {
         <SectionSeparator position="bottom" />
       </section>
 
-      <TextMarquee type="techletics" />
+      <DynamicTextMarquee type="techletics" />
 
       <section className="relative bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center py-[4rem] max-xl-wide:pb-[11rem] max-md:pb-[35rem]">
         <SectionSeparator position="top" />
@@ -84,7 +86,7 @@ export default function HomePage() {
         <SectionSeparator position="bottom" />
       </section>
 
-      <TextMarquee type="ignite" />
+      <DynamicTextMarquee type="ignite" />
 
       <section className="relative flex h-[100vh] flex-col items-center justify-center bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <SectionSeparator position="top" />
@@ -141,7 +143,7 @@ export default function HomePage() {
         <SectionSeparator position="bottom" />
       </section> */}
 
-      <TextMarquee type="ignite" />
+      <DynamicTextMarquee type="ignite" />
     </div>
   );
 }

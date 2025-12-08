@@ -1,3 +1,5 @@
+'use client';
+
 // import clsx from 'clsx';
 // import Image from 'next/image';
 // import Marquee from 'react-fast-marquee';
@@ -200,4 +202,14 @@ const TextMarquee = ({
   );
 };
 
-export default TextMarquee;
+import dynamic from 'next/dynamic';
+
+const DynamicTextMarquee = dynamic(
+  () => Promise.resolve({ default: TextMarquee }),
+  {
+    ssr: false,
+    loading: () => <div className="h-[5rem] w-full bg-black" />,
+  },
+);
+
+export default DynamicTextMarquee;
