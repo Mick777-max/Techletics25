@@ -166,7 +166,7 @@ export const CommitteeData: CommitteeDataInterface[] = [
       },
       {
         role: 'MBA',
-        name: 'ASLISHYA JAPPY',
+        name: 'ALISHYA JAPPY',
         src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107258581-m1aoq/view?project=6934f5ee0031b4cec180',
       },
     ],
