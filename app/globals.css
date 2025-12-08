@@ -44,3 +44,18 @@ body {
   height: 80% !important; /* your desired line length */
   top: 8% !important; /* centers it vertically */
 }
+
+.imagePolygonWrapper {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 6%) 0,
+    100% 6%,
+    100% 100%,
+    6% 100%,
+    0 calc(100% - 6%)
+  );
+}
+
+video::-webkit-media-controls {
+  display: none;
+}

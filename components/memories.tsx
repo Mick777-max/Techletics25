@@ -15,10 +15,11 @@ export default function Memories() {
     return () => clearInterval(timer);
   }, []);
 
+  const words = ['GLIMPSE INTO', 'THE MEMORIES', 'WE HAVE', 'CREATED'];
+
   return (
-    <div className="relative mx-auto flex h-[80%] w-full max-w-screen-xl flex-col items-center justify-center overflow-hidden">
-      {/* 🔥 BACKGROUND CAROUSEL */}
-      <div className="absolute inset-0 z-0">
+    <div className="group relative mx-auto flex h-[80%] w-full max-w-screen-xl flex-col items-center justify-center overflow-hidden rounded-2xl">
+      <div className="absolute inset-0">
         {GalleryImages.map((src, i) => (
           <Image
             key={i}
@@ -26,35 +27,16 @@ export default function Memories() {
             alt="slide bg"
             fill
             sizes="100vw"
-            className={`duration-[1500ms] transition-al absolute inset-0 object-cover grayscale transition-opacity group-hover:grayscale-0 ${
+            className={`absolute inset-0 object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 ${
               index === i ? 'opacity-100' : 'opacity-0'
             }`}
           />
         ))}
       </div>
-
-      {/* 🔥 existing content stays same */}
-      <div className="relative z-10 flex flex-col items-center justify-center break-words text-center font-orbitron text-[3rem] font-bold leading-none text-white max-md:text-[2.6rem]">
-        <div
-          className="absolute z-20 flex flex-col items-center justify-center break-words bg-blue-800 text-center font-orbitron text-[3rem] font-bold leading-none text-secondary max-md:text-[2.6rem]"
-          style={{
-            clipPath: 'polygon(50% 15%, 66% 50%, 50% 85%, 34% 50%)',
-          }}
-        >
-          <div className="z-20 w-full break-words text-secondary">
-            GLIMPSE INTO
-          </div>
-          <div className="z-20 w-full break-words text-secondary">
-            THE MEMORIES
-          </div>
-          <div className="z-20 w-full break-words text-secondary">WE HAVE</div>
-          <div className="z-20 w-full break-words text-secondary">CREATED</div>
-        </div>
-
-        <div className="relative w-full break-words">GLIMPSE INTO</div>
-        <div className="relative w-full break-words">THE MEMORIES</div>
-        <div className="relative w-full break-words">WE HAVE</div>
-        <div className="relative w-full break-words">CREATED</div>
+      <div className="relative z-10 flex flex-col items-center justify-center text-center font-orbitron text-5xl font-bold leading-none text-white max-md:text-4xl">
+        {words.map((word) => (
+          <span key={word}>{word}</span>
+        ))}
       </div>
     </div>
   );

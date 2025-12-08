@@ -224,21 +224,6 @@ export const CommitteeData: CommitteeDataInterface[] = [
       },
     ],
   },
-  // {
-  //   title: 'Media',
-  //   details: [
-  //     {
-  //       role: 'MEDIA HEAD',
-  //       name: 'NAVANEETH',
-  //       src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107248487-ahlu6c/view?project=6934f5ee0031b4cec180',
-  //     },
-  //     {
-  //       role: 'MEDIA HEAD',
-  //       name: 'SAFUVAN',
-  //       src: 'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765107251642-0utev/view?project=6934f5ee0031b4cec180',
-  //     },
-  //   ],
-  // },
 ];
 export const GalleryImages: string[] = [
   'https://dnbca6q7do6n.cloudfront.net/media/techletics24/1.jpg',
@@ -269,6 +254,9 @@ export const GalleryImages: string[] = [
   'https://dnbca6q7do6n.cloudfront.net/media/techletics24/26.jpg',
   'https://dnbca6q7do6n.cloudfront.net/media/techletics24/27.jpg',
   'https://dnbca6q7do6n.cloudfront.net/media/techletics24/28.jpg',
+  '/image/img1.jpg',
+  '/image/img2.jpg',
+  '/image/image3.jpg',
 ];
 
 type EventListType = {
@@ -425,20 +413,6 @@ export const EventList: EventListType[] = [
     type: 'COMPETITION',
     url: 'https://docs.google.com/forms/d/e/1FAIpQLScPczdk4WDJgO2SGQFMicLwgQPMnkm4S1Z1DWmSXvuAHYNfjA/viewform',
   },
-  // {
-  //   name: 'Solo Dance Showdown',
-  //   src: 'https://example.com/your-real-image.jpg',
-  //   category: 'CULTURAL',
-  //   type: 'COMPETITION',
-  //   url: '',
-  // },
-  // {
-  //   name: 'Acoustic Night: Unplugged Music',
-  //   src: 'https://example.com/your-real-image.jpg',
-  //   category: 'CULTURAL',
-  //   type: 'COMPETITION',
-  //   url: '',
-  // },
 ];
 
 export const featuredEventList: EventListType[] = [
@@ -450,14 +424,6 @@ export const featuredEventList: EventListType[] = [
     type: 'COMPETITION',
     url: 'https://pdflink.to/3617cb95/',
   },
-  // {
-  //   name: 'Hacknite',
-  //   src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.08_791165df.jpg',
-  //   branch: 'CSE',
-  //   category: 'TECHNICAL',
-  //   type: 'COMPETITION',
-  //   url: 'https://hacknite.cce.edu.in/',
-  // },
   {
     name: 'Belfort of Wallstreet',
     src: 'https://dnbca6q7do6n.cloudfront.net/media/techletics24/Untitled-2.png',
