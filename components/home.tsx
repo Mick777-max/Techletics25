@@ -1,7 +1,13 @@
 'use client';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { fadeIn, slideIn } from '@/app/utlis/motion';
+import {
+  container,
+  exitItem,
+  fadeIn,
+  slideIn,
+  zoomIn,
+} from '@/app/utlis/motion';
 import Countdown from './custom/countdown';
 
 export default function Home() {
@@ -17,15 +23,57 @@ export default function Home() {
         <source src="/image/clouds3.mp4" type="video/mp4" />
       </video>
 
+      {/* <motion.div
+        variants={zoomIn(0.3, 1)}
+        initial='hidden'
+        whileInView="show"
+        viewport={{ once: true }}
+        className='absolute top-1/2 left-1/2 z-50 h-[5rem] w-[5rem]'>
+        <Image
+          src="/logos/techletics-metal.svg"
+          alt="logo"
+          width={100}
+          height={100}
+          className='h-full w-auto' />
+      </motion.div> */}
+
       <motion.div
-        variants={slideIn('up', 'tween', 0.1, 1)}
+        variants={container}
+        initial="initial" // start from the children's 'initial' state
+        animate="exit" // immediately animate to 'exit' (triggers children exit)
+        className="absolute z-40 flex h-full w-full items-center justify-center gap-[0.05rem] overflow-clip"
+      >
+        {/* {
+          [...Array(5)].map((_, i) => (
+            <motion.div
+              key={i}
+              variants={exitItem}
+              className="bg-black h-full w-[30rem]"
+            />
+          ))
+        } */}
+
+        <motion.div variants={exitItem} className="h-full w-[30rem] bg-black" />
+
+        <motion.div variants={exitItem} className="h-full w-[30rem] bg-black" />
+
+        <motion.div variants={exitItem} className="h-full w-[30rem] bg-black" />
+
+        <motion.div variants={exitItem} className="h-full w-[30rem] bg-black" />
+
+        <motion.div variants={exitItem} className="h-full w-[30rem] bg-black" />
+      </motion.div>
+
+      <motion.div
+        // variants={slideIn('left','tween',0.1,1)}
+        variants={zoomIn(0.3, 1)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         className="z-30 mt-10 flex shrink flex-col items-center justify-center gap-1 md:static md:items-start"
       >
         <motion.div
-          variants={fadeIn('', 'tween', 0.2, 1)}
+          // variants={zoomIn(0.2, 1)}
           className="flex w-full items-center justify-center gap-10 max-md:mt-[6rem] max-md:flex-col max-md:gap-0"
         >
           <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
@@ -49,7 +97,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          variants={fadeIn('', 'tween', 0.2, 1)}
+          // variants={zoomIn(0.2, 1)}
           className="flex w-full items-center justify-center gap-10 max-md:flex-col max-md:gap-0"
         >
           <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
@@ -64,8 +112,9 @@ export default function Home() {
           </span>
         </motion.div>
       </motion.div>
+
       <motion.div
-        variants={slideIn('up', 'tween', 0.1, 1)}
+        variants={zoomIn(0.4, 1)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}

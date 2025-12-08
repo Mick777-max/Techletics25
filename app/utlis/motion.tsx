@@ -47,8 +47,8 @@ export const fadeIn = (
 export const zoomIn = (delay: number, duration: number): Variants => {
   return {
     hidden: {
-      scale: 0,
-      opacity: 0,
+      scale: 0.7,
+      opacity: 1,
     },
     show: {
       scale: 1,
@@ -99,4 +99,26 @@ export const staggerContainer = (staggerChildren = 0.3, delayChildren = 0) => {
       },
     },
   };
+};
+
+export const container = {
+  initial: {},
+  // when container animates to "exit", stagger children so they run one-by-one
+  exit: {
+    transition: {
+      staggerChildren: 0.1, // time between bars
+      staggerDirection: 1, // 1 = left-to-right order, -1 = reverse
+    },
+  },
+} as const;
+
+import type { Transition } from 'framer-motion';
+
+export const exitItem: Variants = {
+  initial: { y: 0, opacity: 1 },
+  exit: {
+    y: -1000,
+    opacity: 1,
+    transition: { duration: 1.2, ease: 'easeInOut' } as Transition,
+  },
 };
