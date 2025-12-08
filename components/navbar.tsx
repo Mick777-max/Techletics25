@@ -51,7 +51,7 @@ export default function Navbar() {
                 priority
               />
               <span className="font-orbitron text-2xl font-bold tracking-wider text-[#c9a55c]">
-                TECH<span className="text-gray-300">LETICS</span>&apos;25
+                TECH<span className="text-gray-300">LETICS</span>&apos;26
               </span>
             </Link>
           </div>
