@@ -1,14 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { zoomIn, zoomOutAndExit } from '@/app/utlis/motion';
+import { fadeIn, slideIn } from '@/app/utlis/motion';
 import Countdown from './custom/countdown';
-import StripeCurtain from './custom/stripeCurtains';
 
 export default function Home() {
   return (
     <div className="relative w-full">
-      <div className="absolute z-[-10] size-full overflow-clip">
+      <div className="absolute size-full overflow-clip">
         <video
           autoPlay
           loop

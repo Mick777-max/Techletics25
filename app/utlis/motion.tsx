@@ -1,4 +1,4 @@
-import { delay, Variants } from 'framer-motion';
+import { Variants } from 'framer-motion';
 
 export const textVariant = (delay: number): Variants => {
   return {
