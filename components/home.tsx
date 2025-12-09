@@ -23,128 +23,68 @@ export default function Home() {
         <source src="/image/clouds3.mp4" type="video/mp4" />
       </video>
 
-      {/* <motion.div
-        variants={zoomIn(0.3, 1)}
-        initial='hidden'
-        whileInView="show"
-        viewport={{ once: true }}
-        className='absolute top-1/2 left-1/2 z-50 h-[5rem] w-[5rem]'>
+      <motion.div
+        className="absolute z-50 h-[6rem]"
+        initial="hidden"
+        animate={['show', 'exit']}
+        variants={{
+          hidden: {
+            scale: 2,
+            opacity: 1,
+          },
+          show: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+              type: 'tween',
+              duration: 0.8,
+              delay: 0,
+              ease: 'easeInOut',
+            },
+          },
+          exit: {
+            y: -1200,
+            opacity: 1,
+            transition: {
+              duration: 1.2,
+              delay: 0.8,
+              ease: 'easeInOut',
+            },
+          },
+        }}
+      >
         <Image
           src="/logos/techletics-metal.svg"
           alt="logo"
           width={100}
           height={100}
-          className='h-full w-auto' />
-      </motion.div> */}
-
-      <motion.div
-        variants={container}
-        initial="initial" // start from the children's 'initial' state
-        animate="exit" // immediately animate to 'exit' (triggers children exit)
-        className="absolute z-40 flex h-full w-full items-center justify-center overflow-clip"
-      >
-        {[...Array(5)].map((_, i) =>
-          i !== 2 ? (
-            <motion.div
-              key={i}
-              variants={exitItem}
-              className="h-full min-w-[15rem] border-2 border-gray-500 border-opacity-15 bg-black md:min-w-[25rem]"
-            />
-          ) : (
-            <motion.div
-              key={i}
-              variants={exitItem}
-              className="flex h-full min-w-[15rem] flex-col items-center justify-center bg-black md:min-w-[25rem]"
-            >
-              <motion.div
-                className="h-[6rem]"
-                initial="hidden"
-                animate="show"
-                variants={{
-                  hidden: {
-                    scale: 2,
-                    opacity: 1,
-                  },
-                  show: {
-                    scale: 1,
-                    opacity: 1,
-                    transition: {
-                      type: 'tween',
-                      duration: 0.8,
-                      delay: 0,
-                      ease: 'easeInOut',
-                    },
-                  },
-                }}
-              >
-                <Image
-                  src="/logos/techletics-metal.svg"
-                  alt="logo"
-                  width={100}
-                  height={100}
-                  className="h-full w-auto"
-                />
-              </motion.div>
-            </motion.div>
-          ),
-        )}
-
-        {/* <motion.div variants={exitItem} className="h-full min-w-[25rem] bg-black" />
-
-        <motion.div variants={exitItem} className="h-full min-w-[25rem] bg-black" />
-
-        <motion.div
-          variants={exitItem}
-          className="h-full min-w-[25rem] bg-black flex flex-col items-center justify-center">
-
-          <motion.div
-            className='h-[6rem]'
-            initial="hidden"
-            animate="show"
-            variants={{
-              hidden: {
-                scale: 2,
-                opacity: 1,
-              },
-              show: {
-                scale: 1,
-                opacity: 1,
-                transition: {
-                  type: "tween",
-                  duration: 0.8,
-                  delay: 0,
-                  ease: "easeInOut"
-
-                }
-              }
-            }}>
-            <Image
-              src="/logos/techletics-metal.svg"
-              alt="logo"
-              width={100}
-              height={100}
-              className='h-full w-auto' />
-          </motion.div>
-
-        </motion.div>
-
-        <motion.div variants={exitItem} className="h-full min-w-[25rem] bg-black" />
-
-        <motion.div variants={exitItem} className="h-full min-w-[25rem] bg-black" /> */}
+          className="h-full w-auto"
+        />
       </motion.div>
 
       <motion.div
-        // variants={slideIn('left','tween',0.1,1)}
+        variants={container}
+        initial="initial"
+        animate="exit"
+        className="absolute z-40 flex h-full w-full items-center justify-center overflow-clip"
+      >
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            variants={exitItem}
+            className="h-full min-w-[15rem] border-2 border-gray-500 border-opacity-15 bg-black md:min-w-[25rem]"
+          />
+        ))}
+      </motion.div>
+
+      <motion.div
         variants={zoomIn(0.8, 1)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         className="z-30 mt-10 flex shrink flex-col items-center justify-center gap-1 md:static md:items-start"
       >
-        <motion.div
-          // variants={zoomIn(0.2, 1)}
-          className="flex w-full items-center justify-center gap-10 max-md:mt-[6rem] max-md:flex-col max-md:gap-0"
-        >
+        <motion.div className="flex w-full items-center justify-center gap-10 max-md:mt-[6rem] max-md:flex-col max-md:gap-0">
           <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
             IGNITE
           </span>
