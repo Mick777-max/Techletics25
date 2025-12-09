@@ -63,17 +63,15 @@ export default function RootLayout({
           id="contact"
           className="relative z-40 w-full bg-[url('/image/footer.png')] bg-cover bg-center bg-repeat"
         >
-          <div className="relative w-full">
-            <SocialAndConnect />
-          </div>
+          <SocialAndConnect />
           <Copyright />
           <div className="absolute bottom-0 w-full">
             <Image
               src="/icons/section-separator-bottom-white.png"
               alt="section separator"
               width={1000}
-              height={50}
-              className="h-auto w-full"
+              height={150}
+              className="w-full"
             />
           </div>
         </footer>

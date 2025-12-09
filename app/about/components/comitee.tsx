@@ -1,23 +1,6 @@
-'use client';
 import { CommitteeCard } from '@/components/cards';
 import DynamicTextMarquee from '@/components/marquee';
 import { CommitteeData } from '@/app/data';
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariant = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
 
 export default function Committee() {
   return (
