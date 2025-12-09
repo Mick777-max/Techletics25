@@ -1,15 +1,9 @@
 'use client';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import {
-  container,
-  exitItem,
-  fadeIn,
-  slideIn,
-  zoomIn,
-  zoomOutAndExit,
-} from '@/app/utlis/motion';
+import { zoomIn, zoomOutAndExit } from '@/app/utlis/motion';
 import Countdown from './custom/countdown';
+import StripeCurtain from './custom/stripeCurtains';
 
 export default function Home() {
   return (
@@ -39,20 +33,7 @@ export default function Home() {
         />
       </motion.div>
 
-      <motion.div
-        variants={container}
-        initial="initial"
-        animate="exit"
-        className="absolute z-40 flex h-full w-full items-center justify-center overflow-clip"
-      >
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            variants={exitItem}
-            className={`h-full min-w-[15rem] border-2 border-gray-500 border-opacity-15 ${i % 2 == 0 ? 'bg-gradient-to-r' : 'bg-gradient-to-l'} from-black to-stone-950 md:min-w-[25rem]`}
-          />
-        ))}
-      </motion.div>
+      <StripeCurtain />
 
       <motion.div
         variants={zoomIn(0.8, 1)}
