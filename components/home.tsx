@@ -8,16 +8,6 @@ import StripeCurtain from './custom/stripeCurtains';
 export default function Home() {
   return (
     <div className="relative mx-auto flex min-h-[100vh] max-w-screen-2xl flex-col items-center justify-center gap-4 overflow-hidden pb-[0.5rem] pt-[1rem] max-lg:gap-[1rem] max-md:pb-[5rem] max-sm:gap-0">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute left-0 top-0 h-full w-full scale-[1.117] object-cover"
-      >
-        <source src="/image/clouds3.mp4" type="video/mp4" />
-      </video>
-
       <motion.div
         className="absolute z-50 h-[6rem]"
         initial="hidden"
