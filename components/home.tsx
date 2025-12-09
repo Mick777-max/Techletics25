@@ -7,6 +7,7 @@ import {
   fadeIn,
   slideIn,
   zoomIn,
+  zoomOutAndExit,
 } from '@/app/utlis/motion';
 import Countdown from './custom/countdown';
 
@@ -27,36 +28,7 @@ export default function Home() {
         className="absolute z-50 h-[6rem]"
         initial="hidden"
         animate={['show', 'exit']}
-        variants={{
-          hidden: {
-            scale: 2,
-            opacity: 1,
-          },
-          show: {
-            scale: 1,
-            opacity: 1,
-            transition: {
-              type: 'tween',
-              duration: 0.8,
-              delay: 0,
-              ease: 'easeInOut',
-            },
-          },
-          exit: {
-            y: -1200,
-            opacity: 0,
-            transition: {
-              y: {
-                duration: 1.2,
-                delay: 0.8,
-                ease: 'easeInOut',
-              },
-              opacity: {
-                delay: 2,
-              },
-            },
-          },
-        }}
+        variants={zoomOutAndExit}
       >
         <Image
           src="/logos/techletics-metal.svg"
