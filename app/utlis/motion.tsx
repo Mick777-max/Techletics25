@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion';
+import { delay, Variants } from 'framer-motion';
 
 export const textVariant = (delay: number): Variants => {
   return {
@@ -44,13 +44,21 @@ export const fadeIn = (
   };
 };
 
-export const zoomIn = (delay: number, duration: number): Variants => {
+export const zoomIn = (
+  delay: number,
+  duration: number,
+  // pos: 0 | number
+): Variants => {
   return {
     hidden: {
       scale: 0.7,
       opacity: 1,
+      // x: -pos,
+      // y: pos
     },
     show: {
+      // x:0,
+      // y:0,
       scale: 1,
       opacity: 1,
       transition: {
@@ -103,11 +111,11 @@ export const staggerContainer = (staggerChildren = 0.3, delayChildren = 0) => {
 
 export const container = {
   initial: {},
-  // when container animates to "exit", stagger children so they run one-by-one
   exit: {
     transition: {
-      staggerChildren: 0.1, // time between bars
-      staggerDirection: 1, // 1 = left-to-right order, -1 = reverse
+      delayChildren: 0.8,
+      staggerChildren: 0.1,
+      staggerDirection: 1,
     },
   },
 } as const;
@@ -117,7 +125,7 @@ import type { Transition } from 'framer-motion';
 export const exitItem: Variants = {
   initial: { y: 0, opacity: 1 },
   exit: {
-    y: -1000,
+    y: -1200,
     opacity: 1,
     transition: { duration: 1.2, ease: 'easeInOut' } as Transition,
   },

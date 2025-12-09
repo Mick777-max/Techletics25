@@ -41,32 +41,101 @@ export default function Home() {
         variants={container}
         initial="initial" // start from the children's 'initial' state
         animate="exit" // immediately animate to 'exit' (triggers children exit)
-        className="absolute z-40 flex h-full w-full items-center justify-center gap-[0.05rem] overflow-clip"
+        className="absolute z-40 flex h-full w-full items-center justify-center overflow-clip"
       >
-        {/* {
-          [...Array(5)].map((_, i) => (
+        {[...Array(5)].map((_, i) =>
+          i !== 2 ? (
             <motion.div
               key={i}
               variants={exitItem}
-              className="bg-black h-full w-[30rem]"
+              className="h-full min-w-[15rem] border-2 border-gray-500 border-opacity-15 bg-black md:min-w-[25rem]"
             />
-          ))
-        } */}
+          ) : (
+            <motion.div
+              key={i}
+              variants={exitItem}
+              className="flex h-full min-w-[15rem] flex-col items-center justify-center bg-black md:min-w-[25rem]"
+            >
+              <motion.div
+                className="h-[6rem]"
+                initial="hidden"
+                animate="show"
+                variants={{
+                  hidden: {
+                    scale: 2,
+                    opacity: 1,
+                  },
+                  show: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                      type: 'tween',
+                      duration: 0.8,
+                      delay: 0,
+                      ease: 'easeInOut',
+                    },
+                  },
+                }}
+              >
+                <Image
+                  src="/logos/techletics-metal.svg"
+                  alt="logo"
+                  width={100}
+                  height={100}
+                  className="h-full w-auto"
+                />
+              </motion.div>
+            </motion.div>
+          ),
+        )}
 
-        <motion.div variants={exitItem} className="h-full w-[30rem] bg-black" />
+        {/* <motion.div variants={exitItem} className="h-full min-w-[25rem] bg-black" />
 
-        <motion.div variants={exitItem} className="h-full w-[30rem] bg-black" />
+        <motion.div variants={exitItem} className="h-full min-w-[25rem] bg-black" />
 
-        <motion.div variants={exitItem} className="h-full w-[30rem] bg-black" />
+        <motion.div
+          variants={exitItem}
+          className="h-full min-w-[25rem] bg-black flex flex-col items-center justify-center">
 
-        <motion.div variants={exitItem} className="h-full w-[30rem] bg-black" />
+          <motion.div
+            className='h-[6rem]'
+            initial="hidden"
+            animate="show"
+            variants={{
+              hidden: {
+                scale: 2,
+                opacity: 1,
+              },
+              show: {
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  type: "tween",
+                  duration: 0.8,
+                  delay: 0,
+                  ease: "easeInOut"
 
-        <motion.div variants={exitItem} className="h-full w-[30rem] bg-black" />
+                }
+              }
+            }}>
+            <Image
+              src="/logos/techletics-metal.svg"
+              alt="logo"
+              width={100}
+              height={100}
+              className='h-full w-auto' />
+          </motion.div>
+
+        </motion.div>
+
+        <motion.div variants={exitItem} className="h-full min-w-[25rem] bg-black" />
+
+        <motion.div variants={exitItem} className="h-full min-w-[25rem] bg-black" /> */}
       </motion.div>
 
       <motion.div
         // variants={slideIn('left','tween',0.1,1)}
-        variants={zoomIn(0.3, 1)}
+        variants={zoomIn(0.8, 1)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
@@ -114,7 +183,28 @@ export default function Home() {
       </motion.div>
 
       <motion.div
-        variants={zoomIn(0.4, 1)}
+        // variants={zoomIn(1, 1, 150)}
+        variants={zoomIn(1, 1)}
+        // variants = {
+        //   {
+        //     hidden:
+        //     {
+        //       scale: 0.7,
+        //       x: -250,
+        //       y: 50
+        //     },
+        //     show: {
+        //       scale: 1,
+        //       x: 0,
+        //       y: 0,
+        //       transition: {
+        //         type: "tween",
+        //         duration: 1,
+        //         delay: 1
+        //       }
+        //     }
+        //   }
+        // }
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
