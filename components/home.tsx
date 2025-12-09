@@ -18,7 +18,7 @@ export default function Home() {
         loop
         muted
         playsInline
-        className="absolute left-0 top-0 h-full w-full scale-[1.11] object-cover"
+        className="absolute left-0 top-0 h-full w-full scale-[1.117] object-cover"
       >
         <source src="/image/clouds3.mp4" type="video/mp4" />
       </video>
@@ -44,11 +44,16 @@ export default function Home() {
           },
           exit: {
             y: -1200,
-            opacity: 1,
+            opacity: 0,
             transition: {
-              duration: 1.2,
-              delay: 0.8,
-              ease: 'easeInOut',
+              y: {
+                duration: 1.2,
+                delay: 0.8,
+                ease: 'easeInOut',
+              },
+              opacity: {
+                delay: 2,
+              },
             },
           },
         }}
@@ -72,7 +77,7 @@ export default function Home() {
           <motion.div
             key={i}
             variants={exitItem}
-            className="h-full min-w-[15rem] border-2 border-gray-500 border-opacity-15 bg-black md:min-w-[25rem]"
+            className={`h-full min-w-[15rem] border-2 border-gray-500 border-opacity-15 ${i % 2 == 0 ? 'bg-gradient-to-r' : 'bg-gradient-to-l'} from-black to-stone-950 md:min-w-[25rem]`}
           />
         ))}
       </motion.div>

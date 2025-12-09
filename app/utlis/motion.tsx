@@ -120,13 +120,19 @@ export const container = {
   },
 } as const;
 
-import type { Transition } from 'framer-motion';
-
 export const exitItem: Variants = {
   initial: { y: 0, opacity: 1 },
   exit: {
     y: -1200,
-    opacity: 1,
-    transition: { duration: 1.2, ease: 'easeInOut' } as Transition,
+    opacity: 0,
+    transition: {
+      y: {
+        duration: 1.2,
+        ease: 'easeInOut',
+      },
+      opacity: {
+        delay: 2,
+      },
+    },
   },
 };
