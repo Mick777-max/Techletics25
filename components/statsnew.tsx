@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function Stats() {
   return (
     <div className="relative mx-auto h-[90vh] max-w-screen-xl">
-      <div className="absolute right-[400px] top-[20px] z-30 w-[270px] cursor-pointer max-xl-wide:left-[40px] max-xl-wide:top-[260px] max-md:hidden">
+      <div className="absolute right-[25rem] top-5 z-30 w-[16.875rem] cursor-pointer max-xl-wide:left-10 max-xl-wide:top-64 max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}
           className="relative inline-block"
@@ -16,7 +16,7 @@ export default function Stats() {
         </motion.div>
       </div>
 
-      <div className="absolute right-[40px] top-[80px] z-30 w-[160px] cursor-pointer max-xl-wide:right-[40px] max-xl-wide:top-[20px] max-md:hidden">
+      <div className="absolute right-10 top-20 z-30 w-40 cursor-pointer max-xl-wide:right-10 max-xl-wide:top-5 max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}
           className="relative inline-block"
@@ -28,7 +28,7 @@ export default function Stats() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-[30px] left-[400px] z-30 w-[300px] cursor-pointer max-xl-wide:bottom-[40px] max-xl-wide:left-[40px] max-md:hidden">
+      <div className="absolute bottom-7 left-[25rem] z-30 w-[18.75rem] cursor-pointer max-xl-wide:bottom-10 max-xl-wide:left-10 max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}
           className="relative inline-block"
@@ -40,7 +40,7 @@ export default function Stats() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-[160px] left-[40px] z-30 w-[160px] cursor-pointer max-xl-wide:bottom-[260px] max-xl-wide:left-auto max-xl-wide:right-[40px] max-md:hidden">
+      <div className="absolute bottom-40 left-10 z-30 w-40 cursor-pointer max-xl-wide:bottom-64 max-xl-wide:left-auto max-xl-wide:right-10 max-md:hidden">
         <motion.div
           whileHover={{ scale: 1.2 }}
           className="relative inline-block"
@@ -64,7 +64,7 @@ export default function Stats() {
         className="flex w-full flex-col justify-center gap-[10rem] pb-[6rem] max-md:gap-[4rem] xl-wide:h-full xl-wide:flex-row xl-wide:gap-0"
       >
         <div className="flex justify-center md:hidden">
-          <div className="z-30 w-[160px] cursor-pointer">
+          <div className="z-30 w-40 cursor-pointer">
             <motion.div
               whileHover={{ scale: 1.2 }}
               className="relative inline-block"
@@ -79,14 +79,14 @@ export default function Stats() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-start md:pt-[65px] xl-wide:flex-auto">
+        <div className="flex flex-col justify-start md:pt-16 xl-wide:flex-auto">
           {' '}
           {/* Add top padding */}
           <StatCard number="35+" label="COLLEGES" fill="secondary" />
         </div>
 
         <div className="flex justify-center md:hidden">
-          <div className="z-30 w-[270px] cursor-pointer">
+          <div className="z-30 w-[16.875rem] cursor-pointer">
             <motion.div
               whileHover={{ scale: 1.2 }}
               className="relative inline-block"
@@ -106,7 +106,7 @@ export default function Stats() {
         </div>
 
         <div className="flex justify-center md:hidden">
-          <div className="z-30 w-[160px] cursor-pointer">
+          <div className="z-30 w-40 cursor-pointer">
             <motion.div
               whileHover={{ scale: 1.2 }}
               className="relative inline-block"
@@ -121,14 +121,14 @@ export default function Stats() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-end md:pb-[65px] xl-wide:flex-auto">
+        <div className="flex flex-col justify-end md:pb-16 xl-wide:flex-auto">
           {' '}
           {/* Add bottom padding */}
           <StatCard number="10k+" label="STUDENTS" fill="secondary" />
         </div>
 
         <div className="flex justify-center md:hidden">
-          <div className="z-30 w-[300px] cursor-pointer">
+          <div className="z-30 w-[18.75rem] cursor-pointer">
             <motion.div
               whileHover={{ scale: 1.2 }}
               className="relative inline-block"

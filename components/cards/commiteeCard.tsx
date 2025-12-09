@@ -15,7 +15,7 @@ interface CommitteeCardProps {
 export default function CommitteeCard({ info, title }: CommitteeCardProps) {
   return title === 'Executive' ? (
     <div
-      className="group relative flex min-h-[320px] w-[214px] cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#D4AF4080] bg-[#fff9d3] transition-all duration-300 hover:scale-110"
+      className="group relative flex min-h-80 w-[13.375rem] cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#D4AF4080] bg-[#fff9d3] transition-all duration-300 hover:scale-110"
       style={{
         clipPath:
           'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
@@ -48,7 +48,7 @@ export default function CommitteeCard({ info, title }: CommitteeCardProps) {
     </div>
   ) : (
     <div
-      className="group relative flex min-h-[280px] w-[274px] cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#A6A6A670] bg-[#f8f0be] transition-all duration-300 hover:scale-110"
+      className="group relative flex min-h-[17.5rem] w-[17.125rem] cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#A6A6A670] bg-[#f8f0be] transition-all duration-300 hover:scale-110"
       style={{
         clipPath:
           'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',

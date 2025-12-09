@@ -56,7 +56,7 @@ const Events = () => {
               height={128}
               alt="Barcode"
               priority
-              className="hidden h-[88px] w-auto 2xl:flex 2xl:h-24"
+              className="hidden h-[5rem] w-auto 2xl:flex 2xl:h-24"
             />
           </div>
         </div>
@@ -88,7 +88,7 @@ const Events = () => {
         </motion.div>
 
         {activeCategory === 'TECHNICAL' && (
-          <div className="flex justify-end gap-6 max-sm:justify-center xl:absolute xl:right-16 xl:top-[348px]">
+          <div className="flex justify-end gap-6 max-sm:justify-center xl:absolute xl:right-16 xl:top-[21.75rem]">
             <CustomSelect
               className="cursor-pointer rounded-lg border border-secondary bg-primary px-2 py-1 font-orbitron font-bold text-secondary focus:outline-none focus:ring-0 md:text-sm"
               onChange={(e) => handleBranchChange(e.target.value)}

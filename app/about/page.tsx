@@ -31,7 +31,7 @@ export default function AboutPage() {
                 height={128}
                 alt="Barcode"
                 priority
-                className="hidden h-[88px] w-auto 2xl:flex 2xl:h-24"
+                className="hidden h-[5.5rem] w-auto 2xl:flex 2xl:h-24"
               />
             </div>
           </div>

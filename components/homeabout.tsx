@@ -19,7 +19,7 @@ export default function HomeAbout() {
             alt="logo"
             width={500}
             height={500}
-            className="h-auto w-[380px]"
+            className="h-auto w-96"
           />
         </div>
 

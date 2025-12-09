@@ -41,7 +41,7 @@ export default function Conferenceabout() {
             alt="logo"
             width={500}
             height={500}
-            className="h-auto w-[210px]"
+            className="h-auto w-52"
           />
         </div>
       </div>
