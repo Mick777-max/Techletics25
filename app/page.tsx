@@ -19,15 +19,6 @@ export default function HomePage() {
   return (
     <div className="w-full min-w-80">
       <section className="relative bg-black">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute left-0 top-0 h-full w-full scale-[1.117] object-cover"
-        >
-          <source src="/image/clouds3.mp4" type="video/mp4" />
-        </video>
         <Home />
         <SectionSeparator position="bottom" />
       </section>
@@ -54,7 +45,7 @@ export default function HomePage() {
                 alt="logo"
                 width={500}
                 height={500}
-                className="h-auto w-[380px]"
+                className="h-auto w-96"
               />
             </div>
 
