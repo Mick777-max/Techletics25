@@ -1,13 +1,13 @@
 import SectionSeparator from '@/components/custom/sectionSeparator';
-import Home from '@/components/home';
+import Hero from '@/components/hero';
 import Memories from '@/components/memories';
-import Stats from '@/components/statsnew';
+import Stats from '@/components/stats';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import Filler from '@/components/filler';
 import HomeGalleryImageView from '@/components/homeGalleryImageView';
 import { GalleryImages } from './data';
-import DynamicTextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/custom/marquee';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -19,7 +19,7 @@ export default function HomePage() {
   return (
     <div className="w-full min-w-80">
       <section className="relative bg-black">
-        <Home />
+        <Hero />
         <SectionSeparator position="bottom" />
       </section>
 

@@ -5,7 +5,7 @@ import LastDate from './_components/lastdate';
 import Roadmap from './_components/roadmap';
 import Guidelines from './_components/guidelines';
 import Submit from './_components/submit';
-import DynamicTextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/custom/marquee';
 import SectionSeparator from '@/components/custom/sectionSeparator';
 
 export const metadata: Metadata = {
