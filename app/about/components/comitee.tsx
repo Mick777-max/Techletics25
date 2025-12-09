@@ -1,5 +1,5 @@
 import { CommitteeCard } from '@/components/cards';
-import DynamicTextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/custom/marquee';
 import { CommitteeData } from '@/app/data';
 
 export default function Committee() {

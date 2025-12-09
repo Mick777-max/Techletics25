@@ -5,7 +5,7 @@ import { zoomIn, zoomOutAndExit } from '@/app/utlis/motion';
 import Countdown from './custom/countdown';
 import StripeCurtain from './custom/stripeCurtains';
 
-export default function Home() {
+export default function Hero() {
   return (
     <div className="relative mx-auto flex min-h-[100vh] max-w-screen-2xl flex-col items-center justify-center gap-4 overflow-hidden pt-[1rem] max-lg:gap-[1rem] max-sm:gap-0">
       <motion.div

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Committee from './components/comitee';
-import DynamicTextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/custom/marquee';
 import Image from 'next/image';
 
 export const metadata: Metadata = {

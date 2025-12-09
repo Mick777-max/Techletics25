@@ -1,4 +1,4 @@
-import DynamicTextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/custom/marquee';
 import { Metadata } from 'next';
 import TechleticsCarousel from './_components/banner';
 import FeaturedEvents from './_components/featuredEvents';
