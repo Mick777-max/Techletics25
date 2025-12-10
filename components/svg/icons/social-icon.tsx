@@ -6,7 +6,7 @@ interface SocialIconProps {
 const SocialIcon = ({ size = 32, logo = 'instagram' }: SocialIconProps) => {
   return (
     <div
-      className="flex items-center justify-center rounded-full bg-[#e7e6e4] text-quarternary"
+      className={`flex items-center justify-center rounded-full bg-[#e7e6e4] text-quarternary`}
       style={{ width: size, height: size }}
     >
       <svg

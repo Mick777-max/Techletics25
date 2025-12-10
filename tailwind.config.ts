@@ -91,10 +91,10 @@ const config: Config = {
       backgroundImage: {
         grid: "url('/image/Grid.svg')",
         'grid-pattern': "url('./public/image/Grid.svg')",
-        'white-bg': "url('/image/bg-white.png')",
-        'ruins-grey': "url('/image/ruins-bg-grey.png')",
-        'footer-bg': "url('/image/footer.png')",
-        'glass-capsules': "url('/image/glass-capsules.png')"
+        'whiteBg': "url('/image/bg-white.png')",
+        'ruinsGrey': "url('/image/ruins-bg-grey.png')",
+        'footerBg': "url('/image/footer.png')",
+        'glassCapsules': "url('/image/glass-capsules.png')"
       },
     },
   },

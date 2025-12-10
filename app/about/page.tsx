@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="w-full min-w-80 overflow-clip">
-      <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
+      <section className="relative bg-whiteBg bg-cover bg-center">
         <Image
           className="-left-28 top-80 z-0 hidden opacity-75 lg:absolute lg:block"
           src="/logos/techletics-logo.svg"
@@ -168,7 +168,7 @@ export default function AboutPage() {
 
       <DynamicTextMarquee bg="secondary" text="black" />
 
-      <section className="relative bg-[url('/image/bg-white.png')] bg-center bg-repeat">
+      <section className="relative bg-whiteBg bg-center bg-repeat">
         <Image
           className="-left-32 -top-4 hidden opacity-75 lg:absolute xl-wide:block"
           src="/logos/techletics-logo.svg"

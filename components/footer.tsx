@@ -6,10 +6,7 @@ const Copyright = () => {
   return (
     <div className="relative mx-auto flex min-h-16 w-full max-w-screen-xl items-center justify-center overflow-clip border-t-[1px] border-tertiary">
       <div className="absolute mt-2 flex w-full justify-center md:mt-8">
-        <span
-          className="whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent opacity-40 md:text-9xl"
-          style={{ WebkitTextStroke: '1px rgba(231,230,228,0.4)' }}
-        >
+        <span className="whiteTextBorder whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent opacity-40 md:text-9xl">
           TECHLETICS
         </span>
       </div>
