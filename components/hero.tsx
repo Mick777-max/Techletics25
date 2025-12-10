@@ -7,7 +7,7 @@ import StripeCurtain from './custom/stripeCurtains';
 
 export default function Hero() {
   return (
-    <div className="relative mx-auto flex min-h-[100vh] max-w-screen-2xl flex-col items-center justify-center gap-4 overflow-hidden pt-4 max-lg:gap-4 max-sm:gap-0">
+    <div className="relative mx-auto flex min-h-[100vh] max-w-screen-2xl flex-col items-center justify-center gap-0 overflow-hidden pb-8 pt-4 sm:gap-4">
       <motion.div
         className="absolute z-50 h-24"
         initial="hidden"
@@ -42,7 +42,7 @@ export default function Hero() {
         viewport={{ once: true }}
         className="z-30 mt-10 flex shrink flex-col items-center justify-center gap-1 md:static md:items-start"
       >
-        <motion.div className="flex w-full items-center justify-center gap-10 max-md:mt-24 max-md:flex-col max-md:gap-0">
+        <motion.div className="mt-24 flex w-full flex-col items-center justify-center gap-0 md:mt-0 md:flex-row md:gap-10">
           <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
             IGNITE
           </span>
@@ -65,7 +65,7 @@ export default function Hero() {
 
         <motion.div
           // variants={zoomIn(0.2, 1)}
-          className="flex w-full items-center justify-center gap-10 max-md:flex-col max-md:gap-0"
+          className="flex w-full flex-col items-center justify-center md:flex-row md:gap-10"
         >
           <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
             ILLUMINATE
