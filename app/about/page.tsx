@@ -14,7 +14,7 @@ export default function AboutPage() {
     <div className="w-full min-w-80 overflow-clip">
       <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
         <Image
-          className="left-[-6.5rem] top-[21rem] z-0 hidden opacity-75 lg:absolute lg:block"
+          className="-left-28 top-80 z-0 hidden opacity-75 lg:absolute lg:block"
           src="/logos/techletics-logo.svg"
           alt="name"
           width={400}
@@ -31,7 +31,7 @@ export default function AboutPage() {
                 height={128}
                 alt="Barcode"
                 priority
-                className="hidden h-[5.5rem] w-auto 2xl:flex 2xl:h-24"
+                className="hidden h-20 w-auto 2xl:flex 2xl:h-24"
               />
             </div>
           </div>
@@ -100,7 +100,7 @@ export default function AboutPage() {
         />
 
         <Image
-          className="-right-28 top-[40rem] z-10 hidden opacity-75 lg:absolute lg:block"
+          className="-bottom-64 -right-28 z-10 hidden opacity-75 lg:absolute lg:block"
           src="/logos/techletics-logo.svg"
           alt="name"
           width={400}
@@ -170,7 +170,7 @@ export default function AboutPage() {
 
       <section className="relative bg-[url('/image/bg-white.png')] bg-center bg-repeat">
         <Image
-          className="-left-32 -top-4 z-0 hidden opacity-75 lg:absolute xl-wide:block"
+          className="-left-32 -top-4 hidden opacity-75 lg:absolute xl-wide:block"
           src="/logos/techletics-logo.svg"
           alt="name"
           width={400}

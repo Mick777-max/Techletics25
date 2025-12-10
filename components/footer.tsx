@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 const Copyright = () => {
   return (
-    <div className="relative mx-auto flex min-h-16 w-full max-w-screen-xl items-center justify-center overflow-hidden border-t-[1px] border-tertiary">
+    <div className="relative mx-auto flex min-h-16 w-full max-w-screen-xl items-center justify-center overflow-clip border-t-[1px] border-tertiary">
       <div className="absolute mt-2 flex w-full justify-center md:mt-8">
         <span
           className="whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent opacity-40 md:text-9xl"
@@ -38,7 +38,7 @@ const SocialAndConnect = () => {
   return (
     <section className="relative z-10 mx-auto w-full max-w-screen-2xl overflow-hidden px-3">
       <div className="flex w-full flex-col justify-center gap-12 text-secondary md:p-6 lg:py-12">
-        <div className="flex flex-col flex-wrap justify-center gap-0 align-middle font-orbitron text-3xl font-bold text-tertiary md:text-5xl">
+        <div className="mt-5 flex flex-col flex-wrap justify-center gap-0 align-middle font-orbitron text-3xl font-bold text-tertiary md:text-5xl">
           <div className="w-full">
             <span>
               WANT TO <span className="text-secondary">KNOW MORE?</span>
@@ -68,7 +68,7 @@ const SocialAndConnect = () => {
             </div>
 
             <div className="flex gap-4 self-center">
-              <ArrowUpRight className="h-6 w-6 text-white" />
+              <ArrowUpRight className="size-6 text-white" />
 
               <div className="flex flex-wrap gap-4 font-orbitron text-xl font-extrabold">
                 <Link

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function Stats() {
   return (
     <div className="relative mx-auto min-h-[90vh] max-w-screen-xl">
-      <div className="absolute left-10 right-[25rem] top-64 z-30 hidden w-[16.875rem] cursor-pointer md:flex xl:left-1/2 xl:top-5">
+      <div className="absolute left-10 top-64 z-30 hidden w-64 cursor-pointer md:flex xl:left-1/2 xl:top-5">
         <StatLabel text="20+ WORKSHOPS" wrap="text-nowrap" />
       </div>
 
@@ -12,11 +12,11 @@ export default function Stats() {
         <StatLabel text="60+ TECH EVENTS" wrap="text-wrap" />
       </div>
 
-      <div className="absolute bottom-60 left-10 z-30 hidden w-[18.75rem] cursor-pointer md:flex xl:bottom-20 xl:left-[25rem]">
+      <div className="absolute bottom-60 left-10 z-30 hidden w-72 cursor-pointer md:flex xl:bottom-20 xl:left-96">
         <StatLabel text="20+ TECH EXPERTS" wrap="text-nowrap" />
       </div>
 
-      <div className="absolute bottom-[28rem] right-10 z-30 hidden w-40 cursor-pointer md:flex xl:bottom-48 xl:left-12 xl:right-1/2">
+      <div className="absolute right-10 top-72 z-30 hidden w-40 cursor-pointer md:flex xl:left-12 xl:right-1/2 xl:top-96">
         <StatLabel text="10+ CULTURAL EVENTS" wrap="text-wrap" />
       </div>
 
@@ -43,7 +43,7 @@ export default function Stats() {
         </div>
 
         <div className="flex justify-center md:hidden">
-          <div className="z-30 w-[16.875rem] cursor-pointer">
+          <div className="z-30 w-64 cursor-pointer">
             <StatLabel text="20+ WORKSHOPS" wrap="text-nowrap" />
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function Stats() {
         </div>
 
         <div className="flex justify-center md:hidden">
-          <div className="z-30 w-[18.75rem] cursor-pointer">
+          <div className="z-30 w-72 cursor-pointer">
             <StatLabel text="20+ TECH EXPERTS" wrap="text-nowrap" />
           </div>
         </div>
@@ -81,7 +81,7 @@ type StatLabelProps = {
 function StatLabel({ text, wrap }: StatLabelProps) {
   return (
     <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
-      <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
+      <div className="absolute left-2 top-2 size-full rounded-xl border-2 border-black bg-secondary"></div>
       <div
         className={`relative z-[20] rounded-xl border-2 border-black bg-primary p-4 ${wrap}`}
       >
@@ -124,7 +124,7 @@ function StatCard({ number, label, fill }: StatCardProps) {
         </span>
 
         <span
-          className={`absolute inset-[0.25rem] z-0 text-center font-turret leading-none xs:inset-1.5 ${textSizeNumber} whitespace-nowrap font-extrabold text-black`}
+          className={`absolute inset-1 z-0 text-center font-turret leading-none xs:inset-1.5 ${textSizeNumber} whitespace-nowrap font-extrabold text-black`}
         >
           {number}
         </span>
@@ -140,7 +140,7 @@ function StatCard({ number, label, fill }: StatCardProps) {
         </span>
 
         <span
-          className={`absolute inset-[0.25rem] z-0 text-center font-turret leading-none xs:inset-1.5 ${textSizeLabel} whitespace-nowrap font-extrabold text-black`}
+          className={`absolute inset-1 z-0 text-center font-turret leading-none xs:inset-1.5 ${textSizeLabel} whitespace-nowrap font-extrabold text-black`}
         >
           {label}
         </span>

@@ -151,7 +151,7 @@ const TextMarquee = ({
 
   return (
     <section
-      className={`w-full overflow-hidden bg-${bg} font-orbitron font-bold text-${text}`}
+      className={`flex h-16 w-full flex-col items-center overflow-hidden md:h-20 bg-${bg} font-orbitron font-bold text-${text}`}
     >
       <Marquee speed={60} gradient={false}>
         {[...Array(10)].map((_, index) =>
@@ -208,7 +208,7 @@ const DynamicTextMarquee = dynamic(
   () => Promise.resolve({ default: TextMarquee }),
   {
     ssr: false,
-    loading: () => <div className="h-[4.25rem] w-full bg-black md:h-20" />,
+    loading: () => <div className="h-16 w-full bg-black md:h-20" />,
   },
 );
 
