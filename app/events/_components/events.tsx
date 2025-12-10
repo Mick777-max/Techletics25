@@ -46,7 +46,7 @@ const Events = () => {
 
   return (
     <section className="relative mx-auto max-w-screen-2xl items-center justify-center overflow-hidden px-10">
-      <div className="flex flex-col justify-center gap-6 pt-6 lg:pt-12">
+      <div className="flex flex-col items-center justify-center gap-6 pt-6 lg:pt-12">
         <div className="flex flex-wrap items-center justify-between p-2 font-orbitron text-4xl font-bold tracking-wide text-quarternary sm:text-5xl md:text-7xl lg:mt-12 xl:mt-8">
           <span className="mr-4">EVENTS</span>
           <div className="flex gap-1">
@@ -63,12 +63,12 @@ const Events = () => {
 
         <motion.div
           layout
-          className="relative mx-auto flex items-center justify-center gap-4 rounded-full border border-secondary p-1 font-orbitron text-sm lowercase tracking-wider text-secondary sm:mt-8 md:mt-12 md:p-2 md:text-lg lg:w-fit lg:text-xl"
+          className="relative mx-auto flex items-center justify-center rounded-full border border-secondary p-1 font-orbitron text-sm lowercase tracking-wider text-secondary sm:mt-8 md:mt-12 md:p-2 md:text-lg lg:w-fit lg:text-xl"
         >
           {categories.map((category) => (
             <div
               key={category}
-              className="relative cursor-pointer px-2 py-1 uppercase"
+              className="relative cursor-pointer px-4 py-1 uppercase"
               onClick={() => handleCategoryChange(category)}
             >
               {activeCategory === category && (
