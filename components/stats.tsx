@@ -61,7 +61,7 @@ export default function Stats() {
             transition: { duration: 0.8, ease: 'easeOut' },
           },
         }}
-        className="flex w-full flex-col justify-center gap-[10rem] pb-[6rem] max-md:gap-[4rem] xl-wide:h-full xl-wide:flex-row xl-wide:gap-0"
+        className="flex w-full flex-col justify-center gap-40 pb-24 max-md:gap-16 xl-wide:h-full xl-wide:flex-row xl-wide:gap-0"
       >
         <div className="flex justify-center md:hidden">
           <div className="z-30 w-40 cursor-pointer">

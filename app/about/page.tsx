@@ -21,8 +21,8 @@ export default function AboutPage() {
           height={400}
         />
 
-        <div className="relative mx-auto max-w-screen-2xl px-[1.5rem] py-[8rem] sm:px-8 sm:py-4 lg:px-16 lg:py-9">
-          <div className="flex flex-wrap items-center justify-between p-2 font-orbitron text-4xl font-extrabold tracking-wide text-quarternary sm:text-5xl md:text-7xl lg:mt-[10rem] xl:mt-[6rem]">
+        <div className="relative mx-auto max-w-screen-2xl px-6 py-32 sm:px-8 sm:py-4 lg:px-16 lg:py-9">
+          <div className="flex flex-wrap items-center justify-between p-2 font-orbitron text-4xl font-extrabold tracking-wide text-quarternary sm:text-5xl md:text-7xl lg:mt-40 xl:mt-24">
             <span className="mr-4">ABOUT</span>
             <div className="flex gap-1">
               <Image
@@ -100,7 +100,7 @@ export default function AboutPage() {
         />
 
         <Image
-          className="right-[-7rem] top-[40rem] z-10 hidden opacity-75 lg:absolute lg:block"
+          className="-right-28 top-[40rem] z-10 hidden opacity-75 lg:absolute lg:block"
           src="/logos/techletics-logo.svg"
           alt="name"
           width={400}
@@ -117,7 +117,7 @@ export default function AboutPage() {
             <h2 className="font-orbitron text-3xl font-bold sm:text-4xl lg:text-5xl">
               <span className="text-quarternary">TECHLETICS</span>{' '}
               <span className="text-secondary">LEGACY</span>&nbsp;
-              <div className="mt-2 h-[0.3rem] w-[20%] bg-gradient-to-r from-secondary to-transparent"></div>
+              <div className="mt-2 h-1 w-[20%] bg-gradient-to-r from-secondary to-transparent"></div>
             </h2>
 
             <div className="mb-6 font-orbitron font-extralight sm:mb-12 lg:mb-0">
@@ -170,7 +170,7 @@ export default function AboutPage() {
 
       <section className="relative bg-[url('/image/bg-white.png')] bg-center bg-repeat">
         <Image
-          className="left-[-8rem] top-[-1rem] z-0 hidden opacity-75 lg:absolute xl-wide:block"
+          className="-left-32 -top-4 z-0 hidden opacity-75 lg:absolute xl-wide:block"
           src="/logos/techletics-logo.svg"
           alt="name"
           width={400}

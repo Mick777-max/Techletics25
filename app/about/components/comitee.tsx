@@ -5,7 +5,7 @@ import { CommitteeData } from '@/app/data';
 export default function Committee() {
   return (
     <div className="relative mx-auto max-w-screen-xl overflow-visible px-2 pt-6">
-      <div className="h-[0.3rem] w-full bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
+      <div className="h-1 w-full bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
 
       {CommitteeData.map((item, index) => (
         <div key={index} className="relative px-4 py-6 sm:px-6 lg:px-12">

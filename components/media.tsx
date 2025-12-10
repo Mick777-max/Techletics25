@@ -5,7 +5,7 @@ export default function Media() {
         <div className="w-full break-words leading-none">MEDIA PARTNER</div>
       </div>
 
-      <div className="h-[9rem] w-[9rem] bg-quarternary"></div>
+      <div className="h-36 w-36 bg-quarternary"></div>
     </div>
   );
 }
