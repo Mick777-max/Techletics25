@@ -98,7 +98,7 @@ export default function HomePage() {
       <section className="relative bg-quarternary bg-[url('/image/footer.png')] bg-cover bg-center py-20">
         <SectionSeparator position="top" />
         <div className="relative mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-16 p-4 xl:flex-row">
-          {GalleryImages.slice(-3).map((imageData, imageIndex) => (
+          {GalleryImages.map((imageData, imageIndex) => (
             <HomeGalleryImageView
               src={imageData}
               key={imageData}
