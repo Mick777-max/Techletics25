@@ -116,16 +116,6 @@ export default function HomePage() {
         <Filler />
       </section>
 
-      {/* <TextMarquee type="techletics" /> */}
-
-      {/* <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
-        <SectionSeparator position="top" />
-
-        <Media />
-
-        <SectionSeparator position="bottom" />
-      </section> */}
-
       <DynamicTextMarquee type="ignite" />
     </div>
   );
