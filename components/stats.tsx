@@ -5,19 +5,19 @@ export default function Stats() {
   return (
     <div className="relative mx-auto h-[90vh] max-w-screen-xl">
       <div className="absolute right-[25rem] top-5 z-30 w-[16.875rem] cursor-pointer max-xl-wide:left-10 max-xl-wide:top-64 max-md:hidden">
-        <StatLabel text="20+ WORKSHOPS" wrap="nowrap" />
+        <StatLabel text="20+ WORKSHOPS" wrap="text-nowrap" />
       </div>
 
       <div className="absolute right-10 top-20 z-30 w-40 cursor-pointer max-xl-wide:right-10 max-xl-wide:top-5 max-md:hidden">
-        <StatLabel text="60+ TECH EVENTS" wrap="wrap" />
+        <StatLabel text="60+ TECH EVENTS" wrap="text-wrap" />
       </div>
 
       <div className="absolute bottom-7 left-[25rem] z-30 w-[18.75rem] cursor-pointer max-xl-wide:bottom-10 max-xl-wide:left-10 max-md:hidden">
-        <StatLabel text="20+ TECH EXPERTS" wrap="nowrap" />
+        <StatLabel text="20+ TECH EXPERTS" wrap="text-nowrap" />
       </div>
 
       <div className="absolute bottom-40 left-10 z-30 w-40 cursor-pointer max-xl-wide:bottom-64 max-xl-wide:left-auto max-xl-wide:right-10 max-md:hidden">
-        <StatLabel text="10+ CULTURAL EVENTS" wrap="wrap" />
+        <StatLabel text="10+ CULTURAL EVENTS" wrap="text-wrap" />
       </div>
 
       <motion.div
@@ -33,19 +33,18 @@ export default function Stats() {
       >
         <div className="flex justify-center md:hidden">
           <div className="z-30 w-40 cursor-pointer">
-            <StatLabel text="60+ TECH EVENTS" wrap="wrap" />
+            <StatLabel text="60+ TECH EVENTS" wrap="text-wrap" />
           </div>
         </div>
 
         <div className="flex flex-col justify-start md:pt-16 xl-wide:flex-auto">
           {' '}
-          {/* Add top padding */}
           <StatCard number="35+" label="COLLEGES" fill="secondary" />
         </div>
 
         <div className="flex justify-center md:hidden">
           <div className="z-30 w-[16.875rem] cursor-pointer">
-            <StatLabel text="20+ WORKSHOPS" wrap="nowrap" />
+            <StatLabel text="20+ WORKSHOPS" wrap="text-nowrap" />
           </div>
         </div>
 
@@ -55,19 +54,18 @@ export default function Stats() {
 
         <div className="flex justify-center md:hidden">
           <div className="z-30 w-40 cursor-pointer">
-            <StatLabel text="10+ CULTURAL EVENTS" wrap="wrap" />
+            <StatLabel text="10+ CULTURAL EVENTS" wrap="text-wrap" />
           </div>
         </div>
 
         <div className="flex flex-col justify-end md:pb-16 xl-wide:flex-auto">
           {' '}
-          {/* Add bottom padding */}
           <StatCard number="10k+" label="STUDENTS" fill="secondary" />
         </div>
 
         <div className="flex justify-center md:hidden">
           <div className="z-30 w-[18.75rem] cursor-pointer">
-            <StatLabel text="20+ TECH EXPERTS" wrap="nowrap" />
+            <StatLabel text="20+ TECH EXPERTS" wrap="text-nowrap" />
           </div>
         </div>
       </motion.div>
@@ -85,7 +83,7 @@ function StatLabel({ text, wrap }: StatLabelProps) {
     <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
       <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
       <div
-        className={`relative z-[20] rounded-xl border-2 border-black bg-primary p-4 text-${wrap}`}
+        className={`relative z-[20] rounded-xl border-2 border-black bg-primary p-4 ${wrap}`}
       >
         <span className="font-orbitron text-2xl font-bold">{text}</span>
       </div>
