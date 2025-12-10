@@ -5,51 +5,19 @@ export default function Stats() {
   return (
     <div className="relative mx-auto h-[90vh] max-w-screen-xl">
       <div className="absolute right-[25rem] top-5 z-30 w-[16.875rem] cursor-pointer max-xl-wide:left-10 max-xl-wide:top-64 max-md:hidden">
-        <motion.div
-          whileHover={{ scale: 1.2 }}
-          className="relative inline-block"
-        >
-          <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
-          <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-            <span className="font-orbitron text-3xl">20+ WORKSHOPS</span>
-          </div>
-        </motion.div>
+        <StatLabel text="20+ WORKSHOPS" wrap="nowrap" />
       </div>
 
       <div className="absolute right-10 top-20 z-30 w-40 cursor-pointer max-xl-wide:right-10 max-xl-wide:top-5 max-md:hidden">
-        <motion.div
-          whileHover={{ scale: 1.2 }}
-          className="relative inline-block"
-        >
-          <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
-          <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-            <span className="font-orbitron text-3xl">60+ TECH EVENTS</span>
-          </div>
-        </motion.div>
+        <StatLabel text="60+ TECH EVENTS" wrap="wrap" />
       </div>
 
       <div className="absolute bottom-7 left-[25rem] z-30 w-[18.75rem] cursor-pointer max-xl-wide:bottom-10 max-xl-wide:left-10 max-md:hidden">
-        <motion.div
-          whileHover={{ scale: 1.2 }}
-          className="relative inline-block"
-        >
-          <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
-          <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-            <span className="font-orbitron text-3xl">20+ TECH EXPERTS</span>
-          </div>
-        </motion.div>
+        <StatLabel text="20+ TECH EXPERTS" wrap="nowrap" />
       </div>
 
       <div className="absolute bottom-40 left-10 z-30 w-40 cursor-pointer max-xl-wide:bottom-64 max-xl-wide:left-auto max-xl-wide:right-10 max-md:hidden">
-        <motion.div
-          whileHover={{ scale: 1.2 }}
-          className="relative inline-block"
-        >
-          <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
-          <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-            <span className="font-orbitron text-3xl">10+ CULTURAL EVENTS</span>
-          </div>
-        </motion.div>
+        <StatLabel text="10+ CULTURAL EVENTS" wrap="wrap" />
       </div>
 
       <motion.div
@@ -65,17 +33,7 @@ export default function Stats() {
       >
         <div className="flex justify-center md:hidden">
           <div className="z-30 w-40 cursor-pointer">
-            <motion.div
-              whileHover={{ scale: 1.2 }}
-              className="relative inline-block"
-            >
-              <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
-              <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-                <span className="font-orbitron text-xl md:text-3xl">
-                  60+ TECH EVENTS
-                </span>
-              </div>
-            </motion.div>
+            <StatLabel text="60+ TECH EVENTS" wrap="wrap" />
           </div>
         </div>
 
@@ -87,17 +45,7 @@ export default function Stats() {
 
         <div className="flex justify-center md:hidden">
           <div className="z-30 w-[16.875rem] cursor-pointer">
-            <motion.div
-              whileHover={{ scale: 1.2 }}
-              className="relative inline-block"
-            >
-              <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
-              <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-                <span className="font-orbitron text-xl md:text-3xl">
-                  20+ WORKSHOPS
-                </span>
-              </div>
-            </motion.div>
+            <StatLabel text="20+ WORKSHOPS" wrap="nowrap" />
           </div>
         </div>
 
@@ -107,17 +55,7 @@ export default function Stats() {
 
         <div className="flex justify-center md:hidden">
           <div className="z-30 w-40 cursor-pointer">
-            <motion.div
-              whileHover={{ scale: 1.2 }}
-              className="relative inline-block"
-            >
-              <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
-              <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-                <span className="font-orbitron text-xl md:text-3xl">
-                  10+ CULTURAL EVENTS
-                </span>
-              </div>
-            </motion.div>
+            <StatLabel text="10+ CULTURAL EVENTS" wrap="wrap" />
           </div>
         </div>
 
@@ -129,21 +67,29 @@ export default function Stats() {
 
         <div className="flex justify-center md:hidden">
           <div className="z-30 w-[18.75rem] cursor-pointer">
-            <motion.div
-              whileHover={{ scale: 1.2 }}
-              className="relative inline-block"
-            >
-              <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
-              <div className="relative z-[20] rounded-xl border-2 border-black bg-primary p-4">
-                <span className="font-orbitron text-xl md:text-3xl">
-                  20+ TECH EXPERTS
-                </span>
-              </div>
-            </motion.div>
+            <StatLabel text="20+ TECH EXPERTS" wrap="nowrap" />
           </div>
         </div>
       </motion.div>
     </div>
+  );
+}
+
+type StatLabelProps = {
+  text: string;
+  wrap: string;
+};
+
+function StatLabel({ text, wrap }: StatLabelProps) {
+  return (
+    <motion.div whileHover={{ scale: 1.2 }} className="relative inline-block">
+      <div className="absolute left-2 top-2 h-full w-full rounded-xl border-2 border-black bg-secondary"></div>
+      <div
+        className={`relative z-[20] rounded-xl border-2 border-black bg-primary p-4 text-${wrap}`}
+      >
+        <span className="font-orbitron text-2xl font-bold">{text}</span>
+      </div>
+    </motion.div>
   );
 }
 
