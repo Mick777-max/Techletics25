@@ -3,20 +3,20 @@ import { motion } from 'framer-motion';
 
 export default function Stats() {
   return (
-    <div className="relative mx-auto h-[90vh] max-w-screen-xl">
-      <div className="absolute right-[25rem] top-5 z-30 w-[16.875rem] cursor-pointer max-xl-wide:left-10 max-xl-wide:top-64 max-md:hidden">
+    <div className="relative mx-auto min-h-[90vh] max-w-screen-xl">
+      <div className="absolute left-10 right-[25rem] top-64 z-30 hidden w-[16.875rem] cursor-pointer md:flex xl:left-1/2 xl:top-5">
         <StatLabel text="20+ WORKSHOPS" wrap="text-nowrap" />
       </div>
 
-      <div className="absolute right-10 top-20 z-30 w-40 cursor-pointer max-xl-wide:right-10 max-xl-wide:top-5 max-md:hidden">
+      <div className="absolute right-10 top-5 z-30 hidden w-40 cursor-pointer md:flex xl:top-20">
         <StatLabel text="60+ TECH EVENTS" wrap="text-wrap" />
       </div>
 
-      <div className="absolute bottom-7 left-[25rem] z-30 w-[18.75rem] cursor-pointer max-xl-wide:bottom-10 max-xl-wide:left-10 max-md:hidden">
+      <div className="absolute bottom-60 left-10 z-30 hidden w-[18.75rem] cursor-pointer md:flex xl:bottom-20 xl:left-[25rem]">
         <StatLabel text="20+ TECH EXPERTS" wrap="text-nowrap" />
       </div>
 
-      <div className="absolute bottom-40 left-10 z-30 w-40 cursor-pointer max-xl-wide:bottom-64 max-xl-wide:left-auto max-xl-wide:right-10 max-md:hidden">
+      <div className="absolute bottom-[28rem] right-10 z-30 hidden w-40 cursor-pointer md:flex xl:bottom-48 xl:left-12 xl:right-1/2">
         <StatLabel text="10+ CULTURAL EVENTS" wrap="text-wrap" />
       </div>
 
@@ -29,7 +29,7 @@ export default function Stats() {
             transition: { duration: 0.8, ease: 'easeOut' },
           },
         }}
-        className="flex w-full flex-col justify-center gap-40 pb-24 max-md:gap-16 xl-wide:h-full xl-wide:flex-row xl-wide:gap-0"
+        className="flex w-full flex-col justify-center gap-12 px-4 md:gap-36 xl:gap-0"
       >
         <div className="flex justify-center md:hidden">
           <div className="z-30 w-40 cursor-pointer">
@@ -37,7 +37,7 @@ export default function Stats() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-start md:pt-16 xl-wide:flex-auto">
+        <div className="flex flex-col justify-start md:pt-16 xl:flex-row xl:items-start">
           {' '}
           <StatCard number="35+" label="COLLEGES" fill="secondary" />
         </div>
@@ -48,7 +48,7 @@ export default function Stats() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center xl-wide:flex-auto">
+        <div className="flex flex-col justify-center xl:flex-row xl:items-center">
           <StatCard number="500k+" label="PRIZE POOL" fill="secondary" />
         </div>
 
@@ -58,7 +58,7 @@ export default function Stats() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-end md:pb-16 xl-wide:flex-auto">
+        <div className="flex flex-col justify-end md:pb-16 xl:flex-row xl:items-end">
           {' '}
           <StatCard number="10k+" label="STUDENTS" fill="secondary" />
         </div>
@@ -85,7 +85,9 @@ function StatLabel({ text, wrap }: StatLabelProps) {
       <div
         className={`relative z-[20] rounded-xl border-2 border-black bg-primary p-4 ${wrap}`}
       >
-        <span className="font-orbitron text-2xl font-bold">{text}</span>
+        <span className="font-orbitron text-xl font-bold md:text-3xl">
+          {text}
+        </span>
       </div>
     </motion.div>
   );
@@ -100,12 +102,12 @@ type StatCardProps = {
 function StatCard({ number, label, fill }: StatCardProps) {
   const textSizeNumber =
     label === 'PRIZE POOL'
-      ? 'text-[100px] max-md:text-[80px] max-xs:text-[60px]'
-      : 'text-[80px] max-md:text-[70px] max-xs:text-[60px]';
+      ? 'text-[60px] xs:text-[80px] md:text-[100px]'
+      : 'text-[60px] xs:text-[70px] md:text-[80px]';
   const textSizeLabel =
     label === 'PRIZE POOL'
-      ? 'text-[70px] max-md:text-[55px] max-xs:text-[40px]'
-      : 'text-[70px] max-md:text-[55px] max-xs:text-[40px]';
+      ? 'text-[40px] xs:text-[55px] md:text-[70px]'
+      : 'text-[40px] xs:text-[55px] md:text-[70px]';
 
   return (
     <motion.div
@@ -122,7 +124,7 @@ function StatCard({ number, label, fill }: StatCardProps) {
         </span>
 
         <span
-          className={`absolute inset-1.5 z-0 text-center font-turret leading-none ${textSizeNumber} whitespace-nowrap font-extrabold text-black`}
+          className={`absolute inset-[0.25rem] z-0 text-center font-turret leading-none xs:inset-1.5 ${textSizeNumber} whitespace-nowrap font-extrabold text-black`}
         >
           {number}
         </span>
@@ -138,7 +140,7 @@ function StatCard({ number, label, fill }: StatCardProps) {
         </span>
 
         <span
-          className={`absolute inset-1.5 z-0 text-center font-turret leading-none ${textSizeLabel} whitespace-nowrap font-extrabold text-black`}
+          className={`absolute inset-[0.25rem] z-0 text-center font-turret leading-none xs:inset-1.5 ${textSizeLabel} whitespace-nowrap font-extrabold text-black`}
         >
           {label}
         </span>
