@@ -75,7 +75,7 @@ export default function HomePage() {
 
       <DynamicTextMarquee type="techletics" />
 
-      <section className="relative bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center py-16 max-xl-wide:pb-44 max-md:pb-[35rem]">
+      <section className="relative bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center py-16">
         <SectionSeparator position="top" />
 
         <span id="stats"></span>
