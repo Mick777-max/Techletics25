@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { SocialIcon } from './svg/icons';
 import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 
 const Copyright = () => {
   return (
@@ -56,14 +57,8 @@ const SocialAndConnect = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 md:gap-6 lg:justify-center lg:gap-12">
-            <div className="flex gap-4">
-              <Image
-                src="/icons/arrow.svg"
-                width={24}
-                height={24}
-                alt="Arrow Icon"
-                priority
-              />
+            <div className="flex items-center justify-center gap-4">
+              <ArrowUpRight className="h-6 w-6 text-white" />
               <Link
                 href="https://cce.edu.in/"
                 target="_blank"
@@ -74,13 +69,7 @@ const SocialAndConnect = () => {
             </div>
 
             <div className="flex gap-4 self-center">
-              <Image
-                src="/icons/arrow.svg"
-                width={24}
-                height={24}
-                alt="Arrow Icon"
-                priority
-              />
+              <ArrowUpRight className="h-6 w-6 text-white" />
 
               <div className="flex flex-wrap gap-4 font-orbitron text-xl font-extrabold">
                 <Link
@@ -90,14 +79,6 @@ const SocialAndConnect = () => {
                   +91 9946629072
                 </Link>
               </div>
-              {/* <Image
-              src="/image/union.png"
-              width={500}
-              height={500}
-              alt="Techetics Logo"
-              priority
-               className="absolute bottom-10 left-0 right-0 z-50 -rotate-[35deg] opacity-15  md:left-1/3 w-10 h-10"
-             /> */}
             </div>
           </div>
         </div>
