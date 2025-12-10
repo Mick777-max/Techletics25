@@ -254,9 +254,9 @@ export const GalleryImages: string[] = [
   'https://dnbca6q7do6n.cloudfront.net/media/techletics24/26.jpg',
   'https://dnbca6q7do6n.cloudfront.net/media/techletics24/27.jpg',
   'https://dnbca6q7do6n.cloudfront.net/media/techletics24/28.jpg',
-  '/image/img1.jpg',
-  '/image/img2.jpg',
-  '/image/image3.jpg',
+  '/image/event-1.jpg',
+  '/image/event-2.jpg',
+  '/image/event-3.jpg',
 ];
 
 type EventListType = {

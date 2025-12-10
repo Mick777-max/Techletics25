@@ -30,7 +30,7 @@ export default function Hero() {
         playsInline
         className="absolute left-0 top-0 h-full w-full scale-[1.117] object-cover"
       >
-        <source src="/image/clouds3.mp4" type="video/mp4" />
+        <source src="/image/cloudsBg.mp4" type="video/mp4" />
       </video>
 
       <StripeCurtain />
