@@ -4,10 +4,12 @@ import Memories from '@/components/memories';
 import Stats from '@/components/stats';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import Filler from '@/components/filler';
+import GlassCapsules from '@/components/glassCapsule';
 import HomeGalleryImageView from '@/components/homeGalleryImageView';
 import { GalleryImages } from './data';
 import DynamicTextMarquee from '@/components/custom/marquee';
+import { SocialAndConnect } from '@/components/footer';
+import { Copyright } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -75,7 +77,7 @@ export default function HomePage() {
 
       <DynamicTextMarquee type="techletics" />
 
-      <section className="relative bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center py-16">
+      <section className="relative bg-ruins-grey bg-cover bg-center py-16">
         <SectionSeparator position="top" />
 
         <span id="stats"></span>
@@ -87,7 +89,7 @@ export default function HomePage() {
 
       <DynamicTextMarquee type="ignite" />
 
-      <section className="relative flex h-[100vh] flex-col items-center justify-center bg-[url('/image/bg-white.png')] bg-cover bg-center">
+      <section className="relative flex h-[100vh] flex-col items-center justify-center bg-white-bg bg-cover bg-center">
         <SectionSeparator position="top" />
 
         <Memories />
@@ -95,25 +97,19 @@ export default function HomePage() {
         <SectionSeparator position="bottom" />
       </section>
 
-      <section className="relative bg-quarternary bg-[url('/image/footer.png')] bg-cover bg-center py-20">
+      <section className="relative bg-quarternary bg-footer-bg bg-cover bg-center py-20">
         <SectionSeparator position="top" />
         <div className="relative mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-16 p-4 xl:flex-row">
-          {GalleryImages.map((imageData, imageIndex) => (
-            <HomeGalleryImageView
-              src={imageData}
-              key={imageData}
-              index={imageIndex}
-            />
+          {GalleryImages.map((imageData, i) => (
+            <HomeGalleryImageView src={imageData} key={i} index={i} />
           ))}
         </div>
-
-        {/* <SectionSeparator position="bottom" /> */}
       </section>
 
       {/* <TextMarquee type="ignite" /> */}
 
       <section className="relative h-[90vh] bg-black">
-        <Filler />
+        <GlassCapsules />
       </section>
 
       <DynamicTextMarquee type="ignite" />

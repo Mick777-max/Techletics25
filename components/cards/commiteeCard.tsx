@@ -15,7 +15,7 @@ interface CommitteeCardProps {
 export default function CommitteeCard({ info, title }: CommitteeCardProps) {
   return title === 'Executive' ? (
     <div
-      className="group relative flex min-h-80 w-[13.375rem] cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#D4AF4080] bg-[#fff9d3] transition-all duration-300 hover:scale-110"
+      className="group relative flex min-h-80 w-52 cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#D4AF4080] bg-[#fff9d3] transition-all duration-300 hover:scale-110"
       style={{
         clipPath:
           'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
@@ -25,9 +25,9 @@ export default function CommitteeCard({ info, title }: CommitteeCardProps) {
       <div className="absolute bottom-0 right-0 h-5 w-5 border-b-4 border-r-4 border-[#D4AF4080] transition-colors duration-300 group-hover:border-quarternary"></div>
 
       <div className="mt-8 flex justify-center">
-        <div className="h-36 w-36 overflow-hidden rounded-full border-[0.1875rem] border-[#79662f] bg-quarternary shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">
+        <div className="size-36 overflow-hidden rounded-full border-[0.1875rem] border-[#79662f] bg-quarternary shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">
           <Image
-            className="h-full w-full object-cover grayscale transition duration-300 group-hover:grayscale-0"
+            className="size-full object-cover grayscale transition duration-300 group-hover:grayscale-0"
             src={info.src}
             alt="name"
             width={300}
@@ -48,7 +48,7 @@ export default function CommitteeCard({ info, title }: CommitteeCardProps) {
     </div>
   ) : (
     <div
-      className="group relative flex min-h-[17.5rem] w-[17.125rem] cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#A6A6A670] bg-[#f8f0be] transition-all duration-300 hover:scale-110"
+      className="group relative flex min-h-72 w-64 cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#A6A6A670] bg-[#f8f0be] transition-all duration-300 hover:scale-110"
       style={{
         clipPath:
           'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
@@ -58,9 +58,9 @@ export default function CommitteeCard({ info, title }: CommitteeCardProps) {
       <div className="absolute bottom-0 right-0 h-12 w-12 border-b-[0.18rem] border-r-[0.18rem] border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
 
       <div className="mt-8 flex justify-center">
-        <div className="h-36 w-36 overflow-hidden rounded-full border border-secondary bg-[#403302] shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">
+        <div className="size-36 overflow-hidden rounded-full border border-secondary bg-[#403302] shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">
           <Image
-            className="h-full w-full object-cover grayscale transition duration-300 group-hover:grayscale-0"
+            className="size-full object-cover grayscale transition duration-300 group-hover:grayscale-0"
             src={info.src}
             alt="name"
             width={300}

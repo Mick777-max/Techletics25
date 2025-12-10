@@ -15,7 +15,7 @@ export default function Committee() {
               &nbsp;Committee
             </h2>
 
-            <div className="mt-2 h-[0.2rem] w-[15%] bg-gradient-to-r from-secondary to-transparent"></div>
+            <div className="mt-2 h-1 w-[15%] bg-gradient-to-r from-secondary to-transparent"></div>
 
             <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
               {item.details.map((info, index) => (

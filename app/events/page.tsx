@@ -18,7 +18,7 @@ export default function EventsPage() {
         <TechleticsCarousel />
       </section>
 
-      <section className='relative bg-[url("/image/bg-white.png")] bg-auto bg-center py-20'>
+      <section className="relative bg-white-bg bg-auto bg-center py-20">
         <SectionSeparator position="top" />
 
         <Events />
@@ -28,7 +28,7 @@ export default function EventsPage() {
 
       <DynamicTextMarquee type="ignite" />
 
-      <section className='relative bg-[url("/image/bg-white.png")] bg-cover bg-center py-20'>
+      <section className="relative bg-white-bg bg-cover bg-center py-20">
         <SectionSeparator position="top" />
 
         <FeaturedEvents />

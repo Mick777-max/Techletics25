@@ -88,7 +88,7 @@ const Events = () => {
         </motion.div>
 
         {activeCategory === 'TECHNICAL' && (
-          <div className="flex justify-end gap-6 max-sm:justify-center xl:absolute xl:right-16 xl:top-[21.75rem]">
+          <div className="flex justify-end gap-6 max-sm:justify-center xl:absolute xl:right-16 xl:top-80">
             <CustomSelect
               className="cursor-pointer rounded-lg border border-secondary bg-primary px-2 py-1 font-orbitron font-bold text-secondary focus:outline-none focus:ring-0 md:text-sm"
               onChange={(e) => handleBranchChange(e.target.value)}
@@ -134,14 +134,14 @@ const Events = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="w- group relative h-[18.5rem] bg-quarternary p-2 transition-all duration-300 ease-in hover:z-20 hover:scale-125 hover:border-[0.1px] hover:border-secondary hover:bg-secondary">
-                    <div className="absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
+                  <div className="group relative h-72 w-60 bg-quarternary p-2 transition-all duration-300 ease-in hover:z-20 hover:scale-125 hover:border-[0.1px] hover:border-secondary hover:bg-secondary">
+                    <div className="absolute left-0 top-0 size-5 border-l-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
 
-                    <div className="absolute right-0 top-0 h-5 w-5 border-r-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
+                    <div className="absolute right-0 top-0 size-5 border-r-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
 
-                    <div className="absolute bottom-0 left-0 h-5 w-5 border-b-4 border-l-4 border-secondary group-hover:border-quarternary"></div>
+                    <div className="absolute bottom-0 left-0 size-5 border-b-4 border-l-4 border-secondary group-hover:border-quarternary"></div>
 
-                    <div className="absolute bottom-0 right-0 h-5 w-5 border-b-4 border-r-4 border-secondary group-hover:border-quarternary"></div>
+                    <div className="absolute bottom-0 right-0 size-5 border-b-4 border-r-4 border-secondary group-hover:border-quarternary"></div>
                     <Image
                       className="h-full w-full object-fill grayscale hover:grayscale-0"
                       src={event.src}

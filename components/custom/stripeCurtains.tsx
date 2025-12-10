@@ -15,7 +15,7 @@ export default function StripeCurtain() {
         <motion.div
           key={i}
           variants={exitItem}
-          className={`h-full min-w-60 border-2 border-gray-500 border-opacity-15 ${i % 2 == 0 ? 'bg-gradient-to-r' : 'bg-gradient-to-l'} from-black to-stone-950 md:min-w-[25rem]`}
+          className={`h-full min-w-60 border-2 border-gray-500 border-opacity-15 ${i % 2 == 0 ? 'bg-gradient-to-r' : 'bg-gradient-to-l'} from-black to-stone-950 md:min-w-96`}
         />
       ))}
     </motion.div>
