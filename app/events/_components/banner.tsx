@@ -60,7 +60,7 @@ export default function TechleticsCarousel() {
   };
 
   return (
-    <div className="relative mt-[4rem] h-[85vh] w-full overflow-hidden font-orbitron text-white">
+    <div className="relative mt-16 h-[85vh] w-full overflow-hidden font-orbitron text-white">
       {/* Background Image */}
       <Image
         src={slides[current].image}

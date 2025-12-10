@@ -208,7 +208,7 @@ const DynamicTextMarquee = dynamic(
   () => Promise.resolve({ default: TextMarquee }),
   {
     ssr: false,
-    loading: () => <div className="h-[4.25rem] w-full bg-black md:h-[5rem]" />,
+    loading: () => <div className="h-[4.25rem] w-full bg-black md:h-20" />,
   },
 );
 

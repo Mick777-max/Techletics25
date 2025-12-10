@@ -6,17 +6,17 @@ const guidelines = [
 
 export default function Guidelines() {
   return (
-    <section className="relative mx-auto max-w-screen-xl items-center justify-center py-[4rem] max-lg:px-3">
-      <h1 className="mb-[0.5rem] text-wrap font-orbitron text-3xl font-medium text-primary md:text-5xl">
+    <section className="relative mx-auto max-w-screen-xl items-center justify-center py-16 max-lg:px-3">
+      <h1 className="mb-2 text-wrap font-orbitron text-3xl font-medium text-primary md:text-5xl">
         SUBMISSION <span className="text-secondary">GUIDELINES</span>
       </h1>
 
-      <div className="mt-8 flex flex-col gap-[2.5rem] font-opensans text-primary">
+      <div className="mt-8 flex flex-col gap-10 font-opensans text-primary">
         {guidelines.map((guideline, index) => {
           return (
             <div
               key={index}
-              className="flex cursor-cell flex-col items-center justify-between gap-2 text-wrap rounded-md border border-primary bg-black px-[1.5rem] py-[1.5rem] text-center transition-all duration-300 hover:scale-110 sm:flex-row sm:gap-8"
+              className="flex cursor-cell flex-col items-center justify-between gap-2 text-wrap rounded-md border border-primary bg-black px-6 py-6 text-center transition-all duration-300 hover:scale-110 sm:flex-row sm:gap-8"
             >
               <span className="flex gap-2">
                 <span className="hidden sm:block">☀️☀️☀️</span>
@@ -28,7 +28,7 @@ export default function Guidelines() {
         })}
 
         <div className="mt-6 flex items-center justify-center">
-          <div className="flex w-full cursor-cell flex-col items-center justify-center gap-4 text-wrap rounded-md border border-primary bg-black px-[1.5rem] py-[1.5rem] text-center text-2xl transition-all duration-300 hover:scale-105 sm:w-[65%] sm:text-3xl">
+          <div className="flex w-full cursor-cell flex-col items-center justify-center gap-4 text-wrap rounded-md border border-primary bg-black px-6 py-6 text-center text-2xl transition-all duration-300 hover:scale-105 sm:w-[65%] sm:text-3xl">
             <span className="">☀️</span>
             <span className="font-orbitron font-semibold">
               <span className="text-[#A6A6A6]">

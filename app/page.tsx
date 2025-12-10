@@ -75,7 +75,7 @@ export default function HomePage() {
 
       <DynamicTextMarquee type="techletics" />
 
-      <section className="relative bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center py-[4rem] max-xl-wide:pb-[11rem] max-md:pb-[35rem]">
+      <section className="relative bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center py-16 max-xl-wide:pb-44 max-md:pb-[35rem]">
         <SectionSeparator position="top" />
 
         <span id="stats"></span>
@@ -95,7 +95,7 @@ export default function HomePage() {
         <SectionSeparator position="bottom" />
       </section>
 
-      <section className="relative bg-quarternary bg-[url('/image/footer.png')] bg-cover bg-center py-[5rem]">
+      <section className="relative bg-quarternary bg-[url('/image/footer.png')] bg-cover bg-center py-20">
         <SectionSeparator position="top" />
         <div className="relative mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-16 p-4 xl:flex-row">
           {GalleryImages.slice(-3).map((imageData, imageIndex) => (
