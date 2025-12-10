@@ -73,7 +73,7 @@ export default function TermsPage() {
         </p>
 
         <div className="mt-8 flex justify-center">
-          <div className="h-1 w-[50%] rounded-full bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
+          <div className="h-1 w-1/2 rounded-full bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
         </div>
       </div>
     </main>

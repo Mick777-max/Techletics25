@@ -46,63 +46,24 @@ export default function Hero() {
           <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
             IGNITE
           </span>
-          <span
-            className={`text-[2.5rem] text-white`}
-            style={{ WebkitTextStroke: '1px white' }}
-          >
-            ✦
-          </span>
+          <span className={`whiteTextBorder text-[2.5rem] text-white`}>✦</span>
           <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
             INSPIRE
           </span>
-          <span
-            className={`text-[2.5rem] text-white`}
-            style={{ WebkitTextStroke: '1px white' }}
-          >
-            ✦
-          </span>
+          <span className={`whiteTextBorder text-[2.5rem] text-white`}>✦</span>
         </motion.div>
 
-        <motion.div
-          // variants={zoomIn(0.2, 1)}
-          className="flex w-full flex-col items-center justify-center md:flex-row md:gap-10"
-        >
+        <motion.div className="flex w-full flex-col items-center justify-center md:flex-row md:gap-10">
           <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
             ILLUMINATE
           </span>
 
-          <span
-            className={`text-[2.5rem] text-white`}
-            style={{ WebkitTextStroke: '1px white' }}
-          >
-            ✦
-          </span>
+          <span className={`whiteTextBorder text-[2.5rem] text-white`}>✦</span>
         </motion.div>
       </motion.div>
 
       <motion.div
-        // variants={zoomIn(1, 1, 150)}
         variants={zoomIn(1, 1)}
-        // variants = {
-        //   {
-        //     hidden:
-        //     {
-        //       scale: 0.7,
-        //       x: -250,
-        //       y: 50
-        //     },
-        //     show: {
-        //       scale: 1,
-        //       x: 0,
-        //       y: 0,
-        //       transition: {
-        //         type: "tween",
-        //         duration: 1,
-        //         delay: 1
-        //       }
-        //     }
-        //   }
-        // }
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}

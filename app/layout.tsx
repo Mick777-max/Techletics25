@@ -61,7 +61,7 @@ export default function RootLayout({
 
         <footer
           id="contact"
-          className="relative z-40 w-full bg-footer-bg bg-cover bg-center bg-repeat"
+          className="relative z-40 w-full bg-footerBg bg-cover bg-center bg-repeat"
         >
           <SocialAndConnect />
           <Copyright />
