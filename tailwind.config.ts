@@ -12,9 +12,9 @@ const config: Config = {
       screens: {
         'xxs': '360px',
         'xs': '400px', // extra small
-        'md-lg': '860px', // medium-large
-        'lg-xl': '1100px', // large-extra large
-        'xl-wide': '1346px', // ultra-wide
+        // 'md-lg': '860px', // medium-large
+        // 'lg-xl': '1100px', // large-extra large
+        // 'xl-wide': '1346px', // ultra-wide
       },
       colors: {
         primary: 'var(--color-primary)',

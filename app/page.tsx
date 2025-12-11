@@ -30,7 +30,7 @@ export default function HomePage() {
 
         <main className="pb-50 relative mx-auto flex h-auto max-w-7xl flex-col items-start overflow-hidden max-md:items-center">
           <div className="text-3xl md:text-5xl">
-            <h1 className="pt-10 font-orbitron font-medium text-quarternary max-xl-wide:mx-3 md:pt-20">
+            <h1 className="mx-3 pt-10 font-orbitron font-medium text-quarternary md:pt-20">
               ARE YOU A{' '}
               <span className="text-secondary">TECH ENTHUSIAST?{'  '}</span>THEN{' '}
               <span className="text-secondary">TECHLETICS &apos;26</span> IS FOR
