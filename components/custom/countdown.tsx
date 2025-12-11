@@ -44,7 +44,7 @@ export default function Countdown({ targetDate }: { targetDate: string }) {
   }, [targetDate]);
 
   return (
-    <div className="flex gap-8 font-orbitron text-7xl font-bold text-quarternary max-md:flex-col max-md:gap-0">
+    <div className="flex flex-col gap-8 font-orbitron text-7xl font-bold text-quarternary md:flex-row">
       <div className="flex flex-col items-center justify-center">
         <span>{timeLeft.days.toString().padStart(2, '0')}:</span>
         <span className="text-base leading-none">Days</span>
