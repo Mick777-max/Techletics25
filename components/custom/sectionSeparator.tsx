@@ -7,10 +7,10 @@ export default function sectionSeparator({
 }) {
   return (
     <div
-      className={`absolute ${position === 'top' ? 'top-0' : 'bottom-0 rotate-180'} z-40 w-full`}
+      className={`absolute ${position === 'top' ? 'top-0' : 'bottom-0 rotate-180'} w-full`}
     >
       <Image
-        src="/icons/section-separator.png"
+        src="/image/section-seperator.svg"
         alt="section separator"
         width={1000}
         height={50}
