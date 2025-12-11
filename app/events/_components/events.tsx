@@ -74,7 +74,7 @@ const Events = () => {
               {activeCategory === category && (
                 <motion.div
                   layoutId="category-underline"
-                  className="absolute bottom-0 left-0 h-full w-full rounded-full bg-secondary"
+                  className="absolute bottom-0 left-0 size-full rounded-full bg-secondary"
                   transition={{ type: 'spring', stiffness: 200, damping: 30 }}
                 />
               )}
@@ -88,7 +88,7 @@ const Events = () => {
         </motion.div>
 
         {activeCategory === 'TECHNICAL' && (
-          <div className="flex justify-end gap-6 max-sm:justify-center xl:absolute xl:right-16 xl:top-80">
+          <div className="flex justify-center gap-6 sm:justify-end xl:absolute xl:right-16 xl:top-80">
             <CustomSelect
               className="cursor-pointer rounded-lg border border-secondary bg-primary px-2 py-1 font-orbitron font-bold text-secondary focus:outline-none focus:ring-0 md:text-sm"
               onChange={(e) => handleBranchChange(e.target.value)}
@@ -143,7 +143,7 @@ const Events = () => {
 
                     <div className="absolute bottom-0 right-0 size-5 border-b-4 border-r-4 border-secondary group-hover:border-quarternary"></div>
                     <Image
-                      className="h-full w-full object-fill grayscale hover:grayscale-0"
+                      className="size-full object-fill grayscale hover:grayscale-0"
                       src={event.src}
                       alt={event.name}
                       width={300}

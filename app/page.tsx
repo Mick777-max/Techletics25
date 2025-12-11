@@ -8,6 +8,7 @@ import GlassCapsules from '@/components/glassCapsule';
 import HomeGalleryImageView from '@/components/homeGalleryImageView';
 import { GalleryImages } from './data';
 import DynamicTextMarquee from '@/components/custom/marquee';
+import StripeCurtain from '@/components/custom/stripeCurtains';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -18,17 +19,29 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="w-full min-w-80">
-      <section className="relative bg-black">
+      <section className="relative overflow-hidden md:h-screen">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute size-full scale-[1.118] object-cover"
+        >
+          <source src="/image/cloudsBg.mp4" type="video/mp4" />
+        </video>
+
+        <StripeCurtain />
+
         <Hero />
         <SectionSeparator position="bottom" />
       </section>
 
       <DynamicTextMarquee type="ignite" />
 
-      <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
+      <section className="relative bg-whiteBg bg-cover bg-center">
         <SectionSeparator position="top" />
 
-        <main className="pb-50 relative mx-auto flex h-auto max-w-7xl flex-col items-start overflow-hidden max-md:items-center">
+        <main className="pb-50 relative mx-auto flex h-auto max-w-7xl flex-col items-center overflow-hidden md:items-start">
           <div className="text-3xl md:text-5xl">
             <h1 className="mx-3 pt-10 font-orbitron font-medium text-quarternary md:pt-20">
               ARE YOU A{' '}
@@ -38,7 +51,7 @@ export default function HomePage() {
             </h1>
           </div>
 
-          <div className="flex max-w-[90%] items-center justify-center pb-6 max-md:flex-col">
+          <div className="flex max-w-[90%] flex-col items-center justify-center pb-6 md:flex-row">
             <div className="shrink-0">
               <Image
                 src="/logos/techletics-logo.svg"
@@ -49,8 +62,8 @@ export default function HomePage() {
               />
             </div>
 
-            <div className="max-md:mx-3">
-              <p className="font-orbitron text-[1.125rem] text-quarternary">
+            <div className="mx-3 md:mx-0">
+              <p className="font-orbitron text-lg text-quarternary">
                 Join us for the fourth edition of Techletics, the
                 techno-cultural festival of Christ College of Engineering.
                 Explore, learn, and enjoy the latest innovations and trends in
@@ -60,7 +73,7 @@ export default function HomePage() {
                 mind. Techletics &apos;26 is the ultimate rendezvous of
                 innovation and zest. Don&apos;t miss it.
               </p>
-              <p className="pt-5 font-orbitron text-[1.125rem] text-quarternary">
+              <p className="pt-5 font-orbitron text-lg text-quarternary">
                 Techletics &apos;26 is a techno-cultural techfest organized by
                 Christ College of Engineering, Irinjalakuda in 2026. The
                 techfest aims to provide a platform for technical students and

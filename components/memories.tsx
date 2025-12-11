@@ -33,7 +33,7 @@ export default function Memories() {
           />
         ))}
       </div>
-      <div className="relative z-10 flex flex-col items-center justify-center text-center font-orbitron text-5xl font-bold leading-none text-white max-md:text-4xl">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center font-orbitron text-4xl font-bold leading-none text-white md:text-5xl">
         {words.map((word) => (
           <span key={word}>{word}</span>
         ))}

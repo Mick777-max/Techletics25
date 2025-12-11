@@ -14,12 +14,12 @@ interface CommitteeCardProps {
 
 export default function CommitteeCard({ info, title }: CommitteeCardProps) {
   return title === 'Executive' ? (
-    <div className="clipPolygon group relative flex min-h-80 w-52 cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#D4AF4080] bg-[#fff9d3] transition-all duration-300 hover:scale-110">
-      <div className="absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-[#D4AF4080] transition-colors duration-300 group-hover:border-quarternary"></div>
-      <div className="absolute bottom-0 right-0 h-5 w-5 border-b-4 border-r-4 border-[#D4AF4080] transition-colors duration-300 group-hover:border-quarternary"></div>
+    <div className="clipCard group relative flex min-h-80 w-52 cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#D4AF4080] bg-[#fff9d3] transition-all duration-300 hover:scale-110">
+      <div className="absolute left-0 top-0 size-5 border-l-4 border-t-4 border-[#D4AF4080] transition-colors duration-300 group-hover:border-quarternary"></div>
+      <div className="absolute bottom-0 right-0 size-5 border-b-4 border-r-4 border-[#D4AF4080] transition-colors duration-300 group-hover:border-quarternary"></div>
 
       <div className="mt-8 flex justify-center">
-        <div className="size-36 overflow-hidden rounded-full border-[0.1875rem] border-[#79662f] bg-quarternary shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">
+        <div className="size-36 overflow-hidden rounded-full border-2 border-[#79662f] bg-quarternary shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">
           <Image
             className="size-full object-cover grayscale transition duration-300 group-hover:grayscale-0"
             src={info.src}
@@ -31,7 +31,7 @@ export default function CommitteeCard({ info, title }: CommitteeCardProps) {
       </div>
 
       <div className="mt-4 flex flex-col items-center gap-2 px-3 text-center">
-        <span className="mx-1 text-wrap font-orbitron text-[1.1rem] font-semibold text-quarternary">
+        <span className="mx-1 text-wrap font-orbitron text-base font-semibold text-quarternary">
           {info.name}
         </span>
 
@@ -41,9 +41,9 @@ export default function CommitteeCard({ info, title }: CommitteeCardProps) {
       </div>
     </div>
   ) : (
-    <div className="clipPolygon group relative flex min-h-72 w-64 cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#A6A6A670] bg-[#f8f0be] transition-all duration-300 hover:scale-110">
-      <div className="absolute left-0 top-0 h-12 w-12 border-l-[0.18rem] border-t-[0.18rem] border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
-      <div className="absolute bottom-0 right-0 h-12 w-12 border-b-[0.18rem] border-r-[0.18rem] border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
+    <div className="clipCard group relative flex min-h-72 w-64 cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#A6A6A670] bg-[#f8f0be] transition-all duration-300 hover:scale-110">
+      <div className="absolute left-0 top-0 size-12 border-l-2 border-t-2 border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
+      <div className="absolute bottom-0 right-0 size-12 border-b-2 border-r-2 border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
 
       <div className="mt-8 flex justify-center">
         <div className="size-36 overflow-hidden rounded-full border border-secondary bg-[#403302] shadow-[0_0_20px_4px_rgba(199,154,66,0.6)] transition-all duration-300">

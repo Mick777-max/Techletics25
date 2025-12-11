@@ -48,7 +48,7 @@ const SocialAndConnect = () => {
         </div>
 
         <div className="flex w-fit flex-col gap-4">
-          <p className="w-fit text-justify font-orbitron text-[1.5rem] font-medium text-secondary md:text-[2rem]">
+          <p className="w-fit text-justify font-orbitron text-2xl font-medium text-secondary md:text-3xl">
             GET IN TOUCH
           </p>
 

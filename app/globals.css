@@ -15,12 +15,15 @@ html {
 
 body {
   font-family: var(--font-fonarto), Arial, sans-serif;
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* For Firefox */
+  -ms-overflow-style: none;
+  /* For Internet Explorer 10+ */
 }
 
 ::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, Edge */
+  display: none;
+  /* For Chrome, Safari, Edge */
 }
 
 .my-gradient-bg {
@@ -28,7 +31,8 @@ body {
 }
 
 .vertical-timeline-element-icon {
-  box-shadow: 0 0 0 0 !important; /* remove white ring */
+  box-shadow: 0 0 0 0 !important;
+  /* remove white ring */
 }
 
 .vertical-timeline-element-content.bounce-in {
@@ -36,16 +40,19 @@ body {
 }
 
 .vertical-timeline-element {
-  margin: 3rem 0 !important; /* no extra vertical space at all */
+  margin: 3rem 0 !important;
+  /* no extra vertical space at all */
   /* or e.g.: margin: 0.5rem 0 !important; if you want a small gap */
 }
 
 .vertical-timeline::before {
-  height: 80% !important; /* your desired line length */
-  top: 8% !important; /* centers it vertically */
+  height: 80% !important;
+  /* your desired line length */
+  top: 8% !important;
+  /* centers it vertically */
 }
 
-.clipPolygon {
+.clipCard {
   clip-path: polygon(
     0 0,
     calc(100% - 20px) 0,
@@ -64,6 +71,17 @@ body {
     100% 100%,
     6% 100%,
     0 calc(100% - 6%)
+  );
+}
+
+.clipNavbar {
+  clip-path: polygon(
+    12px 0,
+    100% 0,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0 100%,
+    0 12px
   );
 }
 
