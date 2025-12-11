@@ -123,7 +123,7 @@ export const container = {
 export const exitItem: Variants = {
   initial: { y: 0, opacity: 1 },
   exit: {
-    y: -1200,
+    y: '-100vh',
     opacity: 0,
     transition: {
       y: {
@@ -153,7 +153,7 @@ export const zoomOutAndExit: Variants = {
     },
   },
   exit: {
-    y: -1200,
+    y: '-100vh',
     opacity: 0,
     transition: {
       y: {
