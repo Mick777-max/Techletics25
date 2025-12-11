@@ -88,7 +88,7 @@ const Events = () => {
         </motion.div>
 
         {activeCategory === 'TECHNICAL' && (
-          <div className="flex justify-end gap-6 max-sm:justify-center xl:absolute xl:right-16 xl:top-80">
+          <div className="flex justify-center gap-6 sm:justify-end xl:absolute xl:right-16 xl:top-80">
             <CustomSelect
               className="cursor-pointer rounded-lg border border-secondary bg-primary px-2 py-1 font-orbitron font-bold text-secondary focus:outline-none focus:ring-0 md:text-sm"
               onChange={(e) => handleBranchChange(e.target.value)}

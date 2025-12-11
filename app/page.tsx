@@ -41,7 +41,7 @@ export default function HomePage() {
       <section className="relative bg-whiteBg bg-cover bg-center">
         <SectionSeparator position="top" />
 
-        <main className="pb-50 relative mx-auto flex h-auto max-w-7xl flex-col items-start overflow-hidden max-md:items-center">
+        <main className="pb-50 relative mx-auto flex h-auto max-w-7xl flex-col items-center overflow-hidden md:items-start">
           <div className="text-3xl md:text-5xl">
             <h1 className="mx-3 pt-10 font-orbitron font-medium text-quarternary md:pt-20">
               ARE YOU A{' '}
@@ -51,7 +51,7 @@ export default function HomePage() {
             </h1>
           </div>
 
-          <div className="flex max-w-[90%] items-center justify-center pb-6 max-md:flex-col">
+          <div className="flex max-w-[90%] flex-col items-center justify-center pb-6 md:flex-row">
             <div className="shrink-0">
               <Image
                 src="/logos/techletics-logo.svg"
@@ -62,7 +62,7 @@ export default function HomePage() {
               />
             </div>
 
-            <div className="max-md:mx-3">
+            <div className="mx-3 md:mx-0">
               <p className="font-orbitron text-lg text-quarternary">
                 Join us for the fourth edition of Techletics, the
                 techno-cultural festival of Christ College of Engineering.
