@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Committee from './components/comitee';
-import DynamicTextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/custom/marquee';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -12,17 +12,17 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="w-full min-w-80 overflow-clip">
-      <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
+      <section className="relative bg-whiteBg bg-cover bg-center">
         <Image
-          className="left-[-6.5rem] top-[21rem] z-0 hidden opacity-75 lg:absolute lg:block"
+          className="-left-28 top-80 z-0 hidden opacity-75 lg:absolute lg:block"
           src="/logos/techletics-logo.svg"
           alt="name"
           width={400}
           height={400}
         />
 
-        <div className="relative mx-auto max-w-screen-2xl px-[1.5rem] py-[8rem] sm:px-8 sm:py-4 lg:px-16 lg:py-9">
-          <div className="flex flex-wrap items-center justify-between p-2 font-orbitron text-4xl font-extrabold tracking-wide text-quarternary sm:text-5xl md:text-7xl lg:mt-[10rem] xl:mt-[6rem]">
+        <div className="relative mx-auto max-w-screen-2xl px-6 py-32 sm:px-8 sm:py-4 lg:px-16 lg:py-9">
+          <div className="flex flex-wrap items-center justify-between p-2 font-orbitron text-4xl font-extrabold tracking-wide text-quarternary sm:text-5xl md:text-7xl lg:mt-40 xl:mt-24">
             <span className="mr-4">ABOUT</span>
             <div className="flex gap-1">
               <Image
@@ -31,7 +31,7 @@ export default function AboutPage() {
                 height={128}
                 alt="Barcode"
                 priority
-                className="hidden h-[88px] w-auto 2xl:flex 2xl:h-24"
+                className="hidden h-20 w-auto 2xl:flex 2xl:h-24"
               />
             </div>
           </div>
@@ -100,7 +100,7 @@ export default function AboutPage() {
         />
 
         <Image
-          className="right-[-7rem] top-[40rem] z-10 hidden opacity-75 lg:absolute lg:block"
+          className="-bottom-64 -right-28 z-10 hidden opacity-75 lg:absolute lg:block"
           src="/logos/techletics-logo.svg"
           alt="name"
           width={400}
@@ -117,7 +117,7 @@ export default function AboutPage() {
             <h2 className="font-orbitron text-3xl font-bold sm:text-4xl lg:text-5xl">
               <span className="text-quarternary">TECHLETICS</span>{' '}
               <span className="text-secondary">LEGACY</span>&nbsp;
-              <div className="mt-2 h-[0.3rem] w-[20%] bg-gradient-to-r from-secondary to-transparent"></div>
+              <div className="mt-2 h-1 w-[20%] bg-gradient-to-r from-secondary to-transparent"></div>
             </h2>
 
             <div className="mb-6 font-orbitron font-extralight sm:mb-12 lg:mb-0">
@@ -168,9 +168,9 @@ export default function AboutPage() {
 
       <DynamicTextMarquee bg="secondary" text="black" />
 
-      <section className="relative bg-[url('/image/bg-white.png')] bg-center bg-repeat">
+      <section className="relative bg-whiteBg bg-center bg-repeat">
         <Image
-          className="left-[-8rem] top-[-1rem] z-0 hidden opacity-75 lg:absolute xl-wide:block"
+          className="-left-32 -top-4 hidden opacity-75 lg:absolute xl:block"
           src="/logos/techletics-logo.svg"
           alt="name"
           width={400}

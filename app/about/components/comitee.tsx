@@ -1,11 +1,11 @@
 import { CommitteeCard } from '@/components/cards';
-import DynamicTextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/custom/marquee';
 import { CommitteeData } from '@/app/data';
 
 export default function Committee() {
   return (
     <div className="relative mx-auto max-w-screen-xl overflow-visible px-2 pt-6">
-      <div className="h-[0.3rem] w-full bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
+      <div className="h-1 w-full bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
 
       {CommitteeData.map((item, index) => (
         <div key={index} className="relative px-4 py-6 sm:px-6 lg:px-12">
@@ -15,7 +15,7 @@ export default function Committee() {
               &nbsp;Committee
             </h2>
 
-            <div className="mt-2 h-[0.2rem] w-[15%] bg-gradient-to-r from-secondary to-transparent"></div>
+            <div className="mt-2 h-1 w-[15%] bg-gradient-to-r from-secondary to-transparent"></div>
 
             <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
               {item.details.map((info, index) => (

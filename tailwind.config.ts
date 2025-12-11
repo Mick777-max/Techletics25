@@ -10,11 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        'extr-xs': '360px',
-        'xs': '400px', // extra small
-        'md-lg': '860px', // medium-large
-        'lg-xl': '1100px', // large-extra large
-        'xl-wide': '1346px', // ultra-wide
+        'xxs': '360px',
+        'xs': '400px'
       },
       colors: {
         primary: 'var(--color-primary)',
@@ -91,6 +88,10 @@ const config: Config = {
       backgroundImage: {
         grid: "url('/image/Grid.svg')",
         'grid-pattern': "url('./public/image/Grid.svg')",
+        'whiteBg': "url('/image/bg-white.png')",
+        'ruinsGrey': "url('/image/ruins-bg-grey.png')",
+        'footerBg': "url('/image/footer.png')",
+        'glassCapsules': "url('/image/glass-capsules.png')"
       },
     },
   },

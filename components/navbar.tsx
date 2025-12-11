@@ -39,24 +39,24 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-24 items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex flex-shrink-0 items-center gap-3">
+          <div className="hidden flex-shrink-0 items-center gap-1 xxs:flex">
             <Link href="/" prefetch={true} className="flex items-center gap-3">
               <Image
                 src="/logos/techletics-logo.svg"
                 alt="Techletics Logo"
                 width={40}
                 height={40}
-                className="h-10 w-auto"
+                className="h-10 w-auto xl:h-12"
                 priority
               />
-              <span className="font-orbitron text-2xl font-bold tracking-wider text-[#c9a55c]">
+              <span className="font-orbitron text-xl font-bold tracking-wider text-[#c9a55c] lg:text-2xl xl:text-3xl">
                 TECH<span className="text-gray-300">LETICS</span>&apos;26
               </span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden items-center md-lg:flex">
+          <div className="hidden items-center md:flex">
             <div className="relative inline-block">
               {/* Gold Border Layer */}
               <div
@@ -78,7 +78,7 @@ export default function Navbar() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="duration-10 hidden items-center justify-center gap-1 rounded-lg px-4 py-2 text-sm text-white backdrop-blur-sm transition-all hover:scale-110 hover:font-bold lg-xl:flex"
+                        className="duration-10 hidden items-center justify-center gap-1 rounded-lg px-4 py-2 text-sm text-white backdrop-blur-sm transition-all hover:scale-110 hover:font-bold lg:flex"
                       >
                         {link.label.toUpperCase()}
                       </a>
@@ -112,7 +112,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center max-extr-xs:hidden md-lg:hidden">
+          <div className="flex items-center md:hidden">
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center rounded-lg p-2 text-secondary backdrop-blur-sm transition-all duration-300 hover:bg-secondary hover:text-quarternary focus:outline-none focus:ring-2 focus:ring-gray-400/30"
@@ -158,7 +158,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`transition-all duration-300 ease-in-out md-lg:hidden ${
+        className={`transition-all duration-300 ease-in-out md:hidden ${
           isMenuOpen
             ? 'max-h-screen opacity-100'
             : 'max-h-0 overflow-hidden opacity-0'

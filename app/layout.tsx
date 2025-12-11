@@ -53,7 +53,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${orbitronFont.variable} ${rasputinFont.className} ${openSans.variable} ${openSans.className} antialiased`}
+        className={`${rasputinFont.variable} ${turretRoad.variable} ${secondaryFont.variable} ${orbitronFont.variable} ${rasputinFont.className} ${openSans.variable} ${openSans.className} w-full min-w-80 antialiased`}
         suppressHydrationWarning={true}
       >
         <Navbar />
@@ -61,7 +61,7 @@ export default function RootLayout({
 
         <footer
           id="contact"
-          className="relative z-40 w-full bg-[url('/image/footer.png')] bg-cover bg-center bg-repeat"
+          className="relative z-40 w-full bg-footerBg bg-cover bg-center bg-repeat"
         >
           <SocialAndConnect />
           <Copyright />

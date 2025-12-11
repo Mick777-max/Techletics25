@@ -45,6 +45,17 @@ body {
   top: 8% !important; /* centers it vertically */
 }
 
+.clipPolygon {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0 calc(100% - 20px)
+  );
+}
+
 .imagePolygonWrapper {
   clip-path: polygon(
     0 0,
@@ -58,4 +69,12 @@ body {
 
 video::-webkit-media-controls {
   display: none;
+}
+
+.whiteTextBorder {
+  -webkit-text-stroke: 1px white;
+}
+
+.blackTextBorder {
+  -webkit-text-stroke: 1px black;
 }

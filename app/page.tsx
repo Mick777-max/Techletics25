@@ -1,13 +1,13 @@
 import SectionSeparator from '@/components/custom/sectionSeparator';
-import Home from '@/components/home';
+import Hero from '@/components/hero';
 import Memories from '@/components/memories';
-import Stats from '@/components/statsnew';
+import Stats from '@/components/stats';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import Filler from '@/components/filler';
+import GlassCapsules from '@/components/glassCapsule';
 import HomeGalleryImageView from '@/components/homeGalleryImageView';
 import { GalleryImages } from './data';
-import DynamicTextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/custom/marquee';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -19,7 +19,7 @@ export default function HomePage() {
   return (
     <div className="w-full min-w-80">
       <section className="relative bg-black">
-        <Home />
+        <Hero />
         <SectionSeparator position="bottom" />
       </section>
 
@@ -30,7 +30,7 @@ export default function HomePage() {
 
         <main className="pb-50 relative mx-auto flex h-auto max-w-7xl flex-col items-start overflow-hidden max-md:items-center">
           <div className="text-3xl md:text-5xl">
-            <h1 className="pt-10 font-orbitron font-medium text-quarternary max-xl-wide:mx-3 md:pt-20">
+            <h1 className="mx-3 pt-10 font-orbitron font-medium text-quarternary md:pt-20">
               ARE YOU A{' '}
               <span className="text-secondary">TECH ENTHUSIAST?{'  '}</span>THEN{' '}
               <span className="text-secondary">TECHLETICS &apos;26</span> IS FOR
@@ -45,7 +45,7 @@ export default function HomePage() {
                 alt="logo"
                 width={500}
                 height={500}
-                className="h-auto w-[380px]"
+                className="h-auto w-96"
               />
             </div>
 
@@ -75,7 +75,7 @@ export default function HomePage() {
 
       <DynamicTextMarquee type="techletics" />
 
-      <section className="relative bg-[url('/image/ruins-bg-grey.png')] bg-cover bg-center py-[4rem] max-xl-wide:pb-[11rem] max-md:pb-[35rem]">
+      <section className="relative bg-ruinsGrey bg-cover bg-center py-16">
         <SectionSeparator position="top" />
 
         <span id="stats"></span>
@@ -87,7 +87,7 @@ export default function HomePage() {
 
       <DynamicTextMarquee type="ignite" />
 
-      <section className="relative flex h-[100vh] flex-col items-center justify-center bg-[url('/image/bg-white.png')] bg-cover bg-center">
+      <section className="relative flex h-[100vh] flex-col items-center justify-center bg-whiteBg bg-cover bg-center">
         <SectionSeparator position="top" />
 
         <Memories />
@@ -95,36 +95,20 @@ export default function HomePage() {
         <SectionSeparator position="bottom" />
       </section>
 
-      <section className="relative bg-quarternary bg-[url('/image/footer.png')] bg-cover bg-center py-[5rem]">
+      <section className="relative bg-quarternary bg-footerBg bg-cover bg-center py-20">
         <SectionSeparator position="top" />
         <div className="relative mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-16 p-4 xl:flex-row">
-          {GalleryImages.slice(-3).map((imageData, imageIndex) => (
-            <HomeGalleryImageView
-              src={imageData}
-              key={imageData}
-              index={imageIndex}
-            />
+          {GalleryImages.map((imageData, i) => (
+            <HomeGalleryImageView src={imageData} key={i} index={i} />
           ))}
         </div>
-
-        {/* <SectionSeparator position="bottom" /> */}
       </section>
 
       {/* <TextMarquee type="ignite" /> */}
 
       <section className="relative h-[90vh] bg-black">
-        <Filler />
+        <GlassCapsules />
       </section>
-
-      {/* <TextMarquee type="techletics" /> */}
-
-      {/* <section className="relative bg-[url('/image/bg-white.png')] bg-cover bg-center">
-        <SectionSeparator position="top" />
-
-        <Media />
-
-        <SectionSeparator position="bottom" />
-      </section> */}
 
       <DynamicTextMarquee type="ignite" />
     </div>

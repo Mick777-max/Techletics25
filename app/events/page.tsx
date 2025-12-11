@@ -1,4 +1,4 @@
-import DynamicTextMarquee from '@/components/marquee';
+import DynamicTextMarquee from '@/components/custom/marquee';
 import { Metadata } from 'next';
 import TechleticsCarousel from './_components/banner';
 import FeaturedEvents from './_components/featuredEvents';
@@ -18,7 +18,7 @@ export default function EventsPage() {
         <TechleticsCarousel />
       </section>
 
-      <section className='relative bg-[url("/image/bg-white.png")] bg-auto bg-center py-[5rem]'>
+      <section className="relative bg-whiteBg bg-auto bg-center py-20">
         <SectionSeparator position="top" />
 
         <Events />
@@ -28,7 +28,7 @@ export default function EventsPage() {
 
       <DynamicTextMarquee type="ignite" />
 
-      <section className='relative bg-[url("/image/bg-white.png")] bg-cover bg-center py-[5rem]'>
+      <section className="relative bg-whiteBg bg-cover bg-center py-20">
         <SectionSeparator position="top" />
 
         <FeaturedEvents />

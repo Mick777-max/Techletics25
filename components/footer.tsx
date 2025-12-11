@@ -1,15 +1,12 @@
-import Image from 'next/image';
 import { SocialIcon } from './svg/icons';
 import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 
 const Copyright = () => {
   return (
-    <div className="relative mx-auto flex min-h-16 w-full max-w-screen-xl items-center justify-center overflow-hidden border-t-[1px] border-tertiary">
+    <div className="relative mx-auto flex min-h-16 w-full max-w-screen-xl items-center justify-center overflow-clip border-t-[1px] border-tertiary">
       <div className="absolute mt-2 flex w-full justify-center md:mt-8">
-        <span
-          className="whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent opacity-40 md:text-9xl"
-          style={{ WebkitTextStroke: '1px rgba(231,230,228,0.4)' }}
-        >
+        <span className="whiteTextBorder whitespace-nowrap pt-8 align-middle font-secondary text-8xl leading-none tracking-widest text-transparent opacity-40 md:text-9xl">
           TECHLETICS
         </span>
       </div>
@@ -38,7 +35,7 @@ const SocialAndConnect = () => {
   return (
     <section className="relative z-10 mx-auto w-full max-w-screen-2xl overflow-hidden px-3">
       <div className="flex w-full flex-col justify-center gap-12 text-secondary md:p-6 lg:py-12">
-        <div className="flex flex-col flex-wrap justify-center gap-0 align-middle font-orbitron text-3xl font-bold text-tertiary md:text-5xl">
+        <div className="mt-5 flex flex-col flex-wrap justify-center gap-0 align-middle font-orbitron text-3xl font-bold text-tertiary md:text-5xl">
           <div className="w-full">
             <span>
               WANT TO <span className="text-secondary">KNOW MORE?</span>
@@ -56,14 +53,8 @@ const SocialAndConnect = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 md:gap-6 lg:justify-center lg:gap-12">
-            <div className="flex gap-4">
-              <Image
-                src="/icons/arrow.svg"
-                width={24}
-                height={24}
-                alt="Arrow Icon"
-                priority
-              />
+            <div className="flex items-center justify-center gap-4">
+              <ArrowUpRight className="h-6 w-6 text-white" />
               <Link
                 href="https://cce.edu.in/"
                 target="_blank"
@@ -74,13 +65,7 @@ const SocialAndConnect = () => {
             </div>
 
             <div className="flex gap-4 self-center">
-              <Image
-                src="/icons/arrow.svg"
-                width={24}
-                height={24}
-                alt="Arrow Icon"
-                priority
-              />
+              <ArrowUpRight className="size-6 text-white" />
 
               <div className="flex flex-wrap gap-4 font-orbitron text-xl font-extrabold">
                 <Link
@@ -90,14 +75,6 @@ const SocialAndConnect = () => {
                   +91 9946629072
                 </Link>
               </div>
-              {/* <Image
-              src="/image/union.png"
-              width={500}
-              height={500}
-              alt="Techetics Logo"
-              priority
-               className="absolute bottom-10 left-0 right-0 z-50 -rotate-[35deg] opacity-15  md:left-1/3 w-10 h-10"
-             /> */}
             </div>
           </div>
         </div>

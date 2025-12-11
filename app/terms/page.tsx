@@ -1,6 +1,6 @@
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-quarternary px-6 py-[6rem] font-orbitron text-tertiary">
+    <main className="min-h-screen bg-quarternary px-6 py-24 font-orbitron text-tertiary">
       <div className="border-secondary/40 shadow-secondary/20 mx-auto max-w-4xl rounded-2xl border bg-[#1b1b1b]/60 p-8 shadow-lg backdrop-blur-md">
         <h1 className="pb-5 text-center text-6xl font-bold text-secondary">
           Terms and Conditions
@@ -73,7 +73,7 @@ export default function TermsPage() {
         </p>
 
         <div className="mt-8 flex justify-center">
-          <div className="h-[0.2rem] w-[50%] rounded-full bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
+          <div className="h-1 w-1/2 rounded-full bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
         </div>
       </div>
     </main>

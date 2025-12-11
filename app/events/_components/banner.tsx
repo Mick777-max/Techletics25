@@ -13,14 +13,14 @@ const slides = [
       'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765159043577-d4e5pm/view?project=6934f5ee0031b4cec180',
     link: 'https://pdflink.to/3617cb95/', // Add your link here
   },
-  // {
-  //   id: 2,
-  //   title: 'INNOVATE. INSPIRE. IGNITE.',
-  //   subtitle: 'Where technology meets creativity at Techletics ’25',
-  //   image:
-  //     'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.08_791165df.jpg',
-  //   link: 'https://hacknite.cce.edu.in/', // Add your link here
-  // },
+  {
+    id: 2,
+    title: 'INNOVATE. INSPIRE. IGNITE.',
+    subtitle: 'Where technology meets creativity at Techletics ’25',
+    image:
+      'https://dnbca6q7do6n.cloudfront.net/media/techletics24/WhatsApp_Image_2024-02-18_at_22.29.08_791165df.jpg',
+    link: 'https://hacknite.cce.edu.in/', // Add your link here
+  },
   {
     id: 3,
     title: 'THE FUTURE IS HERE.',
@@ -60,7 +60,7 @@ export default function TechleticsCarousel() {
   };
 
   return (
-    <div className="relative mt-[4rem] h-[85vh] w-full overflow-hidden font-orbitron text-white">
+    <div className="relative mt-16 h-[85vh] w-full overflow-hidden font-orbitron text-white">
       {/* Background Image */}
       <Image
         src={slides[current].image}
@@ -99,7 +99,7 @@ export default function TechleticsCarousel() {
       </div>
 
       {/* Dots / Indicators */}
-      {/* <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 transform space-x-5">
+      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 transform space-x-5">
         {slides.map((_, index) => (
           <motion.div
             key={index}
@@ -119,7 +119,7 @@ export default function TechleticsCarousel() {
             }}
           />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 }

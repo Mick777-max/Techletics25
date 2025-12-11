@@ -45,8 +45,8 @@ const Events = () => {
   }, []);
 
   return (
-    <section className="relative mx-auto max-w-screen-2xl items-center justify-center px-10">
-      <div className="flex flex-col justify-center gap-6 pt-6 lg:pt-12">
+    <section className="relative mx-auto max-w-screen-2xl items-center justify-center overflow-hidden px-10">
+      <div className="flex flex-col items-center justify-center gap-6 pt-6 lg:pt-12">
         <div className="flex flex-wrap items-center justify-between p-2 font-orbitron text-4xl font-bold tracking-wide text-quarternary sm:text-5xl md:text-7xl lg:mt-12 xl:mt-8">
           <span className="mr-4">EVENTS</span>
           <div className="flex gap-1">
@@ -56,19 +56,19 @@ const Events = () => {
               height={128}
               alt="Barcode"
               priority
-              className="hidden h-[88px] w-auto 2xl:flex 2xl:h-24"
+              className="hidden h-20 w-auto 2xl:flex 2xl:h-24"
             />
           </div>
         </div>
 
         <motion.div
           layout
-          className="relative mx-auto flex items-center justify-between rounded-full border border-secondary p-1 font-orbitron text-sm lowercase tracking-wider text-secondary sm:mt-8 md:mt-12 md:p-2 md:text-lg lg:w-fit lg:text-xl"
+          className="relative mx-auto flex items-center justify-center rounded-full border border-secondary p-1 font-orbitron text-sm lowercase tracking-wider text-secondary sm:mt-8 md:mt-12 md:p-2 md:text-lg lg:w-fit lg:text-xl"
         >
           {categories.map((category) => (
             <div
               key={category}
-              className="relative cursor-pointer px-6 py-1 uppercase lg:px-8"
+              className="relative cursor-pointer px-4 py-1 uppercase"
               onClick={() => handleCategoryChange(category)}
             >
               {activeCategory === category && (
@@ -88,7 +88,7 @@ const Events = () => {
         </motion.div>
 
         {activeCategory === 'TECHNICAL' && (
-          <div className="flex justify-end gap-6 max-sm:justify-center xl:absolute xl:right-16 xl:top-[348px]">
+          <div className="flex justify-end gap-6 max-sm:justify-center xl:absolute xl:right-16 xl:top-80">
             <CustomSelect
               className="cursor-pointer rounded-lg border border-secondary bg-primary px-2 py-1 font-orbitron font-bold text-secondary focus:outline-none focus:ring-0 md:text-sm"
               onChange={(e) => handleBranchChange(e.target.value)}
@@ -134,14 +134,14 @@ const Events = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="group relative h-[18.5rem] w-[15rem] bg-quarternary p-2 transition-all duration-300 ease-in hover:z-20 hover:scale-125 hover:border-[0.1px] hover:border-secondary hover:bg-secondary">
-                    <div className="absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
+                  <div className="group relative h-72 w-60 bg-quarternary p-2 transition-all duration-300 ease-in hover:z-20 hover:scale-125 hover:border-[0.1px] hover:border-secondary hover:bg-secondary">
+                    <div className="absolute left-0 top-0 size-5 border-l-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
 
-                    <div className="absolute right-0 top-0 h-5 w-5 border-r-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
+                    <div className="absolute right-0 top-0 size-5 border-r-4 border-t-4 border-secondary group-hover:border-quarternary"></div>
 
-                    <div className="absolute bottom-0 left-0 h-5 w-5 border-b-4 border-l-4 border-secondary group-hover:border-quarternary"></div>
+                    <div className="absolute bottom-0 left-0 size-5 border-b-4 border-l-4 border-secondary group-hover:border-quarternary"></div>
 
-                    <div className="absolute bottom-0 right-0 h-5 w-5 border-b-4 border-r-4 border-secondary group-hover:border-quarternary"></div>
+                    <div className="absolute bottom-0 right-0 size-5 border-b-4 border-r-4 border-secondary group-hover:border-quarternary"></div>
                     <Image
                       className="h-full w-full object-fill grayscale hover:grayscale-0"
                       src={event.src}
