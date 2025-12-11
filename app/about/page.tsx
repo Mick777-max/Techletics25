@@ -45,7 +45,7 @@ export default function AboutPage() {
             </span>
           </div>
 
-          <div className="flex h-full w-full flex-col items-center justify-center font-orbitron">
+          <div className="flex size-full flex-col items-center justify-center font-orbitron">
             <div className="z-20 mt-8 flex max-w-[80%] flex-col items-center justify-center text-quarternary">
               <div className="mt-8 min-w-56 flex-1 text-justify">
                 <p className="text-base leading-relaxed sm:text-lg">

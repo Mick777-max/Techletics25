@@ -61,7 +61,7 @@ export default function Navbar() {
               {/* Gold Border Layer */}
               <div
                 aria-hidden="true"
-                className="absolute left-0 top-0 h-full w-full origin-center scale-x-[1.005] scale-y-[1.04] bg-[#c79a42] [clip-path:polygon(12px_0,100%_0,100%_calc(100%-12px),calc(100%-12px)_100%,0_100%,0_12px)]"
+                className="absolute left-0 top-0 size-full origin-center scale-x-[1.005] scale-y-[1.04] bg-[#c79a42] [clip-path:polygon(12px_0,100%_0,100%_calc(100%-12px),calc(100%-12px)_100%,0_100%,0_12px)]"
               ></div>
 
               {/* Actual Slanted Nav Box */}

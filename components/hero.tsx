@@ -1,28 +1,12 @@
 'use client';
-import Image from 'next/image';
+
 import { motion } from 'framer-motion';
-import { zoomIn, zoomOutAndExit } from '@/app/utlis/motion';
+import { zoomIn } from '@/app/utlis/motion';
 import Countdown from './custom/countdown';
-import StripeCurtain from './custom/stripeCurtains';
 
 export default function Hero() {
   return (
     <div className="relative mx-auto flex size-full max-w-screen-2xl flex-col items-center justify-center gap-0 pb-8 pt-4 sm:gap-4">
-      {/* <motion.div
-        className="absolute z-50 h-24"
-        initial="hidden"
-        animate={['show', 'exit']}
-        variants={zoomOutAndExit}
-      >
-        <Image
-          src="/logos/techletics-metal.svg"
-          alt="logo"
-          width={100}
-          height={100}
-          className="h-full w-auto"
-        />
-      </motion.div> */}
-
       <motion.div
         variants={zoomIn(0.8, 1)}
         initial="hidden"
