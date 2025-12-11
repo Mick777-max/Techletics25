@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function Stats() {
   return (
-    <div className="relative mx-auto min-h-[90vh] max-w-screen-xl">
+    <div className="relative mx-auto min-h-[90vh] max-w-screen-xl overflow-hidden">
       <div className="absolute left-10 top-64 z-30 hidden w-64 cursor-pointer md:flex xl:left-1/2 xl:top-5">
         <StatLabel text="20+ WORKSHOPS" wrap="text-nowrap" />
       </div>
@@ -16,7 +16,7 @@ export default function Stats() {
         <StatLabel text="20+ TECH EXPERTS" wrap="text-nowrap" />
       </div>
 
-      <div className="absolute right-10 top-72 z-30 hidden w-40 cursor-pointer md:flex xl:left-12 xl:right-1/2 xl:top-96">
+      <div className="absolute right-16 top-72 z-30 hidden w-40 cursor-pointer md:flex xl:left-12 xl:right-1/2 xl:top-96">
         <StatLabel text="10+ CULTURAL EVENTS" wrap="text-wrap" />
       </div>
 

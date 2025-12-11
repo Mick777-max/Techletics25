@@ -39,7 +39,7 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-24 items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex flex-shrink-0 items-center gap-3">
+          <div className="hidden flex-shrink-0 items-center gap-3 xxs:flex">
             <Link href="/" prefetch={true} className="flex items-center gap-3">
               <Image
                 src="/logos/techletics-logo.svg"
@@ -112,7 +112,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center max-extr-xs:hidden md-lg:hidden">
+          <div className="flex items-center md-lg:hidden">
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center rounded-lg p-2 text-secondary backdrop-blur-sm transition-all duration-300 hover:bg-secondary hover:text-quarternary focus:outline-none focus:ring-2 focus:ring-gray-400/30"
