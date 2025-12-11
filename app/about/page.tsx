@@ -170,7 +170,7 @@ export default function AboutPage() {
 
       <section className="relative bg-whiteBg bg-center bg-repeat">
         <Image
-          className="-left-32 -top-4 hidden opacity-75 lg:absolute xl-wide:block"
+          className="-left-32 -top-4 hidden opacity-75 lg:absolute xl:block"
           src="/logos/techletics-logo.svg"
           alt="name"
           width={400}
