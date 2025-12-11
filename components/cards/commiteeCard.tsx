@@ -14,7 +14,7 @@ interface CommitteeCardProps {
 
 export default function CommitteeCard({ info, title }: CommitteeCardProps) {
   return title === 'Executive' ? (
-    <div className="clipPolygon group relative flex min-h-80 w-52 cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#D4AF4080] bg-[#fff9d3] transition-all duration-300 hover:scale-110">
+    <div className="clipCard group relative flex min-h-80 w-52 cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#D4AF4080] bg-[#fff9d3] transition-all duration-300 hover:scale-110">
       <div className="absolute left-0 top-0 size-5 border-l-4 border-t-4 border-[#D4AF4080] transition-colors duration-300 group-hover:border-quarternary"></div>
       <div className="absolute bottom-0 right-0 size-5 border-b-4 border-r-4 border-[#D4AF4080] transition-colors duration-300 group-hover:border-quarternary"></div>
 
@@ -41,7 +41,7 @@ export default function CommitteeCard({ info, title }: CommitteeCardProps) {
       </div>
     </div>
   ) : (
-    <div className="clipPolygon group relative flex min-h-72 w-64 cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#A6A6A670] bg-[#f8f0be] transition-all duration-300 hover:scale-110">
+    <div className="clipCard group relative flex min-h-72 w-64 cursor-pointer flex-col items-center gap-2 overflow-hidden border border-[#A6A6A670] bg-[#f8f0be] transition-all duration-300 hover:scale-110">
       <div className="absolute left-0 top-0 size-12 border-l-2 border-t-2 border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
       <div className="absolute bottom-0 right-0 size-12 border-b-2 border-r-2 border-[#A6A6A670] transition-colors duration-300 group-hover:border-quarternary"></div>
 
