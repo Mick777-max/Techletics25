@@ -13,9 +13,12 @@ const TextMarquee = ({
   bg = 'black',
   text = 'white',
 }: TextMarqueeProps) => {
+  const bgColour = 'bg-' + bg;
+  const textColour = 'text-' + text;
+
   return (
     <section
-      className={`flex h-16 w-full flex-col items-center overflow-hidden md:h-20 bg-${bg} font-orbitron font-bold text-${text}`}
+      className={`flex h-16 w-full flex-col items-center overflow-hidden md:h-20 ${bgColour} font-orbitron font-bold ${textColour}`}
     >
       <Marquee speed={60} gradient={false}>
         {[...Array(10)].map((_, index) =>
