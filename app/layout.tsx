@@ -61,13 +61,13 @@ export default function RootLayout({
 
         <footer
           id="contact"
-          className="relative z-40 w-full bg-footerBg bg-cover bg-center bg-repeat"
+          className="relative z-40 w-full bg-quarternary bg-footerBg bg-cover bg-center bg-repeat"
         >
           <SocialAndConnect />
           <Copyright />
-          <div className="absolute bottom-0 w-full">
+          <div className="absolute -bottom-3 w-full">
             <Image
-              src="/icons/section-separator-bottom-white.png"
+              src="/image/section-seperator-white.svg"
               alt="section separator"
               width={1000}
               height={150}
