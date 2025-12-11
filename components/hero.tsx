@@ -42,15 +42,15 @@ export default function Hero() {
         viewport={{ once: true }}
         className="z-30 mt-10 flex shrink flex-col items-center justify-center gap-1 md:static md:items-start"
       >
-        <motion.div className="mt-24 flex w-full flex-col items-center justify-center gap-0 md:mt-0 md:flex-row md:gap-10">
+        <motion.div className="mt-24 flex w-full flex-col items-center justify-center gap-2 md:mt-0 md:flex-row md:gap-10">
           <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
             IGNITE
           </span>
-          <span className={`whiteTextBorder text-[2.5rem] text-white`}>✦</span>
+          <span className="whiteTextBorder text-4xl text-white">✦</span>
           <span className="z-10 block text-center font-orbitron text-[3rem] font-extrabold leading-none text-primary [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)] md:text-[5rem]">
             INSPIRE
           </span>
-          <span className={`whiteTextBorder text-[2.5rem] text-white`}>✦</span>
+          <span className="whiteTextBorder text-4xl text-white">✦</span>
         </motion.div>
 
         <motion.div className="flex w-full flex-col items-center justify-center md:flex-row md:gap-10">
@@ -58,7 +58,7 @@ export default function Hero() {
             ILLUMINATE
           </span>
 
-          <span className={`whiteTextBorder text-[2.5rem] text-white`}>✦</span>
+          <span className="whiteTextBorder text-4xl text-white">✦</span>
         </motion.div>
       </motion.div>
 
