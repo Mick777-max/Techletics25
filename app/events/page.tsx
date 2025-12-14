@@ -4,6 +4,7 @@ import TechleticsCarousel from './_components/banner';
 import FeaturedEvents from './_components/featuredEvents';
 import Events from './_components/events';
 import SectionSeparator from '@/components/custom/sectionSeparator';
+import StripeCurtain from '@/components/custom/stripeCurtains';
 
 export const metadata: Metadata = {
   title: 'Events',
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function EventsPage() {
   return (
     <div className="w-full min-w-80">
+      <StripeCurtain />
       <section className="relative">
         <TechleticsCarousel />
       </section>
