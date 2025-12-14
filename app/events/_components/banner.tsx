@@ -11,7 +11,7 @@ const slides = [
     subtitle: 'Explore, Learn, and Enjoy: The Events of Techletics ’25',
     image:
       'https://sgp.cloud.appwrite.io/v1/storage/buckets/693509e5002a3858aa64/files/1765159043577-d4e5pm/view?project=6934f5ee0031b4cec180',
-    link: 'https://docs.google.com/forms/d/e/1FAIpQLSfXRGD6xFwwBVzzKRNiDDlZwg7lJNawjTypVGd19dnFiVQu6w/viewform', // Add your link here
+    link: 'https://pdflink.to/55720c13/', // Add your link here
   },
   // {
   //   id: 2,

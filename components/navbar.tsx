@@ -104,9 +104,12 @@ export default function Navbar() {
                 </div>
 
                 {/* CONTACT button */}
-                <div className="flex h-10 cursor-pointer items-center justify-center bg-secondary px-5 py-2 text-sm uppercase tracking-widest">
+                <Link
+                  href="#contact"
+                  className="flex h-10 cursor-pointer items-center justify-center bg-secondary px-5 py-2 text-sm uppercase tracking-widest"
+                >
                   <span>CONTACT</span>
-                </div>
+                </Link>
               </motion.div>
             </div>
           </div>

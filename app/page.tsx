@@ -109,7 +109,7 @@ export default function HomePage() {
       </section>
 
       <section className="relative bg-quarternary bg-footerBg bg-cover bg-center py-20">
-        <SectionSeparator position="top" />
+        <SectionSeparator position="bottom" />
         <div className="relative mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-16 p-4 xl:flex-row">
           {GalleryImages.map((imageData, i) => (
             <HomeGalleryImageView src={imageData} key={i} index={i} />
@@ -118,11 +118,9 @@ export default function HomePage() {
       </section>
 
       {/* <TextMarquee type="ignite" /> */}
-
       <section className="relative h-[90vh] bg-black">
         <GlassCapsules />
       </section>
-
       <DynamicTextMarquee type="ignite" />
     </div>
   );
