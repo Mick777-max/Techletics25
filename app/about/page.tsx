@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Committee from './components/comitee';
 import DynamicTextMarquee from '@/components/custom/marquee';
 import Image from 'next/image';
+import StripeCurtain from '@/components/custom/stripeCurtains';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="w-full min-w-80 overflow-clip">
+      <StripeCurtain />
       <section className="relative bg-whiteBg bg-cover bg-center">
         <Image
           className="-left-28 top-80 z-0 hidden opacity-75 lg:absolute lg:block"
