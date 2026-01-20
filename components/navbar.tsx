@@ -44,9 +44,9 @@ export default function Navbar() {
               <Image
                 src="/logos/techletics-logo.svg"
                 alt="Techletics Logo"
-                width={40}
-                height={40}
-                className="h-10 w-auto xl:h-12"
+                width={50}
+                height={50}
+                className="h-20 w-auto lg:h-24 xl:h-20"
                 priority
               />
               <span className="font-orbitron text-xl font-bold tracking-wider text-[#c9a55c] lg:text-2xl xl:text-3xl">
